@@ -1,163 +1,211 @@
 "use client";
-import FlipCard from "./FlipCard";
+import Image from "next/image";
+import React from "react";
 
-const FeaturesSection = () => {
+export default function FeaturesSection() {
   return (
     <section className="relative z-10">
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Steam squares for Features section */}
-        <div className="absolute top-[10%] left-[20%] w-[300px] h-[200px] bg-[#4A7C59]/[0.08]"></div>
-        <div className="absolute top-[15%] right-[15%] w-[250px] h-[180px] bg-[#4A7C59]/[0.06]"></div>
-        <div className="absolute top-[5%] left-[40%] w-[200px] h-[150px] bg-[#4A7C59]/[0.10] animate-float-1"></div>
-        <div className="absolute top-[25%] right-[35%] w-[180px] h-[140px] bg-[#4A7C59]/[0.08] animate-float-2"></div>
-        <div className="absolute bottom-[20%] left-[25%] w-[120px] h-[120px] bg-[#4A7C59]/[0.12] animate-steam-1"></div>
-        <div className="absolute bottom-[30%] right-[25%] w-[100px] h-[100px] bg-[#4A7C59]/[0.10] animate-steam-2"></div>
-      </div>
-      <div className="container mx-auto px-6 py-24">
-        <h2
-          className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider uppercase font-geo`}
-        >
-          Fully Backed and Redeemable Tokens
-        </h2>
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start mb-12">
-            <div className="lg:col-span-2">
-              <div className="text-center w-full max-w-4xl mx-auto h-full p-6 pt-10 bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors relative">
-                <div
-                  className={`text-3xl md:text-4xl mb-6 text-[#4A7C59] font-geo`}
-                >
-                  ZHE TOKENS
-                </div>
-                <p className="text-[#F5F5F5]/70 leading-relaxed tracking-wide font-normal mb-8">
-                  High yield pegged tokens that track price feeds 1:1, with
-                  built in real yield via stability pools
-                </p>
-                {/* Scrolling green flip cards */}
-                <div className="flex flex-col md:flex-row justify-center items-center w-full mb-4 gap-2 md:gap-4">
-                  <FlipCard
-                    token="zheETH"
-                    explanation="Super high yield ETH exposure"
-                    className="w-full md:w-40 h-16 mb-2 md:mb-0"
-                  />
-                  <FlipCard
-                    token="zheBTC"
-                    explanation="Super high yield BTC exposure"
-                    className="w-full md:w-40 h-16 mb-2 md:mb-0"
-                  />
-                  <FlipCard
-                    token="More Coming Soon"
-                    explanation="Stay tuned for more high-yield tokens!"
-                    className="w-full md:w-40 h-16 mb-2 md:mb-0"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="lg:col-span-1 flex flex-col gap-4 h-full min-h-0">
-              <div className="flex flex-row items-center gap-4 bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors rounded-sm px-4 py-4 relative overflow-visible flex-1 min-h-20">
-                <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center flex-shrink-0 z-10 mr-2">
-                  <img src="/yield.svg" alt="Yield Icon" className="w-8 h-8" />
-                </div>
-                <p className="text-sm text-[#F5F5F5]/70 text-left break-words">
-                  Earn real yield from stability pools
-                </p>
-              </div>
-              <div className="flex flex-row items-center gap-4 bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors rounded-sm px-4 py-4 relative overflow-visible flex-1 min-h-20">
-                <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center flex-shrink-0 z-10 mr-2">
-                  <img
-                    src="/rocket.svg"
-                    alt="Rocket Icon"
-                    className="w-8 h-8"
-                  />
-                </div>
-                <p className="text-sm text-[#F5F5F5]/70 text-left break-words">
-                  Earn STEAM from AMM liquidity
-                </p>
-              </div>
-              <div className="flex flex-row items-center gap-4 bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors rounded-sm px-4 py-4 relative overflow-visible flex-1 min-h-20">
-                <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center flex-shrink-0 z-10 mr-2">
-                  <img src="/defi.svg" alt="DeFi Icon" className="w-8 h-8" />
-                </div>
-                <p className="text-sm text-[#F5F5F5]/70 text-left break-words">
-                  Use in Defi
-                </p>
-              </div>
-            </div>
+      <div className="mx-auto max-w-[1300px] px-4 sm:px-10 py-20">
+        {/* Header and overview */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div className="lg:col-span-5 bg-zinc-900/50 outline outline-1 outline-white/10 p-6 flex flex-col gap-4 reveal">
+            <span className="text-xs uppercase tracking-widest text-white/50">
+              Overview
+            </span>
+            <h2 className="text-3xl font-geo uppercase tracking-wider text-white">
+              Engineered Tokens
+            </h2>
+            <p className="text-white/70">
+              Two complementary primitives designed for composability and
+              clarity: pegged, yield-bearing ZHE tokens and
+              liquidation-protected, variable-leverage STEAMED tokens.
+            </p>
+            <ul className="mt-2 space-y-2">
+              <Bullet
+                icon="/pricefeed.svg"
+                text="Transparent price feed integrations"
+              />
+              <Bullet
+                icon="/stability.svg"
+                text="Protocol-native stability pools"
+              />
+              <Bullet
+                icon="/rebalance.svg"
+                text="Automated rebalancing and guardrails"
+              />
+            </ul>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-            <div className="lg:col-span-2">
-              <div className="text-center w-full max-w-4xl mx-auto h-full p-6 pt-10 bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors relative">
-                <div
-                  className={`text-3xl md:text-4xl mb-6 text-[#4A7C59] font-geo`}
-                >
-                  STEAMED TOKENS
-                </div>
-                <p className="text-[#F5F5F5]/70 leading-relaxed tracking-wide font-normal mb-8">
-                  Get supercharged market exposure through liquidation-protected
-                  variable leverage tokens
-                </p>
-                <div className="flex flex-col md:flex-row justify-center items-center w-full mb-4 gap-2 md:gap-4">
-                  <FlipCard
-                    token="steamedUSD/ETH"
-                    explanation="Bullish USD vs ETH"
-                    className="w-full md:w-40 h-16 mb-2 md:mb-0"
-                  />
-                  <FlipCard
-                    token="steamedUSD/BTC"
-                    explanation="Bullish USD vs BTC"
-                    className="w-full md:w-40 h-16 mb-2 md:mb-0"
-                  />
-                  <FlipCard
-                    token="steamedETH/BTC"
-                    explanation="Bullish ETH vs BTC"
-                    className="w-full md:w-40 h-16 mb-2 md:mb-0"
-                  />
-                  <FlipCard
-                    token="More Coming Soon"
-                    explanation="Stay tuned for more leveraged tokens!"
-                    className="w-full md:w-40 h-16 mb-2 md:mb-0"
-                  />
-                </div>
+
+          <div className="lg:col-span-7 flex flex-col gap-6">
+            {/* ZHE Card */}
+            <div className="bg-zinc-900/50 outline outline-1 outline-white/10 p-6 card-hover reveal reveal-del-1">
+              <div className="flex items-center justify-between">
+                <Chip>zhe</Chip>
+              </div>
+              <h3 className="mt-3 text-2xl font-geo uppercase tracking-wider text-white">
+                ZHE Tokens
+              </h3>
+              <p className="mt-2 text-white/70 max-w-[60ch]">
+                Pegged assets that aim to track price feeds 1:1 while accruing
+                protocol yield via stability pools.
+              </p>
+
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <Tile
+                  icon="/peg.svg"
+                  title="Pegged 1:1"
+                  desc="Oracle-aligned targets"
+                />
+                <Tile
+                  icon="/yield.svg"
+                  title="Real Yield"
+                  desc="Pool-based accrual"
+                />
+                <Tile
+                  icon="/community.svg"
+                  title="Composable"
+                  desc="Integrates across DeFi"
+                />
+              </div>
+
+              <div className="mt-4 flex flex-wrap items-center gap-2">
+                <Tag>zheETH</Tag>
+                <Tag>zheBTC</Tag>
+                <Tag>More soon</Tag>
               </div>
             </div>
-            <div className="lg:col-span-1 flex flex-col gap-4 h-full min-h-0">
-              <div className="flex flex-row items-center gap-4 bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors rounded-sm px-4 py-4 relative overflow-visible flex-1 min-h-20">
-                <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center flex-shrink-0 z-10 mr-2">
-                  <img
-                    src="/stability.svg"
-                    alt="Stability Icon"
-                    className="w-8 h-8"
-                  />
-                </div>
-                <p className="text-sm text-[#F5F5F5]/70 text-left break-words">
-                  Each token has a bull side and bear side
-                </p>
+
+            {/* STEAMED Card */}
+            <div className="bg-zinc-900/50 outline outline-1 outline-white/10 p-6 card-hover reveal reveal-del-2">
+              <div className="flex items-center justify-between">
+                <Chip>steamed</Chip>
               </div>
-              <div className="flex flex-row items-center gap-4 bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors rounded-sm px-4 py-4 relative overflow-visible flex-1 min-h-20">
-                <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center flex-shrink-0 z-10 mr-2">
-                  <img
-                    src="/rebalance.svg"
-                    alt="Rebalance Icon"
-                    className="w-8 h-8"
-                  />
-                </div>
-                <p className="text-sm text-[#F5F5F5]/70 text-left break-words">
-                  Automated Rebalancing
-                </p>
+              <h3 className="mt-3 text-2xl font-geo uppercase tracking-wider text-white">
+                STEAMED Tokens
+              </h3>
+              <p className="mt-2 text-white/70 max-w-[60ch]">
+                Liquidation-protected, variable leverage with automated
+                rebalancing and clear directional exposure.
+              </p>
+
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <Tile
+                  icon="/leverage.svg"
+                  title="Leverage"
+                  desc="Variable exposure"
+                />
+                <Tile
+                  icon="/rebalance.svg"
+                  title="Auto-Rebalance"
+                  desc="Manage drift & risk"
+                />
+                <Tile
+                  icon="/defi.svg"
+                  title="Defined Payoff"
+                  desc="Transparent mechanics"
+                />
               </div>
-              <div className="flex flex-row items-center gap-4 bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors rounded-sm px-4 py-4 relative overflow-visible flex-1 min-h-20">
-                <div className="w-8 h-8 bg-[#4A7C59] flex items-center justify-center flex-shrink-0 z-10 mr-2">
-                  <img src="/defi.svg" alt="DeFi Icon" className="w-8 h-8" />
-                </div>
-                <p className="text-sm text-[#F5F5F5]/70 text-left break-words">
-                  Use in Defi
-                </p>
+
+              <div className="mt-4 flex flex-wrap items-center gap-2">
+                <Tag>USD/ETH</Tag>
+                <Tag>USD/BTC</Tag>
+                <Tag>ETH/BTC</Tag>
               </div>
             </div>
           </div>
         </div>
+
+        {/* Capability strip */}
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <Strip icon="/stability.svg" text="Protocol Stability Pools" />
+          <Strip icon="/rebalance.svg" text="Automated Rebalancing" />
+          <Strip icon="/yield.svg" text="Yield-Oriented Design" />
+        </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeUp {
+          0% {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .reveal {
+          opacity: 0;
+          animation: fadeUp 700ms ease forwards;
+        }
+        .reveal-del-1 {
+          animation-delay: 100ms;
+        }
+        .reveal-del-2 {
+          animation-delay: 200ms;
+        }
+        .card-hover {
+          transition: transform 200ms ease, filter 200ms ease;
+        }
+        .card-hover:hover {
+          transform: translateY(-2px);
+          filter: brightness(1.05);
+        }
+      `}</style>
     </section>
   );
-};
+}
 
-export default FeaturesSection;
+function Chip({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="inline-flex items-center uppercase tracking-wider text-xs text-white/70 outline outline-1 outline-white/10 bg-white/5 px-2 py-1">
+      {children}
+    </span>
+  );
+}
+
+function Tag({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="inline-flex items-center text-xs text-white/70 outline outline-1 outline-white/10 bg-white/5 px-2 py-1">
+      {children}
+    </span>
+  );
+}
+
+function Bullet({ icon, text }: { icon: string; text: string }) {
+  return (
+    <li className="flex items-center gap-3 text-white/80">
+      <Image src={icon} alt="" width={18} height={18} />
+      <span className="text-sm">{text}</span>
+    </li>
+  );
+}
+
+function Tile({
+  icon,
+  title,
+  desc,
+}: {
+  icon: string;
+  title: string;
+  desc: string;
+}) {
+  return (
+    <div className="flex items-start gap-3 bg-zinc-900/50 outline outline-1 outline-white/10 p-3 card-hover reveal">
+      <Image src={icon} alt={title} width={20} height={20} />
+      <div>
+        <p className="text-sm text-white font-medium">{title}</p>
+        <p className="text-xs text-white/70">{desc}</p>
+      </div>
+    </div>
+  );
+}
+
+function Strip({ icon, text }: { icon: string; text: string }) {
+  return (
+    <div className="flex items-center gap-3 bg-zinc-900/50 outline outline-1 outline-white/10 px-4 py-3 card-hover reveal">
+      <Image src={icon} alt={text} width={20} height={20} />
+      <span className="text-sm text-white/70">{text}</span>
+    </div>
+  );
+}

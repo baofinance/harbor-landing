@@ -1,83 +1,103 @@
 "use client";
 import ComingSoonOverlay from "./ComingSoonOverlay";
+import Image from "next/image";
 
-const SteamTokenSection = () => {
+export default function SteamTokenSection() {
   return (
     <section className="relative z-10">
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Steam squares for STEAM Token section */}
-        <div className="absolute top-[10%] left-[25%] w-[450px] h-[320px] bg-[#4A7C59]/[0.06]"></div>
-        <div className="absolute top-[15%] right-[25%] w-[380px] h-[280px] bg-[#4A7C59]/[0.05]"></div>
-        <div className="absolute top-[30%] left-[40%] w-[300px] h-[220px] bg-[#4A7C59]/[0.07] animate-float-2"></div>
-        <div className="absolute bottom-[20%] right-[35%] w-[180px] h-[180px] bg-[#4A7C59]/[0.06] animate-float-3"></div>
-        <div className="absolute bottom-[30%] left-[30%] w-[120px] h-[120px] bg-[#4A7C59]/[0.08] animate-steam-1"></div>
-      </div>
-      <div className="container mx-auto px-6 py-24">
-        <h2
-          className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider uppercase font-geo`}
-        >
-          STEAM Token
-        </h2>
-        <div className="space-y-8">
-          <p className="text-xl text-[#F5F5F5]/90 leading-relaxed tracking-wide font-light mb-12 max-w-4xl mx-auto text-center">
-            STEAM is the governance token that powers the Zhenglong Protocol
-            ecosystem, offering holders multiple benefits and control over the
-            protocol&apos;s future.
+      <div className="mx-auto max-w-[1300px] px-4 sm:px-10 py-20">
+        {/* Header */}
+        <div className="bg-zinc-900/50 outline outline-1 outline-white/10 p-6 mb-6 reveal text-center">
+          <h2 className="text-2xl md:text-3xl font-geo uppercase tracking-wider text-white">
+            STEAM Token
+          </h2>
+          <p className="mt-2 text-white/70 max-w-[72ch] mx-auto">
+            The governance and incentive token of Zhenglong Protocol. Shape
+            roadmap, direct rewards, and participate in protocol economics.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-6">
-              <h3
-                className={`text-3xl text-[#4A7C59] mb-4 text-center uppercase tracking-wider font-normal font-geo`}
-              >
-                Revenue Share
-              </h3>
-              <p className="text-[#F5F5F5]/80 leading-relaxed tracking-wide font-light">
-                Earn a share of protocol revenue from market operations and fees
-              </p>
-            </div>
-            <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-6">
-              <h3
-                className={`text-3xl text-[#4A7C59] mb-4 text-center uppercase tracking-wider font-normal font-geo`}
-              >
-                Boost Rewards
-              </h3>
-              <p className="text-[#F5F5F5]/80 leading-relaxed tracking-wide font-light">
-                Increase your earnings from stability pool and AMM liquidity
-                provision
-              </p>
-            </div>
-            <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-6">
-              <h3
-                className={`text-3xl text-[#4A7C59] mb-4 text-center uppercase tracking-wider font-normal font-geo`}
-              >
-                Governance Rights
-              </h3>
-              <p className="text-[#F5F5F5]/80 leading-relaxed tracking-wide font-light">
-                Vote in protocol governance and direct STEAM rewards
-              </p>
-            </div>
-          </div>
-          {/* Call to Action Buttons - Centered below the boxes */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full mt-8">
-            <ComingSoonOverlay>
-              <button
-                className={`bg-[#4A7C59]/50 text-[#F5F5F5]/50 px-8 py-4 tracking-wider uppercase text-lg cursor-not-allowed font-geo`}
-              >
-                Get STEAM
-              </button>
-            </ComingSoonOverlay>
-            <ComingSoonOverlay>
-              <button
-                className={`bg-[#4A7C59]/50 text-[#F5F5F5]/50 px-8 py-4 tracking-wider uppercase text-lg cursor-not-allowed font-geo`}
-              >
-                Earn STEAM
-              </button>
-            </ComingSoonOverlay>
-          </div>
+        </div>
+
+        {/* Benefits */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <Card
+            title="Revenue Share"
+            icon="/community.svg"
+            desc="Earn a share of protocol revenue from market operations and fees."
+          />
+          <Card
+            title="Boost Rewards"
+            icon="/yield.svg"
+            desc="Increase earnings from stability pools and AMM liquidity provision."
+          />
+          <Card
+            title="Governance Rights"
+            icon="/governance.svg"
+            desc="Vote and direct STEAM emissions to where they matter most."
+          />
+        </div>
+
+        {/* CTAs */}
+        <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center items-center reveal">
+          <ComingSoonOverlay>
+            <button className="px-6 py-2 bg-zinc-900/50 outline outline-1 outline-white/10 text-white/70 hover:text-white transition-colors font-geo uppercase tracking-wider cursor-not-allowed card-hover">
+              Get STEAM
+            </button>
+          </ComingSoonOverlay>
+          <ComingSoonOverlay>
+            <button className="px-6 py-2 bg-zinc-900/50 outline outline-1 outline-white/10 text-white/70 hover:text-white transition-colors font-geo uppercase tracking-wider cursor-not-allowed card-hover">
+              Earn STEAM
+            </button>
+          </ComingSoonOverlay>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeUp {
+          0% {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .reveal {
+          opacity: 0;
+          animation: fadeUp 700ms ease forwards;
+        }
+        .card-hover {
+          transition: transform 200ms ease, filter 200ms ease;
+        }
+        .card-hover:hover {
+          transform: translateY(-2px);
+          filter: brightness(1.05);
+        }
+      `}</style>
     </section>
   );
-};
+}
 
-export default SteamTokenSection;
+function Card({
+  title,
+  icon,
+  desc,
+}: {
+  title: string;
+  icon: string;
+  desc: string;
+}) {
+  return (
+    <div className="bg-zinc-900/50 outline outline-1 outline-white/10 p-6 card-hover reveal">
+      <div className="flex items-center gap-3">
+        <div className="h-8 w-8 rounded-md bg-white/5 outline outline-1 outline-white/10 flex items-center justify-center">
+          <Image src={icon} alt={title} width={16} height={16} />
+        </div>
+        <h3 className="text-lg font-geo uppercase tracking-wider text-white">
+          {title}
+        </h3>
+      </div>
+      <p className="mt-3 text-white/70 text-sm">{desc}</p>
+    </div>
+  );
+}

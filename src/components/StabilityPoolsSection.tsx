@@ -1,121 +1,161 @@
 "use client";
+import Image from "next/image";
 import ComingSoonOverlay from "./ComingSoonOverlay";
 
-const StabilityPoolsSection = () => {
+export default function StabilityPoolsSection() {
   return (
     <section className="relative z-10">
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Steam squares for Stability Pools section */}
-        <div className="absolute top-[5%] left-[15%] w-[400px] h-[300px] bg-[#4A7C59]/[0.04]"></div>
-        <div className="absolute top-[20%] right-[20%] w-[350px] h-[250px] bg-[#4A7C59]/[0.03]"></div>
-        <div className="absolute top-[15%] left-[35%] w-[280px] h-[200px] bg-[#4A7C59]/[0.05] animate-float-3"></div>
-        <div className="absolute bottom-[25%] right-[30%] w-[150px] h-[150px] bg-[#4A7C59]/[0.04] animate-float-4"></div>
-        <div className="absolute bottom-[15%] left-[20%] w-[100px] h-[100px] bg-[#4A7C59]/[0.06] animate-steam-3"></div>
-      </div>
-      <div className="container mx-auto px-6 py-24">
-        <h2
-          className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider uppercase font-geo`}
-        >
-          Stability Pools: Get rewarded for securing the market.
-        </h2>
+      <div className="mx-auto max-w-[1300px] px-4 sm:px-10 py-20">
+        {/* Header */}
+        <div className="bg-zinc-900/50 outline outline-1 outline-white/10 p-6 mb-6 reveal text-center">
+          <h2 className="text-2xl md:text-3xl font-geo uppercase tracking-wider text-white">
+            Stability Pools
+          </h2>
+          <p className="mt-2 text-white/70 max-w-[72ch] mx-auto">
+            Deposit into protocol stability pools to secure the market during
+            stress and earn sustainable rewards.
+          </p>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-12 mb-16">
-          {/* Left Column - Security */}
-          <div className="space-y-8 h-full">
-            <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-8 min-h-[400px] flex flex-col">
-              <h3
-                className={`text-3xl text-[#4A7C59] mb-6 text-center uppercase tracking-wider font-normal font-geo`}
-              >
-                Market Solvency
-              </h3>
-              <div className="space-y-6 flex-1">
-                <p className="text-[#F5F5F5]/80 leading-relaxed mb-4">
-                  When a market approaches its minimum collateral ratio (e.g.
-                  130%), Stability Pools kick in to rebalance.
-                </p>
-                <ul className="list-disc list-inside text-[#F5F5F5]/70 mb-4">
-                  <li>Redeemed for collateral at market value, or</li>
-                  <li>
-                    Swapped for steamedTOKENS (leveraged tokens) at market value
-                  </li>
-                </ul>
-                <p className="text-[#F5F5F5]/80 leading-relaxed mb-2">
-                  This controlled redemption improves the overall collateral
-                  ratio.
-                </p>
-                <p className="text-[#F5F5F5]/60 leading-relaxed italic">
-                  No margin calls. No liquidation cascades. Just resilient,
-                  automated stability.
-                </p>
-              </div>
+        {/* Two-column content */}
+        <div className="grid md:grid-cols-2 gap-6 mb-6">
+          {/* Market Solvency */}
+          <div className="bg-zinc-900/50 outline outline-1 outline-white/10 p-6 flex flex-col gap-4 card-hover reveal">
+            <h3 className="text-xl md:text-2xl font-geo uppercase tracking-wider text-white">
+              Market Solvency
+            </h3>
+            <p className="text-white/70">
+              When a market approaches its minimum collateral ratio (e.g. 130%),
+              stability pools step in to rebalance.
+            </p>
+
+            <div className="grid grid-cols-1 gap-3">
+              <Tile
+                icon="/collateral.svg"
+                title="Controlled Redemption"
+                desc="Redeem collateral at market value when needed to restore ratios."
+              />
+              <Tile
+                icon="/leverage.svg"
+                title="Strategic Swaps"
+                desc="Swap to steamed tokens at market value during stability actions."
+              />
+              <Tile
+                icon="/peg.svg"
+                title="Raise Ratios"
+                desc="Actions are targeted to improve the overall collateral ratio."
+              />
             </div>
+
+            <p className="text-white/60 italic">
+              No margin calls, no liquidation cascades — purpose-built
+              stability.
+            </p>
           </div>
 
-          {/* Right Column - Yield */}
-          <div className="space-y-8 h-full">
-            <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-8 min-h-[400px] flex flex-col">
-              <h3
-                className={`text-3xl text-[#4A7C59] mb-6 text-center uppercase tracking-wider font-normal font-geo`}
-              >
-                Yield Generation
-              </h3>
-              <div className="space-y-6 flex-1">
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 mt-1 bg-[#4A7C59] flex-shrink-0 flex items-center justify-center">
-                    <img
-                      src="/yield.svg"
-                      alt="Yield Icon"
-                      className="w-8 h-8"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-lg mb-2 text-[#F5F5F5]">
-                      Collateral Yield
-                    </h4>
-                    <p className="text-[#F5F5F5]/70 leading-relaxed">
-                      Earn yield from stETH and other yield-bearing collateral
-                      tokens used in the protocol, distributed to rebalance pool
-                      depositors.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 mt-1 bg-[#4A7C59] flex-shrink-0 flex items-center justify-center">
-                    <img
-                      src="/rocket.svg"
-                      alt="Rocket Icon"
-                      className="w-8 h-8"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-lg mb-2 text-[#F5F5F5]">
-                      STEAM Rewards
-                    </h4>
-                    <p className="text-[#F5F5F5]/70 leading-relaxed">
-                      Receive STEAM tokens as additional rewards for
-                      participating in stability pools, enhancing your overall
-                      yield.
-                    </p>
-                  </div>
-                </div>
-              </div>
+          {/* Yield Generation */}
+          <div className="bg-zinc-900/50 outline outline-1 outline-white/10 p-6 flex flex-col gap-4 card-hover reveal reveal-del-1">
+            <h3 className="text-xl md:text-2xl font-geo uppercase tracking-wider text-white">
+              Yield Generation
+            </h3>
+            <p className="text-white/70">
+              Depositors receive protocol rewards that compound stability with
+              aligned incentives.
+            </p>
+
+            <div className="flex flex-col gap-4">
+              <FeatureLine
+                icon="/stability.svg"
+                title="Collateral Yield"
+                desc="Earn from yield-bearing collateral (e.g. stETH) used by the protocol."
+              />
+              <FeatureLine
+                icon="/rocket.svg"
+                title="STEAM Rewards"
+                desc="Receive STEAM as additional incentives for participation."
+              />
             </div>
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center">
+        {/* CTA */}
+        <div className="text-center reveal">
           <ComingSoonOverlay className="inline-block">
-            <button
-              className={`bg-[#4A7C59]/50 text-[#F5F5F5]/50 px-8 py-3 tracking-wider uppercase text-lg cursor-not-allowed font-geo`}
-            >
+            <button className="px-6 py-2 bg-zinc-900/50 outline outline-1 outline-white/10 text-white/70 hover:text-white transition-colors font-geo uppercase tracking-wider cursor-not-allowed card-hover">
               Explore Stability Pools
             </button>
           </ComingSoonOverlay>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeUp {
+          0% {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .reveal {
+          opacity: 0;
+          animation: fadeUp 700ms ease forwards;
+        }
+        .reveal-del-1 {
+          animation-delay: 120ms;
+        }
+        .card-hover {
+          transition: transform 200ms ease, filter 200ms ease;
+        }
+        .card-hover:hover {
+          transform: translateY(-2px);
+          filter: brightness(1.05);
+        }
+      `}</style>
     </section>
   );
-};
+}
 
-export default StabilityPoolsSection;
+function Tile({
+  icon,
+  title,
+  desc,
+}: {
+  icon: string;
+  title: string;
+  desc: string;
+}) {
+  return (
+    <div className="flex items-start gap-3 bg-zinc-900/50 outline outline-1 outline-white/10 p-3 card-hover reveal">
+      <Image src={icon} alt={title} width={20} height={20} />
+      <div>
+        <p className="text-sm text-white font-medium">{title}</p>
+        <p className="text-xs text-white/70">{desc}</p>
+      </div>
+    </div>
+  );
+}
+
+function FeatureLine({
+  icon,
+  title,
+  desc,
+}: {
+  icon: string;
+  title: string;
+  desc: string;
+}) {
+  return (
+    <div className="flex items-start gap-3">
+      <div className="h-8 w-8 rounded-md bg-white/5 outline outline-1 outline-white/10 flex items-center justify-center">
+        <Image src={icon} alt={title} width={16} height={16} />
+      </div>
+      <div>
+        <p className="text-sm text-white font-medium">{title}</p>
+        <p className="text-xs text-white/70">{desc}</p>
+      </div>
+    </div>
+  );
+}

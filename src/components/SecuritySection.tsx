@@ -2,65 +2,46 @@
 
 const SecuritySection = () => {
   return (
-    <section className="relative z-10" style={{ backgroundColor: "#000000" }}>
-      <div className="container mx-auto px-6 py-24">
-        <div className="flex flex-col items-center mb-10">
-          <div className="w-16 h-16 bg-[#4A7C59] flex items-center justify-center rounded-sm mb-6">
-            <svg
-              className="w-8 h-8"
-              fill="none"
-              stroke="white"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <rect x="4" y="4" width="16" height="16" rx="3" />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M8 12l2 2 4-4"
-              />
-            </svg>
-          </div>
-          <h2
-            className={`text-3xl md:text-4xl font-normal text-center tracking-wider uppercase text-[#F5F5F5]/80 font-geo`}
-          >
+    <section className="relative z-10">
+      <div className="mx-auto max-w-[1300px] px-4 sm:px-10 py-20">
+        {/* Header */}
+        <div className="bg-zinc-900/50 outline outline-1 outline-white/10 p-6 mb-6 text-center">
+          <h2 className="text-2xl md:text-3xl font-geo uppercase tracking-wider text-white">
             Institutional-Grade Security & Testing
           </h2>
+          <p className="mt-2 text-white/70 max-w-[72ch] mx-auto">
+            Standards rooted in banking software and rigorous testing practices.
+          </p>
         </div>
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-8">
-            <h3
-              className={`text-2xl font-normal mb-2 text-[#4A7C59] tracking-wider uppercase font-geo`}
-            >
+
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="bg-zinc-900/50 outline outline-1 outline-white/10 p-6">
+            <h3 className="text-lg font-geo uppercase tracking-wider text-white mb-2">
               Third-Party Audited
             </h3>
-            <p className="text-[#F5F5F5]/70 leading-relaxed font-normal mb-2">
-              Smart contracts will undergo a thorough independent security audit
-              by a leading third-party firm before mainnet launch.
+            <p className="text-white/70 text-sm">
+              Smart contracts will undergo independent audits by leading firms
+              before mainnet launch.
             </p>
           </div>
-          <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-8">
-            <h3
-              className={`text-2xl font-normal mb-2 text-[#4A7C59] tracking-wider uppercase font-geo`}
-            >
-              Banking Industry Experience
+          <div className="bg-zinc-900/50 outline outline-1 outline-white/10 p-6">
+            <h3 className="text-lg font-geo uppercase tracking-wider text-white mb-2">
+              Banking Experience
             </h3>
-            <p className="text-[#F5F5F5]/70 leading-relaxed font-normal">
-              Built by professionals with 30+ years of banking software
-              experience, ensuring institutional-quality standards and robust
-              risk management.
+            <p className="text-white/70 text-sm">
+              Built by professionals with 30+ years in banking software and risk
+              management.
             </p>
           </div>
-          <div className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-8">
-            <h3
-              className={`text-2xl font-normal mb-2 text-[#4A7C59] tracking-wider uppercase font-geo`}
-            >
+          <div className="bg-zinc-900/50 outline outline-1 outline-white/10 p-6">
+            <h3 className="text-lg font-geo uppercase tracking-wider text-white mb-2">
               Comprehensive Testing
             </h3>
-            <ul className="list-disc list-inside text-[#F5F5F5]/70 space-y-1">
-              <li>Comprehensive unit & integration testing</li>
-              <li>System-wide market scenario stress tests</li>
-              <li>Real-time security monitoring</li>
+            <ul className="list-disc list-inside text-white/70 text-sm space-y-1">
+              <li>Unit & integration tests</li>
+              <li>Scenario stress testing</li>
+              <li>Real-time monitoring</li>
               <li>Continuous risk assessment</li>
             </ul>
           </div>
