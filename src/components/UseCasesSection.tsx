@@ -93,22 +93,25 @@ export default function UseCasesSection() {
   return (
     <section className="relative z-10">
       <div className="mx-auto max-w-[1300px] px-4 sm:px-10 py-20">
-        {/* Header */}
-        <div className="bg-zinc-900/50 outline outline-1 outline-white/10 p-6 mb-6 text-center reveal">
-          <h2 className="text-2xl md:text-3xl font-geo uppercase tracking-wider text-white">
-            Use Cases
-          </h2>
-          <p className="mt-2 text-white/70 max-w-[72ch] mx-auto">
-            Examples of markets and assets that can be built with Zhenglong.
-          </p>
+        {/* Header with enhanced styling */}
+        <div className="relative group mb-6 text-center reveal">
+          <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/10 via-teal-500/5 to-emerald-600/10 blur-2xl rounded-2xl" />
+          <div className="relative bg-zinc-900/50 outline outline-1 outline-emerald-500/20 p-6 hover:outline-emerald-500/40 transition-all duration-300">
+            <h2 className="text-2xl md:text-3xl font-geo uppercase tracking-wider text-white">
+              Use Cases
+            </h2>
+            <p className="mt-2 text-white/70 max-w-[72ch] mx-auto">
+              Examples of markets and assets that can be built with Zhenglong.
+            </p>
+          </div>
         </div>
 
-        {/* Grid */}
+        {/* Grid with enhanced styling */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {useCases.map((c, idx) => (
             <div
               key={c.title}
-              className={`bg-zinc-900/50 outline outline-1 outline-white/10 p-4 card-hover reveal ${
+              className={`relative group h-full ${
                 idx % 4 === 0
                   ? "reveal-del-1"
                   : idx % 4 === 1
@@ -118,23 +121,31 @@ export default function UseCasesSection() {
                   : "reveal-del-4"
               }`}
             >
-              <div className="flex items-start gap-3">
-                <Image src={c.icon} alt={c.title} width={20} height={20} />
-                <div>
-                  <h3 className="text-sm text-white font-medium">{c.title}</h3>
-                  <p className="text-xs text-white/70">{c.description}</p>
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/10 via-teal-500/5 to-emerald-600/10 blur-2xl rounded-2xl" />
+              <div className="relative bg-zinc-900/50 outline outline-1 outline-emerald-500/20 p-4 card-hover reveal hover:outline-emerald-500/40 transition-all duration-300 h-full flex flex-col">
+                <div className="flex items-start gap-3">
+                  <div className="w-5 h-5 bg-emerald-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Image src={c.icon} alt={c.title} width={20} height={20} />
+                  </div>
+                  <div>
+                    <h3 className="text-sm text-white font-medium">{c.title}</h3>
+                    <p className="text-xs text-white/70 flex-grow">{c.description}</p>
+                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Footer copy */}
-        <div className="mt-6 bg-zinc-900/50 outline outline-1 outline-white/10 p-6 text-center reveal">
-          <p className="text-white/70 max-w-[72ch] mx-auto text-sm">
-            As long as there is reliable price data and market demand, Zhenglong
-            can tokenize it.
-          </p>
+        {/* Footer copy with enhanced styling */}
+        <div className="relative group mt-6 text-center reveal">
+          <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/10 via-teal-500/5 to-emerald-600/10 blur-2xl rounded-2xl" />
+          <div className="relative bg-zinc-900/50 outline outline-1 outline-emerald-500/20 p-6 hover:outline-emerald-500/40 transition-all duration-300">
+            <p className="text-white/70 max-w-[72ch] mx-auto text-sm">
+              As long as there is reliable price data and market demand, Zhenglong
+              can tokenize it.
+            </p>
+          </div>
         </div>
       </div>
 

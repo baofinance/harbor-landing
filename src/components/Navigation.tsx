@@ -9,33 +9,32 @@ export default function Navigation() {
   const navLinks = [
     { href: "/", label: "Governance" },
     { href: "https://docs.zhenglong.finance", label: "Docs" },
-    { href: "", label: "Discord" },
-    { href: "", label: "Bug Bounty" },
-    { href: "", label: "X" },
-    { href: "", label: "Litepaper" },
+    { href: "https://discord.com/invite/BW3P62vJXT", label: "Discord" },
+    { href: "https://immunefi.com/bounty/zhenglong/", label: "Bug Bounty" },
+    { href: "https://x.com/ZhenglongFi", label: "X" },
+    { href: "https://docs.zhenglong.finance/litepaper", label: "Litepaper" },
   ];
 
   const pathname = usePathname();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 mx-auto max-w-[1300px] font-sans bg-zinc-950">
-      <div className="w-screen h-full bg-zinc-950" />
-      <div className="px-6">
-        <div className="flex items-center justify-between h-16 border-b border-white/10">
-          <div className="flex items-center gap-4">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-md">
+      <div className="mx-auto max-w-[1300px] px-6">
+        <div className="flex items-center justify-between h-16 border-b border-emerald-500/20">
+          <div className="flex items-center gap-6">
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 flex items-center justify-center">
+              <div className="w-9 h-9 flex items-center justify-center">
                 <Image
                   src="/logo.svg"
                   alt="Zhenglong Protocol"
-                  width={28}
-                  height={28}
+                  width={32}
+                  height={32}
                   className="w-full h-full"
                 />
               </div>
             </Link>
 
-            <div className="flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-6">
               {navLinks.map((link) => {
                 const isActive =
                   link.href === pathname ||
@@ -45,11 +44,13 @@ export default function Navigation() {
                   <Link
                     key={link.href}
                     href={link.href}
+                    target={link.href.startsWith("http") ? "_blank" : "_self"}
+                    rel={link.href.startsWith("http") ? "noopener noreferrer" : ""}
                     className={clsx(
-                      "text-xl font-medium font-geo transition-colors",
+                      "text-sm font-medium font-geo transition-colors",
                       isActive
-                        ? " text-white"
-                        : " hover:text-white/80 text-white/60 "
+                        ? "text-emerald-300"
+                        : "text-white/70 hover:text-white"
                     )}
                   >
                     {link.label}
@@ -62,9 +63,10 @@ export default function Navigation() {
           <div>
             <Link
               href="/ido"
-              className="inline-flex items-center justify-center px-4 py-2 text-sm font-bold uppercase bg-zinc-900/50 outline outline-1 outline-white/10 text-white/80 hover:text-white transition-colors"
+              className="relative group inline-flex items-center justify-center px-5 py-2 text-sm font-bold uppercase bg-zinc-900/50 outline outline-1 outline-emerald-500/30 text-emerald-300/80 hover:text-emerald-300 hover:outline-emerald-500/50 transition-all duration-300 font-geo"
             >
-              Go to App
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/10 via-teal-500/5 to-emerald-600/10 blur-xl rounded-lg" />
+              <span className="relative">Go to App</span>
             </Link>
           </div>
         </div>

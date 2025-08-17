@@ -8,20 +8,23 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative z-10 mt-10">
-      <div className="mx-auto max-w-[1300px] px-4 sm:px-10 py-8">
-        <div className="bg-zinc-900/50 outline outline-1 outline-white/10 p-4 flex items-center justify-center gap-6">
-          {links.map((link) => (
-            <a
-              key={link.name}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-white/70 hover:text-white transition-colors font-geo"
-            >
-              {link.name}
-            </a>
-          ))}
+    <footer className="relative z-10 mt-12">
+      <div className="mx-auto max-w-[1300px] px-4 sm:px-10 py-10">
+        <div className="relative group">
+          <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/10 via-teal-500/5 to-emerald-600/10 blur-2xl rounded-2xl" />
+          <div className="relative bg-zinc-900/50 outline outline-1 outline-emerald-500/20 p-6 flex items-center justify-center gap-8 hover:outline-emerald-500/40 transition-all duration-300">
+            {links.map((link) => (
+              <a
+                key={link.name}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-emerald-300/80 hover:text-emerald-300 transition-colors font-geo"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

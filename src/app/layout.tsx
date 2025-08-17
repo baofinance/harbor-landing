@@ -5,15 +5,9 @@ import NotificationWrapper from "@/components/NotificationWrapper";
 import { Analytics } from "@vercel/analytics/next";
 import Navigation from "@/components/Navigation";
 import { GeistSans } from "geist/font/sans";
-import { Geo } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
+import { geo, spaceGrotesk } from "@/utils/fonts";
 import AnimatedSmokeBackground from "@/components/AnimatedSmokeBackground";
-
-const geo = Geo({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-geo",
-});
 
 export const metadata: Metadata = {
   title: "Zhenglong Protocol",
@@ -26,9 +20,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${geo.variable} ${spaceGrotesk.variable}`}>
       <body
-        className={`antialiased font-sans bg-zinc-950 text-zinc-100 ${GeistSans.variable} ${GeistMono.variable} ${geo.variable} relative`}
+        className={`antialiased font-sans bg-zinc-950 text-zinc-100 ${GeistSans.variable} ${GeistMono.variable} relative`}
       >
         <TransactionProvider>
           <Navigation />
