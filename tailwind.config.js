@@ -12,6 +12,39 @@ module.exports = {
         geo: ["var(--font-geo)", "sans-serif"],
       },
       keyframes: {
+        gradientShift: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        fadeUp: {
+          '0%': { opacity: '0', transform: 'translateY(12px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        lineGrow: {
+          '0%': { width: '0', opacity: '0' },
+          '40%': { opacity: '1' },
+          '100%': { width: '12rem', opacity: '1' },
+        },
+        floatA: {
+          '0%, 100%': { transform: 'translateY(0) scale(1)' },
+          '50%': { transform: 'translateY(-12px) scale(1.04)' },
+        },
+        floatB: {
+          '0%, 100%': { transform: 'translateY(0) translateX(0) scale(1)' },
+          '50%': { transform: 'translateY(10px) translateX(-6px) scale(1.03)' },
+        },
+        floatC: {
+          '0%, 100%': { transform: 'translateY(-6px) scale(1)' },
+          '50%': { transform: 'translateY(6px) scale(1.02)' },
+        },
+        floatD: {
+            '0%, 100%': { transform: 'translateY(0) scale(1)' },
+            '50%': { transform: 'translateY(-8px) scale(1.02)' },
+        },
+        floatE: {
+            '0%, 100%': { transform: 'translateY(0) scale(1)' },
+            '50%': { transform: 'translateY(8px) scale(1.02)' },
+        },
         "steam-1": {
           "0%": { transform: "translateX(0)", opacity: "0.05" },
           "50%": { transform: "translateX(100px)", opacity: "0.1" },
@@ -105,6 +138,14 @@ module.exports = {
         "scale-pulse-mirror":
           "scale-pulse-mirror 2s cubic-bezier(0.4, 0, 0.2, 1) infinite",
         "flip-token": "flip-token 3s linear infinite",
+        gradientShift: "gradientShift 16s ease-in-out infinite",
+        fadeUp: "fadeUp 800ms ease forwards",
+        lineGrow: "lineGrow 1000ms ease 200ms forwards",
+        floatA: "floatA 10s ease-in-out infinite",
+        floatB: "floatB 12s ease-in-out infinite",
+        floatC: "floatC 14s ease-in-out infinite",
+        floatD: "floatD 8s ease-in-out infinite",
+        floatE: "floatE 9s ease-in-out infinite",
       },
       transitionProperty: {
         opacity: "opacity",

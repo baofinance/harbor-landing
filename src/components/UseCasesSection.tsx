@@ -1,189 +1,87 @@
 "use client";
-import Image from "next/image";
+import { DollarSign, Cpu, LandPlot } from "lucide-react";
 
-const useCases = [
+const useCaseCategories = [
   {
-    title: "Weather Derivatives",
-    description:
-      "Farmers hedge against drought or rainfall; insurers offer coverage without centralized providers.",
-    icon: "/weather.svg",
+    title: "Real-World & Financial Assets",
+    description: "Bridge traditional finance with DeFi by tokenizing real-world assets, enabling new forms of liquidity and investment.",
+    icon: DollarSign,
+    examples: [
+        "Equity Indices & Stocks",
+        "Precious Metals & Commodities",
+        "Carbon Credits & ESG Tokens",
+        "Foreign Exchange (FX) & EM Currencies"
+    ]
   },
   {
-    title: "Carbon Credit & ESG Tokens",
-    description:
-      "Offset carbon exposure via DeFi, incentivizing green initiatives.",
-    icon: "/content.svg",
+    title: "Digital & Crypto-Native Markets",
+    description: "Create decentralized markets for on-chain assets, hedging against volatility and speculating on ecosystem growth.",
+    icon: Cpu,
+    examples: [
+        "NFT Floor Price Tokens",
+        "ETH Gas Fee Derivatives",
+        "Crypto Adoption Rate Indices",
+        "Tokenized Royalties (Music, Art)"
+    ]
   },
   {
-    title: "Equity Indices",
-    description: "Gain exposure to equities without leaving crypto ecosystems.",
-    icon: "/file.svg",
-  },
-  {
-    title: "Individual Stock Tokens",
-    description:
-      "Access popular stocks globally, even in restricted jurisdictions.",
-    icon: "/rocket.svg",
-  },
-  {
-    title: "Athlete Performance",
-    description:
-      "Fans gain exposure to athlete performance, boosting engagement.",
-    icon: "/social.svg",
-  },
-  {
-    title: "Music & Royalties",
-    description: "Artists tokenize future royalties for direct fan investment.",
-    icon: "/content.svg",
-  },
-  {
-    title: "Inflation & CPI",
-    description: "Hedge inflation risk on-chain to protect purchasing power.",
-    icon: "/pricefeed.svg",
-  },
-  {
-    title: "GDP Growth",
-    description: "Hedge or speculate on economic growth data.",
-    icon: "/funding.svg",
-  },
-  {
-    title: "AI Performance",
-    description: "Gain exposure to AI advancements, rewarding R&D success.",
-    icon: "/automated.svg",
-  },
-  {
-    title: "Crypto Adoption",
-    description: "Speculate on adoption growth without single-asset risk.",
-    icon: "/community.svg",
-  },
-  {
-    title: "Precious Metals",
-    description:
-      "Hedge/store value with fully backed crypto-collateral markets.",
-    icon: "/collateral.svg",
-  },
-  {
-    title: "Energy Commodities",
-    description: "Hedge energy exposure via DeFi.",
-    icon: "/leverage.svg",
-  },
-  {
-    title: "FX Pegged Tokens",
-    description: "Decentralized FX markets, 24/7.",
-    icon: "/globe.svg",
-  },
-  {
-    title: "EM Currencies",
-    description: "Manage risk on volatile emerging market currencies.",
-    icon: "/institution.svg",
-  },
-  {
-    title: "ETH Gas Tokens",
-    description: "Hedge transaction fee exposure or speculate on congestion.",
-    icon: "/yield.svg",
-  },
-  {
-    title: "NFT Floor Tokens",
-    description: "Speculate or hedge NFT floors without direct holdings.",
-    icon: "/art.svg",
+    title: "Novel & Esoteric Data",
+    description: "If there's a reliable data feed, it can be tokenized. Explore new frontiers of finance with verifiable, data-driven assets.",
+    icon: LandPlot,
+    examples: [
+        "Weather & Climate Derivatives",
+        "Athlete & Team Performance",
+        "AI Model Performance",
+        "Economic Data (Inflation, GDP)"
+    ]
   },
 ];
 
 export default function UseCasesSection() {
   return (
-    <section className="relative z-10">
-      <div className="mx-auto max-w-[1300px] px-4 sm:px-10 py-20">
-        {/* Header with enhanced styling */}
-        <div className="relative group mb-6 text-center reveal">
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/10 via-teal-500/5 to-emerald-600/10 blur-2xl rounded-2xl" />
-          <div className="relative bg-zinc-900/50 outline outline-1 outline-emerald-500/20 p-6 hover:outline-emerald-500/40 transition-all duration-300">
-            <h2 className="text-2xl md:text-3xl font-geo uppercase tracking-wider text-white">
-              Use Cases
+    <section className="relative z-10 bg-black border-y border-zinc-800/50">
+      <div className="mx-auto max-w-[1300px] px-4 sm:px-10 py-32">
+        <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-geo uppercase tracking-wider text-white">
+                Infinite Markets, One Protocol
             </h2>
-            <p className="mt-2 text-white/70 max-w-[72ch] mx-auto">
-              Examples of markets and assets that can be built with Zhenglong.
+            <p className="mt-4 text-white/70 max-w-[72ch] mx-auto">
+                Zhenglong can tokenize any real-world asset or data feed, opening up limitless possibilities for decentralized finance.
             </p>
-          </div>
         </div>
 
-        {/* Grid with enhanced styling */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {useCases.map((c, idx) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {useCaseCategories.map((category, idx) => (
             <div
-              key={c.title}
-              className={`relative group h-full ${
-                idx % 4 === 0
-                  ? "reveal-del-1"
-                  : idx % 4 === 1
-                  ? "reveal-del-2"
-                  : idx % 4 === 2
-                  ? "reveal-del-3"
-                  : "reveal-del-4"
-              }`}
+              key={category.title}
+              className="relative group h-full bg-zinc-900/50 outline outline-1 outline-emerald-500/10 p-8 hover:outline-emerald-500/30 transition-all duration-300"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/10 via-teal-500/5 to-emerald-600/10 blur-2xl rounded-2xl" />
-              <div className="relative bg-zinc-900/50 outline outline-1 outline-emerald-500/20 p-4 card-hover reveal hover:outline-emerald-500/40 transition-all duration-300 h-full flex flex-col">
-                <div className="flex items-start gap-3">
-                  <div className="w-5 h-5 bg-emerald-500/20 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Image src={c.icon} alt={c.title} width={20} height={20} />
+              <div className="flex flex-col h-full">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-emerald-500/10 flex items-center justify-center ring-1 ring-emerald-500/20">
+                    <category.icon className="w-6 h-6 text-emerald-400" />
                   </div>
-                  <div>
-                    <h3 className="text-sm text-white font-medium">{c.title}</h3>
-                    <p className="text-xs text-white/70 flex-grow">{c.description}</p>
-                  </div>
+                  <h3 className="text-lg font-bold text-white tracking-wide">{category.title}</h3>
+                </div>
+                <p className="text-sm text-white/70 mb-6 flex-grow">
+                  {category.description}
+                </p>
+                <div>
+                    <h4 className="text-sm font-semibold text-white/90 mb-3">Examples:</h4>
+                    <ul className="space-y-2">
+                        {category.examples.map((example) => (
+                            <li key={example} className="flex items-center gap-3 text-xs text-white/60">
+                                <div className="w-1 h-1 bg-emerald-500/50" />
+                                <span>{example}</span>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
               </div>
             </div>
           ))}
         </div>
-
-        {/* Footer copy with enhanced styling */}
-        <div className="relative group mt-6 text-center reveal">
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/10 via-teal-500/5 to-emerald-600/10 blur-2xl rounded-2xl" />
-          <div className="relative bg-zinc-900/50 outline outline-1 outline-emerald-500/20 p-6 hover:outline-emerald-500/40 transition-all duration-300">
-            <p className="text-white/70 max-w-[72ch] mx-auto text-sm">
-              As long as there is reliable price data and market demand, Zhenglong
-              can tokenize it.
-            </p>
-          </div>
-        </div>
       </div>
-
-      <style jsx>{`
-        @keyframes fadeUp {
-          0% {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .reveal {
-          opacity: 0;
-          animation: fadeUp 700ms ease forwards;
-        }
-        .reveal-del-1 {
-          animation-delay: 60ms;
-        }
-        .reveal-del-2 {
-          animation-delay: 120ms;
-        }
-        .reveal-del-3 {
-          animation-delay: 180ms;
-        }
-        .reveal-del-4 {
-          animation-delay: 240ms;
-        }
-        .card-hover {
-          transition: transform 200ms ease, filter 200ms ease;
-        }
-        .card-hover:hover {
-          transform: translateY(-2px);
-          filter: brightness(1.05);
-        }
-      `}</style>
     </section>
   );
 }
