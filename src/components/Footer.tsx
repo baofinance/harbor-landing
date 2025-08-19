@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Twitter, Youtube, Twitch, DiscIcon } from "lucide-react";
+import type { SVGProps } from "react";
+import { Twitter } from "lucide-react";
 
 const Footer = () => {
   const protocolLinks = [
@@ -12,16 +13,38 @@ const Footer = () => {
   ];
 
   const communityLinks = [
-    { name: "Governance", url: "/" },
-    { name: "Booster Program", url: "#" },
+    { name: "Governance (Coming Soon)", url: "/" },
+    { name: "Booster Program", url: "https://discord.com/invite/BW3P62vJXT" },
   ];
 
+  const DiscordOutlineIcon = (props: SVGProps<SVGSVGElement>) => (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path d="M20.317 4.369a19.79 19.79 0 00-4.885-1.515c-.211.375-.444.864-.608 1.249-1.844-.277-3.68-.277-5.486 0-.164-.395-.406-.874-.617-1.249A19.736 19.736 0 002.836 4.396C.533 9.045-.32 13.58.099 18.057a19.9 19.9 0 005.993 3.03c.461-.63.873-1.295 1.226-1.994-.652-.247-1.27-.548-1.862-.902.125-.094.25-.19.37-.287 3.927 1.793 8.18 1.793 12.061 0 .12.098.245.193.37.287-.591.361-1.21.662-1.862.902.36.698.772 1.362 1.226 1.993a19.876 19.876 0 005.993-3.03c.5-5.177-.838-9.673-3.548-13.661z" />
+      <circle cx="9" cy="12.5" r="1.2" />
+      <circle cx="15" cy="12.5" r="1.2" />
+    </svg>
+  );
+
   const socialLinks = [
-    { name: "X", url: "https://x.com/ZhenglongFi", icon: Twitter },
+    {
+      name: "X",
+      url: "https://x.com/ZhenglongFi",
+      icon: <Twitter className="w-5 h-5" />,
+    },
     {
       name: "Discord",
       url: "https://discord.com/invite/BW3P62vJXT",
-      icon: DiscIcon,
+      icon: <DiscordOutlineIcon className="w-5 h-5" />,
     },
   ];
 
@@ -97,7 +120,7 @@ const Footer = () => {
                       rel="noopener noreferrer"
                       className="text-white/60 hover:text-white transition-colors"
                     >
-                      <link.icon className="w-5 h-5" />
+                      {link.icon}
                     </a>
                   </li>
                 ))}

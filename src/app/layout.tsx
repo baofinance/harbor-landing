@@ -12,6 +12,11 @@ import AnimatedSmokeBackground from "@/components/AnimatedSmokeBackground";
 export const metadata: Metadata = {
   title: "Zhenglong Protocol",
   description: "Create tokens pegged to real-world data feeds",
+  icons: {
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
+  },
 };
 
 export default function RootLayout({
