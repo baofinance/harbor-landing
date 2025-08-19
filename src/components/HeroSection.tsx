@@ -15,25 +15,29 @@ export default function HeroSection() {
       </div>
 
       <div className="text-center relative z-10 mx-auto max-w-[1300px] px-6">
-        <div className="inline-block mb-6 sm:mb-8 animate-[fadeUp_800ms_ease_forwards] opacity-0">
-            <div className="relative bg-zinc-900/50 border border-zinc-800/50 rounded-full px-4 py-2">
-                <div className="flex items-center justify-center gap-3 sm:gap-4">
-                    <span className="inline-flex items-center rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-xs font-medium text-emerald-400 ring-1 ring-inset ring-emerald-500/20">
-                    Coming Soon
-                    </span>
-                    <p className="text-xs sm:text-sm text-white/80">
-                    <span className="font-semibold">Zhenglong is launching soon.</span>
-                    <span className="hidden sm:inline-block ml-2">Follow for updates.</span>
-                    </p>
-                </div>
+        <div className="inline-block mb-2 sm:mb-4 animate-[fadeUp_800ms_ease_forwards] opacity-0">
+          <div className="relative px-4 py-2 backdrop-blur-sm">
+            <div className="flex items-center justify-center gap-3 sm:gap-4">
+              <span className="inline-flex items-center bg-emerald-500/10 px-2.5 py-0.5 text-xs font-medium text-emerald-400 ring-1 ring-inset ring-emerald-500/20">
+                Coming Soon
+              </span>
+              <p className="text-xs sm:text-sm text-white/80">
+                <span className="font-semibold">
+                  Zhenglong is launching soon.
+                </span>
+                <span className="hidden sm:inline-block ml-2">
+                  Follow for updates.
+                </span>
+              </p>
             </div>
+          </div>
         </div>
-        
+
         <div className="relative inline-block">
-          <h1 className="text-5xl sm:text-6xl font-geo uppercase md:text-7xl font-normal bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-400 animate-[gradientShift_16s_ease-in-out_infinite] bg-[size:200%_200%] [animation-fill-mode:forwards]">
+          <h1 className="text-4xl sm:text-5xl font-geo uppercase md:text-7xl font-normal tracking-wide text-emerald-300 drop-shadow-[0_0_12px_rgba(16,185,129,0.35)]">
             Supercharge Your Crypto Yield
           </h1>
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 via-teal-300/20 to-emerald-400/20 blur-3xl -z-10 animate-[gradientShift_16s_ease-in-out_infinite]" />
+          <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-emerald-400/25 via-teal-300/20 to-emerald-400/25 blur-3xl pulse-glow" />
         </div>
         <p className="mt-4 text-sm sm:text-base md:text-lg text-white/80 max-w-3xl mx-auto animate-[fadeUp_800ms_ease_250ms_forwards] opacity-0">
           Zhenglong offers protected leverage tokens and high-yield stability
@@ -50,7 +54,7 @@ export default function HeroSection() {
             Follow on X
           </Link>
           <Link
-            href="https://discord.gg/your-discord"
+            href="https://discord.com/invite/BW3P62vJXT"
             target="_blank"
             rel="noopener noreferrer"
             className="relative group w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 text-sm font-bold uppercase bg-zinc-900/50 outline outline-1 outline-emerald-500/30 text-emerald-300/80 hover:text-emerald-300 hover:outline-emerald-500/50 transition-all duration-300"
@@ -60,9 +64,7 @@ export default function HeroSection() {
         </div>
 
         <div className="absolute top-1/4 left-10 w-2 h-2 bg-emerald-400 rounded-full animate-ping" />
-        <div
-          className="absolute top-3/4 right-10 w-2 h-2 bg-teal-400 rounded-full animate-ping [animation-delay:1s]"
-        />
+        <div className="absolute top-3/4 right-10 w-2 h-2 bg-teal-400 rounded-full animate-ping [animation-delay:1s]" />
       </div>
     </section>
   );
