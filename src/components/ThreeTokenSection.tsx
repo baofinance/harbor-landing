@@ -26,7 +26,7 @@ const ThreeTokenSection = () => {
           {items.map((item) => (
             <div
               key={item.title}
-              className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-8 flex flex-col"
+              className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-8 flex flex-col h-full"
             >
               <h3 className="text-3xl text-[#4A7C59] mb-6 tracking-wider font-geo font-normal text-center">
                 {item.title === "zheTOKENS"
@@ -35,7 +35,7 @@ const ThreeTokenSection = () => {
                   ? "steamedTOKENS"
                   : item.title.toUpperCase()}
               </h3>
-              <p className="text-[#F5F5F5]/70 leading-relaxed font-normal">
+              <p className="text-[#F5F5F5]/70 leading-relaxed font-normal flex-grow">
                 {item.body}
               </p>
             </div>

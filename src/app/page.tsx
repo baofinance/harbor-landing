@@ -1,36 +1,39 @@
 "use client";
 
-// Import all components
-import Header from "@/components/Header";
-import SteamBackground from "@/components/SteamBackground";
-import NotificationWrapper from "@/components/NotificationWrapper";
-import HeroSection from "@/components/HeroSection";
-import FeaturesSection from "@/components/FeaturesSection";
-import UseCasesSection from "@/components/UseCasesSection";
-import ThreeTokenSection from "@/components/ThreeTokenSection";
-import SecuritySection from "@/components/SecuritySection";
-import StabilityPoolsSection from "@/components/StabilityPoolsSection";
-import SteamTokenSection from "@/components/SteamTokenSection";
-import BuildMarketSection from "@/components/BuildMarketSection";
+// Remove unused imports to satisfy lint
+import AnimatedSmokeBackground from "@/components/AnimatedSmokeBackground";
 import BoosterProgramSection from "@/components/BoosterProgramSection";
 import Footer from "@/components/Footer";
+import HeroSection from "@/components/HeroSection";
+import SecuritySection from "@/components/SecuritySection";
+import TokenCarousel from "@/components/TokenCarousel";
+import UseCasesSection from "@/components/UseCasesSection";
+import Reveal from "@/components/Reveal";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white">
-      <NotificationWrapper />
-      <Header page="landing" />
-      <SteamBackground />
-      <HeroSection />
-      <FeaturesSection />
-      <ThreeTokenSection />
-      <StabilityPoolsSection />
-      <SteamTokenSection />
-      <UseCasesSection />
-      <SecuritySection />
-      <BuildMarketSection />
-      <BoosterProgramSection />
+    <>
+      <AnimatedSmokeBackground />
+      <main className="relative z-10">
+        <div>
+          <Reveal delayMs={0}>
+            <HeroSection />
+          </Reveal>
+          <Reveal delayMs={60}>
+            <TokenCarousel />
+          </Reveal>
+          <Reveal delayMs={120}>
+            <UseCasesSection />
+          </Reveal>
+          <Reveal delayMs={300}>
+            <BoosterProgramSection />
+          </Reveal>
+          <Reveal delayMs={360}>
+            <SecuritySection />
+          </Reveal>
+        </div>
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

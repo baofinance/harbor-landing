@@ -18,11 +18,86 @@
   body {
     @apply bg-black text-[#F5F5F5] min-h-screen;
   }
+
+  /* Font family declarations with better fallbacks */
+  .font-geo {
+    font-family: var(--font-geo), 'Geo', 'Arial', ui-sans-serif, system-ui, sans-serif;
+    font-display: swap;
+  }
+
+  .font-space-grotesk {
+    font-family: var(--font-space-grotesk), 'Space Grotesk', 'Arial', ui-sans-serif, system-ui, sans-serif;
+    font-display: swap;
+  }
+
+  /* Enhanced glow effects */
+  .glow-effect {
+    position: relative;
+  }
+
+  .glow-effect::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #10b981, #14b8a6, #10b981);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .glow-effect:hover::before {
+    opacity: 0.3;
+  }
+
+  /* Floating animation for background elements */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Pulse glow effect */
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
 }
 
 @layer components {
   .test-style {
     @apply bg-red-500 text-white p-4;
+  }
+
+  /* Enhanced card styles */
+  .enhanced-card {
+    @apply relative group transition-all duration-300;
+  }
+
+  .enhanced-card::before {
+    @apply absolute inset-0 bg-gradient-to-r from-emerald-600/10 via-teal-500/5 to-emerald-600/10 blur-2xl rounded-2xl transition-opacity duration-300;
+    content: '';
+  }
+
+  .enhanced-card:hover::before {
+    @apply opacity-100;
   }
 }
 
@@ -40,6 +115,16 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  /* Enhanced hover effects */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(16, 185, 129, 0.1);
   }
 }
 

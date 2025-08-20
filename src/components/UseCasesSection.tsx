@@ -1,143 +1,87 @@
 "use client";
-// Removed useState import as flip state is handled within each card
-import UseCaseBox from "./UseCaseBox";
+import { DollarSign, Cpu, LandPlot } from "lucide-react";
 
-const UseCasesSection = () => {
-  const useCases = [
-    {
-      title: "Weather Derivatives",
-      description:
-        "Farmers hedge against drought or excessive rainfall; insurers offer coverage without centralized providers.",
-      icon: "/weather.svg",
-    },
-    {
-      title: "Carbon Credit & ESG Tokens",
-      description:
-        "Businesses offset carbon exposure directly via DeFi, incentivizing green initiatives.",
-      icon: "/content.svg",
-    },
-    {
-      title: "Equity Indices",
-      description:
-        "DeFi traders gain exposure to equities without leaving crypto ecosystems.",
-      icon: "/file.svg",
-    },
-    {
-      title: "Individual Stock Tokens",
-      description:
-        "Global accessibility to popular stocks, especially for users in restricted jurisdictions.",
-      icon: "/rocket.svg",
-    },
-    {
-      title: "Athlete Performance Metrics",
-      description:
-        "Fans gain financial exposure to athlete performance, boosting engagement.",
-      icon: "/social.svg",
-    },
-    {
-      title: "Music & Streaming Revenue",
-      description:
-        "Artists tokenize future royalties, allowing direct fan investment.",
-      icon: "/content.svg",
-    },
-    {
-      title: "Inflation & CPI Tokens",
-      description:
-        "Users hedge against inflation risk directly on-chain, protecting their purchasing power.",
-      icon: "/pricefeed.svg",
-    },
-    {
-      title: "GDP Growth Tokens",
-      description:
-        "Economists or investors hedge against or speculate on economic growth data.",
-      icon: "/funding.svg",
-    },
-    {
-      title: "AI & Machine Learning Performance",
-      description:
-        "Investors gain exposure to AI advancements, rewarding R&D success transparently.",
-      icon: "/automated.svg",
-    },
-    {
-      title: "Crypto Adoption Metrics",
-      description:
-        "Speculate on crypto adoption growth without investing in a single asset.",
-      icon: "/community.svg",
-    },
-    {
-      title: "Precious Metals",
-      description:
-        "Store of value alternatives or hedging instruments fully backed by crypto collateral.",
-      icon: "/collateral.svg",
-    },
-    {
-      title: "Energy Commodities",
-      description:
-        "Traders or companies hedge energy exposure directly through DeFi markets.",
-      icon: "/leverage.svg",
-    },
-    {
-      title: "Foreign Currency Pegged Tokens",
-      description: "Global, decentralized FX markets accessible 24/7.",
-      icon: "/globe.svg",
-    },
-    {
-      title: "Emerging Market Currency Tokens",
-      description:
-        "Enable risk management or speculation on volatile emerging market currencies.",
-      icon: "/institution.svg",
-    },
-    {
-      title: "ETH Gas Price Tokens",
-      description:
-        "Hedge transaction fee exposure or speculate on Ethereum congestion.",
-      icon: "/yield.svg",
-    },
-    {
-      title: "NFT Floor Price Tokens",
-      description:
-        "Traders speculate or hedge NFT market exposure without direct NFT holdings.",
-      icon: "/art.svg",
-    },
-  ];
+const useCaseCategories = [
+  {
+    title: "Real-World & Financial Assets",
+    description: "Bridge traditional finance with DeFi by tokenizing real-world assets, enabling new forms of liquidity and investment.",
+    icon: DollarSign,
+    examples: [
+        "Equity Indices & Stocks",
+        "Precious Metals & Commodities",
+        "Carbon Credits & ESG Tokens",
+        "Foreign Exchange (FX) & EM Currencies"
+    ]
+  },
+  {
+    title: "Digital & Crypto-Native Markets",
+    description: "Create decentralized markets for on-chain assets, hedging against volatility and speculating on ecosystem growth.",
+    icon: Cpu,
+    examples: [
+        "NFT Floor Price Tokens",
+        "ETH Gas Fee Derivatives",
+        "Crypto Adoption Rate Indices",
+        "Tokenized Royalties (Music, Art)"
+    ]
+  },
+  {
+    title: "Novel & Esoteric Data",
+    description: "If there's a reliable data feed, it can be tokenized. Explore new frontiers of finance with verifiable, data-driven assets.",
+    icon: LandPlot,
+    examples: [
+        "Weather & Climate Derivatives",
+        "Athlete & Team Performance",
+        "AI Model Performance",
+        "Economic Data (Inflation, GDP)"
+    ]
+  },
+];
 
+export default function UseCasesSection() {
   return (
-    <section className="relative z-10">
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Steam squares for Use Cases section */}
-        <div className="absolute top-[8%] left-[18%] w-[420px] h-[300px] bg-[#4A7C59]/[0.08]"></div>
-        <div className="absolute top-[12%] right-[22%] w-[360px] h-[260px] bg-[#4A7C59]/[0.06]"></div>
-        <div className="absolute top-[20%] left-[38%] w-[280px] h-[220px] bg-[#4A7C59]/[0.10] animate-float-2"></div>
-        <div className="absolute bottom-[18%] right-[28%] w-[180px] h-[180px] bg-[#4A7C59]/[0.08] animate-float-3"></div>
-        <div className="absolute bottom-[22%] left-[22%] w-[140px] h-[140px] bg-[#4A7C59]/[0.12] animate-steam-1"></div>
-      </div>
-      <div className="container mx-auto px-6 py-24">
-        <h2
-          className={`text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider uppercase font-geo`}
-        >
-          Use Cases
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
-          {useCases.map((useCase, index) => (
-            <UseCaseBox
-              key={index}
-              title={useCase.title}
-              description={useCase.description}
-            />
-          ))}
+    <section className="relative z-10 bg-black border-y border-zinc-800/50">
+      <div className="mx-auto max-w-[1300px] px-4 sm:px-10 py-32">
+        <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-geo uppercase tracking-wider text-white">
+                Infinite Markets, One Protocol
+            </h2>
+            <p className="mt-4 text-white/70 max-w-[72ch] mx-auto">
+                Zhenglong can tokenize any real-world asset or data feed, opening up limitless possibilities for decentralized finance.
+            </p>
         </div>
-        <div className="mt-12 text-center">
-          <p className="text-[#F5F5F5]/80 leading-relaxed tracking-wide font-normal max-w-3xl mx-auto">
-            These examples show just a few ways Zhenglong Protocol could empower
-            innovation by turning any reliable data source into a secure,
-            yield-generating pegged token market. The flexibility is huge—and as
-            long as there's reliable price data and market demand, Zhenglong can
-            tokenize it.
-          </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {useCaseCategories.map((category, idx) => (
+            <div
+              key={category.title}
+              className="relative group h-full bg-zinc-900/50 outline outline-1 outline-emerald-500/10 p-8 hover:outline-emerald-500/30 transition-all duration-300"
+            >
+              <div className="flex flex-col h-full">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-emerald-500/10 flex items-center justify-center ring-1 ring-emerald-500/20">
+                    <category.icon className="w-6 h-6 text-emerald-400" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white tracking-wide">{category.title}</h3>
+                </div>
+                <p className="text-sm text-white/70 mb-6 flex-grow">
+                  {category.description}
+                </p>
+                <div>
+                    <h4 className="text-sm font-semibold text-white/90 mb-3">Examples:</h4>
+                    <ul className="space-y-2">
+                        {category.examples.map((example) => (
+                            <li key={example} className="flex items-center gap-3 text-xs text-white/60">
+                                <div className="w-1 h-1 bg-emerald-500/50" />
+                                <span>{example}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
-};
-
-export default UseCasesSection;
+}
