@@ -39,7 +39,11 @@ const Footer = () => {
       twitter: "haruxeETH",
     },
     { name: "root", avatarUrl: "/root.webp" as string | null, twitter: "" },
-    { name: "hop", avatarUrl: "/hop.webp" as string | null, twitter: "" },
+    {
+      name: "hop",
+      avatarUrl: "/hop.webp" as string | null,
+      twitter: "hopnothip",
+    },
   ];
 
   const DiscordOutlineIcon = (props: SVGProps<SVGSVGElement>) => (
