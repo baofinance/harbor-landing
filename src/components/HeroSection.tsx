@@ -19,11 +19,11 @@ export default function HeroSection() {
           <div className="relative px-4 py-2 backdrop-blur-sm">
             <div className="flex items-center justify-center gap-3 sm:gap-4">
               <span className="inline-flex items-center bg-emerald-500/10 px-2.5 py-0.5 text-xs font-medium text-emerald-400 ring-1 ring-inset ring-emerald-500/20">
-                Coming Soon
+                Genesis
               </span>
               <p className="text-xs sm:text-sm text-white/80">
                 <span className="font-semibold">
-                  Zhenglong is launching soon.
+                  Airdrop for genesis depositors coming soon.
                 </span>
                 <span className="hidden sm:inline-block ml-2">
                   Follow for updates.

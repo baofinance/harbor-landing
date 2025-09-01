@@ -20,12 +20,7 @@ export default function Navigation() {
   }, []);
 
   const navLinks = [
-    { href: "/", label: "Governance" },
     { href: "https://docs.zhenglong.finance", label: "Docs" },
-    {
-      href: "https://immunefi.com/bounty/zhenglong/",
-      label: "Bug Bounty (Coming Soon)",
-    },
     { href: "https://litepaper.zhenglong.finance/docs/", label: "Litepaper" },
   ];
 

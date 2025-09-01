@@ -9,13 +9,56 @@ import { GeistMono } from "geist/font/mono";
 import { geo, spaceGrotesk } from "@/utils/fonts";
 import AnimatedSmokeBackground from "@/components/AnimatedSmokeBackground";
 
+const siteUrl = "https://zhenglong.finance";
+const title = "Zhenglong Protocol";
+const description =
+  "A decentralized protocol for creating synthetic assets pegged to any real-world data feed.";
+
 export const metadata: Metadata = {
-  title: "Zhenglong Protocol",
-  description: "Create tokens pegged to real-world data feeds",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  keywords: [
+    "Zhenglong",
+    "DeFi",
+    "synthetic assets",
+    "yield",
+    "leverage",
+    "crypto",
+    "blockchain",
+    "STEAM token",
+  ],
+  authors: [{ name: "Zhenglong Protocol" }],
   icons: {
     icon: "/logo.svg",
     shortcut: "/logo.svg",
     apple: "/logo.svg",
+  },
+  openGraph: {
+    title,
+    description,
+    url: siteUrl,
+    siteName: title,
+    images: [
+      {
+        url: "/demo.png",
+        width: 1200,
+        height: 630,
+        alt: description,
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    creator: "@ZhenglongFi",
+    site: "@ZhenglongFi",
+    images: [`${siteUrl}/demo.png`],
+  },
+  alternates: {
+    canonical: siteUrl,
   },
 };
 

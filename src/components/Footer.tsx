@@ -8,21 +8,14 @@ import { Twitter } from "lucide-react";
 const Footer = () => {
   const protocolLinks = [
     { name: "Docs", url: "https://docs.zhenglong.finance" },
-    { name: "Bug Bounty", url: "https://immunefi.com/bounty/zhenglong/" },
     { name: "Litepaper", url: "https://docs.zhenglong.finance/litepaper" },
   ];
 
   const communityLinks = [
-    { name: "Governance (Coming Soon)", url: "/" },
     { name: "Booster Program", url: "https://discord.com/invite/BW3P62vJXT" },
   ];
 
   const contributors = [
-    {
-      name: "baowolf",
-      avatarUrl: "/baowolf.jpg" as string | null,
-      twitter: "BaoWolf_eth",
-    },
     {
       name: "chickn",
       avatarUrl: "/chickn.jpg" as string | null,
@@ -33,12 +26,32 @@ const Footer = () => {
       avatarUrl: "/fabiaz.jpg" as string | null,
       twitter: "faBaozi84",
     },
+    { name: "root", avatarUrl: "/root.webp" as string | null, twitter: "" },
     {
       name: "haruxe",
       avatarUrl: "/haruxe.jpg" as string | null,
       twitter: "haruxeETH",
     },
-    { name: "root", avatarUrl: "/root.webp" as string | null, twitter: "" },
+    {
+      name: "baowolf",
+      avatarUrl: "/baowolf.jpg" as string | null,
+      twitter: "BaoWolf_eth",
+    },
+    {
+      name: "Bob the reBuilt",
+      avatarUrl: "/bob.jpg" as string | null,
+      twitter: "bobtherebuilt",
+    },
+    {
+      name: "Daizze",
+      avatarUrl: null,
+      twitter: "",
+    },
+    {
+      name: "Givn",
+      avatarUrl: null,
+      twitter: "",
+    },
     {
       name: "hop",
       avatarUrl: "/hop.webp" as string | null,
@@ -159,9 +172,9 @@ const Footer = () => {
               <h4 className="text-sm font-semibold text-white/90 mb-4">
                 Contributors
               </h4>
-              <ul className="flex flex-wrap gap-x-1 gap-y-2 justify-center sm:justify-start">
+              <ul className="grid grid-cols-5 gap-x-1 gap-y-2">
                 {contributors.map((person) => (
-                  <li key={person.name} className="flex">
+                  <li key={person.name}>
                     <a
                       href={`https://x.com/${person.twitter || person.name}`}
                       target="_blank"
@@ -169,12 +182,12 @@ const Footer = () => {
                       className="flex flex-col items-center gap-1 p-1 group"
                       aria-label={`${person.name} on X`}
                     >
-                      <div className="relative h-10 w-10 shrink-0 overflow-hidden ring-1 ring-white/10 group-hover:ring-white/20">
+                      <div className="relative h-8 w-8 shrink-0 overflow-hidden ring-1 ring-white/10 group-hover:ring-white/20">
                         <Image
                           src={person.avatarUrl || ""}
                           alt={person.name}
                           fill
-                          sizes="40px"
+                          sizes="32px"
                           className="object-cover"
                         />
                       </div>
