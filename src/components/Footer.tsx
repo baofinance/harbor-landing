@@ -38,19 +38,19 @@ const Footer = () => {
       twitter: "BaoWolf_eth",
     },
     {
-      name: "Bob the reBuilt",
+      name: "Bob",
       avatarUrl: "/bob.jpg" as string | null,
       twitter: "bobtherebuilt",
     },
     {
       name: "Daizze",
-      avatarUrl: null,
+      avatarUrl: "/Daizze.webp" as string | null,
       twitter: "",
     },
     {
       name: "Givn",
-      avatarUrl: null,
-      twitter: "",
+      avatarUrl: "/Givn.jpg" as string | null,
+      twitter: "0xGivn",
     },
     {
       name: "hop",
@@ -172,31 +172,56 @@ const Footer = () => {
               <h4 className="text-sm font-semibold text-white/90 mb-4">
                 Contributors
               </h4>
-              <ul className="grid grid-cols-5 gap-x-1 gap-y-2">
-                {contributors.map((person) => (
-                  <li key={person.name}>
-                    <a
-                      href={`https://x.com/${person.twitter || person.name}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex flex-col items-center gap-1 p-1 group"
-                      aria-label={`${person.name} on X`}
-                    >
-                      <div className="relative h-8 w-8 shrink-0 overflow-hidden ring-1 ring-white/10 group-hover:ring-white/20">
-                        <Image
-                          src={person.avatarUrl || ""}
-                          alt={person.name}
-                          fill
-                          sizes="32px"
-                          className="object-cover"
-                        />
-                      </div>
-                      <span className="mt-1 text-[10px] leading-none text-white/60 group-hover:text-white/80 max-w-[3.5rem] truncate text-center">
-                        {person.name}
-                      </span>
-                    </a>
-                  </li>
-                ))}
+              <ul className="grid grid-cols-5 gap-x-4 gap-y-3">
+                {contributors.map((person) => {
+                  const hasTwitter =
+                    typeof person.twitter === "string" &&
+                    person.twitter.trim().length > 0;
+                  return (
+                    <li key={person.name}>
+                      {hasTwitter ? (
+                        <a
+                          href={`https://x.com/${person.twitter}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex flex-col items-center gap-1 p-1 group"
+                          aria-label={`${person.name} on X`}
+                        >
+                          <div className="relative h-8 w-8 shrink-0 overflow-hidden ring-1 ring-white/10 group-hover:ring-white/20">
+                            <Image
+                              src={person.avatarUrl || ""}
+                              alt={person.name}
+                              fill
+                              sizes="32px"
+                              className="object-cover"
+                            />
+                          </div>
+                          <span className="mt-1 text-[10px] leading-none text-white/60 group-hover:text-white/80 max-w-[4rem] truncate text-center">
+                            {person.name}
+                          </span>
+                        </a>
+                      ) : (
+                        <div
+                          className="flex flex-col items-center gap-1 p-1 group"
+                          aria-label={person.name}
+                        >
+                          <div className="relative h-8 w-8 shrink-0 overflow-hidden ring-1 ring-white/10 group-hover:ring-white/20">
+                            <Image
+                              src={person.avatarUrl || ""}
+                              alt={person.name}
+                              fill
+                              sizes="32px"
+                              className="object-cover"
+                            />
+                          </div>
+                          <span className="mt-1 text-[10px] leading-none text-white/60 group-hover:text-white/80 max-w-[4rem] truncate text-center">
+                            {person.name}
+                          </span>
+                        </div>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
