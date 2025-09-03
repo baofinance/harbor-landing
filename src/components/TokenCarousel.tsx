@@ -47,33 +47,6 @@ const slides: Slide[] = [
     ],
   },
   {
-    title: "STEAM Token",
-    description:
-      "The governance and incentive token of Zhenglong Protocol. Shape the roadmap, direct rewards, and participate in protocol economics.",
-    cards: [
-      {
-        title: "Revenue Share",
-        description:
-          "Earn a share of protocol revenue from market operations and fees by staking your STEAM tokens.",
-        bullets: [
-          "Stake STEAM to earn real yield",
-          "Revenue distributed in stablecoins",
-          "Directly benefit from protocol growth",
-        ],
-      },
-      {
-        title: "Governance Rights",
-        description:
-          "Vote on key protocol parameters, direct STEAM emissions to specific markets, and shape the future of Zhenglong.",
-        bullets: [
-          "One token, one vote",
-          "Control over treasury and emissions",
-          "Decentralized, community-led governance",
-        ],
-      },
-    ],
-  },
-  {
     title: "Stability Pools",
     description:
       "Deposit into protocol stability pools to secure the market during stress and earn sustainable rewards.",
