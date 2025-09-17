@@ -19,7 +19,7 @@ const ThreeTokenSection = () => {
   return (
     <section className="relative z-10">
       <div className="container mx-auto px-6 py-24">
-        <h2 className="text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider uppercase font-geo">
+        <h2 className="text-3xl md:text-4xl font-normal text-center mb-16 tracking-wider uppercase">
           The Three-Token Model
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
@@ -28,7 +28,7 @@ const ThreeTokenSection = () => {
               key={item.title}
               className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-8 flex flex-col h-full"
             >
-              <h3 className="text-3xl text-[#4A7C59] mb-6 tracking-wider font-geo font-normal text-center">
+              <h3 className="text-3xl text-[#4A7C59] mb-6 tracking-wider font-normal text-center">
                 {item.title === "zheTOKENS"
                   ? "zheTOKENS"
                   : item.title === "steamedTOKENS"

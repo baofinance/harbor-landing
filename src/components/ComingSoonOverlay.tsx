@@ -13,7 +13,7 @@ const ComingSoonOverlay = ({
       {children}
       <div className="pointer-events-none absolute inset-0 w-full h-full bg-black/80 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100">
         <span
-          className={`text-[#4A7C59] tracking-wider whitespace-nowrap font-geo text-xl`}
+          className={`text-[#4A7C59] tracking-wider whitespace-nowrap text-xl`}
         >
           Coming Soon
         </span>

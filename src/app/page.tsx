@@ -1,7 +1,5 @@
 "use client";
 
-// Remove unused imports to satisfy lint
-import AnimatedSmokeBackground from "@/components/AnimatedSmokeBackground";
 import BoosterProgramSection from "@/components/BoosterProgramSection";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
@@ -13,7 +11,6 @@ import Reveal from "@/components/Reveal";
 export default function Home() {
   return (
     <>
-      <AnimatedSmokeBackground />
       <main className="relative z-10">
         <div>
           <Reveal delayMs={0}>

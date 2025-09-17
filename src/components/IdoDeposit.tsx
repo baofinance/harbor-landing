@@ -304,7 +304,7 @@ export default function IdoDeposit({
     return (
       <div className="bg-[#1A1A1A]/90 backdrop-blur-md border border-[#4A7C59]/20 p-8">
         <div className="text-center space-y-6">
-          <div className="w-16 h-16 mx-auto bg-[#4A7C59]/20 flex items-center justify-center font-geo">
+          <div className="w-16 h-16 mx-auto bg-[#4A7C59]/20 flex items-center justify-center">
             <svg
               className="w-8 h-8 text-[#4A7C59]"
               fill="none"
@@ -320,17 +320,17 @@ export default function IdoDeposit({
             </svg>
           </div>
           <div>
-            <h3 className={`text-2xl font-normal mb-2 text-[#4A7C59] font-geo`}>
+            <h3 className={`text-2xl font-normal mb-2 text-[#4A7C59]`}>
               CONNECT WALLET
             </h3>
             <p className="text-[#F5F5F5]/80 mb-6">
-              Connect your Web3 wallet to participate in the Zhenglong IDO
+              Connect your Web3 wallet to participate in the Harbor IDO
             </p>
           </div>
           <button
             onClick={connectWallet}
             disabled={isConnecting}
-            className={`py-4 px-8 bg-[#4A7C59] hover:bg-[#5A8B69] disabled:bg-[#4A7C59]/50 text-white font-normal tracking-wider uppercase transition-colors font-geo ${
+            className={`py-4 px-8 bg-[#4A7C59] hover:bg-[#5A8B69] disabled:bg-[#4A7C59]/50 text-white font-normal tracking-wider uppercase transition-colors ${
               isConnecting ? "animate-pulse" : ""
             }`}
           >
@@ -345,7 +345,7 @@ export default function IdoDeposit({
     <div className="bg-[#1A1A1A]/90 backdrop-blur-md border border-[#4A7C59]/20 p-8">
       <div className="space-y-6">
         <div className="text-center">
-          <h3 className={`text-3xl font-normal text-[#4A7C59] font-geo`}>
+          <h3 className={`text-3xl font-normal text-[#4A7C59]`}>
             DEPOSIT USDC
           </h3>
           <div className="mt-2 flex items-center justify-center gap-3 text-sm">
@@ -353,7 +353,7 @@ export default function IdoDeposit({
               Connected: {walletAddress.slice(0, 6)}...{walletAddress.slice(-4)}
             </span>
             <span
-              className={`inline-flex items-center gap-1 px-3 py-1 text-xs font-normal tracking-wider uppercase border font-geo ${
+              className={`inline-flex items-center gap-1 px-3 py-1 text-xs font-normal tracking-wider uppercase border ${
                 isEligible
                   ? "text-[#4A7C59] border-[#4A7C59]/30 bg-[#4A7C59]/10"
                   : "text-red-400 border-red-400/30 bg-red-400/10"
@@ -386,7 +386,7 @@ export default function IdoDeposit({
                   </span>
                   <button
                     onClick={() => setDepositAmount(usdcBalance)}
-                    className="text-[#4A7C59] hover:text-[#5A8B69] transition-colors font-geo"
+                    className="text-[#4A7C59] hover:text-[#5A8B69] transition-colors"
                   >
                     Max
                   </button>
@@ -430,7 +430,7 @@ export default function IdoDeposit({
               {!hasEnoughBalance ? (
                 <button
                   disabled={true}
-                  className={`w-full py-4 px-6 bg-red-600/50 text-white font-normal tracking-wider uppercase transition-colors cursor-not-allowed font-geo`}
+                  className={`w-full py-4 px-6 bg-red-600/50 text-white font-normal tracking-wider uppercase transition-colors cursor-not-allowed`}
                 >
                   Insufficient Balance
                 </button>
@@ -438,7 +438,7 @@ export default function IdoDeposit({
                 <button
                   onClick={handleApprove}
                   disabled={isApproving || parsedAmount <= 0}
-                  className={`w-full py-4 px-6 bg-[#4A7C59] hover:bg-[#5A8B69] disabled:bg-[#4A7C59]/50 text-white font-normal tracking-wider uppercase transition-colors font-geo`}
+                  className={`w-full py-4 px-6 bg-[#4A7C59] hover:bg-[#5A8B69] disabled:bg-[#4A7C59]/50 text-white font-normal tracking-wider uppercase transition-colors`}
                 >
                   {isApproving ? "Approving..." : "Approve USDC"}
                 </button>
@@ -446,7 +446,7 @@ export default function IdoDeposit({
                 <button
                   onClick={handleDeposit}
                   disabled={isApproving || parsedAmount <= 0 || !isEligible}
-                  className={`w-full py-4 px-6 bg-[#4A7C59] hover:bg-[#5A8B69] disabled:bg-[#4A7C59]/50 text-white font-normal tracking-wider uppercase transition-colors font-geo`}
+                  className={`w-full py-4 px-6 bg-[#4A7C59] hover:bg-[#5A8B69] disabled:bg-[#4A7C59]/50 text-white font-normal tracking-wider uppercase transition-colors`}
                 >
                   {isApproving ? "Depositing..." : "Deposit USDC"}
                 </button>
@@ -455,7 +455,7 @@ export default function IdoDeposit({
           </>
         ) : (
           <div className="bg-[#4A7C59]/10 border border-[#4A7C59]/30 p-6 text-center">
-            <p className="text-[#4A7C59] text-sm font-semibold mb-2 font-geo">
+            <p className="text-[#4A7C59] text-sm font-semibold mb-2">
               You need a veBAO or veFXN position to be eligible for the
               community sale.
             </p>

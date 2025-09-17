@@ -33,7 +33,7 @@ const FlipCard = ({
         {/* Front Side */}
         <div className="absolute inset-0 w-full h-full bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59] shadow-[0_0_6px_0_rgba(74,124,89,0.4)] group-hover:shadow-[0_0_12px_2px_rgba(74,124,89,0.6)] transition-all duration-300 flex items-center justify-center [backface-visibility:hidden]">
           <span
-            className={`text-[#4A7C59] text-lg font-normal tracking-wider break-words text-center font-geo`}
+            className={`text-[#4A7C59] text-lg font-normal tracking-wider break-words text-center`}
           >
             {(() => {
               if (token.startsWith("zhe")) {

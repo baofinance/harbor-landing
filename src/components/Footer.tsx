@@ -7,8 +7,8 @@ import { Twitter } from "lucide-react";
 
 const Footer = () => {
   const protocolLinks = [
-    { name: "Docs", url: "https://docs.zhenglong.finance" },
-    { name: "Litepaper", url: "https://docs.zhenglong.finance/litepaper" },
+    { name: "Docs", url: "https://docs.harbor.finance" },
+    { name: "Litepaper", url: "https://docs.harbor.finance/litepaper" },
   ];
 
   const communityLinks = [
@@ -80,7 +80,7 @@ const Footer = () => {
   const socialLinks = [
     {
       name: "X",
-      url: "https://x.com/ZhenglongFi",
+      url: "https://x.com/HarborFi",
       icon: <Twitter className="w-5 h-5" />,
     },
     {
@@ -91,21 +91,10 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative z-10 border-t border-zinc-800/50 bg-zinc-950">
+    <footer className="relative z-10 border-t border-indigo-500/10 bg-zinc-950/80 backdrop-blur-sm">
       <div className="mx-auto max-w-[1300px] px-4 sm:px-10 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <Image
-                src="/logo.svg"
-                alt="Zhenglong Protocol"
-                width={32}
-                height={32}
-              />
-              <span className="text-2xl font-geo uppercase text-white">
-                Zhenglong
-              </span>
-            </Link>
             <p className="text-sm text-white/60 max-w-xs">
               A decentralized protocol for creating synthetic assets pegged to
               any real-world data feed.
@@ -124,7 +113,7 @@ const Footer = () => {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-white/60 hover:text-white transition-colors"
+                      className="text-sm text-white/70 hover:text-indigo-300 transition-colors"
                     >
                       {link.name}
                     </a>
@@ -141,7 +130,7 @@ const Footer = () => {
                   <li key={link.name}>
                     <Link
                       href={link.url}
-                      className="text-sm text-white/60 hover:text-white transition-colors"
+                      className="text-sm text-white/70 hover:text-indigo-300 transition-colors"
                     >
                       {link.name}
                     </Link>
@@ -160,7 +149,7 @@ const Footer = () => {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white/60 hover:text-white transition-colors"
+                      className="text-white/60 hover:text-indigo-300 transition-colors"
                     >
                       {link.icon}
                     </a>
@@ -187,7 +176,7 @@ const Footer = () => {
                           className="flex flex-col items-center gap-1 p-1 group"
                           aria-label={`${person.name} on X`}
                         >
-                          <div className="relative h-8 w-8 shrink-0 overflow-hidden ring-1 ring-white/10 group-hover:ring-white/20">
+                          <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-lg ring-1 ring-indigo-500/20 group-hover:ring-indigo-400/30">
                             <Image
                               src={person.avatarUrl || ""}
                               alt={person.name}
@@ -196,7 +185,7 @@ const Footer = () => {
                               className="object-cover"
                             />
                           </div>
-                          <span className="mt-1 text-[10px] leading-none text-white/60 group-hover:text-white/80 max-w-[4rem] truncate text-center">
+                          <span className="mt-1 text-[10px] leading-none text-white/60 group-hover:text-indigo-300 max-w-[4rem] truncate text-center">
                             {person.name}
                           </span>
                         </a>
@@ -205,7 +194,7 @@ const Footer = () => {
                           className="flex flex-col items-center gap-1 p-1 group"
                           aria-label={person.name}
                         >
-                          <div className="relative h-8 w-8 shrink-0 overflow-hidden ring-1 ring-white/10 group-hover:ring-white/20">
+                          <div className="relative h-8 w-8 shrink-0 rounded-lg overflow-hidden ring-1 ring-indigo-500/20 group-hover:ring-indigo-400/30">
                             <Image
                               src={person.avatarUrl || ""}
                               alt={person.name}
@@ -214,7 +203,7 @@ const Footer = () => {
                               className="object-cover"
                             />
                           </div>
-                          <span className="mt-1 text-[10px] leading-none text-white/60 group-hover:text-white/80 max-w-[4rem] truncate text-center">
+                          <span className="mt-1 text-[10px] leading-none text-white/60 group-hover:text-indigo-300 max-w-[4rem] truncate text-center">
                             {person.name}
                           </span>
                         </div>
@@ -226,9 +215,9 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="mt-12 pt-8 border-t border-zinc-800/50 text-center text-xs text-white/40">
+        <div className="mt-12 pt-8 border-t border-indigo-500/10 text-center text-xs text-white/50">
           <p>
-            &copy; {new Date().getFullYear()} Zhenglong Protocol. All rights
+            &copy; {new Date().getFullYear()} Harbor Protocol. All rights
             reserved.
           </p>
         </div>

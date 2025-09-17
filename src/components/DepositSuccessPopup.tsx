@@ -96,15 +96,11 @@ export default function DepositSuccessPopup({
               </svg>
             </div>
 
-            <h2
-              className={`text-2xl font-bold text-[#4A7C59] mb-2`}
-            >
+            <h2 className={`text-2xl font-bold text-[#4A7C59] mb-2`}>
               DEPOSIT SUCCESSFUL!
             </h2>
 
-            <div
-              className={`text-[#4A7C59] font-bold text-lg mb-4`}
-            >
+            <div className={`text-[#4A7C59] font-bold text-lg mb-4`}>
               <span className="inline-block animate-pulse">💚</span> Thank you
               for your support!{" "}
               <span className="inline-block animate-pulse">💚</span>
@@ -113,9 +109,7 @@ export default function DepositSuccessPopup({
 
           {/* Purchase Summary */}
           <div className="bg-[#4A7C59]/10 border border-[#4A7C59]/30 p-4 space-y-3">
-            <h3
-              className={`text-lg font-bold text-[#F5F5F5] mb-3`}
-            >
+            <h3 className={`text-lg font-bold text-[#F5F5F5] mb-3`}>
               PURCHASE SUMMARY
             </h3>
 
@@ -159,7 +153,7 @@ export default function DepositSuccessPopup({
           <div className="text-center">
             <div className="mb-4">
               <p className="text-sm text-[#F5F5F5]/80 mb-3">
-                Share your participation in the Zhenglong IDO!
+                Share your participation in the Harbor IDO!
               </p>
               <ShareButton />
             </div>

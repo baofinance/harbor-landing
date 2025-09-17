@@ -42,7 +42,7 @@ export const TransactionProvider: React.FC<TransactionProviderProps> = ({
   // Load transactions from localStorage on mount
   useEffect(() => {
     try {
-      const savedTx = localStorage.getItem("zhenglong_transactions");
+      const savedTx = localStorage.getItem("harbor_transactions");
       if (savedTx) {
         const parsed = JSON.parse(savedTx);
         setTransactions(parsed);
@@ -56,10 +56,7 @@ export const TransactionProvider: React.FC<TransactionProviderProps> = ({
   // Save transactions to localStorage whenever they change
   useEffect(() => {
     if (loaded) {
-      localStorage.setItem(
-        "zhenglong_transactions",
-        JSON.stringify(transactions)
-      );
+      localStorage.setItem("harbor_transactions", JSON.stringify(transactions));
     }
   }, [transactions, loaded]);
 

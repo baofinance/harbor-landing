@@ -1,8 +1,8 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
+import React from "react";
+
+// Types matching previous data structure
 type Card = {
   chip?: string;
   title: string;
@@ -16,6 +16,7 @@ type Slide = {
   cards: Card[];
 };
 
+// Previous slides data, kept but re-styled to blue accents
 const slides: Slide[] = [
   {
     title: "Engineered Tokens",
@@ -75,269 +76,69 @@ const slides: Slide[] = [
   },
 ];
 
-const slideVariants = {
-  enter: ({ direction }: { direction: number }) => ({
-    x: direction > 0 ? "100%" : "-100%",
-    opacity: 0,
-    filter: "blur(4px)",
-  }),
-  center: {
-    zIndex: 1,
-    x: 0,
-    opacity: 1,
-    filter: "blur(0px)",
-  },
-  exit: ({ direction }: { direction: number }) => ({
-    zIndex: 0,
-    x: direction < 0 ? "100%" : "-100%",
-    opacity: 0,
-    filter: "blur(4px)",
-  }),
-};
-
-// Swipe helpers for drag gesture
-const swipeConfidenceThreshold = 2000;
-const swipePower = (offset: number, velocity: number) =>
-  Math.abs(offset) * velocity;
-
 export default function TokenCarousel() {
-  const [[page, direction], setPage] = useState([0, 0]);
-  const [isMobile, setIsMobile] = useState(false);
-  const isDraggingRef = React.useRef(false);
-  const [containerHeight, setContainerHeight] = useState<number | "auto">(
-    "auto"
-  );
-  const contentRef = React.useRef<HTMLDivElement | null>(null);
-
-  const paginate = (newDirection: number) => {
-    setPage([
-      (page + newDirection + slides.length) % slides.length,
-      newDirection,
-    ]);
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!isDraggingRef.current) paginate(1);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [page]);
-
-  useEffect(() => {
-    const onResize = () => setIsMobile(window.innerWidth < 768);
-    onResize();
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
-
-  useEffect(() => {
-    if (!isMobile) return;
-    const el = contentRef.current;
-    if (!el) return;
-    const update = () => setContainerHeight(el.offsetHeight);
-    update();
-    const ro = new ResizeObserver(update);
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, [page, isMobile]);
-
-  const activeIndex = page;
-
   return (
-    <section className="relative z-10 overflow-x-hidden">
-      <div className="mx-auto max-w-[1300px] px-6 sm:px-12 py-32">
-        {isMobile ? (
-          <motion.div
-            className="relative"
-            initial={false}
-            animate={{ height: containerHeight || undefined }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-            style={{ overflow: "hidden" }}
-          >
-            <AnimatePresence initial={false} mode="wait">
-              <motion.div
-                key={page}
-                custom={{ direction }}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{
-                  x: { type: "tween", ease: "easeOut", duration: 0.26 },
-                  opacity: { duration: 0.14 },
-                }}
-                className="relative w-full"
-                drag="x"
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.18}
-                dragDirectionLock
-                dragMomentum={false}
-                onDragStart={() => {
-                  isDraggingRef.current = true;
-                }}
-                onDragEnd={(e, { offset, velocity }) => {
-                  isDraggingRef.current = false;
-                  const swipe = swipePower(offset.x, velocity.x);
-                  if (swipe < -swipeConfidenceThreshold) {
-                    paginate(1);
-                  } else if (swipe > swipeConfidenceThreshold) {
-                    paginate(-1);
-                  }
-                }}
-                style={{ touchAction: "pan-y" }}
-              >
-                <div ref={contentRef} className="px-4 py-6">
-                  <SlideContent slide={slides[activeIndex]} />
+    <section className="relative z-10">
+      <div className="mx-auto max-w-[1300px] px-6 sm:px-12 py-24">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
+          {slides.map((slide, slideIndex) => (
+            <React.Fragment key={slideIndex}>
+              {/* Section header tile */}
+              <div className="md:col-span-12">
+                <div className="px-2 py-2">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl uppercase tracking-wide font-semibold text-indigo-300 drop-shadow-[0_0_12px_rgba(99,102,241,0.35)] text-center">
+                    {slide.title}
+                  </h2>
+                  <div className="mx-auto mt-2 h-px w-20 bg-gradient-to-r from-transparent via-indigo-400/40 to-transparent" />
+                  <p className="mt-3 sm:mt-4 text-white/80 text-sm sm:text-base max-w-[72ch] mx-auto text-center">
+                    {slide.description}
+                  </p>
                 </div>
-              </motion.div>
-            </AnimatePresence>
-          </motion.div>
-        ) : (
-          <div className="relative h-[560px] md:h-[620px] overflow-hidden">
-            <AnimatePresence initial={false} mode="wait">
-              <motion.div
-                key={page}
-                custom={{ direction }}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{
-                  x: { type: "spring", stiffness: 300, damping: 32 },
-                  opacity: { duration: 0.2 },
-                }}
-                className="absolute inset-0 w-full h-full"
-              >
-                <motion.div
-                  className="h-full w-full px-6 py-6 overflow-y-auto overscroll-contain"
-                  drag="x"
-                  dragConstraints={{ left: 0, right: 0 }}
-                  dragElastic={0.18}
-                  dragDirectionLock
-                  dragMomentum={false}
-                  onDragStart={() => {
-                    isDraggingRef.current = true;
-                  }}
-                  onDragEnd={(e, { offset, velocity }) => {
-                    isDraggingRef.current = false;
-                    const swipe = swipePower(offset.x, velocity.x);
-                    if (swipe < -swipeConfidenceThreshold) {
-                      paginate(1);
-                    } else if (swipe > swipeConfidenceThreshold) {
-                      paginate(-1);
-                    }
-                  }}
-                  style={{ touchAction: "pan-y" }}
-                >
-                  <SlideContent slide={slides[activeIndex]} />
-                </motion.div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        )}
+              </div>
 
-        <div
-          className="relative z-30 flex items-center justify-center gap-4 mt-10"
-          style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
-        >
-          <button
-            onClick={() => paginate(-1)}
-            className="w-10 h-10 flex items-center justify-center bg-zinc-800/50 hover:bg-zinc-700/50 text-white transition-colors"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <div className="flex items-center gap-2">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setPage([index, index > page ? 1 : -1])}
-                className={`w-3 h-3 transition-colors ${
-                  index === activeIndex
-                    ? "bg-emerald-400"
-                    : "bg-zinc-600 hover:bg-zinc-500"
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-          <button
-            onClick={() => paginate(1)}
-            className="w-10 h-10 flex items-center justify-center bg-zinc-800/50 hover:bg-zinc-700/50 text-white transition-colors"
-            aria-label="Next slide"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
+              {/* Cards for this section */}
+              {slide.cards.map((card, cardIndex) => (
+                <div key={cardIndex} className="md:col-span-6">
+                  <BentoCard card={card} />
+                </div>
+              ))}
+            </React.Fragment>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-function SlideContent({ slide }: { slide: Slide }) {
+function BentoCard({ card }: { card: Card }) {
   return (
-    <div className="pb-8 md:pb-0">
-      <div className="relative mb-8 md:mb-12 text-center">
-        <h2 className="text-3xl md:text-4xl text-white font-geo uppercase font-medium">
-          {slide.title}
-        </h2>
-        <p className="mt-4 text-white/70 max-w-[72ch] mx-auto">
-          {slide.description}
-        </p>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-        {slide.cards.map((card, cardIndex) => (
-          <Card key={cardIndex} card={card} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function Card({ card }: { card: Card }) {
-  return (
-    <div className="relative group h-full">
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600/50 to-teal-500/50 blur-lg opacity-20 group-hover:opacity-40 transition duration-300" />
-      <div className="relative bg-zinc-900/50 outline outline-1 outline-emerald-500/20 p-8 hover:outline-emerald-500/40 transition-all duration-300 h-full flex flex-col">
+    <div className="relative group h-full hover-lift">
+      {/* blue glow backdrop */}
+      <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-indigo-400/25 via-sky-300/15 to-indigo-400/25 blur-lg opacity-10 group-hover:opacity-25 transition duration-300" />
+      <div className="relative bg-zinc-900/30 backdrop-blur-lg border border-indigo-500/20 rounded-2xl p-6 sm:p-8 transition-all duration-300 h-full flex flex-col">
         {card.chip && (
           <div className="flex items-center gap-4 mb-4">
             <Chip>{card.chip}</Chip>
-            <h3 className="text-2xl font-geo uppercase font-bold text-white">
+            <h3 className="text-xl sm:text-2xl uppercase font-bold text-white">
               {card.title}
             </h3>
           </div>
         )}
         {!card.chip && (
-          <h3 className="text-2xl font-geo uppercase text-white font-bold mb-4">
+          <h3 className="text-xl sm:text-2xl uppercase text-white font-bold mb-4">
             {card.title}
           </h3>
         )}
-        <p className="text-white/70 flex-grow mb-6">{card.description}</p>
-        <ul className="space-y-3">
+        <p className="text-white/80 flex-grow mb-5 sm:mb-6">
+          {card.description}
+        </p>
+        <ul className="space-y-2.5 sm:space-y-3">
           {card.bullets.map((bullet, bulletIndex) => (
             <Bullet key={bulletIndex} text={bullet} />
           ))}
         </ul>
-        <div className="mt-auto pt-6">
-          <a
-            href="#"
-            className="text-sm text-emerald-300/80 hover:text-emerald-300 transition-colors inline-flex items-center gap-2"
-          >
-            Learn More
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </a>
+        <div className="mt-auto pt-5 sm:pt-6 text-sm text-indigo-200/80">
+          &nbsp;
         </div>
       </div>
     </div>
@@ -346,7 +147,7 @@ function Card({ card }: { card: Card }) {
 
 function Chip({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center uppercase tracking-wider text-xs text-emerald-300/80 outline outline-1 outline-emerald-500/30 bg-emerald-500/10 px-2 py-1">
+    <span className="inline-flex items-center uppercase tracking-wider text-xs text-indigo-300 border border-indigo-500/30 bg-indigo-500/10 px-2.5 py-1 rounded-full">
       {children}
     </span>
   );
@@ -354,20 +155,8 @@ function Chip({ children }: { children: React.ReactNode }) {
 
 function Bullet({ text }: { text: string }) {
   return (
-    <li className="flex items-start gap-3 text-white/80">
-      <svg
-        className="w-5 h-5 mt-0.5 text-emerald-400 flex-shrink-0"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M5 13l4 4L19 7"
-        />
-      </svg>
+    <li className="flex items-start gap-3 text-white/85">
+      <span className="mt-2 h-2 w-2 rounded-full bg-indigo-300/90 flex-shrink-0" />
       <span className="text-sm">{text}</span>
     </li>
   );

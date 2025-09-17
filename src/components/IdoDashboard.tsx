@@ -314,7 +314,7 @@ export default function IdoDashboard() {
           <div className="text-xs text-[#F5F5F5]/60 uppercase tracking-wider mb-1">
             Tokens Sold
           </div>
-          <div className={`text-[#4A7C59] text-2xl font-normal font-geo`}>
+          <div className={`text-[#4A7C59] text-2xl font-normal`}>
             {formatNumber(contractData.tokensSold)}
           </div>
           <div className="text-[#F5F5F5]/40 text-xs">
@@ -326,7 +326,7 @@ export default function IdoDashboard() {
           <div className="text-xs text-[#F5F5F5]/60 uppercase tracking-wider mb-1">
             Total Raised
           </div>
-          <div className={`text-[#4A7C59] text-2xl font-normal font-geo`}>
+          <div className={`text-[#4A7C59] text-2xl font-normal`}>
             ${formatNumber(contractData.totalRaised, 6)}
           </div>
           <div className="text-[#F5F5F5]/40 text-xs">USDC raised</div>
@@ -336,7 +336,7 @@ export default function IdoDashboard() {
           <div className="text-xs text-[#F5F5F5]/60 uppercase tracking-wider mb-1">
             Participants
           </div>
-          <div className={`text-[#4A7C59] text-2xl font-normal font-geo`}>
+          <div className={`text-[#4A7C59] text-2xl font-normal`}>
             {contractData.totalParticipants.toLocaleString()}
           </div>
           <div className="text-[#F5F5F5]/40 text-xs">unique wallets</div>
@@ -346,7 +346,7 @@ export default function IdoDashboard() {
           <div className="text-xs text-[#F5F5F5]/60 uppercase tracking-wider mb-1">
             Time Left
           </div>
-          <div className={`text-[#4A7C59] text-2xl font-normal font-geo`}>
+          <div className={`text-[#4A7C59] text-2xl font-normal`}>
             {isMounted ? timeRemaining : "Loading..."}
           </div>
           <div className="text-[#F5F5F5]/40 text-xs">until sale ends</div>
@@ -371,7 +371,7 @@ export default function IdoDashboard() {
           <div className="space-y-1 text-sm">
             <div className="text-[#F5F5F5]/80 text-xs mb-2">
               Eligible tokens:{" "}
-              <span className="text-[#4A7C59] font-semibold font-geo">
+              <span className="text-[#4A7C59] font-semibold">
                 veBAO, veFXN, and liquid lockers
               </span>
             </div>
@@ -383,13 +383,13 @@ export default function IdoDashboard() {
             </div>
             <div className="flex justify-between">
               <span className="text-[#F5F5F5]/60">1 veBAO =</span>
-              <span className="text-[#4A7C59] font-semibold font-mono text-xs font-geo">
+              <span className="text-[#4A7C59] font-semibold font-mono text-xs">
                 0.25 STEAM
               </span>
             </div>
             <div className="flex justify-between">
               <span className="text-[#F5F5F5]/60">1 veFXN =</span>
-              <span className="text-[#4A7C59] font-semibold font-mono text-xs font-geo">
+              <span className="text-[#4A7C59] font-semibold font-mono text-xs">
                 1000 STEAM
               </span>
             </div>
@@ -400,7 +400,7 @@ export default function IdoDashboard() {
                   href="https://discord.com/invite/BW3P62vJXT"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#4A7C59] hover:text-[#5A8B69] underline transition-colors font-geo"
+                  className="text-[#4A7C59] hover:text-[#5A8B69] underline transition-colors"
                 >
                   Reach out on Discord
                 </a>

@@ -7,10 +7,10 @@ export default function ShareButton() {
   const url =
     typeof window !== "undefined"
       ? window.location.href
-      : "https://zhenglong.finance/ido";
+      : "https://harbor.finance/ido";
 
-  const SHARE_MSG = `I'm now a Chief Steam Operator at Zhenglong! 🥢🧧 The home of extra tasty yield & leverage dishes. Get some STEAM!`;
-  const HASHTAGS = "Zhenglong,IDO,DeFi";
+  const SHARE_MSG = `I'm now a Chief Steam Operator at Harbor! 🥢🧧 The home of extra tasty yield & leverage dishes. Get some STEAM!`;
+  const HASHTAGS = "Harbor,IDO,DeFi";
 
   // Close popover on outside click or Escape
   useEffect(() => {

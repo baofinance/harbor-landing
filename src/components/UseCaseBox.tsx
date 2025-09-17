@@ -11,9 +11,7 @@ const UseCaseBox: React.FC<UseCaseBoxProps> = ({ title, description }) => {
       <div className="flip-card-inner w-full h-full">
         {/* Front of card */}
         <div className="flip-card-front bg-[#1A1A1A]/80 backdrop-blur-sm border border-[#4A7C59]/50 p-6 flex flex-col items-center justify-center text-center hover:border-[#4A7C59] hover:shadow-[0_0_20px_rgba(74,124,89,0.3)]">
-          <h3 className="text-xl font-geo tracking-wider text-[#F5F5F5]">
-            {title}
-          </h3>
+          <h3 className="text-xl tracking-wider text-[#F5F5F5]">{title}</h3>
         </div>
 
         {/* Back of card */}

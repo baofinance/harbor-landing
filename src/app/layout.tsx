@@ -5,12 +5,9 @@ import NotificationWrapper from "@/components/NotificationWrapper";
 import { Analytics } from "@vercel/analytics/next";
 import Navigation from "@/components/Navigation";
 import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
-import { geo, spaceGrotesk } from "@/utils/fonts";
-import AnimatedSmokeBackground from "@/components/AnimatedSmokeBackground";
 
-const siteUrl = "https://zhenglong.finance";
-const title = "Zhenglong Protocol";
+const siteUrl = "https://harbor.finance";
+const title = "Harbor Protocol";
 const description =
   "A decentralized protocol for creating synthetic assets pegged to any real-world data feed.";
 
@@ -19,7 +16,7 @@ export const metadata: Metadata = {
   title,
   description,
   keywords: [
-    "Zhenglong",
+    "Harbor",
     "DeFi",
     "synthetic assets",
     "yield",
@@ -28,7 +25,7 @@ export const metadata: Metadata = {
     "blockchain",
     "STEAM token",
   ],
-  authors: [{ name: "Zhenglong Protocol" }],
+  authors: [{ name: "Harbor Protocol" }],
   icons: {
     icon: "/logo.svg",
     shortcut: "/logo.svg",
@@ -53,8 +50,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    creator: "@ZhenglongFi",
-    site: "@ZhenglongFi",
+    creator: "@HarborFi",
+    site: "@HarborFi",
     images: [`${siteUrl}/demo.png`],
   },
   alternates: {
@@ -68,13 +65,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geo.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en">
       <body
-        className={`antialiased font-sans bg-zinc-950 text-zinc-100 ${GeistSans.variable} ${GeistMono.variable} relative`}
+        className={`antialiased font-sans bg-zinc-950 text-zinc-100 ${GeistSans.variable} relative scroll-smooth`}
       >
         <TransactionProvider>
           <Navigation />
-          <AnimatedSmokeBackground />
           <NotificationWrapper />
           {children}
           <Analytics />
