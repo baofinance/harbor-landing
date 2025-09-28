@@ -26,10 +26,10 @@ const SecuritySection = () => {
       <div className="mx-auto max-w-[1300px] px-4 sm:px-10 py-32">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl uppercase tracking-wide font-semibold text-indigo-300 drop-shadow-[0_0_12px_rgba(99,102,241,0.35)]">
+            <h2 className="text-3xl md:text-4xl uppercase tracking-wide font-semibold text-white">
               Institutional-Grade Security
             </h2>
-            <div className="mx-auto md:mx-0 mt-2 h-px w-20 bg-gradient-to-r from-transparent via-indigo-400/40 to-transparent" />
+            <div className="mx-auto md:mx-0 mt-2 h-px w-20 bg-gradient-to-r from-transparent via-[#00df82]/40 to-transparent" />
             <p className="mt-3 text-white/80 max-w-[60ch] mx-auto md:mx-0">
               Our protocol is built on a foundation of rigorous, bank-grade
               security standards and comprehensive testing to ensure your assets
@@ -42,16 +42,15 @@ const SecuritySection = () => {
                 key={feature.title}
                 className="relative group h-full hover-lift"
               >
-                <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-indigo-400/25 via-sky-300/15 to-indigo-400/25 blur-lg opacity-10 group-hover:opacity-25 transition duration-300" />
-                <div className="relative bg-zinc-900/30 backdrop-blur-lg border border-indigo-500/20 rounded-2xl p-6 sm:p-7 transition-all duration-300 h-full flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center ring-1 ring-indigo-500/30 flex-shrink-0">
-                    <feature.icon className="w-6 h-6 text-indigo-300" />
+                <div className="relative bg-zinc-900/40 border border-white/10 rounded-2xl p-6 sm:p-7 transition-all duration-300 h-full flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-zinc-800/50 flex items-center justify-center ring-1 ring-white/10 flex-shrink-0">
+                    <feature.icon className="w-6 h-6 text-white/90" />
                   </div>
                   <div>
                     <h3 className="text-md font-bold text-white tracking-wide">
                       {feature.title}
                     </h3>
-                    <p className="text-sm text-white/75 mt-1">{feature.desc}</p>
+                    <p className="text-sm text-white/70 mt-1">{feature.desc}</p>
                   </div>
                 </div>
               </div>

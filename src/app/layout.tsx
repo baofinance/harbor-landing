@@ -5,6 +5,7 @@ import NotificationWrapper from "@/components/NotificationWrapper";
 import { Analytics } from "@vercel/analytics/next";
 import Navigation from "@/components/Navigation";
 import { GeistSans } from "geist/font/sans";
+import FadeContent from "@/components/FadeContent";
 
 const siteUrl = "https://harbor.finance";
 const title = "Harbor Protocol";
@@ -72,7 +73,14 @@ export default function RootLayout({
         <TransactionProvider>
           <Navigation />
           <NotificationWrapper />
-          {children}
+          <FadeContent
+            blur={false}
+            duration={500}
+            easing="ease-out"
+            initialOpacity={0}
+          >
+            {children}
+          </FadeContent>
           <Analytics />
         </TransactionProvider>
       </body>

@@ -91,10 +91,22 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative z-10 border-t border-indigo-500/10 bg-zinc-950/80 backdrop-blur-sm">
+    <footer className="relative z-10 border-t border-[#00df82]/10 bg-zinc-950/80 backdrop-blur-sm">
       <div className="mx-auto max-w-[1300px] px-4 sm:px-10 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
+            <Link href="/" className="inline-flex justify-start mb-3">
+              <Image
+                src="/logo.png"
+                alt="Harbor"
+                width={28}
+                height={28}
+                className="h-6 w-6 invert opacity-60 mt-1 object-contain"
+              />
+              <span className="ml-1 text-2xl opacity-60 font-medium text-white/90">
+                Harbor
+              </span>
+            </Link>
             <p className="text-sm text-white/60 max-w-xs">
               A decentralized protocol for creating synthetic assets pegged to
               any real-world data feed.
@@ -113,7 +125,7 @@ const Footer = () => {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-white/70 hover:text-indigo-300 transition-colors"
+                      className="text-sm text-white/70 hover:text-[#00df82] transition-colors"
                     >
                       {link.name}
                     </a>
@@ -130,7 +142,7 @@ const Footer = () => {
                   <li key={link.name}>
                     <Link
                       href={link.url}
-                      className="text-sm text-white/70 hover:text-indigo-300 transition-colors"
+                      className="text-sm text-white/70 hover:text-[#00df82] transition-colors"
                     >
                       {link.name}
                     </Link>
@@ -149,7 +161,7 @@ const Footer = () => {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white/60 hover:text-indigo-300 transition-colors"
+                      className="text-white/60 hover:text-[#00df82] transition-colors"
                     >
                       {link.icon}
                     </a>
@@ -176,7 +188,7 @@ const Footer = () => {
                           className="flex flex-col items-center gap-1 p-1 group"
                           aria-label={`${person.name} on X`}
                         >
-                          <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-lg ring-1 ring-indigo-500/20 group-hover:ring-indigo-400/30">
+                          <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded ring-1 ring-[#00df82]/20 group-hover:ring-[#00df82]/30">
                             <Image
                               src={person.avatarUrl || ""}
                               alt={person.name}
@@ -185,7 +197,7 @@ const Footer = () => {
                               className="object-cover"
                             />
                           </div>
-                          <span className="mt-1 text-[10px] leading-none text-white/60 group-hover:text-indigo-300 max-w-[4rem] truncate text-center">
+                          <span className="mt-1 text-[10px] leading-none text-white/60 group-hover:text-[#00df82] max-w-[4rem] truncate text-center">
                             {person.name}
                           </span>
                         </a>
@@ -194,7 +206,7 @@ const Footer = () => {
                           className="flex flex-col items-center gap-1 p-1 group"
                           aria-label={person.name}
                         >
-                          <div className="relative h-8 w-8 shrink-0 rounded-lg overflow-hidden ring-1 ring-indigo-500/20 group-hover:ring-indigo-400/30">
+                          <div className="relative h-8 w-8 shrink-0 rounded overflow-hidden ring-1 ring-[#00df82]/20 group-hover:ring-[#00df82]/30">
                             <Image
                               src={person.avatarUrl || ""}
                               alt={person.name}
@@ -203,7 +215,7 @@ const Footer = () => {
                               className="object-cover"
                             />
                           </div>
-                          <span className="mt-1 text-[10px] leading-none text-white/60 group-hover:text-indigo-300 max-w-[4rem] truncate text-center">
+                          <span className="mt-1 text-[10px] leading-none text-white/60 group-hover:text-[#00df82] max-w-[4rem] truncate text-center">
                             {person.name}
                           </span>
                         </div>
@@ -215,7 +227,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="mt-12 pt-8 border-t border-indigo-500/10 text-center text-xs text-white/50">
+        <div className="mt-12 pt-8 border-t border-[#00df82]/10 text-center text-xs text-white/50">
           <p>
             &copy; {new Date().getFullYear()} Harbor Protocol. All rights
             reserved.
