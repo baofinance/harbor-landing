@@ -28,9 +28,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Harbor Protocol" }],
   icons: {
-    icon: "/logo.svg",
-    shortcut: "/logo.svg",
-    apple: "/logo.svg",
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
   openGraph: {
     title,

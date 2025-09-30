@@ -101,7 +101,7 @@ const Footer = () => {
                 alt="Harbor"
                 width={28}
                 height={28}
-                className="h-6 w-6 invert opacity-60 mt-1 object-contain"
+                className="h-6 w-6 opacity-60 mt-1 object-contain"
               />
               <span className="ml-1 text-2xl opacity-60 font-medium text-white/90">
                 Harbor

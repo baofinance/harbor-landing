@@ -28,33 +28,29 @@ export default function Navigation() {
 
   return (
     <>
-      {/* Top-left stamped logo */}
-      <Link
-        href="/"
-        className="fixed top-4 left-4 z-50 inline-flex justify-center"
-      >
-        <Image
-          src="/logo.png"
-          alt="Harbor"
-          width={28}
-          height={28}
-          className="h-6 w-6 invert opacity-60 mt-1 object-contain"
-        />
-        <span className="ml-2 text-2xl opacity-60 font-medium text-white/90">
-          Harbor
-        </span>
-      </Link>
       {/* Centered glassmorphic pill nav */}
       <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50">
         <div
           className={clsx(
-            "flex items-center gap-3 md:gap-6 rounded-full border px-2 md:px-3 py-2 backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.30)]",
+            "flex items-center gap-3 md:gap-6 rounded-full border px-2 md:px-3 py-2 backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.30)] w-[600px] max-w-[92vw] justify-between",
             "border-white/15",
             scrolled ? "bg-zinc-900/50" : "bg-white/5"
           )}
         >
+          <Link href="/" className="inline-flex justify-center items-center">
+            <Image
+              src="/logo.png"
+              alt="Harbor"
+              width={28}
+              height={28}
+              className="h-6 w-6 object-contain"
+            />
+            <span className="ml-2 text-xl font-medium text-white/90">
+              Harbor
+            </span>
+          </Link>
           {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-1 flex-1 justify-end">
             {navLinks.map((link) => {
               const isActive =
                 link.href === pathname ||
