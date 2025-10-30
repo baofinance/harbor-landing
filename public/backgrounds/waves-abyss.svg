@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+  <rect width="1440" height="900" fill="#0D1F36"/>
+  <path d="M0 600 C 240 560 480 640 720 600 C 960 560 1200 640 1440 600 L1440 900 L0 900 Z" fill="#1E4775" opacity="0.12"/>
+  <path d="M0 660 C 240 620 480 700 720 660 C 960 620 1200 700 1440 660 L1440 900 L0 900 Z" fill="#142E4A" opacity="0.62"/>
+  <path d="M0 740 C 240 700 480 780 720 740 C 960 700 1200 780 1440 740 L1440 900 L0 900 Z" fill="#0D1F36" opacity="0.90"/>
+  <path d="M0 620 C 240 580 480 660 720 620 C 960 580 1200 660 1440 620 L1440 900 L0 900 Z" fill="#B8EBD5" opacity="0.06"/>
+  <path d="M0 635 C 240 595 480 675 720 635 C 960 595 1200 675 1440 635 L1440 900 L0 900 Z" fill="#FFFFFF" opacity="0.03"/>
+</svg>
+
+
+
+
+
+
+

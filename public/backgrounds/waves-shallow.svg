@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="blueGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1E4775"/>
+      <stop offset="1" stop-color="#1E4775"/>
+    </linearGradient>
+  </defs>
+  <rect width="1440" height="900" fill="url(#blueGrad)"/>
+  <!-- additional soft blue underlayer to avoid any straight seam -->
+  <path d="M0 500 C 220 470 440 540 660 510 C 880 480 1100 560 1320 520 L1440 510 L1440 900 L0 900 Z" fill="#1E4775" opacity="0.20"/>
+  <!-- mint highlight wave (curved fill) -->
+  <path d="M0 640 C 180 600 360 700 540 660 C 720 620 900 700 1080 660 C 1230 628 1350 680 1440 660 L1440 900 L0 900 Z" fill="#B8EBD5" opacity="0.14"/>
+  <!-- extra mint band -->
+  <path d="M0 605 C 160 565 360 655 560 615 C 760 575 980 655 1160 615 C 1300 590 1380 625 1440 615 L1440 900 L0 900 Z" fill="#B8EBD5" opacity="0.10"/>
+  <!-- coral accent wave (curved fill) -->
+  <path d="M0 590 C 200 540 400 620 600 590 C 800 560 1000 630 1200 600 C 1320 585 1380 610 1440 600 L1440 900 L0 900 Z" fill="#FF8A7A" opacity="0.12"/>
+  <!-- extra coral band -->
+  <path d="M0 555 C 180 515 360 595 540 560 C 720 525 900 600 1080 565 C 1240 540 1360 575 1440 565 L1440 900 L0 900 Z" fill="#FF8A7A" opacity="0.08"/>
+  <!-- white crest (soft) -->
+  <path d="M0 560 C 180 520 360 600 540 560 C 720 520 900 600 1080 560 C 1230 528 1350 580 1440 560 L1440 900 L0 900 Z" fill="#FFFFFF" opacity="0.06"/>
+  <path d="M0 525 C 200 485 400 565 600 530 C 820 495 1040 565 1240 530 C 1340 512 1400 540 1440 530 L1440 900 L0 900 Z" fill="#FFFFFF" opacity="0.04"/>
+  <!-- deeper base wave -->
+  <path d="M0 720 C 220 680 440 760 660 720 C 880 680 1100 760 1320 720 L1440 720 L1440 900 L0 900 Z" fill="#1E4775" opacity="0.68"/>
+</svg>
+
+
+
+
+
+
+

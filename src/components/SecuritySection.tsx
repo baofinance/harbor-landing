@@ -1,6 +1,7 @@
 "use client";
 
 import { ShieldCheck, Landmark, Microscope } from "lucide-react";
+import { PortholeDecoration } from "./Porthole";
 
 const securityFeatures = [
   {
@@ -22,40 +23,44 @@ const securityFeatures = [
 
 const SecuritySection = () => {
   return (
-    <section className="relative z-10">
-      <div className="mx-auto max-w-[1300px] px-4 sm:px-10 py-32">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl uppercase tracking-wide font-semibold text-white">
-              Institutional-Grade Security
-            </h2>
-            <div className="mx-auto md:mx-0 mt-2 h-px w-20 bg-gradient-to-r from-transparent via-[#00df82]/40 to-transparent" />
-            <p className="mt-3 text-white/80 max-w-[60ch] mx-auto md:mx-0">
-              Our protocol is built on a foundation of rigorous, bank-grade
-              security standards and comprehensive testing to ensure your assets
-              are always protected.
-            </p>
+    <section className="relative z-10 bg-white px-3 pb-3 pt-0">
+      <div className="flex flex-col lg:flex-row gap-3 items-stretch">
+        {/* Left 50%: Institutional-Grade Security Content */}
+        <div className="flex-1 bg-[#E67A68] p-10 sm:p-12 lg:p-14">
+          <div className="flex flex-col gap-8 justify-center h-full">
+            <div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl tracking-wide font-bold text-white mb-6">
+                Institutional-Grade Security
+              </h2>
+              <p className="text-nautical-blue text-sm sm:text-base">
+                Our protocol is built on a foundation of rigorous, bank-grade
+                security standards and comprehensive testing to ensure your
+                assets are always protected.
+              </p>
+            </div>
           </div>
-          <div className="space-y-6">
-            {securityFeatures.map((feature) => (
-              <div
-                key={feature.title}
-                className="relative group h-full hover-lift"
-              >
-                <div className="relative bg-zinc-900/40 border border-white/10 rounded-2xl p-6 sm:p-7 transition-all duration-300 h-full flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-zinc-800/50 flex items-center justify-center ring-1 ring-white/10 flex-shrink-0">
-                    <feature.icon className="w-6 h-6 text-white/90" />
-                  </div>
-                  <div>
-                    <h3 className="text-md font-bold text-white tracking-wide">
-                      {feature.title}
-                    </h3>
-                    <p className="text-sm text-white/70 mt-1">{feature.desc}</p>
-                  </div>
+        </div>
+
+        {/* Right 50%: Security Features Stacked */}
+        <div className="flex-1 flex flex-col gap-3">
+          {securityFeatures.map((feature) => (
+            <div
+              key={feature.title}
+              className="bg-nautical-blue border-4 border-white p-10 sm:p-12 lg:p-14 flex-1"
+            >
+              <div className="flex items-start gap-4 h-full">
+                <div className="w-12 h-12 bg-[#FF8A7A] flex items-center justify-center flex-shrink-0">
+                  <feature.icon className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-white font-semibold text-lg mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-white/70 text-sm">{feature.desc}</p>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

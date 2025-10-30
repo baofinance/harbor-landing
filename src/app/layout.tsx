@@ -4,7 +4,7 @@ import { TransactionProvider } from "@/contexts/Transactions";
 import NotificationWrapper from "@/components/NotificationWrapper";
 import { Analytics } from "@vercel/analytics/next";
 import Navigation from "@/components/Navigation";
-import { GeistSans } from "geist/font/sans";
+import { chillax } from "@/utils/fonts";
 import FadeContent from "@/components/FadeContent";
 
 const siteUrl = "https://harbor.finance";
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Harbor Protocol" }],
   icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
-    apple: "/logo.png",
+    icon: "/WhiteHarborLogo.svg",
+    shortcut: "/WhiteHarborLogo.svg",
+    apple: "/WhiteHarborLogo.svg",
   },
   openGraph: {
     title,
@@ -68,7 +68,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased font-sans bg-zinc-950 text-zinc-100 ${GeistSans.variable} relative scroll-smooth`}
+        className={`antialiased font-sans bg-nautical-blue text-white ${chillax.variable} relative scroll-smooth`}
       >
         <TransactionProvider>
           <Navigation />

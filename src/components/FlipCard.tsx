@@ -36,19 +36,19 @@ const FlipCard = ({
             className={`text-[#4A7C59] text-lg font-normal tracking-wider break-words text-center`}
           >
             {(() => {
-              if (token.startsWith("zhe")) {
+              if (token.startsWith("anchor")) {
                 return (
                   <>
-                    <span className="lowercase">zhe</span>
-                    <span className="uppercase">{token.substring(3)}</span>
+                    <span className="lowercase">anchor</span>
+                    <span className="uppercase">{token.substring(6)}</span>
                   </>
                 );
               }
-              if (token.startsWith("steamed")) {
+              if (token.startsWith("sail")) {
                 return (
                   <>
-                    <span className="lowercase">steamed</span>
-                    <span className="uppercase">{token.substring(7)}</span>
+                    <span className="lowercase">sail</span>
+                    <span className="uppercase">{token.substring(4)}</span>
                   </>
                 );
               }

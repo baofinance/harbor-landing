@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { PenSquare, MessageSquare, Code, Users } from "lucide-react";
+import { PortholeDecoration } from "./Porthole";
 
 const boosterActivities = [
   {
@@ -27,56 +28,60 @@ const boosterActivities = [
 
 const BoosterProgramSection = () => {
   return (
-    <section className="relative z-10">
-      <div className="mx-auto max-w-[1300px] px-4 sm:px-10 py-32">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl uppercase tracking-wide font-semibold text-white">
-              Community Booster Program
-            </h2>
-            <div className="mx-auto md:mx-0 mt-2 h-px w-20 bg-gradient-to-r from-transparent via-[#00df82]/40 to-transparent" />
-            <p className="mt-3 text-white/80 max-w-[60ch] mx-auto md:mx-0">
-              Join our community of boosters and earn a share of the STEAM token
-              supply for meaningful contributions that help grow the Harbor
-              Protocol.
-            </p>
-            <div className="mt-8">
-              <p className="text-white/80">
-                <span className="block text-5xl tracking-wider text-white">
-                  3%
-                </span>
-                <span className="block mt-1 text-sm text-white/70">
-                  of total STEAM supply is reserved for community boosters.
-                </span>
+    <section className="relative z-10 bg-white px-3 pb-3 pt-0">
+      <div className="flex flex-col lg:flex-row gap-3 items-stretch">
+        {/* Left 2/3: Community Marketers Content */}
+        <div className="lg:w-2/3 bg-white p-10 sm:p-12 lg:p-14">
+          <div className="flex flex-col gap-8 justify-center h-full">
+            <div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl tracking-wide font-bold text-nautical-blue mb-6">
+                Join Our Community Marketers
+              </h2>
+              <p className="text-nautical-blue text-sm sm:text-base mb-4">
+                Earn a share of 3% of the token supply, distributed monthly
+                based on your contributions.
+              </p>
+              <p className="text-nautical-blue text-sm sm:text-base">
+                Simply start creating and post a link in the #booster channel on
+                discord
               </p>
             </div>
-            <div className="mt-8">
+
+            {/* Buttons */}
+            <div className="flex gap-4">
+              <button className="px-10 py-4 text-lg border-2 border-nautical-blue text-nautical-blue font-semibold rounded-full hover:bg-nautical-blue/10 transition-colors">
+                Learn more
+              </button>
               <Link
                 href="https://discord.com/invite/BW3P62vJXT"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative group inline-flex items-center justify-center px-8 py-3 text-sm font-medium uppercase text-white border border-white/15 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-white/25 transition-all duration-300 rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.30)]"
+                className="inline-block px-10 py-4 text-lg bg-nautical-blue text-white font-semibold rounded-full hover:bg-nautical-blue/90 transition-colors text-center"
               >
-                Become a Booster
+                Discord
               </Link>
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        </div>
+
+        {/* Right 1/3: Ways to Contribute */}
+        <div className="lg:w-1/3 bg-white p-10 sm:p-12 lg:p-14">
+          <h3 className="text-sm font-semibold text-nautical-blue/70 mb-4 uppercase tracking-wider">
+            Ways to Contribute
+          </h3>
+          <div className="space-y-3">
             {boosterActivities.map((activity) => (
-              <div
-                key={activity.title}
-                className="relative group h-full hover-lift"
-              >
-                <div className="relative border border-white/15 bg-white/5 backdrop-blur-md rounded-lg p-6 transition-all duration-300 h-full shadow-[0_8px_30px_rgba(0,0,0,0.30)] hover:bg-white/10 hover:border-white/25">
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="w-10 h-10 rounded-lg bg-zinc-800/50 flex items-center justify-center ring-1 ring-white/10">
-                      <activity.icon className="w-5 h-5 text-white/90" />
-                    </div>
-                    <h3 className="text-md font-bold text-white tracking-wide">
-                      {activity.title}
-                    </h3>
-                  </div>
-                  <p className="text-xs text-white/70">{activity.desc}</p>
+              <div key={activity.title} className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-[#FF8A7A] flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <activity.icon className="w-4 h-4 text-white" />
+                </div>
+                <div>
+                  <h4 className="text-nautical-blue font-semibold text-sm mb-1">
+                    {activity.title}
+                  </h4>
+                  <p className="text-nautical-blue/70 text-xs">
+                    {activity.desc}
+                  </p>
                 </div>
               </div>
             ))}

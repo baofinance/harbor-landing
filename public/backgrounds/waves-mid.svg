@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="blueGradMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1E4775"/>
+      <stop offset="1" stop-color="#142E4A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1440" height="900" fill="url(#blueGradMid)"/>
+  <path d="M0 520 C 200 490 400 560 600 540 C 800 520 1000 580 1200 550 L1440 540 L1440 900 L0 900 Z" fill="#1E4775" opacity="0.20"/>
+  <path d="M0 620 C 200 570 400 660 600 620 C 800 580 1000 660 1200 620 C 1300 600 1380 640 1440 620 L1440 900 L0 900 Z" fill="#B8EBD5" opacity="0.12"/>
+  <path d="M0 600 C 180 560 360 640 540 605 C 740 565 980 645 1160 610 C 1300 585 1380 625 1440 610 L1440 900 L0 900 Z" fill="#B8EBD5" opacity="0.09"/>
+  <path d="M0 590 C 220 550 440 630 660 600 C 880 570 1100 650 1320 610 L1440 600 L1440 900 L0 900 Z" fill="#FF8A7A" opacity="0.10"/>
+  <path d="M0 560 C 200 520 420 610 640 570 C 860 530 1080 620 1300 580 L1440 570 L1440 900 L0 900 Z" fill="#FF8A7A" opacity="0.08"/>
+  <path d="M0 730 C 240 690 480 770 720 730 C 960 690 1200 770 1440 730 L1440 900 L0 900 Z" fill="#142E4A" opacity="0.72"/>
+</svg>
+
+
+
+
+
+
+

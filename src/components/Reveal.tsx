@@ -19,7 +19,8 @@ export default function Reveal({ children, delayMs = 0 }: RevealProps) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            observer.unobserve(entry.target);
+          } else {
+            setIsVisible(false);
           }
         });
       },

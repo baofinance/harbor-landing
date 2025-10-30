@@ -2,27 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Chillax";
+  src: url("/fonts/Chillax.ttf") format("truetype");
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --background: 210 50% 30%;
+    --foreground: 0 0% 100%;
+    --card: 210 50% 30%;
+    --card-foreground: 0 0% 100%;
+    --popover: 210 50% 30%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 210 50% 30%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 45% 40%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 45% 40%;
+    --muted-foreground: 0 0% 100%;
+    /* Accent tuned to #FF8A7A */
+    --accent: 9 100% 74%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
+    --border: 210 45% 40%;
+    --input: 210 45% 40%;
+    --ring: 8 100% 70%;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -33,13 +42,243 @@
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --background: #0a0a0a;
-      --foreground: #ededed;
+      --background: 210 50% 30%;
+      --foreground: 0 0% 100%;
     }
   }
 
   body {
-    @apply bg-black text-[#F5F5F5] min-h-screen font-sans;
+    @apply bg-nautical-blue text-white min-h-screen font-sans;
+    background-color: #1e4775 !important;
+  }
+
+  /* Ensure all sections have solid background */
+  section {
+    background-color: #1e4775 !important;
+  }
+
+  main {
+    background-color: #1e4775 !important;
+  }
+
+  /* Protect hero section from global background overrides */
+  .hero-section {
+    background-color: transparent !important;
+  }
+
+  /* Depth effect enhancements */
+  .depth-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: linear-gradient(
+      180deg,
+      rgba(30, 71, 117, 0) 0%,
+      rgba(20, 50, 80, 0.1) 25%,
+      rgba(15, 35, 55, 0.2) 50%,
+      rgba(10, 25, 40, 0.3) 75%,
+      rgba(5, 15, 25, 0.4) 100%
+    );
+  }
+
+  /* Chart-lines utility overlay */
+  .chart-lines {
+    position: relative;
+  }
+  .chart-lines::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.09) 0 1px,
+        transparent 1px 20px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.07) 0 1px,
+        transparent 1px 20px
+      );
+    opacity: 0.36;
+    mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+    z-index: 0;
+  }
+
+  /* Nautical static background utilities (no animations) */
+  .bg-nautical-grid {
+    position: relative;
+  }
+  .bg-nautical-grid::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.28;
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.14) 0 1px,
+        transparent 1px 24px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.1) 0 1px,
+        transparent 1px 24px
+      );
+    z-index: 0;
+  }
+
+  .bg-nautical-grid-strong {
+    position: relative;
+  }
+  .bg-nautical-grid-strong::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.34;
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.22) 0 1px,
+        transparent 1px 22px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.16) 0 1px,
+        transparent 1px 22px
+      );
+    z-index: 0;
+  }
+
+  .bg-banded-depth {
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.06),
+        rgba(255, 255, 255, 0) 12%
+      ),
+      repeating-linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.05) 0 2px,
+        transparent 2px 28px
+      );
+  }
+
+  .bg-halftone-mint {
+    position: relative;
+  }
+  .bg-halftone-mint::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.18;
+    background: repeating-radial-gradient(
+      circle at 10% 10%,
+      rgba(184, 235, 213, 0.25) 0 1px,
+      transparent 1px 12px
+    );
+  }
+
+  .bg-scanlines {
+    background: repeating-linear-gradient(
+      -45deg,
+      rgba(255, 255, 255, 0.05) 0 1px,
+      transparent 1px 8px
+    );
+  }
+
+  .bg-vignette {
+    position: relative;
+  }
+  .bg-vignette::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      120% 80% at 50% 20%,
+      transparent 0%,
+      rgba(0, 0, 0, 0.22) 70%,
+      rgba(0, 0, 0, 0.35) 100%
+    );
+  }
+
+  .bg-compass-watermark {
+    background: url("/images/compass-rose.svg") center/ min(55vmin, 680px)
+      no-repeat;
+  }
+
+  .divider-rope-top {
+    position: relative;
+  }
+  .divider-rope-top::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+    height: 14px;
+    background: url("/dividers/rope.svg") center/ auto 14px repeat-x;
+  }
+
+  .pinstripe-top-coral {
+    box-shadow: 0 -2px 0 0 #ff8a7a inset;
+  }
+
+  /* Wave background utilities (static, non-animated) */
+  .bg-waves-shallow {
+    background-color: #2b5e99;
+    background-image: url("/backgrounds/waves-shallow.svg");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: 100% 140%;
+  }
+  .bg-waves-mid {
+    background-color: #1e4775;
+    background-image: url("/backgrounds/waves-mid.svg");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: 100% 140%;
+  }
+  .bg-waves-deep {
+    background-color: #142e4a;
+    background-image: url("/backgrounds/waves-deep.svg");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: 100% 140%;
+  }
+  .bg-waves-abyss {
+    background-color: #0d1f36;
+    background-image: url("/backgrounds/waves-abyss.svg");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: 100% 140%;
+  }
+
+  @keyframes waterFlow {
+    0%,
+    100% {
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    }
+    25% {
+      background-position: 5px 5px, 5px 15px, 15px -5px, -5px 5px;
+    }
+    50% {
+      background-position: 10px 10px, 10px 20px, 20px 0px, 0px 10px;
+    }
+    75% {
+      background-position: 15px 15px, 15px 25px, 25px 5px, 5px 15px;
+    }
   }
 
   /* Enhanced glow effects */
@@ -51,7 +290,7 @@
     content: "";
     position: absolute;
     inset: -2px;
-    background: linear-gradient(45deg, #10b981, #14b8a6, #10b981);
+    background: linear-gradient(45deg, #a7e8d4, #1b3a57, #a7e8d4);
     border-radius: inherit;
     z-index: -1;
     opacity: 0;
@@ -132,7 +371,7 @@
   }
 
   .enhanced-card::before {
-    @apply absolute inset-0 bg-gradient-to-r from-emerald-600/10 via-teal-500/5 to-emerald-600/10 blur-2xl rounded-2xl transition-opacity duration-300;
+    @apply absolute inset-0 bg-gradient-to-r from-seafoam-mint/10 via-nautical-blue/5 to-seafoam-mint/10 blur-2xl rounded-2xl transition-opacity duration-300;
     content: "";
   }
 
@@ -164,7 +403,7 @@
 
   .hover-lift:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(16, 185, 129, 0.1);
+    box-shadow: 0 20px 40px rgba(167, 232, 212, 0.1);
   }
 }
 
@@ -211,8 +450,5 @@
 @layer base {
   * {
     @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground font-sans;
   }
 }

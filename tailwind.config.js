@@ -9,8 +9,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
-        geo: ["var(--font-geo)", "sans-serif"],
+        sans: ["var(--font-chillax)", "system-ui", "sans-serif"],
+        chillax: ["var(--font-chillax)", "system-ui", "sans-serif"],
       },
       keyframes: {
         gradientShift: {
@@ -283,6 +283,23 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
+        // Harbor Brand Colors
+        "nautical-blue": "#1E4775",
+        "nautical-blue-light": "#2B5E99",
+        "nautical-blue-dark": "#142E4A",
+        "nautical-deep": "#0D1F36",
+        "seafoam-mint": "#B8EBD5",
+        "seafoam-mint-light": "#D4F4E6",
+        "seafoam-mint-dark": "#91D9BF",
+        "sunrise-coral": "#FF8A7A",
+        "sunrise-coral-light": "#FFB3A9",
+        "sunrise-coral-dark": "#FF6C57",
+        charcoal: "#2E2E2E",
+        "charcoal-light": "#404040",
+        "charcoal-dark": "#1A1A1A",
+        "harbor-white": "#FFFFFF",
+
+        // Legacy support
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

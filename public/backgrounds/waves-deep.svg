@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="blueGradDeep" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#142E4A"/>
+      <stop offset="1" stop-color="#0D1F36"/>
+    </linearGradient>
+  </defs>
+  <rect width="1440" height="900" fill="url(#blueGradDeep)"/>
+  <path d="M0 560 C 220 520 440 600 660 570 C 880 540 1100 620 1320 590 L1440 580 L1440 900 L0 900 Z" fill="#1E4775" opacity="0.18"/>
+  <path d="M0 640 C 220 600 440 680 660 640 C 880 600 1100 680 1320 640 C 1380 628 1410 640 1440 640 L1440 900 L0 900 Z" fill="#B8EBD5" opacity="0.09"/>
+  <path d="M0 600 C 240 560 480 640 720 600 C 960 560 1200 640 1440 600 L1440 900 L0 900 Z" fill="#FF8A7A" opacity="0.07"/>
+  <path d="M0 620 C 220 580 460 660 700 620 C 940 580 1180 660 1440 620 L1440 900 L0 900 Z" fill="#FFFFFF" opacity="0.03"/>
+  <path d="M0 740 C 240 700 480 780 720 740 C 960 700 1200 780 1440 740 L1440 900 L0 900 Z" fill="#0D1F36" opacity="0.82"/>
+</svg>
+
+
+
+
+
+
+

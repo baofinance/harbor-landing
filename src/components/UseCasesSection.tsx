@@ -1,97 +1,281 @@
 "use client";
-import { DollarSign, Cpu, LandPlot } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 
-const useCaseCategories = [
-  {
-    title: "Real-World & Financial Assets",
-    description:
-      "Bridge traditional finance with DeFi by tokenizing real-world assets, enabling new forms of liquidity and investment.",
-    icon: DollarSign,
-    examples: [
-      "Equity Indices & Stocks",
-      "Precious Metals & Commodities",
-      "Carbon Credits & ESG Tokens",
-      "Foreign Exchange (FX) & EM Currencies",
-    ],
-  },
-  {
-    title: "Digital & Crypto-Native Markets",
-    description:
-      "Create decentralized markets for on-chain assets, hedging against volatility and speculating on ecosystem growth.",
-    icon: Cpu,
-    examples: [
-      "NFT Floor Price Tokens",
-      "ETH Gas Fee Derivatives",
-      "Crypto Adoption Rate Indices",
-      "Tokenized Royalties (Music, Art)",
-    ],
-  },
-  {
-    title: "Novel & Esoteric Data",
-    description:
-      "If there's a reliable data feed, it can be tokenized. Explore new frontiers of finance with verifiable, data-driven assets.",
-    icon: LandPlot,
-    examples: [
-      "Weather & Climate Derivatives",
-      "Athlete & Team Performance",
-      "AI Model Performance",
-      "Economic Data (Inflation, GDP)",
-    ],
-  },
-];
+const collateralOptions = ["USD", "ETH", "BTC", "yourTOKEN"];
+const priceFeedOptions = ["ETH", "TSLA", "GOLD", "USD", "RAIN", "NFTfloor"];
 
 export default function UseCasesSection() {
-  return (
-    <section className="relative z-10">
-      <div className="mx-auto max-w-[1300px] px-4 sm:px-10 py-32">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl uppercase tracking-wide font-semibold text-white">
-            Infinite Markets, One Protocol
-          </h2>
-          <div className="mx-auto mt-2 h-px w-20 bg-gradient-to-r from-transparent via-[#00df82]/40 to-transparent" />
-          <p className="mt-3 text-white/70 max-w-[68ch] mx-auto">
-            Zhenglong can tokenize any real-world asset or data feed, opening up
-            limitless possibilities for decentralized finance.
-          </p>
-        </div>
+  const [currentCollateral, setCurrentCollateral] = useState(0);
+  const [currentPriceFeed, setCurrentPriceFeed] = useState(0);
+  const [isEditing, setIsEditing] = useState(false);
+  const [customCollateral, setCustomCollateral] = useState("");
+  const [customPriceFeed, setCustomPriceFeed] = useState("");
+  const [isPulsing, setIsPulsing] = useState(false);
+  const collateralIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const priceFeedIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {useCaseCategories.map((category) => (
-            <div
-              key={category.title}
-              className="relative group h-full hover-lift"
-            >
-              <div className="relative bg-zinc-900/40 border border-white/10 rounded-lg p-8 transition-all duration-300 h-full flex flex-col">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-zinc-800/50 flex items-center justify-center ring-1 ring-white/10">
-                    <category.icon className="w-6 h-6 text-white/90" />
+  useEffect(() => {
+    if (!isEditing) {
+      collateralIntervalRef.current = setInterval(() => {
+        setCurrentCollateral((prev) => (prev + 1) % collateralOptions.length);
+        setIsPulsing(true);
+        setTimeout(() => setIsPulsing(false), 500);
+      }, 6000);
+
+      priceFeedIntervalRef.current = setInterval(() => {
+        setCurrentPriceFeed((prev) => (prev + 1) % priceFeedOptions.length);
+        setIsPulsing(true);
+        setTimeout(() => setIsPulsing(false), 500);
+      }, 6000);
+
+      return () => {
+        if (collateralIntervalRef.current)
+          clearInterval(collateralIntervalRef.current);
+        if (priceFeedIntervalRef.current)
+          clearInterval(priceFeedIntervalRef.current);
+      };
+    }
+  }, [isEditing]);
+
+  const handleInputBoxClick = () => {
+    if (!isEditing) {
+      setIsEditing(true);
+      if (collateralIntervalRef.current)
+        clearInterval(collateralIntervalRef.current);
+      if (priceFeedIntervalRef.current)
+        clearInterval(priceFeedIntervalRef.current);
+      setCustomCollateral(collateralOptions[currentCollateral]);
+      setCustomPriceFeed(priceFeedOptions[currentPriceFeed]);
+    }
+  };
+
+  const handlePlayPauseClick = () => {
+    if (isEditing) {
+      // Resume animation
+      setIsEditing(false);
+      setCustomCollateral("");
+      setCustomPriceFeed("");
+    } else {
+      // Pause animation and enable editing
+      setIsEditing(true);
+      if (collateralIntervalRef.current)
+        clearInterval(collateralIntervalRef.current);
+      if (priceFeedIntervalRef.current)
+        clearInterval(priceFeedIntervalRef.current);
+      setCustomCollateral(collateralOptions[currentCollateral]);
+      setCustomPriceFeed(priceFeedOptions[currentPriceFeed]);
+    }
+  };
+
+  const handlePreviousClick = () => {
+    setCurrentCollateral(
+      (prev) => (prev - 1 + collateralOptions.length) % collateralOptions.length
+    );
+    setCurrentPriceFeed(
+      (prev) => (prev - 1 + priceFeedOptions.length) % priceFeedOptions.length
+    );
+  };
+
+  const handleNextClick = () => {
+    setCurrentCollateral((prev) => (prev + 1) % collateralOptions.length);
+    setCurrentPriceFeed((prev) => (prev + 1) % priceFeedOptions.length);
+  };
+
+  const collateral = isEditing
+    ? customCollateral
+    : collateralOptions[currentCollateral];
+  const priceFeed = isEditing
+    ? customPriceFeed
+    : priceFeedOptions[currentPriceFeed];
+
+  return (
+    <section className="relative z-10 bg-white px-3 pb-3 pt-0">
+      <div className="flex flex-col lg:flex-row gap-3 items-stretch">
+        {/* Left 50%: Input/Output Container */}
+        <div className="flex-1 bg-[#E67A68] p-10 sm:p-12 lg:p-14 flex flex-col">
+          {/* Four boxes in a 2x2 grid */}
+          <div className="grid grid-cols-2 gap-4 flex-1">
+            {/* Collateral Box */}
+            <div className="flex flex-col">
+              <h3 className="text-sm font-semibold text-white mb-3 tracking-wider">
+                Collateral
+              </h3>
+              <div
+                className={`bg-white border-4 border-white p-6 flex items-center justify-center h-full cursor-pointer hover:bg-white/95 transition-all rounded-lg ${
+                  isPulsing && !isEditing ? "scale-[1.02] shadow-md" : ""
+                }`}
+                onClick={handleInputBoxClick}
+              >
+                {isEditing ? (
+                  <input
+                    type="text"
+                    value={customCollateral}
+                    onChange={(e) => setCustomCollateral(e.target.value)}
+                    className="text-lg sm:text-xl font-bold text-nautical-blue text-center bg-transparent outline-none w-full"
+                    placeholder="Enter token"
+                    autoFocus
+                  />
+                ) : (
+                  <div className="text-lg sm:text-xl font-bold text-nautical-blue transition-all duration-500 whitespace-nowrap">
+                    {collateral}
                   </div>
-                  <h3 className="text-lg font-bold text-white tracking-wide">
-                    {category.title}
-                  </h3>
-                </div>
-                <p className="text-sm text-white/70 mb-6 flex-grow">
-                  {category.description}
-                </p>
-                <div>
-                  <h4 className="text-sm font-semibold text-white/90 mb-3">
-                    Examples:
-                  </h4>
-                  <ul className="space-y-2">
-                    {category.examples.map((example) => (
-                      <li
-                        key={example}
-                        className="flex items-center gap-3 text-xs text-white/70"
-                      >
-                        <span className="h-1.5 w-1.5 rounded-full bg-white/40" />
-                        <span>{example}</span>
-                      </li>
-                    ))}
-                  </ul>
+                )}
+              </div>
+            </div>
+
+            {/* Price Feed Box */}
+            <div className="flex flex-col">
+              <h3 className="text-sm font-semibold text-white mb-3 tracking-wider">
+                Price Feed
+              </h3>
+              <div
+                className={`bg-white border-4 border-white p-6 flex items-center justify-center h-full cursor-pointer hover:bg-white/95 transition-all rounded-lg ${
+                  isPulsing && !isEditing ? "scale-[1.02] shadow-md" : ""
+                }`}
+                onClick={handleInputBoxClick}
+              >
+                {isEditing ? (
+                  <input
+                    type="text"
+                    value={customPriceFeed}
+                    onChange={(e) => setCustomPriceFeed(e.target.value)}
+                    className="text-lg sm:text-xl font-bold text-nautical-blue text-center bg-transparent outline-none w-full"
+                    placeholder="Enter asset"
+                  />
+                ) : (
+                  <div className="text-lg sm:text-xl font-bold text-nautical-blue transition-all duration-500 whitespace-nowrap">
+                    {priceFeed}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* haTOKEN Box */}
+            <div className="flex flex-col">
+              <h3 className="text-sm font-semibold text-white mb-3 tracking-wider">
+                haTOKEN
+              </h3>
+              <div
+                className={`bg-white border-4 border-white p-6 flex items-center justify-center h-full rounded-lg transition-all ${
+                  isPulsing && !isEditing ? "scale-[1.02] shadow-md" : ""
+                }`}
+              >
+                <div className="text-lg sm:text-xl font-bold text-[#FF8A7A] transition-all duration-500 whitespace-nowrap">
+                  ha{priceFeed}
                 </div>
               </div>
             </div>
-          ))}
+
+            {/* hsTOKEN Box */}
+            <div className="flex flex-col">
+              <h3 className="text-sm font-semibold text-white mb-3 tracking-wider">
+                hsTOKEN
+              </h3>
+              <div
+                className={`bg-white border-4 border-white p-6 flex items-center justify-center h-full rounded-lg transition-all ${
+                  isPulsing && !isEditing ? "scale-[1.02] shadow-md" : ""
+                }`}
+              >
+                <div className="text-lg sm:text-xl font-bold text-[#FF8A7A] transition-all duration-500 whitespace-nowrap">
+                  hs{collateral}
+                  {priceFeed}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Control buttons: Previous, Play/Pause, Next */}
+          <div className="flex justify-center gap-2 mt-6">
+            <button
+              onClick={handlePreviousClick}
+              className="p-2 text-white/70 hover:text-white border border-white/30 hover:border-white/60 rounded-full transition-all"
+              aria-label="Previous"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+              </svg>
+            </button>
+            <button
+              onClick={handlePlayPauseClick}
+              className="p-2 text-white/70 hover:text-white border border-white/30 hover:border-white/60 rounded-full transition-all"
+              aria-label={isEditing ? "Play" : "Pause"}
+            >
+              {isEditing ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+                </svg>
+              )}
+            </button>
+            <button
+              onClick={handleNextClick}
+              className="p-2 text-white/70 hover:text-white border border-white/30 hover:border-white/60 rounded-full transition-all"
+              aria-label="Next"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Right 50%: Infinite Markets Container */}
+        <div className="flex-1 bg-white p-10 sm:p-12 lg:p-14">
+          <div className="flex flex-col gap-8 justify-center h-full">
+            <div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl tracking-wide font-bold text-nautical-blue mb-6">
+                Infinite Markets,
+                <br />
+                One Protocol
+              </h2>
+              <p className="text-nautical-blue text-sm sm:text-base">
+                Harbor can tokenize any real-world asset or data feed, opening
+                up limitless possibilities for decentralized finance.
+              </p>
+            </div>
+
+            {/* Buttons */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <button className="px-12 py-5 text-lg bg-nautical-blue text-white font-semibold rounded-full hover:bg-nautical-blue/90 transition-colors">
+                Enter Map Room
+              </button>
+              <a
+                href="https://discord.gg/harbor"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-12 py-5 text-lg border-2 border-nautical-blue text-nautical-blue font-semibold rounded-full hover:bg-nautical-blue/10 transition-colors text-center"
+              >
+                Reach Out
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

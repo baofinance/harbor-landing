@@ -21,6 +21,7 @@ const Footer = () => {
       avatarUrl: "/chickn.jpg" as string | null,
       twitter: "BaoChickn",
     },
+
     {
       name: "fabiaz",
       avatarUrl: "/fabiaz.jpg" as string | null,
@@ -91,19 +92,19 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative z-10 border-t border-[#00df82]/10 bg-zinc-950/80 backdrop-blur-sm">
+    <footer className="relative z-10 bg-nautical-blue">
       <div className="mx-auto max-w-[1300px] px-4 sm:px-10 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
             <Link href="/" className="inline-flex justify-start mb-3">
               <Image
-                src="/logo.png"
+                src="/WhiteHarborLogo.svg"
                 alt="Harbor"
                 width={28}
                 height={28}
                 className="h-6 w-6 opacity-60 mt-1 object-contain"
               />
-              <span className="ml-1 text-2xl opacity-60 font-medium text-white/90">
+              <span className="ml-1 text-2xl opacity-60 font-medium text-white">
                 Harbor
               </span>
             </Link>
@@ -115,7 +116,7 @@ const Footer = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 md:col-span-3 gap-8">
             <div>
-              <h4 className="text-sm font-semibold text-white/90 mb-4">
+              <h4 className="text-sm font-semibold text-white mb-4">
                 Protocol
               </h4>
               <ul className="space-y-3">
@@ -125,7 +126,7 @@ const Footer = () => {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-white/70 hover:text-[#00df82] transition-colors"
+                      className="text-sm text-white/70 hover:text-sunrise-coral transition-colors"
                     >
                       {link.name}
                     </a>
@@ -134,7 +135,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-white/90 mb-4">
+              <h4 className="text-sm font-semibold text-white mb-4">
                 Community
               </h4>
               <ul className="space-y-3">
@@ -142,7 +143,7 @@ const Footer = () => {
                   <li key={link.name}>
                     <Link
                       href={link.url}
-                      className="text-sm text-white/70 hover:text-[#00df82] transition-colors"
+                      className="text-sm text-white/70 hover:text-sunrise-coral transition-colors"
                     >
                       {link.name}
                     </Link>
@@ -151,9 +152,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-white/90 mb-4">
-                Socials
-              </h4>
+              <h4 className="text-sm font-semibold text-white mb-4">Socials</h4>
               <ul className="flex items-center gap-4">
                 {socialLinks.map((link) => (
                   <li key={link.name}>
@@ -161,7 +160,7 @@ const Footer = () => {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white/60 hover:text-[#00df82] transition-colors"
+                      className="text-white/60 hover:text-sunrise-coral transition-colors"
                     >
                       {link.icon}
                     </a>
@@ -170,7 +169,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-white/90 mb-4">
+              <h4 className="text-sm font-semibold text-white mb-4">
                 Contributors
               </h4>
               <ul className="grid grid-cols-5 gap-x-4 gap-y-3">
@@ -188,7 +187,7 @@ const Footer = () => {
                           className="flex flex-col items-center gap-1 p-1 group"
                           aria-label={`${person.name} on X`}
                         >
-                          <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded ring-1 ring-[#00df82]/20 group-hover:ring-[#00df82]/30">
+                          <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded ring-1 ring-sunrise-coral/20 group-hover:ring-sunrise-coral/30">
                             <Image
                               src={person.avatarUrl || ""}
                               alt={person.name}
@@ -197,7 +196,7 @@ const Footer = () => {
                               className="object-cover"
                             />
                           </div>
-                          <span className="mt-1 text-[10px] leading-none text-white/60 group-hover:text-[#00df82] max-w-[4rem] truncate text-center">
+                          <span className="mt-1 text-[10px] leading-none text-white/60 group-hover:text-sunrise-coral max-w-[4rem] truncate text-center">
                             {person.name}
                           </span>
                         </a>
@@ -206,7 +205,7 @@ const Footer = () => {
                           className="flex flex-col items-center gap-1 p-1 group"
                           aria-label={person.name}
                         >
-                          <div className="relative h-8 w-8 shrink-0 rounded overflow-hidden ring-1 ring-[#00df82]/20 group-hover:ring-[#00df82]/30">
+                          <div className="relative h-8 w-8 shrink-0 rounded overflow-hidden ring-1 ring-sunrise-coral/20 group-hover:ring-sunrise-coral/30">
                             <Image
                               src={person.avatarUrl || ""}
                               alt={person.name}
@@ -215,7 +214,7 @@ const Footer = () => {
                               className="object-cover"
                             />
                           </div>
-                          <span className="mt-1 text-[10px] leading-none text-white/60 group-hover:text-[#00df82] max-w-[4rem] truncate text-center">
+                          <span className="mt-1 text-[10px] leading-none text-white/60 group-hover:text-sunrise-coral max-w-[4rem] truncate text-center">
                             {person.name}
                           </span>
                         </div>
@@ -227,7 +226,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="mt-12 pt-8 border-t border-[#00df82]/10 text-center text-xs text-white/50">
+        <div className="mt-12 pt-8 border-t border-white/20 text-center text-xs text-white/50">
           <p>
             &copy; {new Date().getFullYear()} Harbor Protocol. All rights
             reserved.

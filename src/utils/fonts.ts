@@ -1,19 +1,39 @@
-import { Geo, Space_Grotesk } from "next/font/google";
+import localFont from "next/font/local";
 
-export const geo = Geo({
-  subsets: ["latin"],
-  weight: "400",
+export const chillax = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Chillax.ttf",
+      weight: "200",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Chillax.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Chillax.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Chillax.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Chillax.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Chillax.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-chillax",
   display: "swap",
-  variable: "--font-geo",
-  preload: true,
-  fallback: ["Arial", "sans-serif"],
-});
-
-export const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-  variable: "--font-space-grotesk",
-  preload: true,
-  fallback: ["Arial", "sans-serif"],
+  fallback: ["system-ui", "sans-serif"],
 });

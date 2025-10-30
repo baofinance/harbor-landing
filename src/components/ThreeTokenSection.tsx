@@ -4,15 +4,15 @@ const ThreeTokenSection = () => {
   const items = [
     {
       title: "Collateral Tokens",
-      body: "Yield-bearing assets (e.g. stETH) deposited by users. Collateral is pooled globally, backing both zheTOKENS and steamedTOKENS. The ongoing yield feeds Stability-Pool rewards.",
+      body: "Yield-bearing assets (e.g. stETH) deposited by users. Collateral is pooled globally, backing both anchorTOKENS and sailTOKENS. The ongoing yield feeds Stability-Pool rewards.",
     },
     {
-      title: "zheTOKENS",
+      title: "anchorTOKENS",
       body: "Synthetic assets pegged 1 : 1 to real-world prices. Fully redeemable for collateral and able to earn native yield when deposited into Stability Pools.",
     },
     {
-      title: "steamedTOKENS",
-      body: "Tokenizing the difference in collateral and zheTOKEN value.  Collateral gains (or losses) magnify vs the peg, but without margin calls. Rebalancing is handled system-wide via Stability Pools instead of forced liquidations.",
+      title: "sailTOKENS",
+      body: "Tokenizing the difference in collateral and anchorTOKEN value.  Collateral gains (or losses) magnify vs the peg, but without margin calls. Rebalancing is handled system-wide via Stability Pools instead of forced liquidations.",
     },
   ];
 
@@ -29,11 +29,7 @@ const ThreeTokenSection = () => {
               className="bg-[#1A1A1A]/90 backdrop-blur-sm border border-[#4A7C59]/20 hover:border-[#4A7C59]/40 transition-colors p-8 flex flex-col h-full"
             >
               <h3 className="text-3xl text-[#4A7C59] mb-6 tracking-wider font-normal text-center">
-                {item.title === "zheTOKENS"
-                  ? "zheTOKENS"
-                  : item.title === "steamedTOKENS"
-                  ? "steamedTOKENS"
-                  : item.title.toUpperCase()}
+                {item.title.toUpperCase()}
               </h3>
               <p className="text-[#F5F5F5]/70 leading-relaxed font-normal flex-grow">
                 {item.body}
@@ -43,7 +39,7 @@ const ThreeTokenSection = () => {
         </div>
         <p className="text-center text-[#F5F5F5]/80 leading-relaxed mt-12 max-w-4xl mx-auto">
           With 100% collateral efficiency, choose to mint a stable,
-          yield-bearing zheTOKEN or a high-beta steamedTOKEN
+          yield-bearing anchorTOKEN or a high-beta sailTOKEN
         </p>
       </div>
     </section>
