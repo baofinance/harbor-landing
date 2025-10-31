@@ -53,7 +53,12 @@ export default function HeroSection() {
                     const maidenVoyageSection =
                       document.getElementById("maiden-voyage");
                     if (maidenVoyageSection) {
-                      maidenVoyageSection.scrollIntoView({
+                      const elementPosition =
+                        maidenVoyageSection.getBoundingClientRect().top;
+                      const offsetPosition =
+                        elementPosition + window.scrollY - 200;
+                      window.scrollTo({
+                        top: offsetPosition,
                         behavior: "smooth",
                       });
                     }
@@ -63,7 +68,7 @@ export default function HeroSection() {
                   Learn more
                 </button>
                 <a
-                  href="https://twitter.com/harborfi"
+                  href="https://x.com/0xHarborFi"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto px-8 py-3.5 text-base font-semibold border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-center"

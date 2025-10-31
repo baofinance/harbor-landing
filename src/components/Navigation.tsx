@@ -22,7 +22,7 @@ export default function Navigation() {
   const navLinks = [
     { href: "https://docs.harbor.finance", label: "Docs" },
     { href: "https://litepaper.harbor.finance/docs/", label: "Litepaper" },
-    { href: "https://twitter.com/harborfi", label: "X" },
+    { href: "https://x.com/0xHarborFi", label: "X" },
     { href: "https://discord.com/invite/BW3P62vJXT", label: "Discord" },
   ];
 

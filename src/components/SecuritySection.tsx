@@ -42,7 +42,7 @@ const SecuritySection = () => {
         </div>
 
         {/* Right 50%: Security Features Stacked */}
-        <div className="flex-1 flex flex-col gap-2 sm:gap-3">
+        <div className="flex-1 flex flex-col gap-3 sm:gap-4 md:gap-5">
           {securityFeatures.map((feature) => (
             <div
               key={feature.title}
