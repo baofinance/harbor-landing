@@ -32,10 +32,10 @@ const SecuritySection = () => {
               <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-white mb-6">
                 Institutional-Grade Security
               </h2>
-              <p className="text-nautical-blue text-sm sm:text-base">
-                Our protocol is built on a foundation of rigorous, bank-grade
-                security standards and comprehensive testing to ensure your
-                assets are always protected.
+              <p className="text-white text-sm sm:text-base">
+                Security is our number one priority. We use bank-grade security
+                standards and comprehensive testing to ensure your assets are
+                always protected.
               </p>
             </div>
           </div>

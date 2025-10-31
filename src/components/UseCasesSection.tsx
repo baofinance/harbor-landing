@@ -110,15 +110,15 @@ export default function UseCasesSection() {
       <div className="flex flex-col lg:flex-row gap-3 items-stretch">
         {/* Left 1/3: Input/Output Container */}
         <div className="lg:w-1/3 bg-[#E67A68] p-10 sm:p-12 lg:p-14 flex flex-col">
-          {/* Four boxes in a 2x2 grid */}
-          <div className="grid grid-cols-2 gap-4 flex-1">
+          {/* Input Section */}
+          <div className="grid grid-cols-2 gap-2 mb-8">
             {/* Collateral Box */}
             <div className="flex flex-col">
-              <h3 className="text-sm font-semibold text-white mb-3 tracking-wider">
+              <h3 className="text-xs font-semibold text-white mb-2 tracking-wider">
                 Collateral
               </h3>
               <div
-                className={`bg-white border-4 border-white p-6 flex items-center justify-center h-full cursor-pointer hover:bg-white/95 transition-all rounded-lg ${
+                className={`bg-white border-4 border-white p-2 flex items-center justify-center h-full cursor-pointer hover:bg-white/95 transition-all rounded-lg ${
                   isPulsing && !isEditing ? "scale-[1.02] shadow-md" : ""
                 }`}
                 onClick={handleInputBoxClick}
@@ -128,12 +128,12 @@ export default function UseCasesSection() {
                     type="text"
                     value={customCollateral}
                     onChange={(e) => setCustomCollateral(e.target.value)}
-                    className="text-lg sm:text-xl font-normal text-nautical-blue text-center bg-transparent outline-none w-full"
+                    className="text-base font-semibold text-nautical-blue text-center bg-transparent outline-none w-full"
                     placeholder="Enter token"
                     autoFocus
                   />
                 ) : (
-                  <div className="text-lg sm:text-xl font-normal text-nautical-blue transition-all duration-500 whitespace-nowrap">
+                  <div className="text-base font-semibold text-nautical-blue transition-all duration-500 whitespace-nowrap">
                     {collateral}
                   </div>
                 )}
@@ -142,11 +142,11 @@ export default function UseCasesSection() {
 
             {/* Price Feed Box */}
             <div className="flex flex-col">
-              <h3 className="text-sm font-semibold text-white mb-3 tracking-wider">
+              <h3 className="text-xs font-semibold text-white mb-2 tracking-wider">
                 Price Feed
               </h3>
               <div
-                className={`bg-white border-4 border-white p-6 flex items-center justify-center h-full cursor-pointer hover:bg-white/95 transition-all rounded-lg ${
+                className={`bg-white border-4 border-white p-2 flex items-center justify-center h-full cursor-pointer hover:bg-white/95 transition-all rounded-lg ${
                   isPulsing && !isEditing ? "scale-[1.02] shadow-md" : ""
                 }`}
                 onClick={handleInputBoxClick}
@@ -156,28 +156,50 @@ export default function UseCasesSection() {
                     type="text"
                     value={customPriceFeed}
                     onChange={(e) => setCustomPriceFeed(e.target.value)}
-                    className="text-lg sm:text-xl font-normal text-nautical-blue text-center bg-transparent outline-none w-full"
+                    className="text-base font-semibold text-nautical-blue text-center bg-transparent outline-none w-full"
                     placeholder="Enter asset"
                   />
                 ) : (
-                  <div className="text-lg sm:text-xl font-normal text-nautical-blue transition-all duration-500 whitespace-nowrap">
+                  <div className="text-base font-semibold text-nautical-blue transition-all duration-500 whitespace-nowrap">
                     {priceFeed}
                   </div>
                 )}
               </div>
             </div>
+          </div>
 
+          {/* Down Arrow */}
+          <div className="flex justify-center -mt-2 mb-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="text-white opacity-70"
+            >
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <polyline points="19 12 12 19 5 12"></polyline>
+            </svg>
+          </div>
+
+          {/* Output Section */}
+          <div className="grid grid-cols-2 gap-2 mb-8">
             {/* haTOKEN Box */}
             <div className="flex flex-col">
-              <h3 className="text-sm font-semibold text-white mb-3 tracking-wider">
+              <h3 className="text-xs font-semibold text-white mb-2 tracking-wider">
                 haTOKEN
               </h3>
               <div
-                className={`bg-white border-4 border-white p-6 flex items-center justify-center h-full rounded-lg transition-all ${
+                className={`bg-white border-4 border-white p-2 flex items-center justify-center h-full rounded-lg transition-all ${
                   isPulsing && !isEditing ? "scale-[1.02] shadow-md" : ""
                 }`}
               >
-                <div className="text-lg sm:text-xl font-normal text-nautical-blue transition-all duration-500 whitespace-nowrap">
+                <div className="text-base font-semibold text-nautical-blue transition-all duration-500 whitespace-nowrap">
                   ha{priceFeed}
                 </div>
               </div>
@@ -185,15 +207,15 @@ export default function UseCasesSection() {
 
             {/* hsTOKEN Box */}
             <div className="flex flex-col">
-              <h3 className="text-sm font-semibold text-white mb-3 tracking-wider">
+              <h3 className="text-xs font-semibold text-white mb-2 tracking-wider">
                 hsTOKEN
               </h3>
               <div
-                className={`bg-white border-4 border-white p-6 flex items-center justify-center h-full rounded-lg transition-all ${
+                className={`bg-white border-4 border-white p-2 flex items-center justify-center h-full rounded-lg transition-all ${
                   isPulsing && !isEditing ? "scale-[1.02] shadow-md" : ""
                 }`}
               >
-                <div className="text-lg sm:text-xl font-normal text-nautical-blue transition-all duration-500 whitespace-nowrap">
+                <div className="text-base font-semibold text-nautical-blue transition-all duration-500 whitespace-nowrap">
                   hs{collateral}
                   {priceFeed}
                 </div>
