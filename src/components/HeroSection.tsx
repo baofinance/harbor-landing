@@ -20,10 +20,10 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-[rgba(15,36,63,0.55)]" />
 
       <section className="hero-section relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="relative z-10 ml-auto max-w-[1400px] w-full pr-8 pl-6 sm:pl-10 lg:pl-14 translate-y-4 sm:translate-y-2 md:translate-y-0 text-right">
-          <div className="inline-flex flex-col items-end px-2 sm:px-6 py-6 sm:py-8">
+        <div className="relative z-10 ml-auto max-w-[1400px] w-full px-4 sm:pr-8 sm:pl-10 lg:pl-14 translate-y-4 sm:translate-y-2 md:translate-y-0 text-right">
+          <div className="inline-flex flex-col items-end px-2 sm:px-6 py-4 sm:py-6 md:py-8">
             <div className="relative">
-              <h1 className="text-5xl sm:text-6xl md:text-[5.5rem] lg:text-[6.5rem] font-bold tracking-tight text-harbor-white drop-shadow-[0_35px_90px_rgba(5,18,38,0.75)]">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] font-bold tracking-tight text-harbor-white drop-shadow-[0_35px_90px_rgba(5,18,38,0.75)] leading-tight">
                 A Safer Harbor
                 <br />
                 For Leverage,
@@ -34,7 +34,7 @@ export default function HeroSection() {
               </h1>
               <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-nautical-blue/30 to-transparent blur-3xl" />
             </div>
-            <p className="mt-5 text-base sm:text-lg text-harbor-white/85 ml-auto drop-shadow-[0_18px_48px_rgba(5,18,38,0.6)]">
+            <p className="mt-4 sm:mt-5 text-sm sm:text-base md:text-lg text-harbor-white/85 ml-auto drop-shadow-[0_18px_48px_rgba(5,18,38,0.6)] max-w-md">
               Pegged exposure earns; leveraged exposure rebalances. Two tokens,
               one coordinated system.
             </p>

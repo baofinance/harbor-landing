@@ -106,10 +106,10 @@ export default function UseCasesSection() {
     : priceFeedOptions[currentPriceFeed];
 
   return (
-    <section className="relative z-10 bg-white px-3 pb-3 pt-0">
-      <div className="flex flex-col lg:flex-row gap-3 items-stretch">
+    <section className="relative z-10 bg-white px-2 sm:px-3 pb-2 sm:pb-3 pt-0">
+      <div className="flex flex-col lg:flex-row gap-2 sm:gap-3 items-stretch">
         {/* Left 1/3: Input/Output Container */}
-        <div className="lg:w-1/3 bg-[#E67A68] p-10 sm:p-12 lg:p-14 flex flex-col">
+        <div className="lg:w-1/3 bg-[#E67A68] p-6 sm:p-10 md:p-12 lg:p-14 flex flex-col">
           {/* Input Section */}
           <div className="grid grid-cols-2 gap-2 mb-8">
             {/* Collateral Box */}
@@ -286,10 +286,10 @@ export default function UseCasesSection() {
         </div>
 
         {/* Right 2/3: Infinite Markets Container */}
-        <div className="lg:w-2/3 bg-nautical-blue p-10 sm:p-12 lg:p-14 border-4 border-white">
-          <div className="flex flex-col gap-8 justify-center h-full">
+        <div className="lg:w-2/3 bg-nautical-blue p-6 sm:p-10 md:p-12 lg:p-14 border-4 border-white">
+          <div className="flex flex-col gap-6 sm:gap-8 justify-center h-full">
             <div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-white mb-6">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-white mb-4 sm:mb-6">
                 Infinite Markets, One Protocol
               </h2>
               <p className="text-white text-sm sm:text-base">
@@ -299,15 +299,15 @@ export default function UseCasesSection() {
             </div>
 
             {/* Buttons */}
-            <div className="flex gap-4">
-              <button className="px-8 py-3 text-base bg-white text-nautical-blue font-semibold rounded-full hover:bg-white/90 transition-colors">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <button className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base bg-white text-nautical-blue font-semibold rounded-full hover:bg-white/90 transition-colors">
                 Enter Map Room
               </button>
               <a
                 href="https://discord.gg/harbor"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3 text-base border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 transition-colors text-center"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 transition-colors text-center"
               >
                 Reach Out
               </a>

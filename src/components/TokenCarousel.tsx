@@ -26,45 +26,45 @@ const sideCards: SideCard[] = [
 
 export function AllOutYieldSection() {
   return (
-    <section className="relative z-10 bg-white p-3">
-      <div className="relative w-full flex items-stretch gap-3">
+    <section className="relative z-10 bg-white p-2 sm:p-3">
+      <div className="relative w-full flex flex-col md:flex-row items-stretch gap-2 sm:gap-3">
         {/* All Out Yield - Left 50% - Blue background */}
-        <div className="relative z-10 flex-1 bg-nautical-blue p-10 sm:p-12 lg:p-14 flex flex-col items-center justify-center text-center border-4 border-white">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-white mb-2">
+        <div className="relative z-10 flex-1 bg-nautical-blue p-6 sm:p-10 md:p-12 lg:p-14 flex flex-col items-center justify-center text-center border-4 border-white">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-white mb-2">
             All Out Yield
           </h2>
-          <div className="mb-6">
+          <div className="mb-4 sm:mb-6">
             <span className="inline-flex items-center tracking-wider text-xs text-white border border-[#FF8A7A] bg-white/10 backdrop-blur-md px-3 py-1 rounded-full">
               Harbor Anchor Tokens (haTOKEN)
             </span>
           </div>
           <YieldSection />
-          <div className="flex items-center justify-center gap-4 mt-8">
-            <button className="px-8 py-3 text-base bg-white text-nautical-blue font-semibold rounded-full hover:bg-white/90 transition-colors">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-8 w-full sm:w-auto">
+            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base bg-white text-nautical-blue font-semibold rounded-full hover:bg-white/90 transition-colors">
               Learn more
             </button>
-            <button className="px-8 py-3 text-base border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 transition-colors">
+            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 transition-colors">
               Earn
             </button>
           </div>
         </div>
 
         {/* Stress Free Leverage - Right 50% - White background (inverted) */}
-        <div className="relative z-10 flex-1 bg-white p-10 sm:p-12 lg:p-14 flex flex-col items-center justify-center text-center border-4 border-white">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-nautical-blue mb-2">
+        <div className="relative z-10 flex-1 bg-white p-6 sm:p-10 md:p-12 lg:p-14 flex flex-col items-center justify-center text-center border-4 border-white">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-nautical-blue mb-2">
             Stress Free Leverage
           </h2>
-          <div className="mb-6">
+          <div className="mb-4 sm:mb-6">
             <span className="inline-flex items-center tracking-wider text-xs text-nautical-blue border border-[#FF8A7A] bg-nautical-blue/10 backdrop-blur-md px-3 py-1 rounded-full">
               Harbor Sail Tokens (hsTOKEN)
             </span>
           </div>
           <RebalanceSection />
-          <div className="flex items-center justify-center gap-4 mt-8">
-            <button className="px-8 py-3 text-base bg-nautical-blue text-white font-semibold rounded-full hover:bg-nautical-blue/90 transition-colors">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-8 w-full sm:w-auto">
+            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base bg-nautical-blue text-white font-semibold rounded-full hover:bg-nautical-blue/90 transition-colors">
               Learn more
             </button>
-            <button className="px-8 py-3 text-base border-2 border-nautical-blue text-nautical-blue font-semibold rounded-full hover:bg-nautical-blue/10 transition-colors">
+            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base border-2 border-nautical-blue text-nautical-blue font-semibold rounded-full hover:bg-nautical-blue/10 transition-colors">
               Trade
             </button>
           </div>
