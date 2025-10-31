@@ -14,13 +14,13 @@ const sideCards: SideCard[] = [
     chip: "anchor",
     title: "Yield",
     description:
-      "Harbor Anchor Tokens (haTOKEN) are pegged to assets like ETH, BTC, and more.\n\nStability pools earn boosted yield from assets like fxSAVE and wstETH and redeemable anytime.",
+      "• Pegged to assets like ETH, BTC and more\n• Earn yield from collateral and protocol trading fees\n• Redeemable any time",
   },
   {
     chip: "sail",
     title: "Rebalancing Leverage",
     description:
-      "Harbor Sail (hs) tokens are composable, variable-leverage tokens that automatically rebalance to keep you afloat.\n\nEach hsTOKEN has a long and a short side; for example, hsUSDETH is long USD vs ETH (or short ETH).",
+      "• Composable: Use in defi\n• Fee-free, automatic rebalancing\n• No funding fees",
   },
 ];
 
@@ -30,9 +30,14 @@ export function AllOutYieldSection() {
       <div className="relative w-full flex items-stretch gap-3">
         {/* All Out Yield - Left 50% - Blue background */}
         <div className="relative z-10 flex-1 bg-nautical-blue p-10 sm:p-12 lg:p-14 flex flex-col items-center justify-center text-center border-4 border-white">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-white mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-white mb-2">
             All Out Yield
           </h2>
+          <div className="mb-6">
+            <span className="inline-flex items-center tracking-wider text-xs text-white border border-[#FF8A7A] bg-white/10 backdrop-blur-md px-3 py-1 rounded-full">
+              Harbor Anchor Tokens (haTOKEN)
+            </span>
+          </div>
           <YieldSection />
           <div className="flex items-center justify-center gap-4 mt-8">
             <button className="px-8 py-3 text-base bg-white text-nautical-blue font-semibold rounded-full hover:bg-white/90 transition-colors">
@@ -46,9 +51,14 @@ export function AllOutYieldSection() {
 
         {/* Stress Free Leverage - Right 50% - White background (inverted) */}
         <div className="relative z-10 flex-1 bg-white p-10 sm:p-12 lg:p-14 flex flex-col items-center justify-center text-center border-4 border-white">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-nautical-blue mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-nautical-blue mb-2">
             Stress Free Leverage
           </h2>
+          <div className="mb-6">
+            <span className="inline-flex items-center tracking-wider text-xs text-nautical-blue border border-[#FF8A7A] bg-nautical-blue/10 backdrop-blur-md px-3 py-1 rounded-full">
+              Harbor Sail Tokens (hsTOKEN)
+            </span>
+          </div>
           <RebalanceSection />
           <div className="flex items-center justify-center gap-4 mt-8">
             <button className="px-8 py-3 text-base bg-nautical-blue text-white font-semibold rounded-full hover:bg-nautical-blue/90 transition-colors">
@@ -76,9 +86,9 @@ export default function TokenCarousel() {
 
 function YieldSection() {
   return (
-    <div className="text-white text-sm sm:text-base leading-relaxed space-y-3">
-      {sideCards[0].description.split("\n\n").map((paragraph, index) => (
-        <p key={index}>{paragraph}</p>
+    <div className="text-white text-sm sm:text-base leading-relaxed space-y-2 text-left">
+      {sideCards[0].description.split("\n").map((line, index) => (
+        <p key={index}>{line}</p>
       ))}
     </div>
   );
@@ -86,9 +96,9 @@ function YieldSection() {
 
 function RebalanceSection() {
   return (
-    <div className="text-nautical-blue text-sm sm:text-base leading-relaxed space-y-3">
-      {sideCards[1].description.split("\n\n").map((paragraph, index) => (
-        <p key={index}>{paragraph}</p>
+    <div className="text-nautical-blue text-sm sm:text-base leading-relaxed space-y-2 text-left">
+      {sideCards[1].description.split("\n").map((line, index) => (
+        <p key={index}>{line}</p>
       ))}
     </div>
   );

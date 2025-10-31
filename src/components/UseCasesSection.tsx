@@ -68,17 +68,34 @@ export default function UseCasesSection() {
   };
 
   const handlePreviousClick = () => {
-    setCurrentCollateral(
-      (prev) => (prev - 1 + collateralOptions.length) % collateralOptions.length
-    );
-    setCurrentPriceFeed(
-      (prev) => (prev - 1 + priceFeedOptions.length) % priceFeedOptions.length
-    );
+    const newCollateralIndex =
+      (currentCollateral - 1 + collateralOptions.length) %
+      collateralOptions.length;
+    const newPriceFeedIndex =
+      (currentPriceFeed - 1 + priceFeedOptions.length) %
+      priceFeedOptions.length;
+
+    setCurrentCollateral(newCollateralIndex);
+    setCurrentPriceFeed(newPriceFeedIndex);
+
+    if (isEditing) {
+      setCustomCollateral(collateralOptions[newCollateralIndex]);
+      setCustomPriceFeed(priceFeedOptions[newPriceFeedIndex]);
+    }
   };
 
   const handleNextClick = () => {
-    setCurrentCollateral((prev) => (prev + 1) % collateralOptions.length);
-    setCurrentPriceFeed((prev) => (prev + 1) % priceFeedOptions.length);
+    const newCollateralIndex =
+      (currentCollateral + 1) % collateralOptions.length;
+    const newPriceFeedIndex = (currentPriceFeed + 1) % priceFeedOptions.length;
+
+    setCurrentCollateral(newCollateralIndex);
+    setCurrentPriceFeed(newPriceFeedIndex);
+
+    if (isEditing) {
+      setCustomCollateral(collateralOptions[newCollateralIndex]);
+      setCustomPriceFeed(priceFeedOptions[newPriceFeedIndex]);
+    }
   };
 
   const collateral = isEditing
@@ -111,12 +128,12 @@ export default function UseCasesSection() {
                     type="text"
                     value={customCollateral}
                     onChange={(e) => setCustomCollateral(e.target.value)}
-                    className="text-lg sm:text-xl font-bold text-nautical-blue text-center bg-transparent outline-none w-full"
+                    className="text-lg sm:text-xl font-normal text-nautical-blue text-center bg-transparent outline-none w-full"
                     placeholder="Enter token"
                     autoFocus
                   />
                 ) : (
-                  <div className="text-lg sm:text-xl font-bold text-nautical-blue transition-all duration-500 whitespace-nowrap">
+                  <div className="text-lg sm:text-xl font-normal text-nautical-blue transition-all duration-500 whitespace-nowrap">
                     {collateral}
                   </div>
                 )}
@@ -139,11 +156,11 @@ export default function UseCasesSection() {
                     type="text"
                     value={customPriceFeed}
                     onChange={(e) => setCustomPriceFeed(e.target.value)}
-                    className="text-lg sm:text-xl font-bold text-nautical-blue text-center bg-transparent outline-none w-full"
+                    className="text-lg sm:text-xl font-normal text-nautical-blue text-center bg-transparent outline-none w-full"
                     placeholder="Enter asset"
                   />
                 ) : (
-                  <div className="text-lg sm:text-xl font-bold text-nautical-blue transition-all duration-500 whitespace-nowrap">
+                  <div className="text-lg sm:text-xl font-normal text-nautical-blue transition-all duration-500 whitespace-nowrap">
                     {priceFeed}
                   </div>
                 )}
@@ -160,7 +177,7 @@ export default function UseCasesSection() {
                   isPulsing && !isEditing ? "scale-[1.02] shadow-md" : ""
                 }`}
               >
-                <div className="text-lg sm:text-xl font-bold text-[#FF8A7A] transition-all duration-500 whitespace-nowrap">
+                <div className="text-lg sm:text-xl font-normal text-nautical-blue transition-all duration-500 whitespace-nowrap">
                   ha{priceFeed}
                 </div>
               </div>
@@ -176,7 +193,7 @@ export default function UseCasesSection() {
                   isPulsing && !isEditing ? "scale-[1.02] shadow-md" : ""
                 }`}
               >
-                <div className="text-lg sm:text-xl font-bold text-[#FF8A7A] transition-all duration-500 whitespace-nowrap">
+                <div className="text-lg sm:text-xl font-normal text-nautical-blue transition-all duration-500 whitespace-nowrap">
                   hs{collateral}
                   {priceFeed}
                 </div>
