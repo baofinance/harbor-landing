@@ -26,10 +26,10 @@ const sideCards: SideCard[] = [
 
 export function AllOutYieldSection() {
   return (
-    <section className="relative z-10 bg-nautical-blue-surface p-2 sm:p-3">
+    <section className="relative z-10 bg-white p-2 sm:p-3">
       <div className="relative w-full flex flex-col md:flex-row items-stretch gap-2 sm:gap-3">
         {/* All Out Yield - Left 50% - Blue background */}
-        <div className="relative z-10 flex-1 bg-nautical-blue p-6 sm:p-10 md:p-12 lg:p-14 flex flex-col items-center justify-center text-center">
+        <div className="relative z-10 flex-1 bg-nautical-deep p-6 sm:p-10 md:p-12 lg:p-14 flex flex-col items-center justify-center text-center">
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-white mb-2">
             All Out Yield
           </h2>

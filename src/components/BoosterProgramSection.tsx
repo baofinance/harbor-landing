@@ -28,7 +28,7 @@ const boosterActivities = [
 
 const BoosterProgramSection = () => {
   return (
-    <section className="relative z-10 bg-nautical-blue-surface px-2 sm:px-3 pb-2 sm:pb-3 pt-0">
+    <section className="relative z-10 bg-white px-2 sm:px-3 pb-2 sm:pb-3 pt-0">
       <div className="flex flex-col lg:flex-row gap-2 sm:gap-3 items-stretch">
         {/* Left 2/3: Community Marketers Content */}
         <div className="lg:w-2/3 bg-white p-6 sm:p-10 md:p-12 lg:p-14">
@@ -65,7 +65,7 @@ const BoosterProgramSection = () => {
         </div>
 
         {/* Right 1/3: Ways to Contribute */}
-        <div className="lg:w-1/3 bg-nautical-blue p-6 sm:p-10 md:p-12 lg:p-14">
+        <div className="lg:w-1/3 bg-nautical-deep p-6 sm:p-10 md:p-12 lg:p-14">
           <h3 className="text-sm font-semibold text-white/70 mb-4 uppercase tracking-wider">
             Ways to Contribute
           </h3>
