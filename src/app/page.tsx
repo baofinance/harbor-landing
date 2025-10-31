@@ -13,8 +13,8 @@ export default function Home() {
   return (
     <>
       <DepthEffects />
-      <main className="relative z-10 bg-nautical-blue">
-        <div className="bg-nautical-blue">
+      <main className="relative z-10 bg-nautical-blue-light">
+        <div className="bg-nautical-blue-light">
           <Reveal delayMs={0}>
             <HeroSection />
           </Reveal>
