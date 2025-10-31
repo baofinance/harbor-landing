@@ -20,19 +20,54 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-[rgba(15,36,63,0.55)]" />
 
       <section className="hero-section relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="relative z-10 ml-auto max-w-[1400px] w-full px-4 sm:pr-8 sm:pl-10 lg:pl-14 translate-y-4 sm:translate-y-2 md:translate-y-0 text-right">
-          <div className="inline-flex flex-col items-end px-2 sm:px-6 py-4 sm:py-6 md:py-8">
+        <div className="relative z-10 max-w-[1400px] w-full px-4 sm:px-8 lg:px-14 translate-y-4 sm:translate-y-6 md:translate-y-8 lg:translate-y-10 text-center">
+          <div className="inline-flex flex-col items-center px-2 sm:px-6 py-4 sm:py-6 md:py-8">
             <div className="relative">
-              <h1 className="text-[3.2rem] sm:text-[4.5rem] md:text-[6.25rem] lg:text-[6rem] xl:text-[7rem] font-bold tracking-tight text-harbor-white drop-shadow-[0_35px_90px_rgba(5,18,38,0.75)] leading-none">
-                A Safer Harbor
-                <br />
-                For Leverage,
-                <br />
-                Uncharted Waters
-                <br />
-                For Yield.
+              <h1 className="text-[1.75rem] sm:text-[2.25rem] md:text-[3rem] lg:text-[4rem] xl:text-[5rem] 2xl:text-[5.5rem] font-bold tracking-tight text-harbor-white drop-shadow-[0_35px_90px_rgba(5,18,38,0.75)] leading-tight">
+                <span className="block whitespace-nowrap">
+                  A Safer Harbor For Leverage,
+                </span>
+                <span className="block whitespace-nowrap">
+                  Uncharted Waters For Yield.
+                </span>
               </h1>
               <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-nautical-blue/30 to-transparent blur-3xl" />
+            </div>
+
+            {/* Launch Announcement */}
+            <div className="mt-8 sm:mt-10 md:mt-12 space-y-3 sm:space-y-4">
+              <div className="inline-block px-4 py-2 bg-sunrise-coral border-2 border-sunrise-coral rounded-full">
+                <p className="text-xs sm:text-sm md:text-base text-white font-semibold text-center">
+                  Maiden voyage coming soon: Participate to qualify for a TIDE
+                  airdrop. Follow for updates
+                </p>
+              </div>
+              <div className="pt-2 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+                <a
+                  href="https://docs.harbor.finance"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto px-8 py-3.5 text-base font-semibold bg-white text-nautical-blue border-2 border-white rounded-full hover:bg-white/90 transition-colors text-center"
+                >
+                  Learn more
+                </a>
+                <a
+                  href="https://twitter.com/harborfi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto px-8 py-3.5 text-base font-semibold border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-center"
+                >
+                  Follow on X
+                </a>
+                <a
+                  href="https://discord.com/invite/BW3P62vJXT"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto px-8 py-3.5 text-base font-semibold border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-center"
+                >
+                  Follow on Discord
+                </a>
+              </div>
             </div>
           </div>
         </div>

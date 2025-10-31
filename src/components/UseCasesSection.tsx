@@ -8,6 +8,7 @@ export default function UseCasesSection() {
   const [currentCollateral, setCurrentCollateral] = useState(0);
   const [currentPriceFeed, setCurrentPriceFeed] = useState(0);
   const [isEditing, setIsEditing] = useState(false);
+  const [isMapRoomHovered, setIsMapRoomHovered] = useState(false);
   const [customCollateral, setCustomCollateral] = useState("");
   const [customPriceFeed, setCustomPriceFeed] = useState("");
   const [isPulsing, setIsPulsing] = useState(false);
@@ -109,7 +110,7 @@ export default function UseCasesSection() {
     <section className="relative z-10 bg-nautical-blue-light px-2 sm:px-3 pb-2 sm:pb-3 pt-0">
       <div className="flex flex-col lg:flex-row gap-2 sm:gap-3 items-stretch">
         {/* Left 1/3: Input/Output Container */}
-        <div className="lg:w-1/3 bg-[#E67A68] p-6 sm:p-10 md:p-12 lg:p-14 flex flex-col">
+        <div className="lg:w-1/3 bg-[#E67A68] p-6 sm:p-10 md:p-12 lg:p-14 flex flex-col order-2 lg:order-1">
           {/* Input Section */}
           <div className="grid grid-cols-2 gap-2 mb-8">
             {/* Collateral Box */}
@@ -286,37 +287,41 @@ export default function UseCasesSection() {
         </div>
 
         {/* Right 2/3: Infinite Markets Container */}
-        <div className="lg:w-2/3 bg-nautical-blue p-6 sm:p-10 md:p-12 lg:p-14">
-          <div className="flex flex-col md:flex-row gap-6 lg:gap-10 h-full">
-            <div className="md:w-7/12 flex flex-col justify-center text-left gap-6 md:pr-6 lg:pr-10">
+        <div className="lg:w-2/3 bg-nautical-blue p-6 sm:p-10 md:p-12 lg:p-14 order-1 lg:order-2">
+          <div className="flex flex-row gap-1.5 sm:gap-2 md:gap-4 lg:gap-6 xl:gap-10 h-full">
+            <div className="w-6/12 flex flex-col justify-center text-left gap-4 sm:gap-5 md:gap-6 pr-1.5 sm:pr-2 md:pr-4 lg:pr-6 xl:pr-10 min-w-0">
               <div className="space-y-3">
                 <p className="text-white text-sm sm:text-base">
                   Harbor can tokenize any real-world asset or data feed, opening
                   up limitless possibilities for new markets.
                 </p>
                 <p className="text-white text-sm sm:text-base">
-                  Explore ideas in the map room and reach out to us to
-                  collaborate or integrate your token as collateral.
+                  Explore ideas in the map room. Reach out to us to collaborate
+                  or integrate your token as collateral.
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <button className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base bg-white text-nautical-blue font-semibold rounded-full hover:bg-white/90 transition-colors">
-                  Enter Map Room
+                <button
+                  className="w-full sm:w-auto px-8 py-3.5 text-base font-semibold bg-white text-nautical-blue border-2 border-white rounded-full hover:bg-white/90 transition-colors"
+                  onMouseEnter={() => setIsMapRoomHovered(true)}
+                  onMouseLeave={() => setIsMapRoomHovered(false)}
+                >
+                  {isMapRoomHovered ? "Coming soon" : "Enter Map Room"}
                 </button>
                 <a
                   href="https://discord.gg/harbor"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 transition-colors text-center"
+                  className="w-full sm:w-auto px-8 py-3.5 text-base font-semibold border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-center"
                 >
                   Reach Out
                 </a>
               </div>
             </div>
 
-            <div className="md:w-5/12 flex flex-col justify-center text-left">
-              <h2 className="leading-none text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-white tracking-tight">
+            <div className="w-6/12 flex flex-col justify-center text-left min-w-0 pl-2 sm:pl-3 md:pl-4 lg:pl-5">
+              <h2 className="leading-none text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-bold text-white tracking-tight break-words">
                 <span className="block">Infinite Markets,</span>
                 <span className="block">One Protocol.</span>
               </h2>

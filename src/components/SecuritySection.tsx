@@ -27,15 +27,17 @@ const SecuritySection = () => {
       <div className="flex flex-col lg:flex-row gap-2 sm:gap-3 items-stretch">
         {/* Left 50%: Institutional-Grade Security Content */}
         <div className="flex-1 bg-[#E67A68] p-6 sm:p-10 md:p-12 lg:p-14">
-          <div className="flex flex-col md:flex-row gap-6 lg:gap-10 h-full">
-            <div className="md:w-5/12 flex flex-col justify-center text-left">
-              <h2 className="leading-none text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-white tracking-tight">
-                <span className="block">Institutional-Grade</span>
-                <span className="block">Security</span>
+          <div className="flex flex-row gap-1.5 sm:gap-2 md:gap-4 lg:gap-6 xl:gap-10 h-full">
+            <div className="w-5/12 flex flex-col justify-center text-left min-w-0">
+              <h2 className="leading-none text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-bold text-white tracking-tight">
+                <span className="block whitespace-nowrap">
+                  Institutional-Grade
+                </span>
+                <span className="block whitespace-nowrap">Security</span>
               </h2>
             </div>
 
-            <div className="md:w-7/12 flex flex-col justify-center text-left gap-6 md:pl-6 lg:pl-10"></div>
+            <div className="w-7/12 flex flex-col justify-center text-left gap-4 sm:gap-5 md:gap-6 pl-1.5 sm:pl-2 md:pl-4 lg:pl-6 xl:pl-10 min-w-0"></div>
           </div>
         </div>
 

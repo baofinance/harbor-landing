@@ -32,15 +32,15 @@ const BoosterProgramSection = () => {
       <div className="flex flex-col lg:flex-row gap-2 sm:gap-3 items-stretch">
         {/* Left 2/3: Community Marketers Content */}
         <div className="lg:w-2/3 bg-white p-6 sm:p-10 md:p-12 lg:p-14">
-          <div className="flex flex-col md:flex-row gap-6 lg:gap-10 h-full">
-            <div className="md:w-5/12 flex flex-col justify-center text-left">
-              <h2 className="leading-none text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-nautical-blue tracking-tight">
-                <span className="block">Community</span>
-                <span className="block">Marketers</span>
+          <div className="flex flex-row gap-1.5 sm:gap-2 md:gap-4 lg:gap-6 xl:gap-10 h-full">
+            <div className="w-5/12 flex flex-col justify-center text-left min-w-0">
+              <h2 className="leading-none text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-bold text-nautical-blue tracking-tight">
+                <span className="block whitespace-nowrap">Community</span>
+                <span className="block whitespace-nowrap">Marketers</span>
               </h2>
             </div>
 
-            <div className="md:w-7/12 flex flex-col justify-center text-left gap-6 md:pl-6 lg:pl-10">
+            <div className="w-7/12 flex flex-col justify-center text-left gap-4 sm:gap-5 md:gap-6 pl-1.5 sm:pl-2 md:pl-4 lg:pl-6 xl:pl-10 min-w-0">
               <div className="space-y-3">
                 <p className="text-nautical-blue text-sm sm:text-base">
                   Earn a share of 3% of the TIDE supply, distributed monthly
@@ -53,14 +53,19 @@ const BoosterProgramSection = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
-                <button className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base border-2 border-nautical-blue text-nautical-blue font-semibold rounded-full hover:bg-nautical-blue/10 transition-colors">
+                <a
+                  href="https://docs.harbor.finance"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto px-8 py-3.5 text-base font-semibold border-2 border-nautical-blue text-nautical-blue rounded-full hover:bg-nautical-blue/10 transition-colors text-center"
+                >
                   Learn more
-                </button>
+                </a>
                 <Link
                   href="https://discord.com/invite/BW3P62vJXT"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base bg-nautical-blue text-white font-semibold rounded-full hover:bg-nautical-blue/90 transition-colors text-center"
+                  className="inline-block w-full sm:w-auto px-8 py-3.5 text-base font-semibold bg-nautical-blue text-white border-2 border-nautical-blue rounded-full hover:bg-nautical-blue/90 transition-colors text-center"
                 >
                   Discord
                 </Link>
