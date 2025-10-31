@@ -286,7 +286,7 @@ export default function UseCasesSection() {
         </div>
 
         {/* Right 2/3: Infinite Markets Container */}
-        <div className="lg:w-2/3 bg-nautical-blue-dark p-6 sm:p-10 md:p-12 lg:p-14 border-4 border-nautical-blue-light">
+        <div className="lg:w-2/3 bg-nautical-blue p-6 sm:p-10 md:p-12 lg:p-14">
           <div className="flex flex-col gap-6 sm:gap-8 justify-center h-full">
             <div>
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-white mb-4 sm:mb-6">

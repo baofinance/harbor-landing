@@ -65,7 +65,7 @@ const BoosterProgramSection = () => {
         </div>
 
         {/* Right 1/3: Ways to Contribute */}
-        <div className="lg:w-1/3 bg-nautical-blue-dark p-6 sm:p-10 md:p-12 lg:p-14 border-4 border-nautical-blue-light">
+        <div className="lg:w-1/3 bg-nautical-blue p-6 sm:p-10 md:p-12 lg:p-14">
           <h3 className="text-sm font-semibold text-white/70 mb-4 uppercase tracking-wider">
             Ways to Contribute
           </h3>
