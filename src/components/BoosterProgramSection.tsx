@@ -32,34 +32,39 @@ const BoosterProgramSection = () => {
       <div className="flex flex-col lg:flex-row gap-2 sm:gap-3 items-stretch">
         {/* Left 2/3: Community Marketers Content */}
         <div className="lg:w-2/3 bg-white p-6 sm:p-10 md:p-12 lg:p-14">
-          <div className="flex flex-col gap-6 sm:gap-8 justify-center h-full">
-            <div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-nautical-blue mb-4 sm:mb-6">
-                Join Our Community Marketers
+          <div className="flex flex-col md:flex-row gap-6 lg:gap-10 h-full">
+            <div className="md:w-5/12 flex flex-col justify-center text-left">
+              <h2 className="leading-none text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-nautical-blue tracking-tight">
+                <span className="block">Community</span>
+                <span className="block">Marketers</span>
               </h2>
-              <p className="text-nautical-blue text-sm sm:text-base mb-3 sm:mb-4">
-                Earn a share of 3% of the token supply, distributed monthly
-                based on your contributions.
-              </p>
-              <p className="text-nautical-blue text-sm sm:text-base">
-                Simply start creating and post a link in the #booster channel on
-                discord
-              </p>
             </div>
 
-            {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <button className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base border-2 border-nautical-blue text-nautical-blue font-semibold rounded-full hover:bg-nautical-blue/10 transition-colors">
-                Learn more
-              </button>
-              <Link
-                href="https://discord.com/invite/BW3P62vJXT"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base bg-nautical-blue text-white font-semibold rounded-full hover:bg-nautical-blue/90 transition-colors text-center"
-              >
-                Discord
-              </Link>
+            <div className="md:w-7/12 flex flex-col justify-center text-left gap-6 md:pl-6 lg:pl-10">
+              <div className="space-y-3">
+                <p className="text-nautical-blue text-sm sm:text-base">
+                  Earn a share of 3% of the TIDE supply, distributed monthly
+                  based on your contributions.
+                </p>
+                <p className="text-nautical-blue text-sm sm:text-base">
+                  Simply start creating and post a link in the #booster channel
+                  on discord to become one of our community marketers
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+                <button className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base border-2 border-nautical-blue text-nautical-blue font-semibold rounded-full hover:bg-nautical-blue/10 transition-colors">
+                  Learn more
+                </button>
+                <Link
+                  href="https://discord.com/invite/BW3P62vJXT"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base bg-nautical-blue text-white font-semibold rounded-full hover:bg-nautical-blue/90 transition-colors text-center"
+                >
+                  Discord
+                </Link>
+              </div>
             </div>
           </div>
         </div>

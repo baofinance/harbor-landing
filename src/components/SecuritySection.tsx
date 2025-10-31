@@ -27,17 +27,15 @@ const SecuritySection = () => {
       <div className="flex flex-col lg:flex-row gap-2 sm:gap-3 items-stretch">
         {/* Left 50%: Institutional-Grade Security Content */}
         <div className="flex-1 bg-[#E67A68] p-6 sm:p-10 md:p-12 lg:p-14">
-          <div className="flex flex-col gap-6 sm:gap-8 justify-center h-full">
-            <div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-white mb-4 sm:mb-6">
-                Institutional-Grade Security
+          <div className="flex flex-col md:flex-row gap-6 lg:gap-10 h-full">
+            <div className="md:w-5/12 flex flex-col justify-center text-left">
+              <h2 className="leading-none text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-white tracking-tight">
+                <span className="block">Institutional-Grade</span>
+                <span className="block">Security</span>
               </h2>
-              <p className="text-white text-sm sm:text-base">
-                Security is our number one priority. We use bank-grade security
-                standards and comprehensive testing to ensure your assets are
-                always protected.
-              </p>
             </div>
+
+            <div className="md:w-7/12 flex flex-col justify-center text-left gap-6 md:pl-6 lg:pl-10"></div>
           </div>
         </div>
 

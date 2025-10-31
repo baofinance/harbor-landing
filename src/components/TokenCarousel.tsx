@@ -29,44 +29,64 @@ export function AllOutYieldSection() {
     <section className="relative z-10 bg-nautical-blue-light p-2 sm:p-3">
       <div className="relative w-full flex flex-col md:flex-row items-stretch gap-2 sm:gap-3">
         {/* All Out Yield - Left 50% - Blue background */}
-        <div className="relative z-10 flex-1 bg-nautical-blue p-6 sm:p-10 md:p-12 lg:p-14 flex flex-col items-center justify-center text-center">
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-white mb-2">
-            All Out Yield
-          </h2>
-          <div className="mb-4 sm:mb-6">
-            <span className="inline-flex items-center tracking-wider text-xs text-white border border-[#FF8A7A] bg-white/10 backdrop-blur-md px-3 py-1 rounded-full">
-              Harbor Anchor Tokens (haTOKEN)
-            </span>
-          </div>
-          <YieldSection />
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-8 w-full sm:w-auto">
-            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base bg-white text-nautical-blue font-semibold rounded-full hover:bg-white/90 transition-colors">
-              Learn more
-            </button>
-            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 transition-colors">
-              Earn
-            </button>
+        <div className="relative z-10 flex-1 bg-nautical-blue p-6 sm:p-10 md:p-12 lg:p-14">
+          <div className="flex flex-col md:flex-row gap-6 lg:gap-10 h-full">
+            <div className="md:w-5/12 flex flex-col justify-center text-left">
+              <h2 className="leading-none text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-white tracking-tight">
+                <span className="block">All</span>
+                <span className="block">Out</span>
+                <span className="block">Yield</span>
+              </h2>
+            </div>
+
+            <div className="md:w-7/12 flex flex-col justify-center text-left gap-6 md:pl-6 lg:pl-10">
+              <div className="space-y-3">
+                <p className="text-sm uppercase tracking-[0.35em] text-white/70 mb-4">
+                  Harbor Anchor Tokens (haTOKEN)
+                </p>
+                <YieldSection />
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+                <button className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base bg-white text-nautical-blue font-semibold rounded-full hover:bg-white/90 transition-colors">
+                  Learn more
+                </button>
+                <button className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 transition-colors">
+                  Earn
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Stress Free Leverage - Right 50% - White background (inverted) */}
-        <div className="relative z-10 flex-1 bg-white p-6 sm:p-10 md:p-12 lg:p-14 flex flex-col items-center justify-center text-center border-4 border-white">
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-nautical-blue mb-2">
-            Stress Free Leverage
-          </h2>
-          <div className="mb-4 sm:mb-6">
-            <span className="inline-flex items-center tracking-wider text-xs text-nautical-blue border border-[#FF8A7A] bg-nautical-blue/10 backdrop-blur-md px-3 py-1 rounded-full">
-              Harbor Sail Tokens (hsTOKEN)
-            </span>
-          </div>
-          <RebalanceSection />
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-8 w-full sm:w-auto">
-            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base bg-nautical-blue text-white font-semibold rounded-full hover:bg-nautical-blue/90 transition-colors">
-              Learn more
-            </button>
-            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base border-2 border-nautical-blue text-nautical-blue font-semibold rounded-full hover:bg-nautical-blue/10 transition-colors">
-              Trade
-            </button>
+        <div className="relative z-10 flex-1 bg-white p-6 sm:p-10 md:p-12 lg:p-14">
+          <div className="flex flex-col md:flex-row gap-6 lg:gap-10 h-full">
+            <div className="md:w-5/12 flex flex-col justify-center text-left">
+              <h2 className="leading-none text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-nautical-blue tracking-tight">
+                <span className="block">Stress</span>
+                <span className="block">Free</span>
+                <span className="block">Leverage</span>
+              </h2>
+            </div>
+
+            <div className="md:w-7/12 flex flex-col justify-center text-left gap-6 md:pl-6 lg:pl-10">
+              <div className="space-y-3">
+                <p className="text-sm uppercase tracking-[0.35em] text-nautical-blue/70 mb-4">
+                  Harbor Sail Tokens (hsTOKEN)
+                </p>
+                <RebalanceSection />
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+                <button className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base bg-nautical-blue text-white font-semibold rounded-full hover:bg-nautical-blue/90 transition-colors">
+                  Learn more
+                </button>
+                <button className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base border-2 border-nautical-blue text-nautical-blue font-semibold rounded-full hover:bg-nautical-blue/10 transition-colors">
+                  Trade
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

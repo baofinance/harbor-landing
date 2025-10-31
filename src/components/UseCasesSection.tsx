@@ -287,30 +287,39 @@ export default function UseCasesSection() {
 
         {/* Right 2/3: Infinite Markets Container */}
         <div className="lg:w-2/3 bg-nautical-blue p-6 sm:p-10 md:p-12 lg:p-14">
-          <div className="flex flex-col gap-6 sm:gap-8 justify-center h-full">
-            <div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-white mb-4 sm:mb-6">
-                Infinite Markets, One Protocol
-              </h2>
-              <p className="text-white text-sm sm:text-base">
-                Harbor can tokenize any real-world asset or data feed, opening
-                up limitless possibilities for decentralized finance.
-              </p>
+          <div className="flex flex-col md:flex-row gap-6 lg:gap-10 h-full">
+            <div className="md:w-7/12 flex flex-col justify-center text-left gap-6 md:pr-6 lg:pr-10">
+              <div className="space-y-3">
+                <p className="text-white text-sm sm:text-base">
+                  Harbor can tokenize any real-world asset or data feed, opening
+                  up limitless possibilities for new markets.
+                </p>
+                <p className="text-white text-sm sm:text-base">
+                  Explore ideas in the map room and reach out to us to
+                  collaborate or integrate your token as collateral.
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <button className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base bg-white text-nautical-blue font-semibold rounded-full hover:bg-white/90 transition-colors">
+                  Enter Map Room
+                </button>
+                <a
+                  href="https://discord.gg/harbor"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 transition-colors text-center"
+                >
+                  Reach Out
+                </a>
+              </div>
             </div>
 
-            {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <button className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base bg-white text-nautical-blue font-semibold rounded-full hover:bg-white/90 transition-colors">
-                Enter Map Room
-              </button>
-              <a
-                href="https://discord.gg/harbor"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto px-6 sm:px-8 py-3 text-sm sm:text-base border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 transition-colors text-center"
-              >
-                Reach Out
-              </a>
+            <div className="md:w-5/12 flex flex-col justify-center text-left">
+              <h2 className="leading-none text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-white tracking-tight">
+                <span className="block">Infinite Markets,</span>
+                <span className="block">One Protocol.</span>
+              </h2>
             </div>
           </div>
         </div>
