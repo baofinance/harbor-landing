@@ -110,16 +110,16 @@ export default function UseCasesSection() {
     <section className="relative z-10 bg-nautical-blue-light px-2 sm:px-3 pb-2 sm:pb-3 pt-0">
       <div className="flex flex-col lg:flex-row gap-2 sm:gap-3 items-stretch">
         {/* Left 1/3: Input/Output Container */}
-        <div className="lg:w-1/3 bg-[#E67A68] p-6 sm:p-10 md:p-12 lg:p-14 flex flex-col order-2 lg:order-1">
+        <div className="lg:w-1/3 bg-white p-6 sm:p-10 md:p-12 lg:p-14 flex flex-col order-2 lg:order-1">
           {/* Input Section */}
           <div className="grid grid-cols-2 gap-2 mb-8">
             {/* Collateral Box */}
             <div className="flex flex-col">
-              <h3 className="text-xs font-semibold text-white mb-2 tracking-wider">
+              <h3 className="text-xs font-semibold text-nautical-blue mb-2 tracking-wider">
                 Collateral
               </h3>
               <div
-                className={`bg-white border-4 border-white p-2 flex items-center justify-center h-full cursor-pointer hover:bg-white/95 transition-all rounded-lg ${
+                className={`bg-white border-4 border-nautical-blue p-2 flex items-center justify-center h-full cursor-pointer hover:bg-gray-50 transition-all rounded-lg ${
                   isPulsing && !isEditing ? "scale-[1.02] shadow-md" : ""
                 }`}
                 onClick={handleInputBoxClick}
@@ -143,11 +143,11 @@ export default function UseCasesSection() {
 
             {/* Price Feed Box */}
             <div className="flex flex-col">
-              <h3 className="text-xs font-semibold text-white mb-2 tracking-wider">
+              <h3 className="text-xs font-semibold text-nautical-blue mb-2 tracking-wider">
                 Price Feed
               </h3>
               <div
-                className={`bg-white border-4 border-white p-2 flex items-center justify-center h-full cursor-pointer hover:bg-white/95 transition-all rounded-lg ${
+                className={`bg-white border-4 border-nautical-blue p-2 flex items-center justify-center h-full cursor-pointer hover:bg-gray-50 transition-all rounded-lg ${
                   isPulsing && !isEditing ? "scale-[1.02] shadow-md" : ""
                 }`}
                 onClick={handleInputBoxClick}
@@ -181,7 +181,7 @@ export default function UseCasesSection() {
               strokeWidth="2.5"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="text-white opacity-70"
+              className="text-nautical-blue opacity-70"
             >
               <line x1="12" y1="5" x2="12" y2="19"></line>
               <polyline points="19 12 12 19 5 12"></polyline>
@@ -192,11 +192,11 @@ export default function UseCasesSection() {
           <div className="grid grid-cols-2 gap-2 mb-8">
             {/* haTOKEN Box */}
             <div className="flex flex-col">
-              <h3 className="text-xs font-semibold text-white mb-2 tracking-wider">
+              <h3 className="text-xs font-semibold text-nautical-blue mb-2 tracking-wider">
                 haTOKEN
               </h3>
               <div
-                className={`bg-white border-4 border-white p-2 flex items-center justify-center h-full rounded-lg transition-all ${
+                className={`bg-white border-4 border-nautical-blue p-2 flex items-center justify-center h-full rounded-lg transition-all ${
                   isPulsing && !isEditing ? "scale-[1.02] shadow-md" : ""
                 }`}
               >
@@ -208,11 +208,11 @@ export default function UseCasesSection() {
 
             {/* hsTOKEN Box */}
             <div className="flex flex-col">
-              <h3 className="text-xs font-semibold text-white mb-2 tracking-wider">
+              <h3 className="text-xs font-semibold text-nautical-blue mb-2 tracking-wider">
                 hsTOKEN
               </h3>
               <div
-                className={`bg-white border-4 border-white p-2 flex items-center justify-center h-full rounded-lg transition-all ${
+                className={`bg-white border-4 border-nautical-blue p-2 flex items-center justify-center h-full rounded-lg transition-all ${
                   isPulsing && !isEditing ? "scale-[1.02] shadow-md" : ""
                 }`}
               >
@@ -228,7 +228,7 @@ export default function UseCasesSection() {
           <div className="flex justify-center gap-2 mt-6">
             <button
               onClick={handlePreviousClick}
-              className="p-2 text-white/70 hover:text-white border border-white/30 hover:border-white/60 rounded-full transition-all"
+              className="p-2 text-nautical-blue/70 hover:text-nautical-blue border border-nautical-blue/30 hover:border-nautical-blue/60 rounded-full transition-all"
               aria-label="Previous"
             >
               <svg
@@ -243,7 +243,7 @@ export default function UseCasesSection() {
             </button>
             <button
               onClick={handlePlayPauseClick}
-              className="p-2 text-white/70 hover:text-white border border-white/30 hover:border-white/60 rounded-full transition-all"
+              className="p-2 text-nautical-blue/70 hover:text-nautical-blue border border-nautical-blue/30 hover:border-nautical-blue/60 rounded-full transition-all"
               aria-label={isEditing ? "Play" : "Pause"}
             >
               {isEditing ? (
@@ -270,7 +270,7 @@ export default function UseCasesSection() {
             </button>
             <button
               onClick={handleNextClick}
-              className="p-2 text-white/70 hover:text-white border border-white/30 hover:border-white/60 rounded-full transition-all"
+              className="p-2 text-nautical-blue/70 hover:text-nautical-blue border border-nautical-blue/30 hover:border-nautical-blue/60 rounded-full transition-all"
               aria-label="Next"
             >
               <svg

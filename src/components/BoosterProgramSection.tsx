@@ -82,8 +82,8 @@ const BoosterProgramSection = () => {
           <div className="space-y-3">
             {boosterActivities.map((activity) => (
               <div key={activity.title} className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-[#FF8A7A] flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <activity.icon className="w-4 h-4 text-white" />
+                <div className="w-8 h-8 bg-white flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <activity.icon className="w-4 h-4 text-nautical-blue" />
                 </div>
                 <div>
                   <h4 className="text-white font-semibold text-sm mb-1">

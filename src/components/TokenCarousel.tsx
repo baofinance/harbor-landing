@@ -1,6 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
+import {
+  Anchor,
+  TrendingUp,
+  RotateCw,
+  DollarSign,
+  Coins,
+  Shield,
+} from "lucide-react";
 
 // Types for the new two-sided layout
 type SideCard = {
@@ -127,20 +135,60 @@ export default function TokenCarousel() {
 
 function YieldSection() {
   return (
-    <div className="text-white text-sm sm:text-base leading-relaxed space-y-2 text-left">
-      {sideCards[0].description.split("\n").map((line, index) => (
-        <p key={index}>{line}</p>
-      ))}
+    <div className="space-y-3">
+      <div className="flex items-start gap-3">
+        <div className="w-8 h-8 bg-white flex items-center justify-center flex-shrink-0 mt-0.5">
+          <Anchor className="w-4 h-4 text-nautical-blue" />
+        </div>
+        <p className="text-white text-sm sm:text-base">
+          Pegged to assets like ETH, BTC and more
+        </p>
+      </div>
+      <div className="flex items-start gap-3">
+        <div className="w-8 h-8 bg-white flex items-center justify-center flex-shrink-0 mt-0.5">
+          <TrendingUp className="w-4 h-4 text-nautical-blue" />
+        </div>
+        <p className="text-white text-sm sm:text-base">
+          Earn yield from collateral and protocol trading fees
+        </p>
+      </div>
+      <div className="flex items-start gap-3">
+        <div className="w-8 h-8 bg-white flex items-center justify-center flex-shrink-0 mt-0.5">
+          <RotateCw className="w-4 h-4 text-nautical-blue" />
+        </div>
+        <p className="text-white text-sm sm:text-base">Redeemable any time</p>
+      </div>
     </div>
   );
 }
 
 function RebalanceSection() {
   return (
-    <div className="text-nautical-blue text-sm sm:text-base leading-relaxed space-y-2 text-left">
-      {sideCards[1].description.split("\n").map((line, index) => (
-        <p key={index}>{line}</p>
-      ))}
+    <div className="space-y-3">
+      <div className="flex items-start gap-3">
+        <div className="w-8 h-8 bg-nautical-blue flex items-center justify-center flex-shrink-0 mt-0.5">
+          <Coins className="w-4 h-4 text-white" />
+        </div>
+        <p className="text-nautical-blue text-sm sm:text-base">
+          Composable: Use in defi
+        </p>
+      </div>
+      <div className="flex items-start gap-3">
+        <div className="w-8 h-8 bg-nautical-blue flex items-center justify-center flex-shrink-0 mt-0.5">
+          <RotateCw className="w-4 h-4 text-white" />
+        </div>
+        <p className="text-nautical-blue text-sm sm:text-base">
+          Fee-free, automatic rebalancing
+        </p>
+      </div>
+      <div className="flex items-start gap-3">
+        <div className="w-8 h-8 bg-nautical-blue flex items-center justify-center flex-shrink-0 mt-0.5">
+          <DollarSign className="w-4 h-4 text-white" />
+        </div>
+        <p className="text-nautical-blue text-sm sm:text-base">
+          No funding fees
+        </p>
+      </div>
     </div>
   );
 }

@@ -37,20 +37,31 @@ export default function HeroSection() {
             {/* Launch Announcement */}
             <div className="mt-8 sm:mt-10 md:mt-12 space-y-3 sm:space-y-4">
               <div className="inline-block px-4 py-2 bg-sunrise-coral border-2 border-sunrise-coral rounded-full">
-                <p className="text-xs sm:text-sm md:text-base text-white font-semibold text-center">
-                  Maiden voyage coming soon: Participate to qualify for a TIDE
-                  airdrop. Follow for updates
+                <p className="text-xs sm:text-sm md:text-base text-white text-center">
+                  <span className="font-semibold">
+                    Maiden voyage coming soon:
+                  </span>{" "}
+                  <span className="font-normal">
+                    Participate to qualify for a TIDE airdrop. Follow for
+                    updates
+                  </span>
                 </p>
               </div>
               <div className="pt-2 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-                <a
-                  href="https://docs.harbor.finance"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => {
+                    const maidenVoyageSection =
+                      document.getElementById("maiden-voyage");
+                    if (maidenVoyageSection) {
+                      maidenVoyageSection.scrollIntoView({
+                        behavior: "smooth",
+                      });
+                    }
+                  }}
                   className="w-full sm:w-auto px-8 py-3.5 text-base font-semibold bg-white text-nautical-blue border-2 border-white rounded-full hover:bg-white/90 transition-colors text-center"
                 >
                   Learn more
-                </a>
+                </button>
                 <a
                   href="https://twitter.com/harborfi"
                   target="_blank"
