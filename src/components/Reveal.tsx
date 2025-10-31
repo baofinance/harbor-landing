@@ -24,7 +24,7 @@ export default function Reveal({ children, delayMs = 0 }: RevealProps) {
           }
         });
       },
-      { root: null, rootMargin: "-150px 0px 0px 0px", threshold: 0.15 }
+      { root: null, rootMargin: "-300px 0px 0px 0px", threshold: 0.15 }
     );
 
     observer.observe(el);

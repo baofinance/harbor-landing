@@ -37,8 +37,8 @@ export function AllOutYieldSection() {
   const [isTradeHovered, setIsTradeHovered] = useState(false);
 
   return (
-    <section className="relative z-10 bg-nautical-blue-light p-2 sm:p-3">
-      <div className="relative w-full flex flex-col lg:flex-row items-stretch gap-2 sm:gap-3">
+    <section className="relative z-10 bg-nautical-blue-light p-3 sm:p-4 md:p-5">
+      <div className="relative w-full flex flex-col lg:flex-row items-stretch gap-3 sm:gap-4 md:gap-5">
         {/* All Out Yield - Left 50% - Blue background */}
         <div className="relative z-10 flex-1 bg-nautical-blue p-6 sm:p-10 md:p-12 lg:p-14">
           <div className="flex flex-row gap-1.5 sm:gap-2 md:gap-4 lg:gap-6 xl:gap-10 h-full">

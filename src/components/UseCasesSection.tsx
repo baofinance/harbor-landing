@@ -107,8 +107,8 @@ export default function UseCasesSection() {
     : priceFeedOptions[currentPriceFeed];
 
   return (
-    <section className="relative z-10 bg-nautical-blue-light px-2 sm:px-3 pb-2 sm:pb-3 pt-0">
-      <div className="flex flex-col lg:flex-row gap-2 sm:gap-3 items-stretch">
+    <section className="relative z-10 bg-nautical-blue-light px-3 sm:px-4 md:px-5 pb-3 sm:pb-4 md:pb-5 pt-0">
+      <div className="flex flex-col lg:flex-row gap-3 sm:gap-4 md:gap-5 items-stretch">
         {/* Left 1/3: Input/Output Container */}
         <div className="lg:w-1/3 bg-white p-6 sm:p-10 md:p-12 lg:p-14 flex flex-col order-2 lg:order-1">
           {/* Input Section */}
