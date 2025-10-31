@@ -286,6 +286,7 @@ module.exports = {
         // Harbor Brand Colors
         "nautical-blue": "#1E4775",
         "nautical-blue-light": "#2B5E99",
+        "nautical-blue-surface": "#3B6FA8",
         "nautical-blue-dark": "#142E4A",
         "nautical-deep": "#0D1F36",
         "seafoam-mint": "#B8EBD5",
