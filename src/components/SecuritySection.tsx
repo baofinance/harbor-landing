@@ -46,7 +46,7 @@ const SecuritySection = () => {
           {securityFeatures.map((feature) => (
             <div
               key={feature.title}
-              className="bg-white border-4 border-white p-6 sm:p-10 md:p-12 lg:p-14 flex-1"
+              className="bg-white p-6 sm:p-10 md:p-12 lg:p-14 flex-1"
             >
               <div className="flex items-start gap-3 sm:gap-4 h-full">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#FF8A7A] flex items-center justify-center flex-shrink-0">

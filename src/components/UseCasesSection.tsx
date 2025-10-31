@@ -118,7 +118,7 @@ export default function UseCasesSection() {
                 Collateral
               </h3>
               <div
-                className={`bg-white border-4 border-white p-2 flex items-center justify-center h-full cursor-pointer hover:bg-white/95 transition-all rounded-lg ${
+                className={`bg-white p-2 flex items-center justify-center h-full cursor-pointer hover:bg-white/95 transition-all rounded-lg ${
                   isPulsing && !isEditing ? "scale-[1.02] shadow-md" : ""
                 }`}
                 onClick={handleInputBoxClick}
@@ -146,7 +146,7 @@ export default function UseCasesSection() {
                 Price Feed
               </h3>
               <div
-                className={`bg-white border-4 border-white p-2 flex items-center justify-center h-full cursor-pointer hover:bg-white/95 transition-all rounded-lg ${
+                className={`bg-white p-2 flex items-center justify-center h-full cursor-pointer hover:bg-white/95 transition-all rounded-lg ${
                   isPulsing && !isEditing ? "scale-[1.02] shadow-md" : ""
                 }`}
                 onClick={handleInputBoxClick}
@@ -195,7 +195,7 @@ export default function UseCasesSection() {
                 haTOKEN
               </h3>
               <div
-                className={`bg-white border-4 border-white p-2 flex items-center justify-center h-full rounded-lg transition-all ${
+                className={`bg-white p-2 flex items-center justify-center h-full rounded-lg transition-all ${
                   isPulsing && !isEditing ? "scale-[1.02] shadow-md" : ""
                 }`}
               >
@@ -211,7 +211,7 @@ export default function UseCasesSection() {
                 hsTOKEN
               </h3>
               <div
-                className={`bg-white border-4 border-white p-2 flex items-center justify-center h-full rounded-lg transition-all ${
+                className={`bg-white p-2 flex items-center justify-center h-full rounded-lg transition-all ${
                   isPulsing && !isEditing ? "scale-[1.02] shadow-md" : ""
                 }`}
               >
@@ -286,7 +286,7 @@ export default function UseCasesSection() {
         </div>
 
         {/* Right 2/3: Infinite Markets Container */}
-        <div className="lg:w-2/3 bg-nautical-blue p-6 sm:p-10 md:p-12 lg:p-14 border-4 border-white">
+        <div className="lg:w-2/3 bg-nautical-blue-light p-6 sm:p-10 md:p-12 lg:p-14">
           <div className="flex flex-col gap-6 sm:gap-8 justify-center h-full">
             <div>
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-white mb-4 sm:mb-6">
