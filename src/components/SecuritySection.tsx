@@ -23,10 +23,10 @@ const securityFeatures = [
 
 const SecuritySection = () => {
   return (
-    <section className="relative z-10 bg-white px-2 sm:px-3 pb-2 sm:pb-3 pt-0">
+    <section className="relative z-10 bg-nautical-blue-light px-2 sm:px-3 pb-2 sm:pb-3 pt-0">
       <div className="flex flex-col lg:flex-row gap-2 sm:gap-3 items-stretch">
         {/* Left 50%: Institutional-Grade Security Content */}
-        <div className="flex-1 bg-[#E67A68] p-6 sm:p-10 md:p-12 lg:p-14">
+        <div className="flex-1 bg-[#E67A68] p-6 sm:p-10 md:p-12 lg:p-14 border-2 border-[#D66958]">
           <div className="flex flex-col gap-6 sm:gap-8 justify-center h-full">
             <div>
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-white mb-4 sm:mb-6">
@@ -46,7 +46,7 @@ const SecuritySection = () => {
           {securityFeatures.map((feature) => (
             <div
               key={feature.title}
-              className="bg-white p-6 sm:p-10 md:p-12 lg:p-14 flex-1"
+              className="bg-white p-6 sm:p-10 md:p-12 lg:p-14 flex-1 border-2 border-white"
             >
               <div className="flex items-start gap-3 sm:gap-4 h-full">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#FF8A7A] flex items-center justify-center flex-shrink-0">
