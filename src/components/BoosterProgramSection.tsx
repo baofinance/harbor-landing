@@ -34,7 +34,7 @@ const BoosterProgramSection = () => {
         <div className="lg:w-2/3 bg-white p-10 sm:p-12 lg:p-14">
           <div className="flex flex-col gap-8 justify-center h-full">
             <div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl tracking-wide font-bold text-nautical-blue mb-6">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-nautical-blue mb-6">
                 Join Our Community Marketers
               </h2>
               <p className="text-nautical-blue text-sm sm:text-base mb-4">
@@ -49,14 +49,14 @@ const BoosterProgramSection = () => {
 
             {/* Buttons */}
             <div className="flex gap-4">
-              <button className="px-10 py-4 text-lg border-2 border-nautical-blue text-nautical-blue font-semibold rounded-full hover:bg-nautical-blue/10 transition-colors">
+              <button className="px-8 py-3 text-base border-2 border-nautical-blue text-nautical-blue font-semibold rounded-full hover:bg-nautical-blue/10 transition-colors">
                 Learn more
               </button>
               <Link
                 href="https://discord.com/invite/BW3P62vJXT"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-10 py-4 text-lg bg-nautical-blue text-white font-semibold rounded-full hover:bg-nautical-blue/90 transition-colors text-center"
+                className="inline-block px-8 py-3 text-base bg-nautical-blue text-white font-semibold rounded-full hover:bg-nautical-blue/90 transition-colors text-center"
               >
                 Discord
               </Link>
@@ -65,8 +65,8 @@ const BoosterProgramSection = () => {
         </div>
 
         {/* Right 1/3: Ways to Contribute */}
-        <div className="lg:w-1/3 bg-white p-10 sm:p-12 lg:p-14">
-          <h3 className="text-sm font-semibold text-nautical-blue/70 mb-4 uppercase tracking-wider">
+        <div className="lg:w-1/3 bg-nautical-blue p-10 sm:p-12 lg:p-14 border-4 border-white">
+          <h3 className="text-sm font-semibold text-white/70 mb-4 uppercase tracking-wider">
             Ways to Contribute
           </h3>
           <div className="space-y-3">
@@ -76,12 +76,10 @@ const BoosterProgramSection = () => {
                   <activity.icon className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <h4 className="text-nautical-blue font-semibold text-sm mb-1">
+                  <h4 className="text-white font-semibold text-sm mb-1">
                     {activity.title}
                   </h4>
-                  <p className="text-nautical-blue/70 text-xs">
-                    {activity.desc}
-                  </p>
+                  <p className="text-white/70 text-xs">{activity.desc}</p>
                 </div>
               </div>
             ))}

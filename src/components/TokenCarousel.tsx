@@ -28,57 +28,33 @@ export function AllOutYieldSection() {
   return (
     <section className="relative z-10 bg-white p-3">
       <div className="relative w-full flex items-stretch gap-3">
+        {/* All Out Yield - Left 50% - Blue background */}
         <div className="relative z-10 flex-1 bg-nautical-blue p-10 sm:p-12 lg:p-14 flex flex-col items-center justify-center text-center border-4 border-white">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl tracking-wide font-bold text-white mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-white mb-6">
             All Out Yield
           </h2>
           <YieldSection />
           <div className="flex items-center justify-center gap-4 mt-8">
-            <button className="px-14 py-5 text-xl bg-white text-nautical-blue font-semibold rounded-full hover:bg-white/90 transition-colors">
+            <button className="px-8 py-3 text-base bg-white text-nautical-blue font-semibold rounded-full hover:bg-white/90 transition-colors">
               Learn more
             </button>
-            <button className="px-14 py-5 text-xl border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 transition-colors">
+            <button className="px-8 py-3 text-base border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 transition-colors">
               Earn
             </button>
           </div>
         </div>
-        {/* Anchor image matching box height */}
-        <div className="relative flex-shrink-0 w-[280px] sm:w-[360px] lg:w-[440px] self-stretch border-4 border-white overflow-hidden">
-          <img
-            src="/Anchor.png"
-            alt="Harbor Anchor"
-            aria-hidden
-            className="pointer-events-none w-full h-full object-cover opacity-90"
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
 
-export function StressFreeLeverageSection() {
-  return (
-    <section className="relative z-10 bg-white px-3 pb-3 pt-0">
-      <div className="relative w-full flex items-stretch gap-3">
-        {/* Sail image matching box height */}
-        <div className="relative flex-shrink-0 w-[280px] sm:w-[360px] lg:w-[440px] self-stretch border-4 border-white overflow-hidden">
-          <img
-            src="/sail.png"
-            alt="Harbor Sail Token"
-            aria-hidden
-            className="pointer-events-none w-full h-full object-cover opacity-90"
-          />
-        </div>
-        <div className="relative z-10 flex-1 bg-nautical-blue p-10 sm:p-12 lg:p-14 flex flex-col items-center justify-center text-center border-4 border-white">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl tracking-wide font-bold text-white mb-6">
+        {/* Stress Free Leverage - Right 50% - White background (inverted) */}
+        <div className="relative z-10 flex-1 bg-white p-10 sm:p-12 lg:p-14 flex flex-col items-center justify-center text-center border-4 border-white">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-wide font-bold text-nautical-blue mb-6">
             Stress Free Leverage
           </h2>
           <RebalanceSection />
           <div className="flex items-center justify-center gap-4 mt-8">
-            <button className="px-14 py-5 text-xl bg-white text-nautical-blue font-semibold rounded-full hover:bg-white/90 transition-colors">
+            <button className="px-8 py-3 text-base bg-nautical-blue text-white font-semibold rounded-full hover:bg-nautical-blue/90 transition-colors">
               Learn more
             </button>
-            <button className="px-14 py-5 text-xl border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 transition-colors">
+            <button className="px-8 py-3 text-base border-2 border-nautical-blue text-nautical-blue font-semibold rounded-full hover:bg-nautical-blue/10 transition-colors">
               Trade
             </button>
           </div>
@@ -88,14 +64,14 @@ export function StressFreeLeverageSection() {
   );
 }
 
+export function StressFreeLeverageSection() {
+  // This component is no longer used separately
+  return null;
+}
+
 // Keep default export for backward compatibility
 export default function TokenCarousel() {
-  return (
-    <>
-      <AllOutYieldSection />
-      <StressFreeLeverageSection />
-    </>
-  );
+  return <AllOutYieldSection />;
 }
 
 function YieldSection() {
@@ -110,7 +86,7 @@ function YieldSection() {
 
 function RebalanceSection() {
   return (
-    <div className="text-white text-sm sm:text-base leading-relaxed space-y-3">
+    <div className="text-nautical-blue text-sm sm:text-base leading-relaxed space-y-3">
       {sideCards[1].description.split("\n\n").map((paragraph, index) => (
         <p key={index}>{paragraph}</p>
       ))}

@@ -5,10 +5,7 @@ import DepthEffects from "@/components/DepthEffects";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import SecuritySection from "@/components/SecuritySection";
-import {
-  AllOutYieldSection,
-  StressFreeLeverageSection,
-} from "@/components/TokenCarousel";
+import { AllOutYieldSection } from "@/components/TokenCarousel";
 import UseCasesSection from "@/components/UseCasesSection";
 import Reveal from "@/components/Reveal";
 
@@ -25,15 +22,12 @@ export default function Home() {
             <AllOutYieldSection />
           </Reveal>
           <Reveal delayMs={120}>
-            <StressFreeLeverageSection />
-          </Reveal>
-          <Reveal delayMs={180}>
             <UseCasesSection />
           </Reveal>
-          <Reveal delayMs={240}>
+          <Reveal delayMs={180}>
             <BoosterProgramSection />
           </Reveal>
-          <Reveal delayMs={300}>
+          <Reveal delayMs={240}>
             <SecuritySection />
           </Reveal>
         </div>
