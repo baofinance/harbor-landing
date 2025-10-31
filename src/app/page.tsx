@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import MaidenVoyageSection from "@/components/MaidenVoyageSection";
 import SecuritySection from "@/components/SecuritySection";
+import TideSection from "@/components/TideSection";
 import { AllOutYieldSection } from "@/components/TokenCarousel";
 import UseCasesSection from "@/components/UseCasesSection";
 import Reveal from "@/components/Reveal";
@@ -29,9 +30,12 @@ export default function Home() {
             <MaidenVoyageSection />
           </Reveal>
           <Reveal delayMs={240}>
-            <BoosterProgramSection />
+            <TideSection />
           </Reveal>
           <Reveal delayMs={300}>
+            <BoosterProgramSection />
+          </Reveal>
+          <Reveal delayMs={360}>
             <SecuritySection />
           </Reveal>
         </div>
