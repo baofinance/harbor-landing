@@ -49,16 +49,16 @@
 
   body {
     @apply bg-nautical-blue-light text-white min-h-screen font-sans;
-    background-color: #2b5e99 !important;
+    background-color: #224f82 !important;
   }
 
   /* Ensure all sections have solid background */
   section {
-    background-color: #2b5e99 !important;
+    background-color: #224f82 !important;
   }
 
   main {
-    background-color: #2b5e99 !important;
+    background-color: #224f82 !important;
   }
 
   /* Protect hero section from global background overrides */
