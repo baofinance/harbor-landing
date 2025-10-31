@@ -23,7 +23,7 @@ const securityFeatures = [
 
 const SecuritySection = () => {
   return (
-    <section className="relative z-10 px-2 sm:px-3 pb-2 sm:pb-3 pt-0">
+    <section className="relative z-10 bg-nautical-blue-light px-2 sm:px-3 pb-2 sm:pb-3 pt-0">
       <div className="flex flex-col lg:flex-row gap-2 sm:gap-3 items-stretch">
         {/* Left 50%: Institutional-Grade Security Content */}
         <div className="flex-1 bg-[#E67A68] p-6 sm:p-10 md:p-12 lg:p-14">
