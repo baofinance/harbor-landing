@@ -1,13 +1,16 @@
 "use client";
 
 import { ShieldCheck, Landmark, Microscope } from "lucide-react";
+import Link from "next/link";
 import { PortholeDecoration } from "./Porthole";
 
 const securityFeatures = [
   {
     icon: ShieldCheck,
     title: "Third-Party Audited",
-    desc: "Smart contracts will undergo independent audits by leading security firms before mainnet launch to ensure integrity and safety.",
+    desc: "Our smart contracts have been independently audited by Sherlock, one of the top audit firms in the industry, having run audits for Arbitrum, Optimism, Ethereum, Aave, Maker, and many more.",
+    link: "/2025_10_21_Final_Harbor_Collaborative_Audit_Report_1761050317.pdf",
+    linkText: "View audit report",
   },
   {
     icon: Landmark,
@@ -56,9 +59,35 @@ const SecuritySection = () => {
                   <h3 className="text-nautical-blue font-semibold text-base sm:text-lg mb-1 sm:mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-nautical-blue/70 text-xs sm:text-sm">
+                  <p className="text-nautical-blue/70 text-xs sm:text-sm mb-2">
                     {feature.desc}
                   </p>
+                  {feature.link && (
+                    <Link
+                      href={feature.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-nautical-blue text-xs sm:text-sm font-semibold hover:underline inline-flex items-center gap-1"
+                    >
+                      {feature.linkText}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="inline"
+                      >
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
