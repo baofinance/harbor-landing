@@ -44,7 +44,7 @@ const BoosterProgramSection = () => {
             <div className="w-7/12 flex flex-col justify-center text-left gap-4 sm:gap-5 md:gap-6 pl-1.5 sm:pl-2 md:pl-4 lg:pl-6 xl:pl-10 min-w-0">
               <div className="space-y-3">
                 <p className="text-nautical-blue text-sm sm:text-base">
-                  Earn a share of 3% of the TIDE supply, distributed monthly
+                  Earn a share of 3% of the $TIDE supply, distributed monthly
                   based on your contributions.
                 </p>
                 <p className="text-nautical-blue text-sm sm:text-base">

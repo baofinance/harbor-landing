@@ -42,7 +42,7 @@ export default function HeroSection() {
                     Maiden voyage coming soon:
                   </span>{" "}
                   <span className="font-normal">
-                    Participate to qualify for a TIDE airdrop. Follow for
+                    Participate to qualify for a $TIDE airdrop. Follow for
                     updates
                   </span>
                 </p>

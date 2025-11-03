@@ -89,7 +89,7 @@ export default function MaidenVoyageSection() {
                 </div>
                 <div>
                   <p className="text-nautical-blue text-sm sm:text-base">
-                    Qualify for a TIDE airdrop
+                    Qualify for a $TIDE airdrop
                   </p>
                 </div>
               </div>

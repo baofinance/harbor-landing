@@ -6,17 +6,17 @@ const tideFeatures = [
   {
     icon: TrendingUp,
     title: "Grow Protocol Owned Liquidity",
-    desc: "Until the treasury owns 15% of the circulating supply in liquidity pools, TIDE will be purchased and added to protocol owned liquidity.",
+    desc: "Until the treasury owns 15% of the circulating supply in liquidity pools, $TIDE will be purchased and added to protocol owned liquidity.",
   },
   {
     icon: Vault,
     title: "Maintain Treasury Warchest",
-    desc: "If the treasury's ownership of the TIDE supply drops below 30%, TIDE will be purchased and added to the treasury.",
+    desc: "If the treasury's ownership of the $TIDE supply drops below 30%, $TIDE will be purchased and added to the treasury.",
   },
   {
     icon: Flame,
     title: "Burn Supply",
-    desc: "If the treasury owns enough protocol owned liquidity and has 30%+ of TIDE in its warchest, TIDE will be purchased and burned, increasing the claim on revenue for every remaining token.",
+    desc: "If the treasury owns enough protocol owned liquidity and has 30%+ of $TIDE in its warchest, $TIDE will be purchased and burned, increasing the claim on revenue for every remaining token.",
   },
 ];
 
@@ -24,22 +24,22 @@ export default function TideSection() {
   return (
     <section className="relative z-10 bg-nautical-blue-light px-3 sm:px-4 md:px-5 pb-3 sm:pb-4 md:pb-5 pt-0">
       <div className="flex flex-col lg:flex-row gap-3 sm:gap-4 md:gap-5 items-stretch">
-        {/* Left: TIDE Token Content */}
+        {/* Left: $TIDE Token Content */}
         <div className="lg:w-1/3 bg-nautical-blue p-6 sm:p-10 md:p-12 lg:p-14">
           <div className="flex flex-col justify-center h-full gap-4 sm:gap-5 md:gap-6">
             <h2 className="leading-none text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-bold text-white tracking-tight">
-              <span className="block whitespace-nowrap">TIDE</span>
+              <span className="block whitespace-nowrap">$TIDE</span>
               <span className="block whitespace-nowrap">Token</span>
             </h2>
             <p className="text-white text-sm sm:text-base">
-              The TIDE token is Harbor's governance and value accrual token. Up
-              to 25% of Harbor's revenue is used to buy TIDE from the open
+              The $TIDE token is Harbor's governance and value accrual token. Up
+              to 25% of Harbor's revenue is used to buy $TIDE from the open
               market.
             </p>
           </div>
         </div>
 
-        {/* Right: TIDE Features Stacked */}
+        {/* Right: $TIDE Features Stacked */}
         <div className="lg:w-2/3 flex flex-col gap-3 sm:gap-4 md:gap-5">
           {tideFeatures.map((feature) => (
             <div
