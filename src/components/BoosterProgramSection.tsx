@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { PenSquare, MessageSquare, Code, Users } from "lucide-react";
 import { PortholeDecoration } from "./Porthole";
+import { useState } from "react";
 
 const boosterActivities = [
   {
@@ -27,6 +28,8 @@ const boosterActivities = [
 ];
 
 const BoosterProgramSection = () => {
+  const [isLearnMoreHovered, setIsLearnMoreHovered] = useState(false);
+
   return (
     <section className="relative z-10 bg-nautical-blue-light px-3 sm:px-4 md:px-5 pb-3 sm:pb-4 md:pb-5 pt-0">
       <div className="flex flex-col lg:flex-row gap-3 sm:gap-4 md:gap-5 items-stretch">
@@ -52,20 +55,19 @@ const BoosterProgramSection = () => {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
-                <a
-                  href="https://docs.harbor.finance"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-8 py-3.5 text-base font-semibold border-2 border-nautical-blue text-nautical-blue rounded-full hover:bg-nautical-blue/10 transition-colors text-center"
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-2 md:gap-3 lg:gap-4 min-w-0">
+                <button
+                  onMouseEnter={() => setIsLearnMoreHovered(true)}
+                  onMouseLeave={() => setIsLearnMoreHovered(false)}
+                  className="w-full sm:w-[130px] md:w-[140px] lg:w-[150px] xl:w-[180px] px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold border-2 border-nautical-blue text-nautical-blue rounded-full hover:bg-nautical-blue/10 transition-colors text-center whitespace-nowrap"
                 >
-                  Learn more
-                </a>
+                  {isLearnMoreHovered ? "Coming soon" : "Learn more"}
+                </button>
                 <Link
                   href="https://discord.com/invite/BW3P62vJXT"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block w-full sm:w-auto px-8 py-3.5 text-base font-semibold bg-nautical-blue text-white border-2 border-nautical-blue rounded-full hover:bg-nautical-blue/90 transition-colors text-center"
+                  className="inline-block w-full sm:w-[130px] md:w-[140px] lg:w-[150px] xl:w-[180px] px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold bg-nautical-blue text-white border-2 border-nautical-blue rounded-full hover:bg-nautical-blue/90 transition-colors text-center whitespace-nowrap"
                 >
                   Discord
                 </Link>

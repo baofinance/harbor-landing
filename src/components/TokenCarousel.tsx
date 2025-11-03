@@ -35,86 +35,78 @@ const sideCards: SideCard[] = [
 export function AllOutYieldSection() {
   const [isEarnHovered, setIsEarnHovered] = useState(false);
   const [isTradeHovered, setIsTradeHovered] = useState(false);
+  const [isLearnMore1Hovered, setIsLearnMore1Hovered] = useState(false);
+  const [isLearnMore2Hovered, setIsLearnMore2Hovered] = useState(false);
 
   return (
-    <section className="relative z-10 bg-nautical-blue-light p-3 sm:p-4 md:p-5">
-      <div className="relative w-full flex flex-col lg:flex-row items-stretch gap-3 sm:gap-4 md:gap-5">
-        {/* All Out Yield - Left 50% - Blue background */}
-        <div className="relative z-10 flex-1 bg-nautical-blue p-6 sm:p-10 md:p-12 lg:p-14">
-          <div className="flex flex-row gap-1.5 sm:gap-2 md:gap-4 lg:gap-6 xl:gap-10 h-full">
-            <div className="w-5/12 flex flex-col justify-center text-left min-w-0">
-              <h2 className="leading-none text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-bold text-white tracking-tight">
-                <span className="block whitespace-nowrap">All</span>
-                <span className="block whitespace-nowrap">Out</span>
-                <span className="block whitespace-nowrap">Yield</span>
-              </h2>
+    <section className="relative z-10 bg-nautical-blue-light px-3 sm:px-4 md:px-5 pb-3 sm:pb-4 md:pb-5 pt-0">
+      <div className="flex flex-col xl:flex-row gap-3 sm:gap-4 md:gap-5 items-stretch">
+        {/* All Out Yield */}
+        <div className="flex-1 bg-nautical-blue p-6 sm:p-10 md:p-12 lg:p-14 flex flex-col xl:flex-row gap-6">
+          <div className="xl:w-[38%] flex flex-col justify-center">
+            <h2 className="leading-none text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-bold text-white tracking-tight">
+              <span className="block whitespace-nowrap">All</span>
+              <span className="block whitespace-nowrap">Out</span>
+              <span className="block whitespace-nowrap">Yield</span>
+            </h2>
+          </div>
+          <div className="flex-1 flex flex-col justify-between gap-5 sm:gap-6">
+            <div className="space-y-3">
+              <p className="text-sm uppercase tracking-[0.35em] text-white/70 mb-4">
+                Harbor Anchor Tokens (haTOKEN)
+              </p>
+              <YieldSection />
             </div>
-
-            <div className="w-7/12 flex flex-col justify-center text-left gap-4 sm:gap-5 md:gap-6 pl-1.5 sm:pl-2 md:pl-4 lg:pl-6 xl:pl-10 min-w-0">
-              <div className="space-y-3">
-                <p className="text-sm uppercase tracking-[0.35em] text-white/70 mb-4">
-                  Harbor Anchor Tokens (haTOKEN)
-                </p>
-                <YieldSection />
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
-                <a
-                  href="https://docs.harbor.finance"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-8 py-3.5 text-base font-semibold bg-white text-nautical-blue border-2 border-white rounded-full hover:bg-white/90 transition-colors text-center"
-                >
-                  Learn more
-                </a>
-                <button
-                  className="w-full sm:w-auto px-8 py-3.5 text-base font-semibold border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors"
-                  onMouseEnter={() => setIsEarnHovered(true)}
-                  onMouseLeave={() => setIsEarnHovered(false)}
-                >
-                  {isEarnHovered ? "Coming soon" : "Earn"}
-                </button>
-              </div>
+            <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-2 sm:gap-3 md:gap-4">
+              <button
+                onMouseEnter={() => setIsLearnMore1Hovered(true)}
+                onMouseLeave={() => setIsLearnMore1Hovered(false)}
+                className="w-full sm:w-[140px] md:w-[150px] lg:w-[160px] xl:w-[190px] px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold bg-white text-nautical-blue border-2 border-white rounded-full hover:bg-white/90 transition-colors text-center whitespace-nowrap"
+              >
+                {isLearnMore1Hovered ? "Coming soon" : "Learn more"}
+              </button>
+              <button
+                className="w-full sm:w-[140px] md:w-[150px] lg:w-[160px] xl:w-[190px] px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors whitespace-nowrap"
+                onMouseEnter={() => setIsEarnHovered(true)}
+                onMouseLeave={() => setIsEarnHovered(false)}
+              >
+                {isEarnHovered ? "Coming soon" : "Earn"}
+              </button>
             </div>
           </div>
         </div>
 
-        {/* Stress Free Leverage - Right 50% - White background (inverted) */}
-        <div className="relative z-10 flex-1 bg-white p-6 sm:p-10 md:p-12 lg:p-14">
-          <div className="flex flex-row gap-1.5 sm:gap-2 md:gap-4 lg:gap-6 xl:gap-10 h-full">
-            <div className="w-5/12 flex flex-col justify-center text-left min-w-0">
-              <h2 className="leading-none text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-bold text-nautical-blue tracking-tight">
-                <span className="block whitespace-nowrap">Stress</span>
-                <span className="block whitespace-nowrap">Free</span>
-                <span className="block whitespace-nowrap">Leverage</span>
-              </h2>
+        {/* Stress Free Leverage */}
+        <div className="flex-1 bg-white p-6 sm:p-10 md:p-12 lg:p-14 flex flex-col xl:flex-row gap-6">
+          <div className="xl:w-[38%] flex flex-col justify-center">
+            <h2 className="leading-none text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-bold text-nautical-blue tracking-tight">
+              <span className="block whitespace-nowrap">Stress</span>
+              <span className="block whitespace-nowrap">Free</span>
+              <span className="block whitespace-nowrap">Leverage</span>
+            </h2>
+          </div>
+          <div className="flex-1 flex flex-col justify-between gap-5 sm:gap-6">
+            <div className="space-y-3">
+              <p className="text-sm uppercase tracking-[0.35em] text-nautical-blue/70 mb-4">
+                Harbor Sail Tokens (hsTOKEN)
+              </p>
+              <RebalanceSection />
             </div>
-
-            <div className="w-7/12 flex flex-col justify-center text-left gap-4 sm:gap-5 md:gap-6 pl-1.5 sm:pl-2 md:pl-4 lg:pl-6 xl:pl-10 min-w-0">
-              <div className="space-y-3">
-                <p className="text-sm uppercase tracking-[0.35em] text-nautical-blue/70 mb-4">
-                  Harbor Sail Tokens (hsTOKEN)
-                </p>
-                <RebalanceSection />
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
-                <a
-                  href="https://docs.harbor.finance"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-8 py-3.5 text-base font-semibold bg-nautical-blue text-white border-2 border-nautical-blue rounded-full hover:bg-nautical-blue/90 transition-colors text-center"
-                >
-                  Learn more
-                </a>
-                <button
-                  className="w-full sm:w-auto px-8 py-3.5 text-base font-semibold border-2 border-nautical-blue text-nautical-blue rounded-full hover:bg-nautical-blue/10 transition-colors"
-                  onMouseEnter={() => setIsTradeHovered(true)}
-                  onMouseLeave={() => setIsTradeHovered(false)}
-                >
-                  {isTradeHovered ? "Coming soon" : "Trade"}
-                </button>
-              </div>
+            <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-2 sm:gap-3 md:gap-4">
+              <button
+                onMouseEnter={() => setIsLearnMore2Hovered(true)}
+                onMouseLeave={() => setIsLearnMore2Hovered(false)}
+                className="w-full sm:w-[140px] md:w-[150px] lg:w-[160px] xl:w-[190px] px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold bg-nautical-blue text-white border-2 border-nautical-blue rounded-full hover:bg-nautical-blue/90 transition-colors text-center whitespace-nowrap"
+              >
+                {isLearnMore2Hovered ? "Coming soon" : "Learn more"}
+              </button>
+              <button
+                className="w-full sm:w-[140px] md:w-[150px] lg:w-[160px] xl:w-[190px] px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold border-2 border-nautical-blue text-nautical-blue rounded-full hover:bg-nautical-blue/10 transition-colors whitespace-nowrap"
+                onMouseEnter={() => setIsTradeHovered(true)}
+                onMouseLeave={() => setIsTradeHovered(false)}
+              >
+                {isTradeHovered ? "Coming soon" : "Trade"}
+              </button>
             </div>
           </div>
         </div>

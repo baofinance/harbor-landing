@@ -14,8 +14,8 @@ const securityFeatures = [
   },
   {
     icon: Landmark,
-    title: "Banking Experience",
-    desc: "Built by a team with over 30 years of combined experience in institutional banking software and risk management systems.",
+    title: "Banking and Crypto Experience",
+    desc: "Built by a team with over 30 years of combined experience in institutional banking software and risk management systems, plus over 25 years combined experience building in crypto.",
   },
   {
     icon: Microscope,

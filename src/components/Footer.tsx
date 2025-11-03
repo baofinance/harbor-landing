@@ -1,11 +1,15 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { SVGProps } from "react";
 import { Twitter } from "lucide-react";
 
 const Footer = () => {
+  const [docsHovered, setDocsHovered] = useState(false);
+  const [litepaperHovered, setLitepaperHovered] = useState(false);
+
   const protocolLinks = [
     { name: "Docs", url: "https://docs.harbor.finance" },
     { name: "Litepaper", url: "https://docs.harbor.finance/litepaper" },
@@ -57,6 +61,11 @@ const Footer = () => {
       name: "hop",
       avatarUrl: "/hop.webp" as string | null,
       twitter: "hopnothip",
+    },
+    {
+      name: "kronflux",
+      avatarUrl: "/kronflux.jpg" as string | null,
+      twitter: "Kronflux1",
     },
   ];
 
@@ -120,18 +129,28 @@ const Footer = () => {
                 Protocol
               </h4>
               <ul className="space-y-3">
-                {protocolLinks.map((link) => (
-                  <li key={link.name}>
-                    <a
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-white/70 hover:text-sunrise-coral transition-colors"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
+                {protocolLinks.map((link) => {
+                  const isComingSoon = link.name === "Docs" || link.name === "Litepaper";
+                  const isHovered = link.name === "Docs" ? docsHovered : link.name === "Litepaper" ? litepaperHovered : false;
+                  
+                  return (
+                    <li key={link.name}>
+                      <button
+                        onMouseEnter={() => {
+                          if (link.name === "Docs") setDocsHovered(true);
+                          if (link.name === "Litepaper") setLitepaperHovered(true);
+                        }}
+                        onMouseLeave={() => {
+                          if (link.name === "Docs") setDocsHovered(false);
+                          if (link.name === "Litepaper") setLitepaperHovered(false);
+                        }}
+                        className="text-sm text-white/70 hover:text-sunrise-coral transition-colors text-left"
+                      >
+                        {isComingSoon && isHovered ? "Coming soon" : link.name}
+                      </button>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
             <div>

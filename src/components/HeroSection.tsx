@@ -19,11 +19,11 @@ export default function HeroSection() {
       {/* Dark overlay to soften brightness */}
       <div className="absolute inset-0 bg-[rgba(15,36,63,0.55)]" />
 
-      <section className="hero-section relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="hero-section relative h-screen flex items-center justify-center overflow-hidden mb-3 sm:mb-4 md:mb-5">
         <div className="relative z-10 max-w-[1400px] w-full px-4 sm:px-8 lg:px-14 translate-y-4 sm:translate-y-6 md:translate-y-8 lg:translate-y-10 text-center">
           <div className="inline-flex flex-col items-center px-2 sm:px-6 py-4 sm:py-6 md:py-8">
             <div className="relative">
-              <h1 className="text-[1.75rem] sm:text-[2.25rem] md:text-[3rem] lg:text-[4rem] xl:text-[5rem] 2xl:text-[5.5rem] font-bold tracking-tight text-harbor-white drop-shadow-[0_35px_90px_rgba(5,18,38,0.75)] leading-tight">
+              <h1 className="text-[1.75rem] sm:text-[2.25rem] md:text-[3rem] lg:text-[4rem] xl:text-[5rem] 2xl:text-[5.5rem] font-black tracking-tight text-harbor-white drop-shadow-[0_35px_90px_rgba(5,18,38,0.75)] leading-tight">
                 <span className="block whitespace-nowrap">
                   A Safer Harbor For Leverage,
                 </span>
@@ -47,7 +47,7 @@ export default function HeroSection() {
                   </span>
                 </p>
               </div>
-              <div className="pt-2 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+              <div className="pt-2 flex flex-col sm:flex-row gap-2 sm:gap-2 md:gap-3 lg:gap-4 justify-center items-center min-w-0">
                 <button
                   onClick={() => {
                     const maidenVoyageSection =
@@ -63,7 +63,7 @@ export default function HeroSection() {
                       });
                     }
                   }}
-                  className="w-full sm:w-auto px-8 py-3.5 text-base font-semibold bg-white text-nautical-blue border-2 border-white rounded-full hover:bg-white/90 transition-colors text-center"
+                  className="w-full sm:w-[130px] md:w-[140px] lg:w-[150px] xl:w-[180px] px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold bg-white text-nautical-blue border-2 border-white rounded-full hover:bg-white/90 transition-colors text-center whitespace-nowrap"
                 >
                   Learn more
                 </button>
@@ -71,17 +71,17 @@ export default function HeroSection() {
                   href="https://x.com/0xHarborFi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-8 py-3.5 text-base font-semibold border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-center"
+                  className="w-full sm:w-[130px] md:w-[140px] lg:w-[150px] xl:w-[180px] px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-center whitespace-nowrap"
                 >
-                  Follow on X
+                  X
                 </a>
                 <a
                   href="https://discord.com/invite/BW3P62vJXT"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-8 py-3.5 text-base font-semibold border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-center"
+                  className="w-full sm:w-[130px] md:w-[140px] lg:w-[150px] xl:w-[180px] px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-center whitespace-nowrap"
                 >
-                  Follow on Discord
+                  Discord
                 </a>
               </div>
             </div>

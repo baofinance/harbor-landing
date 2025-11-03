@@ -14,7 +14,7 @@ export const chillax = localFont({
     },
     {
       path: "../../public/fonts/Chillax.ttf",
-      weight: "400",
+  weight: "400",
       style: "normal",
     },
     {
