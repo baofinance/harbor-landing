@@ -2,10 +2,8 @@
 
 import Link from "next/link";
 import { ArrowDownToLine, Gift, Trophy } from "lucide-react";
-import { useState } from "react";
 
 export default function MaidenVoyageSection() {
-  const [isLearnMoreHovered, setIsLearnMoreHovered] = useState(false);
   return (
     <section
       id="maiden-voyage"
@@ -36,18 +34,19 @@ export default function MaidenVoyageSection() {
               </div>
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-2 md:gap-3 lg:gap-4 min-w-0">
-                <button
-                  onMouseEnter={() => setIsLearnMoreHovered(true)}
-                  onMouseLeave={() => setIsLearnMoreHovered(false)}
-                  className="w-full sm:w-[130px] md:w-[140px] lg:w-[150px] xl:w-[180px] px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold bg-white text-nautical-blue border-2 border-white rounded-full hover:bg-white/90 transition-colors text-center whitespace-nowrap"
+                <a
+                  href="https://docs.harborfinance.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] xl:w-[190px] flex-shrink-0 px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold bg-white text-nautical-blue border-2 border-white rounded-full hover:bg-white/90 transition-colors text-center whitespace-nowrap"
                 >
-                  {isLearnMoreHovered ? "Coming soon" : "Learn more"}
-                </button>
+                  Learn more
+                </a>
                 <Link
                   href="https://discord.com/invite/BW3P62vJXT"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block w-full sm:w-[130px] md:w-[140px] lg:w-[150px] xl:w-[180px] px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-center whitespace-nowrap"
+                  className="inline-block w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] xl:w-[190px] flex-shrink-0 px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-center whitespace-nowrap"
                 >
                   Discord
                 </Link>

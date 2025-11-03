@@ -10,8 +10,6 @@ import { Menu, X } from "lucide-react";
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [docsHovered, setDocsHovered] = useState(false);
-  const [litepaperHovered, setLitepaperHovered] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,8 +20,7 @@ export default function Navigation() {
   }, []);
 
   const navLinks = [
-    { href: "https://docs.harbor.finance", label: "Docs" },
-    { href: "https://litepaper.harbor.finance/docs/", label: "Litepaper" },
+    { href: "https://docs.harborfinance.io/", label: "Docs" },
     { href: "https://x.com/0xHarborFi", label: "X" },
     { href: "https://discord.com/invite/BW3P62vJXT", label: "Discord" },
   ];
@@ -57,8 +54,6 @@ export default function Navigation() {
               const isActive =
                 link.href === pathname ||
                 (link.href !== "/" && pathname.startsWith(link.href));
-              const isComingSoon = link.label === "Docs" || link.label === "Litepaper";
-              const isHovered = link.label === "Docs" ? docsHovered : link.label === "Litepaper" ? litepaperHovered : false;
 
               return (
                 <Link
@@ -68,14 +63,6 @@ export default function Navigation() {
                   rel={
                     link.href.startsWith("http") ? "noopener noreferrer" : ""
                   }
-                  onMouseEnter={() => {
-                    if (link.label === "Docs") setDocsHovered(true);
-                    if (link.label === "Litepaper") setLitepaperHovered(true);
-                  }}
-                  onMouseLeave={() => {
-                    if (link.label === "Docs") setDocsHovered(false);
-                    if (link.label === "Litepaper") setLitepaperHovered(false);
-                  }}
                   className={clsx(
                     "px-3.5 md:px-3 py-1 rounded-full text-[15px] font-medium transition-colors",
                     isActive
@@ -83,7 +70,7 @@ export default function Navigation() {
                       : "text-white/80 hover:text-white hover:bg-sunrise-coral/20"
                   )}
                 >
-                  {isComingSoon && isHovered ? "Coming soon" : link.label}
+                  {link.label}
                 </Link>
               );
             })}
@@ -138,8 +125,6 @@ export default function Navigation() {
               const isActive =
                 link.href === pathname ||
                 (link.href !== "/" && pathname.startsWith(link.href));
-              const isComingSoon = link.label === "Docs" || link.label === "Litepaper";
-              const isHovered = link.label === "Docs" ? docsHovered : link.label === "Litepaper" ? litepaperHovered : false;
 
               return (
                 <Link
@@ -149,14 +134,6 @@ export default function Navigation() {
                   rel={
                     link.href.startsWith("http") ? "noopener noreferrer" : ""
                   }
-                  onMouseEnter={() => {
-                    if (link.label === "Docs") setDocsHovered(true);
-                    if (link.label === "Litepaper") setLitepaperHovered(true);
-                  }}
-                  onMouseLeave={() => {
-                    if (link.label === "Docs") setDocsHovered(false);
-                    if (link.label === "Litepaper") setLitepaperHovered(false);
-                  }}
                   className={clsx(
                     "w-full px-5 py-3.5 rounded-md text-lg font-medium transition-colors",
                     isActive
@@ -165,7 +142,7 @@ export default function Navigation() {
                   )}
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {isComingSoon && isHovered ? "Coming soon" : link.label}
+                  {link.label}
                 </Link>
               );
             })}

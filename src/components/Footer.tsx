@@ -1,18 +1,13 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { SVGProps } from "react";
 import { Twitter } from "lucide-react";
 
 const Footer = () => {
-  const [docsHovered, setDocsHovered] = useState(false);
-  const [litepaperHovered, setLitepaperHovered] = useState(false);
-
   const protocolLinks = [
-    { name: "Docs", url: "https://docs.harbor.finance" },
-    { name: "Litepaper", url: "https://docs.harbor.finance/litepaper" },
+    { name: "Docs", url: "https://docs.harborfinance.io/" },
   ];
 
   const communityLinks = [
@@ -130,24 +125,16 @@ const Footer = () => {
               </h4>
               <ul className="space-y-3">
                 {protocolLinks.map((link) => {
-                  const isComingSoon = link.name === "Docs" || link.name === "Litepaper";
-                  const isHovered = link.name === "Docs" ? docsHovered : link.name === "Litepaper" ? litepaperHovered : false;
-                  
                   return (
                     <li key={link.name}>
-                      <button
-                        onMouseEnter={() => {
-                          if (link.name === "Docs") setDocsHovered(true);
-                          if (link.name === "Litepaper") setLitepaperHovered(true);
-                        }}
-                        onMouseLeave={() => {
-                          if (link.name === "Docs") setDocsHovered(false);
-                          if (link.name === "Litepaper") setLitepaperHovered(false);
-                        }}
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-sm text-white/70 hover:text-sunrise-coral transition-colors text-left"
                       >
-                        {isComingSoon && isHovered ? "Coming soon" : link.name}
-                      </button>
+                        {link.name}
+                      </a>
                     </li>
                   );
                 })}

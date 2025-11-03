@@ -35,8 +35,6 @@ const sideCards: SideCard[] = [
 export function AllOutYieldSection() {
   const [isEarnHovered, setIsEarnHovered] = useState(false);
   const [isTradeHovered, setIsTradeHovered] = useState(false);
-  const [isLearnMore1Hovered, setIsLearnMore1Hovered] = useState(false);
-  const [isLearnMore2Hovered, setIsLearnMore2Hovered] = useState(false);
 
   return (
     <section className="relative z-10 bg-nautical-blue-light px-3 sm:px-4 md:px-5 pb-3 sm:pb-4 md:pb-5 pt-0">
@@ -58,15 +56,16 @@ export function AllOutYieldSection() {
               <YieldSection />
             </div>
             <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-2 sm:gap-3 md:gap-4">
-              <button
-                onMouseEnter={() => setIsLearnMore1Hovered(true)}
-                onMouseLeave={() => setIsLearnMore1Hovered(false)}
-                className="w-full sm:w-[140px] md:w-[150px] lg:w-[160px] xl:w-[190px] px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold bg-white text-nautical-blue border-2 border-white rounded-full hover:bg-white/90 transition-colors text-center whitespace-nowrap"
+              <a
+                href="https://docs.harborfinance.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] xl:w-[190px] flex-shrink-0 px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold bg-white text-nautical-blue border-2 border-white rounded-full hover:bg-white/90 transition-colors text-center whitespace-nowrap"
               >
-                {isLearnMore1Hovered ? "Coming soon" : "Learn more"}
-              </button>
+                Learn more
+              </a>
               <button
-                className="w-full sm:w-[140px] md:w-[150px] lg:w-[160px] xl:w-[190px] px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors whitespace-nowrap"
+                className="w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] xl:w-[190px] flex-shrink-0 px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors whitespace-nowrap"
                 onMouseEnter={() => setIsEarnHovered(true)}
                 onMouseLeave={() => setIsEarnHovered(false)}
               >
@@ -93,15 +92,16 @@ export function AllOutYieldSection() {
               <RebalanceSection />
             </div>
             <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-2 sm:gap-3 md:gap-4">
-              <button
-                onMouseEnter={() => setIsLearnMore2Hovered(true)}
-                onMouseLeave={() => setIsLearnMore2Hovered(false)}
-                className="w-full sm:w-[140px] md:w-[150px] lg:w-[160px] xl:w-[190px] px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold bg-nautical-blue text-white border-2 border-nautical-blue rounded-full hover:bg-nautical-blue/90 transition-colors text-center whitespace-nowrap"
+              <a
+                href="https://docs.harborfinance.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] xl:w-[190px] flex-shrink-0 px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold bg-nautical-blue text-white border-2 border-nautical-blue rounded-full hover:bg-nautical-blue/90 transition-colors text-center whitespace-nowrap"
               >
-                {isLearnMore2Hovered ? "Coming soon" : "Learn more"}
-              </button>
+                Learn more
+              </a>
               <button
-                className="w-full sm:w-[140px] md:w-[150px] lg:w-[160px] xl:w-[190px] px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold border-2 border-nautical-blue text-nautical-blue rounded-full hover:bg-nautical-blue/10 transition-colors whitespace-nowrap"
+                className="w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] xl:w-[190px] flex-shrink-0 px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold border-2 border-nautical-blue text-nautical-blue rounded-full hover:bg-nautical-blue/10 transition-colors whitespace-nowrap"
                 onMouseEnter={() => setIsTradeHovered(true)}
                 onMouseLeave={() => setIsTradeHovered(false)}
               >
