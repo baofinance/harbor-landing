@@ -33,15 +33,15 @@ const BoosterProgramSection = () => {
       <div className="flex flex-col lg:flex-row gap-3 sm:gap-4 md:gap-5 items-stretch">
         {/* Left 2/3: Community Marketers Content */}
         <div className="lg:w-2/3 bg-white p-6 sm:p-10 md:p-12 lg:p-14">
-          <div className="flex flex-row gap-1.5 sm:gap-2 md:gap-4 lg:gap-6 xl:gap-10 h-full">
-            <div className="w-5/12 flex flex-col justify-center text-left min-w-0">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-1.5 sm:gap-2 md:gap-4 lg:gap-6 xl:gap-10 h-full">
+            <div className="w-full sm:w-5/12 flex flex-col justify-center text-left min-w-0">
               <h2 className="leading-none text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-bold text-nautical-blue tracking-tight">
-                <span className="block whitespace-nowrap">Community</span>
-                <span className="block whitespace-nowrap">Marketers</span>
+                <span className="block sm:whitespace-nowrap">Community</span>
+                <span className="block sm:whitespace-nowrap">Marketers</span>
               </h2>
             </div>
 
-            <div className="w-7/12 flex flex-col justify-center text-left gap-4 sm:gap-5 md:gap-6 pl-1.5 sm:pl-2 md:pl-4 lg:pl-6 xl:pl-10 min-w-0">
+            <div className="w-full sm:w-7/12 flex flex-col justify-center text-left gap-4 sm:gap-5 md:gap-6 sm:pl-1.5 sm:pl-2 md:pl-4 lg:pl-6 xl:pl-10 min-w-0">
               <div className="space-y-3">
                 <p className="text-nautical-blue text-sm sm:text-base">
                   Earn a share of 3% of the $TIDE supply, distributed monthly
