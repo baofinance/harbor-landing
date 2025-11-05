@@ -14,21 +14,72 @@ export default function Reveal({ children, delayMs = 0 }: RevealProps) {
     const el = ref.current;
     if (!el) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          } else {
-            setIsVisible(false);
-          }
-        });
-      },
-      { root: null, rootMargin: "-300px 0px 0px 0px", threshold: 0.15 }
-    );
+    let observer: IntersectionObserver | null = null;
 
-    observer.observe(el);
-    return () => observer.disconnect();
+    // Check if element is already in viewport after layout (for above-the-fold content)
+    const checkInitialViewport = () => {
+      const rect = el.getBoundingClientRect();
+      const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+      
+      // If element is already visible, show it immediately
+      if (isInViewport) {
+        setIsVisible(true);
+        return true;
+      }
+      return false;
+    };
+
+    // Use requestAnimationFrame to ensure layout is complete
+    requestAnimationFrame(() => {
+      if (checkInitialViewport()) {
+        // Still set up observer for scroll events, but element is already visible
+        const isMobile = window.innerHeight < 800;
+        const rootMargin = isMobile ? "-50px 0px 0px 0px" : "-300px 0px 0px 0px";
+        const threshold = isMobile ? 0.05 : 0.15;
+
+        observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                setIsVisible(true);
+              } else {
+                setIsVisible(false);
+              }
+            });
+          },
+          { root: null, rootMargin, threshold }
+        );
+
+        observer.observe(el);
+        return;
+      }
+
+      // Use responsive rootMargin - smaller on mobile, larger on desktop
+      const isMobile = window.innerHeight < 800;
+      const rootMargin = isMobile ? "-50px 0px 0px 0px" : "-300px 0px 0px 0px";
+      const threshold = isMobile ? 0.05 : 0.15;
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setIsVisible(true);
+            } else {
+              setIsVisible(false);
+            }
+          });
+        },
+        { root: null, rootMargin, threshold }
+      );
+
+      observer.observe(el);
+    });
+
+    return () => {
+      if (observer) {
+        observer.disconnect();
+      }
+    };
   }, []);
 
   return (

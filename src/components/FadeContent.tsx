@@ -29,21 +29,53 @@ const FadeContent: React.FC<FadeContentProps> = ({
     const element = ref.current;
     if (!element) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          observer.unobserve(element);
-          setTimeout(() => {
-            setInView(true);
-          }, delay);
-        }
-      },
-      { threshold }
-    );
+    let observer: IntersectionObserver | null = null;
 
-    observer.observe(element);
+    // Check if element is already in viewport after layout (for above-the-fold content)
+    const checkInitialViewport = () => {
+      const rect = element.getBoundingClientRect();
+      const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+      
+      // If element is already visible, show it immediately
+      if (isInViewport) {
+        setTimeout(() => {
+          setInView(true);
+        }, delay);
+        return true;
+      }
+      return false;
+    };
 
-    return () => observer.disconnect();
+    // Use requestAnimationFrame to ensure layout is complete
+    requestAnimationFrame(() => {
+      if (checkInitialViewport()) {
+        return; // Already visible, no need for observer
+      }
+
+      // Use more lenient threshold on mobile
+      const isMobile = window.innerHeight < 800;
+      const observerThreshold = isMobile ? 0.01 : threshold;
+
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            observer?.unobserve(element);
+            setTimeout(() => {
+              setInView(true);
+            }, delay);
+          }
+        },
+        { threshold: observerThreshold }
+      );
+
+      observer.observe(element);
+    });
+
+    return () => {
+      if (observer) {
+        observer.disconnect();
+      }
+    };
   }, [threshold, delay]);
 
   return (
