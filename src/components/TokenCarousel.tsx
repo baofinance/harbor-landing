@@ -76,15 +76,15 @@ export function AllOutYieldSection() {
         </div>
 
         {/* Stress Free Leverage */}
-        <div className="flex-1 bg-white p-6 sm:p-10 md:p-12 lg:p-14 flex flex-col xl:flex-row gap-6">
-          <div className="xl:w-[38%] flex flex-col justify-center">
+        <div className="flex-1 bg-white p-6 sm:p-10 md:p-12 lg:p-14 flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-10 xl:gap-6">
+          <div className="lg:w-[38%] flex flex-col justify-center">
             <h2 className="leading-none text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-bold text-nautical-blue tracking-tight">
               <span className="block whitespace-nowrap">Stress</span>
               <span className="block whitespace-nowrap">Free</span>
               <span className="block whitespace-nowrap">Leverage</span>
             </h2>
           </div>
-          <div className="flex-1 flex flex-col justify-between gap-5 sm:gap-6">
+          <div className="flex-1 flex flex-col justify-between gap-5 sm:gap-6 lg:pl-6 xl:pl-8">
             <div className="space-y-3">
               <p className="text-sm uppercase tracking-[0.35em] text-nautical-blue/70 mb-4">
                 Harbor Sail Tokens (hsTOKEN)
