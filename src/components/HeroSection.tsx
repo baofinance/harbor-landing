@@ -20,14 +20,14 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-[rgba(15,36,63,0.55)]" />
 
       <section className="hero-section relative h-screen flex items-center justify-center overflow-hidden mb-3 sm:mb-4 md:mb-5">
-        <div className="relative z-10 max-w-[1400px] w-full px-4 sm:px-8 lg:px-14 translate-y-4 sm:translate-y-6 md:translate-y-8 lg:translate-y-10 text-center">
-          <div className="inline-flex flex-col items-center px-2 sm:px-6 py-4 sm:py-6 md:py-8">
-            <div className="relative">
-              <h1 className="text-[1.75rem] sm:text-[2.25rem] md:text-[3rem] lg:text-[4rem] xl:text-[5rem] 2xl:text-[5.5rem] font-black tracking-tight text-harbor-white drop-shadow-[0_35px_90px_rgba(5,18,38,0.75)] leading-tight">
-                <span className="block whitespace-nowrap">
+        <div className="relative z-10 max-w-[1400px] w-full px-4 sm:px-8 lg:px-14 translate-y-4 sm:translate-y-6 md:translate-y-8 lg:translate-y-10 text-center flex flex-col items-center">
+          <div className="flex flex-col items-center px-2 sm:px-6 py-4 sm:py-6 md:py-8 w-full">
+            <div className="relative w-full flex flex-col items-center">
+              <h1 className="text-[1.75rem] sm:text-[2.25rem] md:text-[3rem] lg:text-[4rem] xl:text-[5rem] 2xl:text-[5.5rem] font-black tracking-tight text-harbor-white drop-shadow-[0_35px_90px_rgba(5,18,38,0.75)] leading-tight text-center">
+                <span className="block sm:whitespace-nowrap">
                   A Safer Harbor For Leverage,
                 </span>
-                <span className="block whitespace-nowrap">
+                <span className="block sm:whitespace-nowrap">
                   Uncharted Waters For Yield.
                 </span>
               </h1>
@@ -35,7 +35,7 @@ export default function HeroSection() {
             </div>
 
             {/* Launch Announcement */}
-            <div className="mt-8 sm:mt-10 md:mt-12 space-y-3 sm:space-y-4">
+            <div className="mt-8 sm:mt-10 md:mt-12 space-y-3 sm:space-y-4 w-full flex flex-col items-center">
               <div className="inline-block px-4 py-2 bg-sunrise-coral border-2 border-sunrise-coral rounded-full">
                 <p className="text-xs sm:text-sm md:text-base text-white text-center">
                   <span className="font-semibold">
@@ -47,7 +47,7 @@ export default function HeroSection() {
                   </span>
                 </p>
               </div>
-              <div className="pt-2 flex flex-col sm:flex-row gap-2 sm:gap-2 md:gap-3 lg:gap-4 justify-center items-center min-w-0">
+              <div className="pt-2 flex flex-col sm:flex-row gap-2 sm:gap-2 md:gap-3 lg:gap-4 justify-center items-center w-full">
                 <button
                   onClick={() => {
                     const maidenVoyageSection =
