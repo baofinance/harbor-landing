@@ -109,7 +109,7 @@ export default function Navigation() {
         >
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2">
-              <Image src="/logo.svg" alt="Harbor" width={28} height={28} />
+              <Image src="/WhiteHarborLogo.svg" alt="Harbor" width={28} height={28} className="h-6 w-6 object-contain" />
               <span className="text-lg uppercase text-white">Harbor</span>
             </div>
             <button
