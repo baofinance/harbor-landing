@@ -40,7 +40,7 @@ export default function HeroSection() {
         </div>
 
         <div 
-          className={`relative z-10 max-w-[1400px] w-full px-4 sm:px-8 lg:px-14 text-center transition-all duration-1000 ease-out ${
+          className={`relative z-10 max-w-[1400px] w-full px-4 sm:px-8 lg:px-14 text-center pt-8 sm:pt-10 md:pt-12 transition-all duration-1000 ease-out ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
           style={{ transform: `translateY(${scrollY * 0.15}px)` }}
