@@ -491,27 +491,27 @@
 
 /* Wave animation utility classes */
 .animate-wave-slow {
-  animation: waveScrollSlow 30s linear infinite;
+  animation: waveScrollSlow 45s linear infinite;
 }
 
 .animate-wave-medium {
-  animation: waveScrollMedium 22s linear infinite;
+  animation: waveScrollMedium 35s linear infinite;
 }
 
 .animate-wave-slow-reverse {
-  animation: waveScrollSlowReverse 35s linear infinite;
+  animation: waveScrollSlowReverse 50s linear infinite;
 }
 
 .animate-wave-medium-reverse {
-  animation: waveScrollMediumReverse 25s linear infinite;
+  animation: waveScrollMediumReverse 40s linear infinite;
 }
 
 .animate-wave-water {
-  animation: waveScrollWater 18s linear infinite;
+  animation: waveScrollWater 28s linear infinite;
 }
 
 .animate-wave-water-reverse {
-  animation: waveScrollWaterReverse 20s linear infinite;
+  animation: waveScrollWaterReverse 32s linear infinite;
 }
 
 .animate-breathing {
