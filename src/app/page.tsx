@@ -17,9 +17,7 @@ export default function Home() {
       <DepthEffects />
       <main className="relative z-10 bg-nautical-blue-light">
         <div className="bg-nautical-blue-light">
-          <Reveal delayMs={0}>
-            <HeroSection />
-          </Reveal>
+          <HeroSection />
           <Reveal delayMs={60}>
             <AllOutYieldSection />
           </Reveal>

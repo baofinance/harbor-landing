@@ -452,3 +452,68 @@
     @apply border-border;
   }
 }
+
+/* Wave scroll animations for hero background */
+@keyframes waveScrollSlow {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+@keyframes waveScrollMedium {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+@keyframes waveScrollSlowReverse {
+  0% { transform: translateX(-33.333%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes waveScrollMediumReverse {
+  0% { transform: translateX(-33.333%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes waveScrollWater {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+@keyframes waveScrollWaterReverse {
+  0% { transform: translateX(-33.333%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes breathing {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Wave animation utility classes */
+.animate-wave-slow {
+  animation: waveScrollSlow 30s linear infinite;
+}
+
+.animate-wave-medium {
+  animation: waveScrollMedium 22s linear infinite;
+}
+
+.animate-wave-slow-reverse {
+  animation: waveScrollSlowReverse 35s linear infinite;
+}
+
+.animate-wave-medium-reverse {
+  animation: waveScrollMediumReverse 25s linear infinite;
+}
+
+.animate-wave-water {
+  animation: waveScrollWater 18s linear infinite;
+}
+
+.animate-wave-water-reverse {
+  animation: waveScrollWaterReverse 20s linear infinite;
+}
+
+.animate-breathing {
+  animation: breathing 8s ease-in-out infinite;
+}
