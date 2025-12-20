@@ -189,7 +189,7 @@ export default function UseCasesSection() {
           </div>
 
           {/* Output Section */}
-          <div className="grid grid-cols-2 gap-2 mb-8">
+          <div className="grid grid-cols-2 gap-2 mb-3">
             {/* haTOKEN Box */}
             <div className="flex flex-col">
               <h3 className="text-xs font-semibold text-nautical-blue mb-2 tracking-wider">
@@ -225,7 +225,7 @@ export default function UseCasesSection() {
           </div>
 
           {/* Control buttons: Previous, Play/Pause, Next */}
-          <div className="flex justify-center gap-2 mt-6">
+          <div className="flex justify-center gap-2 mt-3">
             <button
               onClick={handlePreviousClick}
               className="p-2 text-nautical-blue/70 hover:text-nautical-blue border border-nautical-blue/30 hover:border-nautical-blue/60 rounded-full transition-all"
@@ -303,7 +303,7 @@ export default function UseCasesSection() {
 
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-2 md:gap-3 lg:gap-4 min-w-0">
                 <button
-                  className="w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] xl:w-[190px] flex-shrink-0 px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold bg-white text-nautical-blue border-2 border-white rounded-full hover:bg-white/90 transition-colors whitespace-nowrap text-center"
+                  className="w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] flex-shrink-0 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 text-[10px] sm:text-xs md:text-sm font-semibold bg-white text-nautical-blue border border-white rounded-full hover:bg-white/90 transition-colors whitespace-nowrap text-center"
                   onMouseEnter={() => setIsMapRoomHovered(true)}
                   onMouseLeave={() => setIsMapRoomHovered(false)}
                 >
@@ -313,7 +313,7 @@ export default function UseCasesSection() {
                   href="https://discord.com/invite/BW3P62vJXT"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] xl:w-[190px] flex-shrink-0 px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-center whitespace-nowrap"
+                  className="w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] flex-shrink-0 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 text-[10px] sm:text-xs md:text-sm font-semibold border border-white text-white rounded-full hover:bg-white/10 transition-colors text-center whitespace-nowrap"
                 >
                   Reach Out
                 </a>
