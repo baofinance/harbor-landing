@@ -23,32 +23,30 @@ export default function MaidenVoyageSection() {
             <div className="w-7/12 flex flex-col justify-center text-left gap-4 sm:gap-5 md:gap-6 pl-1.5 sm:pl-2 md:pl-4 lg:pl-6 xl:pl-10 min-w-0">
               <div className="space-y-4">
                 <p className="text-white text-sm sm:text-base">
-                  We will launch with 3 markets. Pre-deposits will open before
-                  launch to provide liquidity for their maiden voyage.
+                  Deposit any token via ParaSwap to provide liquidity for new markets. Earn Ledger Marks and qualify for a $TIDE airdrop.
                 </p>
 
                 <p className="text-white text-sm sm:text-base">
-                  To find out more, read the maiden voyage page in the docs, or
-                  ask questions on discord
+                  Earn 10x Marks per dollar per day, plus 100 Marks bonus per $ deposited at the end of maiden voyage. Early depositors get an additional 100 Marks/$ bonus.
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-2 md:gap-3 lg:gap-4 min-w-0">
                 <a
-                  href="https://docs.harborfinance.io/"
+                  href="https://app.harborfinance.io/genesis"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] xl:w-[190px] flex-shrink-0 px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold bg-white text-nautical-blue border-2 border-white rounded-full hover:bg-white/90 transition-colors text-center whitespace-nowrap"
                 >
-                  Learn more
+                  Launch App
                 </a>
                 <Link
-                  href="https://discord.com/invite/BW3P62vJXT"
+                  href="https://docs.harborfinance.io/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] xl:w-[190px] flex-shrink-0 px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-center whitespace-nowrap"
                 >
-                  Discord
+                  Learn more
                 </Link>
               </div>
             </div>
@@ -68,7 +66,7 @@ export default function MaidenVoyageSection() {
                 </div>
                 <div>
                   <p className="text-nautical-blue text-sm sm:text-base">
-                    Deposit fxSAVE or wstETH
+                    Deposit any token via ParaSwap
                   </p>
                 </div>
               </div>
@@ -78,8 +76,7 @@ export default function MaidenVoyageSection() {
                 </div>
                 <div>
                   <p className="text-nautical-blue text-sm sm:text-base">
-                    At launch you receive ha & hs tokens equal in value to your
-                    deposit
+                    Earn Ledger Marks
                   </p>
                 </div>
               </div>
@@ -89,7 +86,7 @@ export default function MaidenVoyageSection() {
                 </div>
                 <div>
                   <p className="text-nautical-blue text-sm sm:text-base">
-                    Qualify for a $TIDE airdrop
+                    After maiden voyage: claim ha & hs tokens and earn real yield
                   </p>
                 </div>
               </div>

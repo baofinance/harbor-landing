@@ -50,7 +50,7 @@ export default function Navigation() {
           </Link>
           {/* Desktop links */}
           <div className="hidden md:flex items-center flex-1 justify-center">
-            <div className="flex items-center gap-12 md:gap-16">
+            <div className="flex items-center gap-6 md:gap-8">
               {navLinks.map((link) => {
                 const isActive =
                   link.href === pathname ||
