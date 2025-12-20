@@ -38,7 +38,7 @@ export default function Navigation() {
             scrolled ? "bg-nautical-blue/90" : "bg-nautical-blue/70"
           )}
         >
-          <Link href="/" className="inline-flex justify-center items-center">
+          <Link href="/" className="inline-flex justify-center items-center flex-shrink-0">
             <Image
               src="/WhiteHarborLogo.svg"
               alt="Harbor"
@@ -49,32 +49,42 @@ export default function Navigation() {
             <span className="ml-2 text-xl font-medium text-white">Harbor</span>
           </Link>
           {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-1 flex-1 justify-end">
-            {navLinks.map((link) => {
-              const isActive =
-                link.href === pathname ||
-                (link.href !== "/" && pathname.startsWith(link.href));
+          <div className="hidden md:flex items-center flex-1 justify-center">
+            <div className="flex items-center gap-12 md:gap-16">
+              {navLinks.map((link) => {
+                const isActive =
+                  link.href === pathname ||
+                  (link.href !== "/" && pathname.startsWith(link.href));
 
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  target={link.href.startsWith("http") ? "_blank" : "_self"}
-                  rel={
-                    link.href.startsWith("http") ? "noopener noreferrer" : ""
-                  }
-                  className={clsx(
-                    "px-3.5 md:px-3 py-1 rounded-full text-[15px] font-medium transition-colors",
-                    isActive
-                      ? "bg-sunrise-coral/30 text-white"
-                      : "text-white/80 hover:text-white hover:bg-sunrise-coral/20"
-                  )}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    target={link.href.startsWith("http") ? "_blank" : "_self"}
+                    rel={
+                      link.href.startsWith("http") ? "noopener noreferrer" : ""
+                    }
+                    className={clsx(
+                      "px-3.5 md:px-3 py-1 rounded-full text-[15px] font-medium transition-colors",
+                      isActive
+                        ? "bg-sunrise-coral/30 text-white"
+                        : "text-white/80 hover:text-white hover:bg-sunrise-coral/20"
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+            </div>
           </div>
+          <Link
+            href="https://app.harborfinance.io/genesis"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:block flex-shrink-0 px-3.5 md:px-3 py-1 rounded-full text-[15px] font-semibold bg-sunrise-coral text-white hover:bg-sunrise-coral/90 transition-colors"
+          >
+            App
+          </Link>
 
           {/* Mobile menu button */}
           <div className="md:hidden ml-auto">
@@ -146,6 +156,15 @@ export default function Navigation() {
                 </Link>
               );
             })}
+            <Link
+              href="https://app.harborfinance.io/genesis"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full px-5 py-3.5 rounded-md text-lg font-semibold bg-sunrise-coral text-white hover:bg-sunrise-coral/90 transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              App
+            </Link>
           </div>
         </div>
       </div>

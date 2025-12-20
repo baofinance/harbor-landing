@@ -40,12 +40,30 @@ export default function HeroSection() {
         </div>
 
         <div 
-          className={`relative z-10 max-w-[1400px] w-full px-4 sm:px-8 lg:px-14 text-center pt-8 sm:pt-10 md:pt-12 transition-all duration-1000 ease-out ${
+          className={`relative z-10 max-w-[1400px] w-full px-4 sm:px-8 lg:px-14 text-center pt-4 sm:pt-6 md:pt-8 transition-all duration-1000 ease-out ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
           style={{ transform: `translateY(${scrollY * 0.15}px)` }}
         >
-          <div className="inline-flex flex-col items-center px-2 sm:px-6 py-4 sm:py-6 md:py-8">
+          <div className="inline-flex flex-col items-center px-2 sm:px-6 py-2 sm:py-4 md:py-6">
+            {/* Launch Announcement */}
+            <div 
+              className={`mb-4 sm:mb-5 md:mb-6 transition-all duration-1000 delay-100 ease-out ${
+                isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
+              <div className="inline-block px-4 sm:px-6 md:px-8 py-1.5 sm:py-2 md:py-2.5 bg-sunrise-coral border-2 border-sunrise-coral rounded-full">
+                <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-white text-center">
+                  <span className="font-semibold">
+                    Maiden Voyage is LIVE:
+                  </span>{" "}
+                  <span className="font-normal">
+                    Deposit to earn Ledger Marks and qualify for a $TIDE airdrop
+                  </span>
+                </p>
+              </div>
+            </div>
+
             <div className="relative">
               <h1 
                 className={`text-[1.5rem] sm:text-[1.875rem] md:text-[2.5rem] lg:text-[3.25rem] xl:text-[4rem] 2xl:text-[4.5rem] font-black tracking-tight text-harbor-white drop-shadow-[0_8px_32px_rgba(30,71,117,0.4)] leading-tight transition-all duration-1000 delay-200 ease-out ${
@@ -62,23 +80,11 @@ export default function HeroSection() {
               <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-nautical-blue/30 to-transparent blur-3xl" />
             </div>
 
-            {/* Launch Announcement */}
             <div 
               className={`mt-3 sm:mt-4 md:mt-5 space-y-3 sm:space-y-4 transition-all duration-1000 delay-500 ease-out ${
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
-              <div className="inline-block px-3 py-1.5 bg-sunrise-coral border-2 border-sunrise-coral rounded-full">
-                <p className="text-[10px] sm:text-xs md:text-sm text-white text-center">
-                  <span className="font-semibold">
-                    Maiden voyage coming soon:
-                  </span>{" "}
-                  <span className="font-normal">
-                    Participate to qualify for a $TIDE airdrop. Follow for
-                    updates
-                  </span>
-                </p>
-              </div>
               <div 
                 className={`pt-2 flex flex-col sm:flex-row gap-2 sm:gap-2 md:gap-3 lg:gap-4 justify-center items-center min-w-0 transition-all duration-1000 delay-700 ease-out ${
                   isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -99,25 +105,17 @@ export default function HeroSection() {
                       });
                     }
                   }}
-                  className="w-[110px] sm:w-[120px] md:w-[130px] lg:w-[140px] flex-shrink-0 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 text-[10px] sm:text-xs md:text-sm font-semibold bg-white text-nautical-blue border border-white rounded-full hover:bg-white/90 transition-all text-center whitespace-nowrap shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]"
+                  className="w-[110px] sm:w-[120px] md:w-[130px] lg:w-[140px] flex-shrink-0 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 text-[10px] sm:text-xs md:text-sm font-semibold border border-white text-white rounded-full hover:bg-white/10 transition-all text-center whitespace-nowrap"
                 >
                   Learn more
                 </button>
                 <a
-                  href="https://x.com/0xHarborFi"
+                  href="https://app.harborfinance.io/genesis"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-[110px] sm:w-[120px] md:w-[130px] lg:w-[140px] flex-shrink-0 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 text-[10px] sm:text-xs md:text-sm font-semibold border border-white text-white rounded-full hover:bg-white/10 transition-colors text-center whitespace-nowrap"
+                  className="w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] flex-shrink-0 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 text-[10px] sm:text-xs md:text-sm font-semibold bg-white text-nautical-blue border border-white rounded-full hover:bg-white/90 transition-all text-center whitespace-nowrap shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]"
                 >
-                  X
-                </a>
-                <a
-                  href="https://discord.com/invite/BW3P62vJXT"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-[110px] sm:w-[120px] md:w-[130px] lg:w-[140px] flex-shrink-0 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 text-[10px] sm:text-xs md:text-sm font-semibold border border-white text-white rounded-full hover:bg-white/10 transition-colors text-center whitespace-nowrap"
-                >
-                  Discord
+                  Launch App
                 </a>
               </div>
             </div>
