@@ -30,7 +30,10 @@ export default function Navigation() {
   return (
     <>
       {/* Centered glassmorphic pill nav */}
-      <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50">
+      <nav className={clsx(
+        "fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-opacity duration-300",
+        mobileMenuOpen ? "hidden" : "block"
+      )}>
         <div
           className={clsx(
             "flex items-center gap-3 md:gap-6 rounded-full border px-2 md:px-3 py-2 backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.20)] w-[600px] max-w-[92vw] justify-between",
@@ -90,7 +93,7 @@ export default function Navigation() {
           <div className="md:hidden ml-auto">
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+              className="inline-flex items-center justify-center w-9 h-9 text-white transition-colors"
               aria-label="Open menu"
             >
               <Menu className="w-5 h-5" />
@@ -112,19 +115,18 @@ export default function Navigation() {
         />
         <div
           className={clsx(
-            "fixed top-6 left-1/2 -translate-x-1/2 w-[92%] max-w-lg rounded-full border-2 border-white/60",
-            "bg-nautical-blue/90 backdrop-blur-xl p-6 transition-transform duration-300",
+            "fixed top-6 left-1/2 -translate-x-1/2 w-[92%] max-w-lg p-6 transition-transform duration-300",
             mobileMenuOpen ? "scale-100 opacity-100" : "scale-95 opacity-0"
           )}
         >
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2">
               <Image src="/WhiteHarborLogo.svg" alt="Harbor" width={28} height={28} className="h-6 w-6 object-contain" />
-              <span className="text-lg uppercase text-white">Harbor</span>
+              <span className="ml-2 text-xl font-medium text-white">Harbor</span>
             </div>
             <button
               onClick={() => setMobileMenuOpen(false)}
-              className="inline-flex items-center justify-center w-9 h-9 rounded-md bg-white/10 hover:bg-white/20 text-white transition-colors"
+              className="inline-flex items-center justify-center w-9 h-9 text-white transition-colors"
               aria-label="Close menu"
             >
               <X className="w-5 h-5" />
@@ -145,10 +147,10 @@ export default function Navigation() {
                     link.href.startsWith("http") ? "noopener noreferrer" : ""
                   }
                   className={clsx(
-                    "w-full px-5 py-3.5 rounded-md text-lg font-medium transition-colors",
+                    "w-full px-5 py-3.5 rounded-full text-lg font-medium transition-colors text-center border border-white/30",
                     isActive
-                      ? "bg-sunrise-coral/30 text-white"
-                      : "text-white/80 hover:text-white hover:bg-sunrise-coral/20"
+                      ? "bg-sunrise-coral/30 text-white border-sunrise-coral/50"
+                      : "bg-white/10 text-white hover:bg-white/20 hover:border-white/50"
                   )}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -160,7 +162,7 @@ export default function Navigation() {
               href="https://app.harborfinance.io/genesis"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full px-5 py-3.5 rounded-md text-lg font-semibold bg-sunrise-coral text-white hover:bg-sunrise-coral/90 transition-colors"
+              className="w-full px-5 py-3.5 rounded-full text-lg font-semibold bg-sunrise-coral text-white hover:bg-sunrise-coral/90 transition-colors text-center"
               onClick={() => setMobileMenuOpen(false)}
             >
               App
