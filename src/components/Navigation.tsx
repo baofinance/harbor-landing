@@ -81,7 +81,7 @@ export default function Navigation() {
             href="https://app.harborfinance.io/genesis"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:block flex-shrink-0 px-3.5 md:px-3 py-1 rounded-full text-[15px] font-semibold bg-sunrise-coral text-white hover:bg-sunrise-coral/90 transition-colors"
+            className="hidden md:block flex-shrink-0 px-5 md:px-6 py-1 rounded-full text-[15px] font-semibold bg-sunrise-coral text-white hover:bg-sunrise-coral/90 transition-colors"
           >
             App
           </Link>
