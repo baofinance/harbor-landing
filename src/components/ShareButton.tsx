@@ -7,7 +7,7 @@ export default function ShareButton() {
   const url =
     typeof window !== "undefined"
       ? window.location.href
-      : "https://harbor.finance/ido";
+      : "https://harborfinance.io/ido";
 
   const SHARE_MSG = `I'm now a Chief Steam Operator at Harbor! 🥢🧧 The home of extra tasty yield & leverage dishes. Get some STEAM!`;
   const HASHTAGS = "Harbor,IDO,DeFi";
