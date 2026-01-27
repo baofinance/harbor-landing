@@ -10,7 +10,7 @@ import FadeContent from "@/components/FadeContent";
 const siteUrl = "https://harborfinance.io";
 const title = "Harbor Protocol";
 const description =
-  "A decentralized protocol for creating synthetic assets pegged to any real-world data feed.";
+  "3 new markets are live! Earn ETH & BTC yield, or get liquidation-protected leverage while earning airdrop points. A safer harbor for leverage, uncharted waters for yield.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
