@@ -216,8 +216,7 @@ function LiveMaidenVoyageMarkets({
           </span>
         </span>
         <span className="flex items-center gap-1 font-semibold text-nautical-blue">
-          {Number(market.projectedApr).toFixed(2)}% APR
-          <span className="text-nautical-blue/50">+</span>
+          Earn Ledger Marks
           <img src="/marks.png" alt="Marks" className="w-4 h-4" />
         </span>
       </div>
