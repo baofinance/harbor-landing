@@ -34,8 +34,9 @@ export default function MaidenVoyageSection() {
 
   useEffect(() => {
     let isMounted = true;
+    let retryTimeout: ReturnType<typeof setTimeout> | null = null;
 
-    const loadSummary = async () => {
+    const loadSummary = async (attempt = 0) => {
       try {
         setIsLoading(true);
         setLoadError(false);
@@ -62,6 +63,12 @@ export default function MaidenVoyageSection() {
         setMaidenVoyages(Array.isArray(data.maidenVoyages) ? data.maidenVoyages : []);
       } catch (error) {
         if (isMounted) {
+          if (attempt < 2) {
+            retryTimeout = setTimeout(() => {
+              loadSummary(attempt + 1);
+            }, 600);
+            return;
+          }
           setLoadError(true);
         }
       } finally {
@@ -75,6 +82,9 @@ export default function MaidenVoyageSection() {
 
     return () => {
       isMounted = false;
+      if (retryTimeout) {
+        clearTimeout(retryTimeout);
+      }
     };
   }, []);
 

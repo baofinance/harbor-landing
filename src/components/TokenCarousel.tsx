@@ -44,8 +44,9 @@ export function AllOutYieldSection() {
 
   useEffect(() => {
     let isMounted = true;
+    let retryTimeout: ReturnType<typeof setTimeout> | null = null;
 
-    const loadSummary = async () => {
+    const loadSummary = async (attempt = 0) => {
       try {
         setIsLoading(true);
         setLoadError(false);
@@ -73,6 +74,12 @@ export function AllOutYieldSection() {
         setSailMarkets(Array.isArray(data.sailMarkets) ? data.sailMarkets : []);
       } catch (error) {
         if (isMounted) {
+          if (attempt < 2) {
+            retryTimeout = setTimeout(() => {
+              loadSummary(attempt + 1);
+            }, 600);
+            return;
+          }
           setLoadError(true);
         }
       } finally {
@@ -86,6 +93,9 @@ export function AllOutYieldSection() {
 
     return () => {
       isMounted = false;
+      if (retryTimeout) {
+        clearTimeout(retryTimeout);
+      }
     };
   }, []);
 
