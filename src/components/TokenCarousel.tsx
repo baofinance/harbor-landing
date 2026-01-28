@@ -33,6 +33,7 @@ type LandingSummaryResponse = {
 };
 
 const LANDING_SUMMARY_URL = "https://app.harborfinance.io/api/landing/summary";
+const LANDING_SUMMARY_FALLBACK_URL = "/api/landing/summary";
 const APP_URL = "https://app.harborfinance.io/genesis";
 
 export function AllOutYieldSection() {
@@ -48,10 +49,17 @@ export function AllOutYieldSection() {
       try {
         setIsLoading(true);
         setLoadError(false);
-        const response = await fetch(LANDING_SUMMARY_URL, {
+        let response = await fetch(LANDING_SUMMARY_URL, {
           headers: { Accept: "application/json" },
           cache: "no-store",
         });
+
+        if (!response.ok) {
+          response = await fetch(LANDING_SUMMARY_FALLBACK_URL, {
+            headers: { Accept: "application/json" },
+            cache: "no-store",
+          });
+        }
 
         if (!response.ok) {
           throw new Error(`Landing summary request failed: ${response.status}`);
