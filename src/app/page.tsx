@@ -22,10 +22,10 @@ export default function Home() {
             <AllOutYieldSection />
           </Reveal>
           <Reveal delayMs={120}>
-            <UseCasesSection />
+            <MaidenVoyageSection />
           </Reveal>
           <Reveal delayMs={180}>
-            <MaidenVoyageSection />
+            <UseCasesSection />
           </Reveal>
           <Reveal delayMs={240}>
             <TideSection />
