@@ -24,8 +24,7 @@ type LandingSummaryResponse = {
   maidenVoyages?: MaidenVoyageGroup[];
 };
 
-const LANDING_SUMMARY_URL = "https://app.harborfinance.io/api/landing/summary";
-const LANDING_SUMMARY_FALLBACK_URL = "/api/landing/summary";
+const LANDING_SUMMARY_URL = "/api/landing/summary";
 
 export default function MaidenVoyageSection() {
   const [maidenVoyages, setMaidenVoyages] = useState<MaidenVoyageGroup[]>([]);
@@ -40,17 +39,10 @@ export default function MaidenVoyageSection() {
       try {
         setIsLoading(true);
         setLoadError(false);
-        let response = await fetch(LANDING_SUMMARY_URL, {
+        const response = await fetch(LANDING_SUMMARY_URL, {
           headers: { Accept: "application/json" },
           cache: "no-store",
         });
-
-        if (!response.ok) {
-          response = await fetch(LANDING_SUMMARY_FALLBACK_URL, {
-            headers: { Accept: "application/json" },
-            cache: "no-store",
-          });
-        }
 
         if (!response.ok) {
           throw new Error(`Landing summary request failed: ${response.status}`);
