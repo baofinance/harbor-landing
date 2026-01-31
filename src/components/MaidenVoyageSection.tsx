@@ -119,11 +119,13 @@ export default function MaidenVoyageSection() {
               </div>
             </div>
 
-            <LiveMaidenVoyageMarkets
-              voyages={maidenVoyages}
-              isLoading={isLoading}
-              hasError={loadError}
-            />
+            <div className="mt-4 pt-4 border-t border-white/25">
+              <LiveMaidenVoyageMarkets
+                voyages={maidenVoyages}
+                isLoading={isLoading}
+                hasError={loadError}
+              />
+            </div>
           </div>
         </div>
 
@@ -181,6 +183,10 @@ function LiveMaidenVoyageMarkets({
   isLoading: boolean;
   hasError: boolean;
 }) {
+  const pageSize = 2;
+  const [sectionIndex, setSectionIndex] = useState(0);
+  const [pageIndex, setPageIndex] = useState(0);
+
   const allMarkets = voyages.flatMap((voyage) =>
     voyage.markets.map((market) => ({
       ...market,
@@ -190,34 +196,59 @@ function LiveMaidenVoyageMarkets({
 
   const liveMarkets = allMarkets.filter((market) => market.phase === "live");
   const plannedMarkets = allMarkets.filter((market) => market.phase !== "live");
+  const sections = [
+    { id: "live", title: "Live", markets: liveMarkets },
+    { id: "coming", title: "Coming soon", markets: plannedMarkets },
+  ].filter((section) => section.markets.length > 0);
+
+  const activeSection = sections[sectionIndex] ?? sections[0];
+  const totalPages = activeSection
+    ? Math.ceil(activeSection.markets.length / pageSize)
+    : 0;
+
+  useEffect(() => {
+    if (!activeSection || totalPages <= 1) return;
+    const interval = setInterval(() => {
+      setPageIndex((prev) => (prev + 1) % totalPages);
+    }, 7000);
+    return () => clearInterval(interval);
+  }, [activeSection, totalPages]);
+
+  useEffect(() => {
+    setPageIndex(0);
+  }, [sectionIndex]);
+
+  const pageStart = pageIndex * pageSize;
+  const visibleMarkets = activeSection
+    ? activeSection.markets.slice(pageStart, pageStart + pageSize)
+    : [];
 
   const renderMarketRow = (market: MaidenVoyageMarket & { voyageTitle: string }) => (
     <div
       key={market.marketId}
       className="border border-nautical-blue/10 bg-white px-3 py-2"
     >
-      <div className="flex items-center justify-between gap-3 text-sm text-nautical-blue">
-        <span className="text-xs uppercase tracking-[0.25em] text-nautical-blue/60">
+      <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1.2fr)_minmax(0,0.9fr)] items-center gap-3 text-sm text-nautical-blue">
+        <span className="text-[10px] uppercase tracking-[0.25em] text-nautical-blue/50">
           Deposit{" "}
           <span className="font-semibold text-sm tracking-normal text-nautical-blue">
             {market.collateralSymbol}
           </span>
         </span>
-        <span className="flex flex-wrap items-center gap-2">
-          <span className="text-xs uppercase tracking-[0.25em] text-nautical-blue/60">
-            Get{" "}
-            <span className="font-semibold text-sm tracking-normal text-nautical-blue">
-              {market.symbol}
-            </span>
+        <span className="text-[10px] uppercase tracking-[0.25em] text-nautical-blue/50">
+          Get{" "}
+          <span className="font-semibold text-sm tracking-normal text-nautical-blue">
+            {market.symbol}
           </span>
-          <span className="text-nautical-blue/50">+</span>
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-nautical-blue/70">
+        </span>
+        <span className="flex items-center gap-2">
+          <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-nautical-blue/60">
             Long {market.longSide} / Short {market.shortSide}
           </span>
         </span>
-        <span className="flex items-center gap-1 font-semibold text-nautical-blue">
+        <span className="flex items-center gap-1 font-semibold text-nautical-blue justify-end">
           Earn Ledger Marks
-          <img src="/marks.png" alt="Marks" className="w-4 h-4" />
+          <img src="/marks.png" alt="Marks" className="w-3.5 h-3.5 opacity-70" />
         </span>
       </div>
     </div>
@@ -225,7 +256,7 @@ function LiveMaidenVoyageMarkets({
 
   return (
     <div className="border border-nautical-blue/10 bg-nautical-blue/5 px-4 py-3">
-      <div className="space-y-4">
+      <div className="space-y-3">
         {isLoading && (
           <p className="text-xs text-nautical-blue/70">
             Loading maiden voyage markets...
@@ -241,24 +272,50 @@ function LiveMaidenVoyageMarkets({
             No maiden voyage markets yet.
           </p>
         )}
-        {!isLoading && !hasError && liveMarkets.length > 0 && (
+        {!isLoading && !hasError && activeSection && (
           <div className="space-y-2">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-nautical-blue/60">
-              Live
-            </p>
-            <div className="space-y-2">
-              {liveMarkets.map((market) => renderMarketRow(market))}
+            <div className="flex items-center justify-between">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-nautical-blue/50">
+                {activeSection.title}
+              </p>
+              {sections.length > 1 && (
+                <div className="flex items-center gap-2">
+                  {sections.map((section, index) => (
+                    <button
+                      key={`maiden-section-${section.id}`}
+                      type="button"
+                      aria-label={`Show ${section.title.toLowerCase()} markets`}
+                      onClick={() => setSectionIndex(index)}
+                      className={`h-2 w-2 rounded-full border transition-colors ${
+                        index === sectionIndex
+                          ? "border-nautical-blue bg-nautical-blue"
+                          : "border-nautical-blue/40 bg-transparent hover:border-nautical-blue/70"
+                      }`}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
-          </div>
-        )}
-        {!isLoading && !hasError && plannedMarkets.length > 0 && (
-          <div className="space-y-2">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-nautical-blue/60">
-              Coming soon
-            </p>
             <div className="space-y-2">
-              {plannedMarkets.map((market) => renderMarketRow(market))}
+              {visibleMarkets.map((market) => renderMarketRow(market))}
             </div>
+            {totalPages > 1 && (
+              <div className="flex items-center justify-center gap-2 pt-1">
+                {Array.from({ length: totalPages }, (_, index) => (
+                  <button
+                    key={`maiden-page-${index}`}
+                    type="button"
+                    aria-label={`Show page ${index + 1}`}
+                    onClick={() => setPageIndex(index)}
+                    className={`h-2 w-2 rounded-full border transition-colors ${
+                      index === pageIndex
+                        ? "border-nautical-blue bg-nautical-blue"
+                        : "border-nautical-blue/40 bg-transparent hover:border-nautical-blue/70"
+                    }`}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         )}
       </div>

@@ -107,14 +107,12 @@ export function AllOutYieldSection() {
             <YieldSection />
           </div>
           <div className="flex-1 flex flex-col gap-5 sm:gap-6">
-            <div className="flex-1 flex flex-col gap-2">
-              <div className="mt-auto">
-                <LiveAnchorMarkets
-                  markets={liveAnchorMarkets}
-                  isLoading={isLoading}
-                  hasError={loadError}
-                />
-              </div>
+            <div className="flex-1 flex items-center justify-center">
+              <LiveAnchorMarkets
+                markets={liveAnchorMarkets}
+                isLoading={isLoading}
+                hasError={loadError}
+              />
             </div>
             <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-2 sm:gap-3 md:gap-4">
               <a
@@ -148,14 +146,12 @@ export function AllOutYieldSection() {
             <RebalanceSection />
           </div>
           <div className="flex-1 flex flex-col gap-5 sm:gap-6">
-            <div className="flex-1 flex flex-col gap-2">
-              <div className="mt-auto">
-                <LiveSailMarkets
-                  markets={sailMarkets}
-                  isLoading={isLoading}
-                  hasError={loadError}
-                />
-              </div>
+            <div className="flex-1 flex items-center justify-center">
+              <LiveSailMarkets
+                markets={sailMarkets}
+                isLoading={isLoading}
+                hasError={loadError}
+              />
             </div>
             <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-2 sm:gap-3 md:gap-4">
               <a
@@ -274,14 +270,8 @@ function LiveAnchorMarkets({
   const uniqueMarkets = Object.values(bestAprBySymbol);
 
   return (
-    <div className="mt-2 border border-white/10 bg-white/5 px-4 py-3">
-      <div className="flex items-center justify-between">
-        <p className="text-xs uppercase tracking-[0.35em] text-white/60">
-          Live Anchor Markets
-        </p>
-        <Chip>Live</Chip>
-      </div>
-      <div className="mt-3 space-y-2">
+    <div className="mt-2 w-full border border-white/10 bg-white/5 px-4 py-3">
+      <div className="space-y-2">
         {isLoading && (
           <p className="text-xs text-white/70">Loading live APRs...</p>
         )}
@@ -300,7 +290,7 @@ function LiveAnchorMarkets({
           uniqueMarkets.map((market) => (
             <div
               key={market.symbol}
-              className="flex items-center justify-between gap-3 border border-white/10 bg-white/5 px-3 py-2"
+              className="flex items-center justify-between gap-3 bg-white/10 px-3 py-1.5"
             >
               <div>
                 <p className="text-sm text-white font-semibold">
@@ -340,17 +330,26 @@ function LiveSailMarkets({
   isLoading: boolean;
   hasError: boolean;
 }) {
+  const pageSize = 3;
+  const [pageIndex, setPageIndex] = useState(0);
+
+  useEffect(() => {
+    if (markets.length <= pageSize) return;
+
+    const interval = setInterval(() => {
+      setPageIndex((prev) => (prev + 1) % Math.ceil(markets.length / pageSize));
+    }, 7000);
+
+    return () => clearInterval(interval);
+  }, [markets.length, pageSize]);
+
+  const totalPages = Math.ceil(markets.length / pageSize);
+  const start = pageIndex * pageSize;
+  const visibleMarkets = markets.slice(start, start + pageSize);
+
   return (
-    <div className="mt-2 border border-nautical-blue/10 bg-nautical-blue/5 px-4 py-3">
-      <div className="flex items-center justify-between">
-        <p className="text-xs uppercase tracking-[0.35em] text-nautical-blue/60">
-          Live Sail Markets
-        </p>
-        <span className="inline-flex items-center uppercase tracking-wider text-[10px] text-nautical-blue border border-nautical-blue/30 bg-white px-2.5 py-0.5 rounded-full">
-          Live
-        </span>
-      </div>
-      <div className="mt-3 space-y-2">
+    <div className="mt-2 w-full border border-nautical-blue/10 bg-nautical-blue/5 px-4 py-3">
+      <div className="space-y-2">
         {isLoading && (
           <p className="text-xs text-nautical-blue/70">
             Loading live leverage...
@@ -367,11 +366,11 @@ function LiveSailMarkets({
           </p>
         )}
         {!isLoading && !hasError && markets.length > 0 && (
-          <div className="space-y-2">
-            {markets.map((market) => (
+          <div className="flex min-h-[132px] flex-col gap-2">
+            {visibleMarkets.map((market) => (
               <div
                 key={market.marketId}
-                className="flex items-center justify-between gap-3 border border-nautical-blue/10 bg-white px-3 py-2"
+                className="flex items-center justify-between gap-3 border border-nautical-blue/10 bg-nautical-blue/10 px-3 py-1.5"
               >
                 <div>
                   <p className="text-sm text-nautical-blue font-semibold">
@@ -395,6 +394,30 @@ function LiveSailMarkets({
                 </div>
               </div>
             ))}
+            {totalPages > 1 && (
+              <>
+                <div
+                  style={{
+                    height: `${Math.max(0, pageSize - visibleMarkets.length) * 36}px`,
+                  }}
+                />
+                <div className="flex items-center justify-center gap-2 pt-1">
+                  {Array.from({ length: totalPages }, (_, index) => (
+                    <button
+                      key={`sail-page-${index}`}
+                      type="button"
+                      aria-label={`Show leverage page ${index + 1}`}
+                      onClick={() => setPageIndex(index)}
+                      className={`h-2 w-2 rounded-full border transition-colors ${
+                        index === pageIndex
+                          ? "border-nautical-blue bg-nautical-blue"
+                          : "border-nautical-blue/40 bg-transparent hover:border-nautical-blue/70"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         )}
       </div>
