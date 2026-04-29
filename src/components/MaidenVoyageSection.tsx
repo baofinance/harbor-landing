@@ -80,6 +80,11 @@ export default function MaidenVoyageSection() {
     };
   }, []);
 
+  const hasLiveMaidenVoyages = maidenVoyages.some((voyage) =>
+    voyage.markets.some((market) => market.phase === "live")
+  );
+  const shouldShowMarketsPanel = isLoading || loadError || hasLiveMaidenVoyages;
+
   return (
     <section
       id="maiden-voyage"
@@ -91,11 +96,29 @@ export default function MaidenVoyageSection() {
           <div className="flex flex-col gap-6 h-full">
             <div className="flex flex-col text-left min-w-0">
               <h2 className="leading-none text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-bold text-white tracking-tight whitespace-nowrap">
-                Maiden Voyage
+                Maiden Voyages
               </h2>
               <div className="space-y-4 mt-4">
                 <p className="text-white text-sm sm:text-base">
-                  Earn 10x Marks per dollar per day, plus 100 Marks bonus per $ deposited at the end of maiden voyage. Early depositors get an additional 100 Marks/$ bonus.
+                  Each market begins with a Maiden Voyage. Deposit once during
+                  launch to earn a share of market revenue for life.
+                </p>
+                <p className="text-white text-sm sm:text-base">
+                  5% of market revenue is reserved for Maiden Voyage
+                  participants, including all mint and redeem fees plus all
+                  collateral yield.
+                </p>
+              </div>
+              <div className="mt-4 border border-white/30 bg-white/10 p-3 sm:p-4">
+                <p className="text-[10px] uppercase tracking-[0.25em] text-white/80">
+                  First relaunch voyage
+                </p>
+                <p className="mt-1 text-white text-base sm:text-lg font-semibold">
+                  ETH vs USD
+                </p>
+                <p className="mt-1 text-white/90 text-xs sm:text-sm">
+                  Earn yield on USD, get leveraged ETH exposure, and avoid
+                  liquidations.
                 </p>
               </div>
 
@@ -106,7 +129,7 @@ export default function MaidenVoyageSection() {
                   rel="noopener noreferrer"
                   className="w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] flex-shrink-0 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 text-[10px] sm:text-xs md:text-sm font-semibold bg-white text-nautical-blue border border-white rounded-full hover:bg-white/90 transition-colors text-center whitespace-nowrap"
                 >
-                  Launch App
+                  Join First Voyage
                 </a>
                 <Link
                   href="https://docs.harborfinance.io/"
@@ -114,18 +137,20 @@ export default function MaidenVoyageSection() {
                   rel="noopener noreferrer"
                   className="inline-block w-[140px] sm:w-[150px] md:w-[160px] lg:w-[170px] flex-shrink-0 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 text-[10px] sm:text-xs md:text-sm font-semibold border border-white text-white rounded-full hover:bg-white/10 transition-colors text-center whitespace-nowrap"
                 >
-                  Learn more
+                  How it works
                 </Link>
               </div>
             </div>
 
-            <div className="mt-4 pt-4 border-t border-white/25">
-              <LiveMaidenVoyageMarkets
-                voyages={maidenVoyages}
-                isLoading={isLoading}
-                hasError={loadError}
-              />
-            </div>
+            {shouldShowMarketsPanel && (
+              <div className="mt-4 pt-4 border-t border-white/25">
+                <LiveMaidenVoyageMarkets
+                  voyages={maidenVoyages}
+                  isLoading={isLoading}
+                  hasError={loadError}
+                />
+              </div>
+            )}
           </div>
         </div>
 
@@ -142,7 +167,7 @@ export default function MaidenVoyageSection() {
                 </div>
                 <div>
                   <p className="text-nautical-blue text-sm sm:text-base">
-                    Deposit any token via ParaSwap
+                    Deposit once during Maiden Voyage
                   </p>
                 </div>
               </div>
@@ -152,7 +177,7 @@ export default function MaidenVoyageSection() {
                 </div>
                 <div>
                   <p className="text-nautical-blue text-sm sm:text-base">
-                    Earn Ledger Marks
+                    5% of market revenue is shared with voyage participants
                   </p>
                 </div>
               </div>
@@ -162,7 +187,8 @@ export default function MaidenVoyageSection() {
                 </div>
                 <div>
                   <p className="text-nautical-blue text-sm sm:text-base">
-                    After maiden voyage: claim ha & hs tokens and earn real yield
+                    You keep lifetime participation even after withdrawing;
+                    remaining deposits receive a yield-share boost
                   </p>
                 </div>
               </div>
@@ -247,8 +273,7 @@ function LiveMaidenVoyageMarkets({
           </span>
         </span>
         <span className="flex items-center gap-1 font-semibold text-nautical-blue justify-end">
-          Earn Ledger Marks
-          <img src="/marks.png" alt="Marks" className="w-3.5 h-3.5 opacity-70" />
+          Lifetime yield share
         </span>
       </div>
     </div>
@@ -259,17 +284,12 @@ function LiveMaidenVoyageMarkets({
       <div className="space-y-3">
         {isLoading && (
           <p className="text-xs text-nautical-blue/70">
-            Loading maiden voyage markets...
+            Loading Maiden Voyage markets...
           </p>
         )}
         {!isLoading && hasError && (
           <p className="text-xs text-nautical-blue/70">
-            Maiden voyage markets unavailable right now.
-          </p>
-        )}
-        {!isLoading && !hasError && allMarkets.length === 0 && (
-          <p className="text-xs text-nautical-blue/70">
-            No maiden voyage markets yet.
+            Maiden Voyage markets unavailable right now.
           </p>
         )}
         {!isLoading && !hasError && activeSection && (

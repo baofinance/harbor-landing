@@ -55,10 +55,7 @@ export default function HeroSection() {
               <div className="inline-block px-4 sm:px-6 md:px-8 py-1.5 sm:py-2 md:py-2.5 bg-sunrise-coral border-2 border-sunrise-coral rounded-full">
                 <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-white text-center">
                   <span className="font-semibold">
-                    New market rewards live now for EURO markets!
-                  </span>{" "}
-                  <span className="font-normal">
-                    Deposit to earn yield & Ledger marks for the $TIDE airdrop.
+                    Maiden Voyages are relaunching soon.
                   </span>
                 </p>
               </div>
@@ -71,14 +68,23 @@ export default function HeroSection() {
                 }`}
               >
                 <span className="block whitespace-nowrap">
-                  A Safer Harbor For Leverage,
+                  Deposit Once.
                 </span>
                 <span className="block whitespace-nowrap">
-                  Uncharted Waters For Yield.
+                  Lifetime Yield.
                 </span>
               </h1>
               <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-nautical-blue/30 to-transparent blur-3xl" />
             </div>
+            <p
+              className={`mt-3 max-w-3xl text-center text-sm sm:text-base text-harbor-white/90 transition-all duration-1000 delay-300 ease-out ${
+                isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+            >
+              Deposit once during Maiden Voyage to own a share of market revenue
+              for life. 5% of revenue from mint and redeem fees plus collateral
+              yield goes to voyage participants.
+            </p>
 
             <div 
               className={`mt-3 sm:mt-4 md:mt-5 space-y-3 sm:space-y-4 transition-all duration-1000 delay-500 ease-out ${
@@ -107,7 +113,7 @@ export default function HeroSection() {
                   }}
                   className="w-[110px] sm:w-[120px] md:w-[130px] lg:w-[140px] flex-shrink-0 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 text-[10px] sm:text-xs md:text-sm font-semibold border border-white text-white rounded-full hover:bg-white/10 transition-all text-center whitespace-nowrap"
                 >
-                  Learn more
+                  How it works
                 </button>
                 <a
                   href="https://app.harborfinance.io/genesis"
@@ -115,7 +121,7 @@ export default function HeroSection() {
                   rel="noopener noreferrer"
                   className="w-[110px] sm:w-[150px] md:w-[160px] lg:w-[170px] flex-shrink-0 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 text-[10px] sm:text-xs md:text-sm font-semibold bg-white text-nautical-blue border border-white rounded-full hover:bg-white/90 transition-all text-center whitespace-nowrap shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]"
                 >
-                  Launch App
+                  Join First Voyage
                 </a>
               </div>
             </div>
