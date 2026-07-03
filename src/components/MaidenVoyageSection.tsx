@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ArrowDownToLine, Gift, Trophy } from "lucide-react";
+import { getPreDepositMarketIds } from "@/lib/landingMarkets";
 
 type MaidenVoyageMarket = {
   marketId: string;
@@ -20,14 +21,28 @@ type MaidenVoyageGroup = {
   markets: MaidenVoyageMarket[];
 };
 
+type AnchorMarket = {
+  marketId: string;
+  bestApr: number;
+};
+
+type SailMarket = {
+  marketId: string;
+  leverageRatio?: number | null;
+};
+
 type LandingSummaryResponse = {
   maidenVoyages?: MaidenVoyageGroup[];
+  anchorMarkets?: AnchorMarket[];
+  sailMarkets?: SailMarket[];
 };
 
 const LANDING_SUMMARY_URL = "/api/landing/summary";
 
 export default function MaidenVoyageSection() {
   const [maidenVoyages, setMaidenVoyages] = useState<MaidenVoyageGroup[]>([]);
+  const [anchorMarkets, setAnchorMarkets] = useState<AnchorMarket[]>([]);
+  const [sailMarkets, setSailMarkets] = useState<SailMarket[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState(false);
 
@@ -52,7 +67,13 @@ export default function MaidenVoyageSection() {
 
         if (!isMounted) return;
 
-        setMaidenVoyages(Array.isArray(data.maidenVoyages) ? data.maidenVoyages : []);
+        setMaidenVoyages(
+          Array.isArray(data.maidenVoyages) ? data.maidenVoyages : []
+        );
+        setAnchorMarkets(
+          Array.isArray(data.anchorMarkets) ? data.anchorMarkets : []
+        );
+        setSailMarkets(Array.isArray(data.sailMarkets) ? data.sailMarkets : []);
       } catch (error) {
         if (isMounted) {
           if (attempt < 2) {
@@ -80,7 +101,23 @@ export default function MaidenVoyageSection() {
     };
   }, []);
 
-  const hasLiveMaidenVoyages = maidenVoyages.some((voyage) =>
+  const visibleMaidenVoyages = useMemo(() => {
+    const preDepositMarketIds = getPreDepositMarketIds(
+      anchorMarkets,
+      sailMarkets
+    );
+
+    return maidenVoyages
+      .map((voyage) => ({
+        ...voyage,
+        markets: voyage.markets.filter(
+          (market) => !preDepositMarketIds.has(market.marketId)
+        ),
+      }))
+      .filter((voyage) => voyage.markets.length > 0);
+  }, [anchorMarkets, maidenVoyages, sailMarkets]);
+
+  const hasLiveMaidenVoyages = visibleMaidenVoyages.some((voyage) =>
     voyage.markets.some((market) => market.phase === "live")
   );
   const shouldShowMarketsPanel = isLoading || loadError || hasLiveMaidenVoyages;
@@ -145,7 +182,7 @@ export default function MaidenVoyageSection() {
             {shouldShowMarketsPanel && (
               <div className="mt-4 pt-4 border-t border-white/25">
                 <LiveMaidenVoyageMarkets
-                  voyages={maidenVoyages}
+                  voyages={visibleMaidenVoyages}
                   isLoading={isLoading}
                   hasError={loadError}
                 />

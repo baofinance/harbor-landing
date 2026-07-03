@@ -9,6 +9,10 @@ import {
   Coins,
   Shield,
 } from "lucide-react";
+import {
+  isPreDepositAnchorMarket,
+  isPreDepositSailMarket,
+} from "@/lib/landingMarkets";
 
 // Types for the new two-sided layout
 type AnchorMarket = {
@@ -16,6 +20,7 @@ type AnchorMarket = {
   name: string;
   symbol: string;
   bestApr: number;
+  archived?: boolean;
 };
 
 type SailMarket = {
@@ -24,7 +29,19 @@ type SailMarket = {
   longSide: string;
   shortSide: string;
   leverageRatio: number;
+  archived?: boolean;
 };
+
+const ARCHIVED_MARKET_IDS = new Set([
+  "fxusd-gold",
+  "steth-gold",
+  "steth-silver",
+  "fxusd-silver",
+]);
+
+function isArchivedMarket(market: { marketId: string; archived?: boolean }) {
+  return market.archived === true || ARCHIVED_MARKET_IDS.has(market.marketId);
+}
 
 type LandingSummaryResponse = {
   generatedAt: string;
@@ -91,7 +108,21 @@ export function AllOutYieldSection() {
     };
   }, []);
 
-  const liveAnchorMarkets = useMemo(() => anchorMarkets, [anchorMarkets]);
+  const liveAnchorMarkets = useMemo(
+    () =>
+      anchorMarkets.filter(
+        (market) =>
+          !isArchivedMarket(market) && !isPreDepositAnchorMarket(market)
+      ),
+    [anchorMarkets]
+  );
+  const liveSailMarkets = useMemo(
+    () =>
+      sailMarkets.filter(
+        (market) => !isArchivedMarket(market) && !isPreDepositSailMarket(market)
+      ),
+    [sailMarkets]
+  );
 
   return (
     <section className="relative z-10 bg-nautical-blue-light px-3 sm:px-4 md:px-5 pb-3 sm:pb-4 md:pb-5 pt-0">
@@ -148,7 +179,7 @@ export function AllOutYieldSection() {
           <div className="flex-1 flex flex-col gap-5 sm:gap-6">
             <div className="flex-1 flex items-center justify-center">
               <LiveSailMarkets
-                markets={sailMarkets}
+                markets={liveSailMarkets}
                 isLoading={isLoading}
                 hasError={loadError}
               />
@@ -374,7 +405,7 @@ function LiveSailMarkets({
               >
                 <div>
                   <p className="text-sm text-nautical-blue font-semibold">
-                    Long {market.longSide.toUpperCase()} vs{" "}
+                    {market.longSide.toUpperCase()}/
                     {market.shortSide.toUpperCase()}
                   </p>
                 </div>

@@ -99,7 +99,7 @@ export default function HeroSection() {
                 <button
                   onClick={() => {
                     const maidenVoyageSection =
-                      document.getElementById("maiden-voyage");
+                      document.getElementById("maiden-voyage-flow");
                     if (maidenVoyageSection) {
                       const elementPosition =
                         maidenVoyageSection.getBoundingClientRect().top;

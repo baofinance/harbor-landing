@@ -4,6 +4,7 @@ import BoosterProgramSection from "@/components/BoosterProgramSection";
 import DepthEffects from "@/components/DepthEffects";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
+import MaidenVoyageFlowSection from "@/components/MaidenVoyageFlowSection";
 import MaidenVoyageSection from "@/components/MaidenVoyageSection";
 import SecuritySection from "@/components/SecuritySection";
 import TideSection from "@/components/TideSection";
@@ -18,6 +19,9 @@ export default function Home() {
       <main className="relative z-10 bg-nautical-blue-light">
         <div className="bg-nautical-blue-light">
           <HeroSection />
+          <Reveal delayMs={30}>
+            <MaidenVoyageFlowSection />
+          </Reveal>
           <Reveal delayMs={60}>
             <AllOutYieldSection />
           </Reveal>
