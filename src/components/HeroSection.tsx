@@ -68,14 +68,24 @@ export default function HeroSection() {
                 }`}
               >
                 <span className="block whitespace-nowrap">
-                  Deposit Once.
+                  Earn More.
                 </span>
                 <span className="block whitespace-nowrap">
-                  Earn Forever.
+                  Risk Less.
                 </span>
               </h1>
               <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-nautical-blue/30 to-transparent blur-3xl" />
             </div>
+
+            <p
+              className={`mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-white/85 sm:mt-5 sm:text-base md:max-w-3xl md:text-lg transition-all duration-1000 delay-300 ease-out ${
+                isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+            >
+              Earn real yield on pegged assets or trade with liquidation-protected
+              leverage—all powered by a protocol designed for sustainable long-term
+              growth.
+            </p>
 
             <div 
               className={`mt-3 sm:mt-4 md:mt-5 space-y-3 sm:space-y-4 transition-all duration-1000 delay-500 ease-out ${
@@ -89,11 +99,11 @@ export default function HeroSection() {
               >
                 <button
                   onClick={() => {
-                    const maidenVoyageSection =
-                      document.getElementById("maiden-voyage-flow");
-                    if (maidenVoyageSection) {
+                    const buildMarketsSection =
+                      document.getElementById("harbor-markets");
+                    if (buildMarketsSection) {
                       const elementPosition =
-                        maidenVoyageSection.getBoundingClientRect().top;
+                        buildMarketsSection.getBoundingClientRect().top;
                       const offsetPosition =
                         elementPosition + window.scrollY - 200;
                       window.scrollTo({

@@ -3,10 +3,10 @@
 import DepthEffects from "@/components/DepthEffects";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
+import ProductsSection from "@/components/ProductsSection";
 import MaidenVoyageFlowSection from "@/components/MaidenVoyageFlowSection";
 import BuildMarketsSection from "@/components/BuildMarketsSection";
 import TideSection from "@/components/TideSection";
-import { AllOutYieldSection } from "@/components/TokenCarousel";
 import Reveal from "@/components/Reveal";
 
 export default function Home() {
@@ -17,15 +17,15 @@ export default function Home() {
         <div className="bg-nautical-blue-light">
           <HeroSection />
           <Reveal delayMs={30}>
-            <MaidenVoyageFlowSection />
+            <ProductsSection />
           </Reveal>
           <Reveal delayMs={45}>
             <BuildMarketsSection />
           </Reveal>
           <Reveal delayMs={60}>
-            <AllOutYieldSection />
+            <MaidenVoyageFlowSection />
           </Reveal>
-          <Reveal delayMs={120}>
+          <Reveal delayMs={90}>
             <TideSection />
           </Reveal>
         </div>

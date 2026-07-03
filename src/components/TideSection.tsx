@@ -265,22 +265,18 @@ export default function TideSection() {
 
   return (
     <section
-      id="ecosystem"
+      id="sustainable-by-design"
       ref={sectionRef}
       className="relative z-10 bg-nautical-blue-light px-3 sm:px-4 md:px-5 pb-3 sm:pb-4 md:pb-5 pt-0"
     >
       <div className="bg-nautical-blue px-6 py-10 sm:px-10 sm:py-14 md:px-12 md:py-16 lg:px-14 lg:py-20">
         <div className="mx-auto flex max-w-5xl flex-col gap-12 lg:gap-16">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/50">
-              Ecosystem
-            </p>
-            <h2 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
-              Every Dollar Has A Job.
+            <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
+              Sustainable By Design
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-white/75 sm:text-base">
-              Every Harbor market generates protocol revenue. That revenue is
-              permanently reinvested to grow the protocol and strengthen TIDE.
+              Revenue allocation.
             </p>
           </div>
 

@@ -179,15 +179,11 @@ export default function BuildMarketsSection() {
         <div className="mx-auto flex max-w-5xl flex-col gap-10 lg:gap-12">
           <AnimatedReveal visible={show} delayMs={0}>
             <div className="mx-auto max-w-3xl text-center">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/50">
-                Harbor Markets
-              </p>
-              <h2 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
+              <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
                 Build Any Financial Market.
               </h2>
               <p className="mt-3 text-sm text-white/75 sm:text-base">
-                Every Harbor market combines collateral with a price feed to
-                create new tokens, trading opportunities, yield, and revenue.
+                Explain how Harbor works.
               </p>
             </div>
           </AnimatedReveal>

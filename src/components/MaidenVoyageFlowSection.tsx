@@ -277,12 +277,8 @@ export default function MaidenVoyageFlowSection() {
               Maiden Voyages
             </p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight text-nautical-blue sm:text-3xl md:text-4xl">
-              Deposit once. Earn forever.
+              Launch model.
             </h2>
-            <p className="mt-3 text-sm text-nautical-blue/70 sm:text-base">
-              Each new market starts with a Maiden Voyage. Join at launch to
-              receive a permanent share of that market&apos;s revenue.
-            </p>
           </div>
 
           <div className="mx-auto w-full max-w-md xl:max-w-none">
