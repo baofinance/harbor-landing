@@ -1,75 +1,235 @@
 "use client";
 
-import { Fragment } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import {
-  ArrowDown,
   ArrowDownToLine,
-  Infinity,
+  CircleCheck,
   Rocket,
-  RotateCw,
-  TrendingUp,
+  Sparkles,
+  Trophy,
   Wallet,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
-const FLOW_STEPS: { label: string; icon: LucideIcon }[] = [
-  { label: "Deposit", icon: ArrowDownToLine },
-  { label: "Market Launches", icon: Rocket },
-  { label: "Receive Revenue Share", icon: Wallet },
-  { label: "Earn Market Revenue", icon: TrendingUp },
-  { label: "Withdraw Anytime", icon: RotateCw },
-  { label: "Keep Your Lifetime Share", icon: Infinity },
+type FlowStepData = {
+  label: string;
+  subtitle: string;
+  icon: LucideIcon;
+  isReward?: boolean;
+};
+
+const FLOW_STEPS: FlowStepData[] = [
+  {
+    label: "Deposit",
+    subtitle: "Support the market before launch.",
+    icon: ArrowDownToLine,
+  },
+  {
+    label: "Market Launches",
+    subtitle: "Trading begins.",
+    icon: Rocket,
+  },
+  {
+    label: "Own Part of the Market",
+    subtitle: "Receive your share of market fees.",
+    icon: Wallet,
+  },
+  {
+    label: "Keep Your Share Forever",
+    subtitle: "Continue earning forever.",
+    icon: Trophy,
+    isReward: true,
+  },
 ];
 
-function FlowStep({
-  label,
-  icon: Icon,
-  index,
-}: {
-  label: string;
-  icon: LucideIcon;
-  index: number;
-}) {
+const CLOSING_LINE =
+  "Unlike traditional liquidity mining, your participation doesn't disappear when your deposit does.";
+
+function ProgressDot({ active }: { active: boolean }) {
   return (
-    <div className="flex flex-col items-center text-center gap-2.5 min-w-0 xl:flex-1 border border-nautical-blue/10 bg-nautical-blue/5 px-4 py-5 w-full xl:w-auto">
+    <div
+      className={`h-3 w-3 shrink-0 rounded-full border-2 transition-colors duration-500 ${
+        active
+          ? "border-sunrise-coral bg-sunrise-coral"
+          : "border-nautical-blue/20 bg-nautical-blue/10"
+      }`}
+      aria-hidden="true"
+    />
+  );
+}
+
+function ProgressSegment({
+  filled,
+  orientation,
+}: {
+  filled: boolean;
+  orientation: "vertical" | "horizontal";
+}) {
+  const isVertical = orientation === "vertical";
+
+  return (
+    <div
+      className={`relative overflow-hidden ${
+        isVertical ? "my-1 w-0.5 flex-1 min-h-6" : "mx-1 h-0.5 flex-1"
+      }`}
+      aria-hidden="true"
+    >
+      <div
+        className={`absolute bg-nautical-blue/15 ${
+          isVertical ? "inset-0" : "inset-0 rounded-full"
+        }`}
+      />
+      <div
+        className={`absolute bg-nautical-blue transition-all duration-700 ease-out ${
+          isVertical
+            ? `left-0 right-0 top-0 origin-top ${filled ? "h-full" : "h-0"}`
+            : `bottom-0 top-0 left-0 rounded-full ${filled ? "w-full" : "w-0"}`
+        }`}
+      />
+    </div>
+  );
+}
+
+function HorizontalProgressTimeline({ activeIndex }: { activeIndex: number }) {
+  return (
+    <div className="flex w-full items-center px-[calc(12.5%-0.375rem)]">
+      {FLOW_STEPS.map((step, index) => (
+        <Fragment key={step.label}>
+          <ProgressDot active={index <= activeIndex} />
+          {index < FLOW_STEPS.length - 1 && (
+            <ProgressSegment
+              filled={index < activeIndex}
+              orientation="horizontal"
+            />
+          )}
+        </Fragment>
+      ))}
+    </div>
+  );
+}
+
+function FlowStepCard({
+  step,
+  isLit,
+  stepRef,
+}: {
+  step: FlowStepData;
+  isLit: boolean;
+  stepRef: (el: HTMLDivElement | null) => void;
+}) {
+  const Icon = step.icon;
+
+  if (step.isReward) {
+    return (
+      <div
+        ref={stepRef}
+        className={`flex h-full flex-col gap-3 border px-4 py-5 transition-all duration-500 sm:px-5 sm:py-6 ${
+          isLit
+            ? "border-seafoam-mint/40 bg-nautical-blue-dark opacity-100"
+            : "border-nautical-blue/10 bg-nautical-blue-dark/80 opacity-50"
+        }`}
+      >
+        <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-seafoam-mint">
+          Mission accomplished
+        </p>
+        <div className="flex items-center gap-2">
+          <CircleCheck
+            className="h-5 w-5 text-seafoam-mint"
+            strokeWidth={2.25}
+          />
+          <Trophy className="h-5 w-5 text-sunrise-coral" strokeWidth={2.25} />
+          <Sparkles
+            className="h-4 w-4 text-seafoam-mint-light"
+            strokeWidth={2.25}
+          />
+        </div>
+        <div className="text-left">
+          <p className="text-sm font-semibold leading-snug text-white sm:text-base">
+            {step.label}
+          </p>
+          <p className="mt-1.5 text-xs leading-relaxed text-white/75 sm:text-sm">
+            {step.subtitle}
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div
+      ref={stepRef}
+      className={`flex h-full flex-col gap-3 border px-4 py-5 transition-all duration-500 sm:px-5 ${
+        isLit
+          ? "border-nautical-blue/30 bg-nautical-blue/5 opacity-100"
+          : "border-nautical-blue/10 bg-nautical-blue/5 opacity-50"
+      }`}
+    >
       <div className="flex h-10 w-10 items-center justify-center bg-[#FF8A7A] text-white">
         <Icon className="h-4 w-4" strokeWidth={2.25} />
       </div>
-      <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-nautical-blue/45">
-        Step {index + 1}
-      </p>
-      <p className="text-sm sm:text-base font-semibold text-nautical-blue leading-snug max-w-[11rem] xl:max-w-[8.5rem] 2xl:max-w-[10rem]">
-        {label}
-      </p>
-    </div>
-  );
-}
-
-function VerticalConnector() {
-  return (
-    <div className="flex justify-center py-1.5 xl:hidden" aria-hidden="true">
-      <ArrowDown className="h-4 w-4 text-nautical-blue/35" strokeWidth={2} />
-    </div>
-  );
-}
-
-function HorizontalConnector() {
-  return (
-    <div
-      className="hidden xl:flex items-center self-center px-0.5 2xl:px-1 shrink-0"
-      aria-hidden="true"
-    >
-      <div className="h-px w-3 2xl:w-5 bg-nautical-blue/15" />
-      <ArrowDown
-        className="h-3 w-3 -rotate-90 text-nautical-blue/35 shrink-0"
-        strokeWidth={2}
-      />
-      <div className="h-px w-3 2xl:w-5 bg-nautical-blue/15" />
+      <div className="text-left">
+        <p className="text-sm font-semibold leading-snug text-nautical-blue sm:text-base">
+          {step.label}
+        </p>
+        <p className="mt-1.5 text-xs leading-relaxed text-nautical-blue/65 sm:text-sm">
+          {step.subtitle}
+        </p>
+      </div>
     </div>
   );
 }
 
 export default function MaidenVoyageFlowSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [reduceMotion, setReduceMotion] = useState(false);
+  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updateMotion = () => setReduceMotion(mediaQuery.matches);
+    updateMotion();
+    mediaQuery.addEventListener("change", updateMotion);
+    return () => mediaQuery.removeEventListener("change", updateMotion);
+  }, []);
+
+  useEffect(() => {
+    if (reduceMotion) {
+      setActiveIndex(FLOW_STEPS.length - 1);
+      return;
+    }
+
+    const visible = new Set<number>();
+    const observers: IntersectionObserver[] = [];
+
+    stepRefs.current.forEach((element, index) => {
+      if (!element) return;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            visible.add(index);
+          } else {
+            visible.delete(index);
+          }
+
+          const highestVisible =
+            visible.size > 0 ? Math.max(...Array.from(visible)) : 0;
+          setActiveIndex(highestVisible);
+        },
+        { threshold: 0.4 }
+      );
+
+      observer.observe(element);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((observer) => observer.disconnect());
+  }, [reduceMotion]);
+
+  const setStepRef = (index: number) => (el: HTMLDivElement | null) => {
+    stepRefs.current[index] = el;
+  };
+
   return (
     <section
       id="maiden-voyage-flow"
@@ -77,36 +237,55 @@ export default function MaidenVoyageFlowSection() {
     >
       <div className="bg-white p-6 sm:p-10 md:p-12 lg:p-14">
         <div className="flex flex-col gap-8 lg:gap-10">
-          <div className="text-center max-w-2xl mx-auto">
+          <div className="mx-auto max-w-2xl text-center">
             <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-nautical-blue/50">
               Maiden Voyages
             </p>
-            <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold text-nautical-blue tracking-tight">
+            <h2 className="mt-2 text-2xl font-bold tracking-tight text-nautical-blue sm:text-3xl md:text-4xl">
               Deposit once. Earn forever.
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-nautical-blue/70">
+            <p className="mt-3 text-sm text-nautical-blue/70 sm:text-base">
               Each new market starts with a Maiden Voyage. Join at launch to
               receive a permanent share of that market&apos;s revenue.
             </p>
           </div>
 
-          <div className="flex flex-col items-center xl:flex-row xl:items-start xl:justify-between max-w-md xl:max-w-none mx-auto w-full">
-            {FLOW_STEPS.map((step, index) => (
-              <Fragment key={step.label}>
-                <FlowStep
-                  label={step.label}
-                  icon={step.icon}
-                  index={index}
-                />
-                {index < FLOW_STEPS.length - 1 && (
-                  <>
-                    <VerticalConnector />
-                    <HorizontalConnector />
-                  </>
-                )}
-              </Fragment>
-            ))}
+          <div className="mx-auto w-full max-w-md xl:max-w-none">
+            <div className="mb-0 hidden xl:mb-6 xl:block">
+              <HorizontalProgressTimeline activeIndex={activeIndex} />
+            </div>
+
+            <div className="flex flex-col xl:grid xl:grid-cols-4 xl:gap-4">
+              {FLOW_STEPS.map((step, index) => {
+                const isLit = reduceMotion || index <= activeIndex;
+
+                return (
+                  <div key={step.label} className="flex gap-4 xl:block">
+                    <div className="flex w-3 shrink-0 flex-col items-center pt-6 xl:hidden">
+                      <ProgressDot active={isLit} />
+                      {index < FLOW_STEPS.length - 1 && (
+                        <ProgressSegment
+                          filled={index < activeIndex || reduceMotion}
+                          orientation="vertical"
+                        />
+                      )}
+                    </div>
+                    <div className="min-w-0 flex-1 pb-4 xl:pb-0">
+                      <FlowStepCard
+                        step={step}
+                        isLit={isLit}
+                        stepRef={setStepRef(index)}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
+
+          <p className="mx-auto max-w-xl text-center text-sm leading-relaxed text-nautical-blue/70">
+            {CLOSING_LINE}
+          </p>
         </div>
       </div>
     </section>
