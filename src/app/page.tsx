@@ -7,7 +7,6 @@ import MaidenVoyageFlowSection from "@/components/MaidenVoyageFlowSection";
 import BuildMarketsSection from "@/components/BuildMarketsSection";
 import TideSection from "@/components/TideSection";
 import { AllOutYieldSection } from "@/components/TokenCarousel";
-import UseCasesSection from "@/components/UseCasesSection";
 import Reveal from "@/components/Reveal";
 
 export default function Home() {
@@ -27,9 +26,6 @@ export default function Home() {
             <AllOutYieldSection />
           </Reveal>
           <Reveal delayMs={120}>
-            <UseCasesSection />
-          </Reveal>
-          <Reveal delayMs={180}>
             <TideSection />
           </Reveal>
         </div>

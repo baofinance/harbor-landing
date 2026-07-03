@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowDown, Coins, LineChart } from "lucide-react";
+import { ArrowDown, ArrowRight, Coins, LineChart } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 const MARKET_OUTPUTS = [
@@ -29,7 +29,7 @@ function InputCard({
   icon: LucideIcon;
 }) {
   return (
-    <div className="flex min-w-0 flex-1 flex-col gap-3 border border-nautical-blue/10 bg-nautical-blue/5 px-4 py-5 sm:px-5 sm:py-6">
+    <div className="flex min-w-0 flex-col gap-3 border border-nautical-blue/10 bg-nautical-blue/5 px-4 py-5 sm:px-5 sm:py-6">
       <div className="flex h-10 w-10 items-center justify-center bg-[#FF8A7A] text-white">
         <Icon className="h-4 w-4" strokeWidth={2.25} />
       </div>
@@ -84,8 +84,8 @@ export default function BuildMarketsSection() {
             </p>
           </div>
 
-          <div className="flex flex-col items-center gap-4 sm:gap-5">
-            <div className="flex w-full max-w-3xl flex-col items-stretch gap-3 md:flex-row md:items-center md:gap-4">
+          <div className="mx-auto flex w-full max-w-4xl flex-col gap-4 md:flex-row md:items-stretch md:gap-5">
+            <div className="flex min-w-0 flex-col gap-3 md:w-[38%] lg:w-[34%]">
               <InputCard
                 label="Collateral"
                 example="wstETH"
@@ -93,7 +93,7 @@ export default function BuildMarketsSection() {
                 icon={Coins}
               />
               <p
-                className="text-center text-2xl font-semibold text-sunrise-coral md:shrink-0"
+                className="text-center text-2xl font-semibold text-sunrise-coral"
                 aria-hidden="true"
               >
                 +
@@ -106,17 +106,24 @@ export default function BuildMarketsSection() {
               />
             </div>
 
-            <ArrowDown
-              className="h-6 w-6 text-nautical-blue/40"
-              strokeWidth={2.25}
-              aria-hidden="true"
-            />
+            <div className="flex items-center justify-center md:w-8 lg:w-10">
+              <ArrowDown
+                className="h-6 w-6 text-nautical-blue/40 md:hidden"
+                strokeWidth={2.25}
+                aria-hidden="true"
+              />
+              <ArrowRight
+                className="hidden h-6 w-6 text-nautical-blue/40 md:block"
+                strokeWidth={2.25}
+                aria-hidden="true"
+              />
+            </div>
 
-            <div className="w-full max-w-3xl border border-nautical-blue/20 bg-nautical-blue p-5 sm:p-6 md:p-8">
+            <div className="flex min-w-0 flex-1 flex-col border border-nautical-blue/20 bg-nautical-blue p-5 sm:p-6 md:p-8">
               <p className="text-center text-[10px] font-semibold uppercase tracking-[0.28em] text-white/60">
                 Harbor Market
               </p>
-              <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
+              <div className="mt-4 grid flex-1 grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
                 {MARKET_OUTPUTS.map((output) => (
                   <OutputTile
                     key={output.label}
