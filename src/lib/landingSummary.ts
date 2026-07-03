@@ -66,6 +66,37 @@ export function formatPercent(value: number, digits = 1): string {
   return `${value.toFixed(digits)}%`;
 }
 
+export function getTideMetricDisplay(
+  metric: "treasury" | "pol",
+  tideEconomics: TideEconomicsSummary | null
+): {
+  label: string;
+  currentPercent: number;
+  targetPercent: number;
+  isLiveData: boolean;
+} {
+  if (metric === "treasury") {
+    return {
+      label: "Treasury ownership",
+      currentPercent:
+        tideEconomics?.treasuryOwnershipPercent ??
+        DEFAULT_TIDE_TARGETS.treasuryTargetPercent,
+      targetPercent:
+        tideEconomics?.treasuryTargetPercent ??
+        DEFAULT_TIDE_TARGETS.treasuryTargetPercent,
+      isLiveData: tideEconomics !== null,
+    };
+  }
+
+  return {
+    label: "Protocol-owned liquidity",
+    currentPercent: tideEconomics?.polOwnershipPercent ?? 0,
+    targetPercent:
+      tideEconomics?.polTargetPercent ?? DEFAULT_TIDE_TARGETS.polTargetPercent,
+    isLiveData: tideEconomics !== null,
+  };
+}
+
 export function progressFillPercent(
   currentPercent: number,
   targetPercent: number

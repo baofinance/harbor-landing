@@ -12,6 +12,7 @@ import {
 import type { LucideIcon } from "lucide-react";
 import {
   formatPercent,
+  getTideMetricDisplay,
   LANDING_SUMMARY_URL,
   parseTideEconomics,
   progressFillPercent,
@@ -109,26 +110,29 @@ function MetricProgressBar({
   targetPercent,
   animate,
   isLoading,
+  isLiveData,
 }: {
   label: string;
   currentPercent: number;
   targetPercent: number;
   animate: boolean;
   isLoading: boolean;
+  isLiveData: boolean;
 }) {
   const fillPercent = progressFillPercent(currentPercent, targetPercent);
+  const exceedsTarget = currentPercent > targetPercent;
 
   return (
-    <div className="flex flex-col gap-2 border-t border-nautical-blue/10 pt-4">
+    <div className="flex flex-col gap-2.5 border-t border-nautical-blue/10 pt-4">
       <div className="flex items-end justify-between gap-3">
         <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-nautical-blue/50">
           {label}
         </p>
         {isLoading ? (
-          <div className="h-4 w-20 animate-pulse bg-nautical-blue/10" />
+          <div className="h-4 w-24 animate-pulse bg-nautical-blue/10" />
         ) : (
           <p className="text-sm font-semibold tabular-nums text-nautical-blue">
-            {formatPercent(currentPercent)}
+            {exceedsTarget && !isLiveData ? "30%+" : formatPercent(currentPercent)}
             <span className="font-normal text-nautical-blue/45">
               {" "}
               / {formatPercent(targetPercent)} target
@@ -137,7 +141,7 @@ function MetricProgressBar({
         )}
       </div>
       <div
-        className="relative h-2 overflow-hidden bg-nautical-blue/10"
+        className="relative h-3 overflow-hidden rounded-sm bg-nautical-blue/10"
         role="progressbar"
         aria-valuemin={0}
         aria-valuemax={targetPercent}
@@ -145,7 +149,9 @@ function MetricProgressBar({
         aria-label={`${label}: ${formatPercent(currentPercent)} of ${formatPercent(targetPercent)} target`}
       >
         <div
-          className="absolute inset-y-0 left-0 bg-nautical-blue transition-[width] duration-1000 ease-out"
+          className={`absolute inset-y-0 left-0 rounded-sm transition-[width] duration-1000 ease-out ${
+            exceedsTarget ? "bg-seafoam-mint-dark" : "bg-nautical-blue"
+          }`}
           style={{ width: animate && !isLoading ? `${fillPercent}%` : "0%" }}
         />
       </div>
@@ -171,29 +177,6 @@ function EthereumSparkleIcon() {
       />
     </div>
   );
-}
-
-function getMetricValues(
-  metric: TideStep["metric"],
-  tideEconomics: TideEconomicsSummary | null
-) {
-  if (!metric || !tideEconomics) {
-    return null;
-  }
-
-  if (metric === "treasury") {
-    return {
-      label: "Treasury ownership",
-      currentPercent: tideEconomics.treasuryOwnershipPercent,
-      targetPercent: tideEconomics.treasuryTargetPercent,
-    };
-  }
-
-  return {
-    label: "Protocol-owned liquidity",
-    currentPercent: tideEconomics.polOwnershipPercent,
-    targetPercent: tideEconomics.polTargetPercent,
-  };
 }
 
 export default function TideSection() {
@@ -444,7 +427,9 @@ export default function TideSection() {
                   {TIDE_STEPS.map((step, index) => {
                     const Icon = step.icon;
                     const cardDelay = 1000 + index * 350;
-                    const metricValues = getMetricValues(step.metric, tideEconomics);
+                    const metricDisplay = step.metric
+                      ? getTideMetricDisplay(step.metric, tideEconomics)
+                      : null;
 
                     return (
                       <div key={step.title} className="flex flex-col items-center">
@@ -469,21 +454,14 @@ export default function TideSection() {
                               </div>
                             </div>
 
-                            {step.metric && (isLoadingMetrics || metricValues) ? (
+                            {metricDisplay ? (
                               <MetricProgressBar
-                                label={
-                                  metricValues?.label ??
-                                  (step.metric === "treasury"
-                                    ? "Treasury ownership"
-                                    : "Protocol-owned liquidity")
-                                }
-                                currentPercent={metricValues?.currentPercent ?? 0}
-                                targetPercent={
-                                  metricValues?.targetPercent ??
-                                  (step.metric === "treasury" ? 30 : 15)
-                                }
-                                animate={show && !!metricValues}
-                                isLoading={isLoadingMetrics && !metricValues}
+                                label={metricDisplay.label}
+                                currentPercent={metricDisplay.currentPercent}
+                                targetPercent={metricDisplay.targetPercent}
+                                animate={show}
+                                isLoading={isLoadingMetrics && !metricDisplay.isLiveData}
+                                isLiveData={metricDisplay.isLiveData}
                               />
                             ) : null}
                           </div>
