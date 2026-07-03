@@ -9,28 +9,44 @@ import {
   Vault,
   Waves,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import {
+  formatPercent,
+  LANDING_SUMMARY_URL,
+  parseTideEconomics,
+  progressFillPercent,
+  type LandingSummaryResponse,
+  type TideEconomicsSummary,
+} from "@/lib/landingSummary";
 
-const TIDE_PHASES = [
+type TideStep = {
+  title: string;
+  description: string;
+  supporting?: string;
+  icon: LucideIcon;
+  metric?: "treasury" | "pol";
+};
+
+const TIDE_STEPS: TideStep[] = [
   {
     title: "Treasury Warchest",
     description:
-      "Protocol revenue purchases TIDE from the open market and builds Harbor's long-term treasury reserves.",
-    phase: "Phase 1",
+      "The treasury launches with over 30% of TIDE supply. Protocol revenue maintains and strengthens these reserves by purchasing TIDE from the open market.",
     icon: Vault,
+    metric: "treasury",
   },
   {
     title: "Permanent Liquidity",
     description:
       "Once the treasury target is reached, purchased TIDE is paired with productive Ethereum assets to build Protocol-Owned Liquidity.",
     supporting: "Liquidity owned forever by the protocol.",
-    phase: "Phase 2",
     icon: Waves,
+    metric: "pol",
   },
   {
     title: "Burn Supply",
     description:
       "After treasury and liquidity targets are achieved, future purchases permanently reduce the circulating supply.",
-    phase: "Phase 3",
     icon: Flame,
   },
 ];
@@ -87,11 +103,53 @@ function VerticalConnector({
   );
 }
 
-function PhaseBadge({ label }: { label: string }) {
+function MetricProgressBar({
+  label,
+  currentPercent,
+  targetPercent,
+  animate,
+  isLoading,
+}: {
+  label: string;
+  currentPercent: number;
+  targetPercent: number;
+  animate: boolean;
+  isLoading: boolean;
+}) {
+  const fillPercent = progressFillPercent(currentPercent, targetPercent);
+
   return (
-    <span className="inline-flex shrink-0 items-center border border-nautical-blue/15 bg-nautical-blue/5 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-nautical-blue/70">
-      {label}
-    </span>
+    <div className="flex flex-col gap-2 border-t border-nautical-blue/10 pt-4">
+      <div className="flex items-end justify-between gap-3">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-nautical-blue/50">
+          {label}
+        </p>
+        {isLoading ? (
+          <div className="h-4 w-20 animate-pulse bg-nautical-blue/10" />
+        ) : (
+          <p className="text-sm font-semibold tabular-nums text-nautical-blue">
+            {formatPercent(currentPercent)}
+            <span className="font-normal text-nautical-blue/45">
+              {" "}
+              / {formatPercent(targetPercent)} target
+            </span>
+          </p>
+        )}
+      </div>
+      <div
+        className="relative h-2 overflow-hidden bg-nautical-blue/10"
+        role="progressbar"
+        aria-valuemin={0}
+        aria-valuemax={targetPercent}
+        aria-valuenow={currentPercent}
+        aria-label={`${label}: ${formatPercent(currentPercent)} of ${formatPercent(targetPercent)} target`}
+      >
+        <div
+          className="absolute inset-y-0 left-0 bg-nautical-blue transition-[width] duration-1000 ease-out"
+          style={{ width: animate && !isLoading ? `${fillPercent}%` : "0%" }}
+        />
+      </div>
+    </div>
   );
 }
 
@@ -115,9 +173,36 @@ function EthereumSparkleIcon() {
   );
 }
 
+function getMetricValues(
+  metric: TideStep["metric"],
+  tideEconomics: TideEconomicsSummary | null
+) {
+  if (!metric || !tideEconomics) {
+    return null;
+  }
+
+  if (metric === "treasury") {
+    return {
+      label: "Treasury ownership",
+      currentPercent: tideEconomics.treasuryOwnershipPercent,
+      targetPercent: tideEconomics.treasuryTargetPercent,
+    };
+  }
+
+  return {
+    label: "Protocol-owned liquidity",
+    currentPercent: tideEconomics.polOwnershipPercent,
+    targetPercent: tideEconomics.polTargetPercent,
+  };
+}
+
 export default function TideSection() {
   const [visible, setVisible] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [tideEconomics, setTideEconomics] = useState<TideEconomicsSummary | null>(
+    null
+  );
+  const [isLoadingMetrics, setIsLoadingMetrics] = useState(true);
   const sectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -126,6 +211,50 @@ export default function TideSection() {
     updateMotion();
     mediaQuery.addEventListener("change", updateMotion);
     return () => mediaQuery.removeEventListener("change", updateMotion);
+  }, []);
+
+  useEffect(() => {
+    let isMounted = true;
+    let retryTimeout: ReturnType<typeof setTimeout> | null = null;
+
+    const loadSummary = async (attempt = 0) => {
+      try {
+        setIsLoadingMetrics(true);
+        const response = await fetch(LANDING_SUMMARY_URL, {
+          headers: { Accept: "application/json" },
+          cache: "no-store",
+        });
+
+        if (!response.ok) {
+          throw new Error(`Landing summary request failed: ${response.status}`);
+        }
+
+        const data = (await response.json()) as LandingSummaryResponse;
+        if (!isMounted) return;
+
+        setTideEconomics(parseTideEconomics(data));
+      } catch {
+        if (isMounted && attempt < 2) {
+          retryTimeout = setTimeout(() => {
+            loadSummary(attempt + 1);
+          }, 600);
+          return;
+        }
+      } finally {
+        if (isMounted) {
+          setIsLoadingMetrics(false);
+        }
+      }
+    };
+
+    loadSummary();
+
+    return () => {
+      isMounted = false;
+      if (retryTimeout) {
+        clearTimeout(retryTimeout);
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -312,39 +441,55 @@ export default function TideSection() {
                 </AnimatedReveal>
 
                 <div className="flex w-full flex-col">
-                  {TIDE_PHASES.map((phase, index) => {
-                    const Icon = phase.icon;
+                  {TIDE_STEPS.map((step, index) => {
+                    const Icon = step.icon;
                     const cardDelay = 1000 + index * 350;
+                    const metricValues = getMetricValues(step.metric, tideEconomics);
 
                     return (
-                      <div key={phase.title} className="flex flex-col items-center">
+                      <div key={step.title} className="flex flex-col items-center">
                         <AnimatedReveal visible={show} delayMs={cardDelay} className="w-full">
                           <div className="flex flex-col gap-3 border border-nautical-blue/15 bg-nautical-blue/[0.03] p-5 sm:p-6">
-                            <div className="flex items-start justify-between gap-3">
-                              <div className="flex items-start gap-3">
-                                <div className="flex h-9 w-9 shrink-0 items-center justify-center bg-nautical-blue text-white">
-                                  <Icon className="h-4 w-4" strokeWidth={2.25} />
-                                </div>
-                                <div>
-                                  <h3 className="text-base font-bold text-nautical-blue sm:text-lg">
-                                    {phase.title}
-                                  </h3>
-                                </div>
+                            <div className="flex items-start gap-3">
+                              <div className="flex h-9 w-9 shrink-0 items-center justify-center bg-nautical-blue text-white">
+                                <Icon className="h-4 w-4" strokeWidth={2.25} />
                               </div>
-                              <PhaseBadge label={phase.phase} />
+                              <div className="min-w-0 flex-1">
+                                <h3 className="text-base font-bold text-nautical-blue sm:text-lg">
+                                  {step.title}
+                                </h3>
+                                <p className="mt-2 text-xs leading-relaxed text-nautical-blue/70 sm:text-sm">
+                                  {step.description}
+                                </p>
+                                {step.supporting ? (
+                                  <p className="mt-2 text-[11px] font-medium text-nautical-blue/55 sm:text-xs">
+                                    {step.supporting}
+                                  </p>
+                                ) : null}
+                              </div>
                             </div>
-                            <p className="text-xs leading-relaxed text-nautical-blue/70 sm:text-sm">
-                              {phase.description}
-                            </p>
-                            {phase.supporting ? (
-                              <p className="text-[11px] font-medium text-nautical-blue/55 sm:text-xs">
-                                {phase.supporting}
-                              </p>
+
+                            {step.metric && (isLoadingMetrics || metricValues) ? (
+                              <MetricProgressBar
+                                label={
+                                  metricValues?.label ??
+                                  (step.metric === "treasury"
+                                    ? "Treasury ownership"
+                                    : "Protocol-owned liquidity")
+                                }
+                                currentPercent={metricValues?.currentPercent ?? 0}
+                                targetPercent={
+                                  metricValues?.targetPercent ??
+                                  (step.metric === "treasury" ? 30 : 15)
+                                }
+                                animate={show && !!metricValues}
+                                isLoading={isLoadingMetrics && !metricValues}
+                              />
                             ) : null}
                           </div>
                         </AnimatedReveal>
 
-                        {index < TIDE_PHASES.length - 1 ? (
+                        {index < TIDE_STEPS.length - 1 ? (
                           <AnimatedReveal visible={show} delayMs={cardDelay + 175}>
                             <ArrowDown
                               className="my-2 h-4 w-4 text-nautical-blue/30"

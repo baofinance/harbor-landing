@@ -58,9 +58,9 @@ function OutputTile({
   subtitle: string;
 }) {
   return (
-    <div className="flex flex-col items-center justify-center border border-white/15 bg-white/10 px-3 py-3 text-center sm:px-4 sm:py-4">
-      <p className="text-sm font-semibold text-white sm:text-base">{label}</p>
-      <p className="mt-1 text-xs text-white/75 sm:text-sm">{subtitle}</p>
+    <div className="flex flex-col items-center justify-center border border-nautical-blue/10 bg-nautical-blue/5 px-3 py-3 text-center sm:px-4 sm:py-4">
+      <p className="text-sm font-semibold text-nautical-blue sm:text-base">{label}</p>
+      <p className="mt-1 text-xs text-nautical-blue/70 sm:text-sm">{subtitle}</p>
     </div>
   );
 }
@@ -121,8 +121,8 @@ export default function BuildMarketsSection() {
               />
             </div>
 
-            <div className="flex min-w-0 flex-1 flex-col border border-white/20 bg-nautical-blue-dark p-5 sm:p-6 md:p-8">
-              <p className="text-center text-[10px] font-semibold uppercase tracking-[0.28em] text-white/60">
+            <div className="flex min-w-0 flex-1 flex-col border border-nautical-blue/10 bg-white p-5 sm:p-6 md:p-8">
+              <p className="text-center text-[10px] font-semibold uppercase tracking-[0.28em] text-nautical-blue/50">
                 Harbor Market
               </p>
               <div className="mt-4 grid flex-1 grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
