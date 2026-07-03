@@ -63,16 +63,11 @@ export default function HeroSection() {
 
             <div className="relative">
               <h1 
-                className={`text-[1.5rem] sm:text-[1.875rem] md:text-[2.5rem] lg:text-[3.25rem] xl:text-[4rem] 2xl:text-[4.5rem] font-black tracking-tight text-harbor-white drop-shadow-[0_8px_32px_rgba(30,71,117,0.4)] leading-tight transition-all duration-1000 delay-200 ease-out ${
+                className={`whitespace-nowrap text-[1.25rem] font-black tracking-tight text-harbor-white drop-shadow-[0_8px_32px_rgba(30,71,117,0.4)] leading-tight transition-all duration-1000 delay-200 ease-out sm:text-[1.5rem] md:text-[2rem] lg:text-[2.5rem] xl:text-[3rem] ${
                   isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
               >
-                <span className="block whitespace-nowrap">
-                  Earn More.
-                </span>
-                <span className="block whitespace-nowrap">
-                  Risk Less.
-                </span>
+                Earn More. Risk Less.
               </h1>
               <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-nautical-blue/30 to-transparent blur-3xl" />
             </div>
@@ -122,7 +117,7 @@ export default function HeroSection() {
                   rel="noopener noreferrer"
                   className="w-[110px] sm:w-[150px] md:w-[160px] lg:w-[170px] flex-shrink-0 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 text-[10px] sm:text-xs md:text-sm font-semibold bg-white text-nautical-blue border border-white rounded-full hover:bg-white/90 transition-all text-center whitespace-nowrap shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]"
                 >
-                  Join First Voyage
+                  Explore App
                 </a>
               </div>
             </div>
