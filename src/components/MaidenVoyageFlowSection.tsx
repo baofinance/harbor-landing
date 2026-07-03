@@ -110,36 +110,42 @@ function HorizontalProgressTimeline({ activeIndex }: { activeIndex: number }) {
 
 function FlowStepCard({
   step,
+  index,
   isLit,
+  isVisible,
   stepRef,
 }: {
   step: FlowStepData;
+  index: number;
   isLit: boolean;
+  isVisible: boolean;
   stepRef: (el: HTMLDivElement | null) => void;
 }) {
   const Icon = step.icon;
+  const visibilityClass = isVisible
+    ? "translate-y-0 opacity-100"
+    : "translate-y-6 opacity-0";
+  const litClass = isLit ? "" : "opacity-50";
 
   if (step.isReward) {
     return (
       <div
         ref={stepRef}
-        className={`flex h-full flex-col gap-3 border px-4 py-5 transition-all duration-500 sm:px-5 sm:py-6 ${
+        className={`flex h-full flex-col gap-3 border px-4 py-5 transition-all duration-700 ease-out sm:px-5 sm:py-6 ${visibilityClass} ${litClass} ${
           isLit
-            ? "border-seafoam-mint/40 bg-nautical-blue-dark opacity-100"
-            : "border-nautical-blue/10 bg-nautical-blue-dark/80 opacity-50"
+            ? "border-sunrise-coral-dark/40 bg-sunrise-coral"
+            : "border-sunrise-coral-dark/20 bg-sunrise-coral/80"
         }`}
+        style={{ transitionDelay: isVisible ? `${index * 500}ms` : "0ms" }}
       >
-        <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-seafoam-mint">
-          Mission accomplished
-        </p>
         <div className="flex items-center gap-2">
           <CircleCheck
-            className="h-5 w-5 text-seafoam-mint"
+            className="h-5 w-5 text-seafoam-mint-light"
             strokeWidth={2.25}
           />
-          <Trophy className="h-5 w-5 text-sunrise-coral" strokeWidth={2.25} />
+          <Trophy className="h-5 w-5 text-white" strokeWidth={2.25} />
           <Sparkles
-            className="h-4 w-4 text-seafoam-mint-light"
+            className="h-4 w-4 text-white/90"
             strokeWidth={2.25}
           />
         </div>
@@ -158,11 +164,12 @@ function FlowStepCard({
   return (
     <div
       ref={stepRef}
-      className={`flex h-full flex-col gap-3 border px-4 py-5 transition-all duration-500 sm:px-5 ${
+      className={`flex h-full flex-col gap-3 border px-4 py-5 transition-all duration-700 ease-out sm:px-5 ${visibilityClass} ${litClass} ${
         isLit
-          ? "border-nautical-blue/30 bg-nautical-blue/5 opacity-100"
-          : "border-nautical-blue/10 bg-nautical-blue/5 opacity-50"
+          ? "border-nautical-blue/30 bg-nautical-blue/5"
+          : "border-nautical-blue/10 bg-nautical-blue/5"
       }`}
+      style={{ transitionDelay: isVisible ? `${index * 500}ms` : "0ms" }}
     >
       <div className="flex h-10 w-10 items-center justify-center bg-[#FF8A7A] text-white">
         <Icon className="h-4 w-4" strokeWidth={2.25} />
@@ -182,6 +189,8 @@ function FlowStepCard({
 export default function MaidenVoyageFlowSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [sectionVisible, setSectionVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
@@ -191,6 +200,28 @@ export default function MaidenVoyageFlowSection() {
     mediaQuery.addEventListener("change", updateMotion);
     return () => mediaQuery.removeEventListener("change", updateMotion);
   }, []);
+
+  useEffect(() => {
+    if (reduceMotion) {
+      setSectionVisible(true);
+      return;
+    }
+
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setSectionVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, [reduceMotion]);
 
   useEffect(() => {
     if (reduceMotion) {
@@ -233,6 +264,7 @@ export default function MaidenVoyageFlowSection() {
   return (
     <section
       id="maiden-voyage-flow"
+      ref={sectionRef}
       className="relative z-10 bg-nautical-blue-light px-3 sm:px-4 md:px-5 pb-3 sm:pb-4 md:pb-5 pt-0"
     >
       <div className="bg-white p-6 sm:p-10 md:p-12 lg:p-14">
@@ -273,7 +305,9 @@ export default function MaidenVoyageFlowSection() {
                     <div className="min-w-0 flex-1 pb-4 xl:pb-0">
                       <FlowStepCard
                         step={step}
+                        index={index}
                         isLit={isLit}
+                        isVisible={sectionVisible}
                         stepRef={setStepRef(index)}
                       />
                     </div>
