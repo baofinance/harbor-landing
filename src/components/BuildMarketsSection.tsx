@@ -6,12 +6,14 @@ import type { LucideIcon } from "lucide-react";
 
 const MARKET_TOKEN_OUTPUTS = [
   {
-    label: "haUSD",
-    subtitle: "Stable token, earns yield from stability pools",
+    name: "haUSD",
+    category: "Stable token",
+    description: "Earns yield from stability pools",
   },
   {
-    label: "hsETHUSD",
-    subtitle: "Leverage token with liquidation protection and no funding fees",
+    name: "hsETHUSD",
+    category: "Leverage token",
+    description: "Liquidation protection and no funding fees",
   },
 ];
 
@@ -70,44 +72,62 @@ function InputCard({
   icon: LucideIcon;
 }) {
   return (
-    <div className="flex min-w-0 flex-col gap-2 border border-white/15 bg-white/10 px-4 py-4 sm:px-5 sm:py-5">
-      <div className="flex items-center gap-3">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center bg-[#FF8A7A] text-white">
-          <Icon className="h-4 w-4" strokeWidth={2.25} />
-        </div>
-        <div className="min-w-0">
-          <p className="text-lg font-semibold leading-tight text-white sm:text-xl">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/60">
-              {label}
-            </span>{" "}
-            {example}
-          </p>
-        </div>
+    <div className="flex min-w-0 gap-3 border border-white/15 bg-white/10 px-4 py-4 sm:px-5 sm:py-5">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center bg-[#FF8A7A] text-white">
+        <Icon className="h-4 w-4" strokeWidth={2.25} />
       </div>
-      <p className="text-xs leading-relaxed text-white/75 sm:text-sm">
+      <div className="min-w-0 flex flex-col gap-1">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/60">
+          {label}
+        </p>
+        <p className="text-lg font-semibold leading-tight text-white sm:text-xl">
+          {example}
+        </p>
+        <p className="text-xs leading-relaxed text-white/75 sm:text-sm">
+          {description}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function OutputTile({
+  category,
+  name,
+  description,
+}: {
+  category: string;
+  name: string;
+  description: string;
+}) {
+  return (
+    <div className="flex h-full flex-col items-center justify-center border border-nautical-blue/10 bg-nautical-blue/5 px-3 py-3 text-center sm:px-4 sm:py-4">
+      <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-nautical-blue/50">
+        {category}
+      </p>
+      <p className="mt-1 text-lg font-semibold leading-tight text-nautical-blue sm:text-xl">
+        {name}
+      </p>
+      <p className="mt-1.5 text-xs leading-relaxed text-nautical-blue/70 sm:text-sm">
         {description}
       </p>
     </div>
   );
 }
 
-function OutputTile({
+function RevenueTile({
   label,
   subtitle,
-  fullWidth = false,
 }: {
   label: string;
   subtitle: string;
-  fullWidth?: boolean;
 }) {
   return (
-    <div
-      className={`flex flex-col items-center justify-center border border-nautical-blue/10 bg-nautical-blue/5 px-3 py-3 text-center sm:px-4 sm:py-4 ${
-        fullWidth ? "sm:col-span-2" : ""
-      }`}
-    >
-      <p className="text-sm font-semibold text-nautical-blue sm:text-base">{label}</p>
-      <p className="mt-1 text-xs leading-relaxed text-nautical-blue/70 sm:text-sm">
+    <div className="flex w-full flex-col items-center justify-center border border-nautical-blue/10 bg-nautical-blue/5 px-3 py-3 text-center sm:px-4 sm:py-4">
+      <p className="text-lg font-semibold leading-tight text-nautical-blue sm:text-xl">
+        {label}
+      </p>
+      <p className="mt-1.5 text-xs leading-relaxed text-nautical-blue/70 sm:text-sm">
         {subtitle}
       </p>
     </div>
@@ -226,28 +246,28 @@ export default function BuildMarketsSection() {
               className="min-w-0 flex-1"
             >
               <div className="flex h-full min-w-0 flex-col border border-nautical-blue/10 bg-white p-5 sm:p-6 md:p-8">
-                <p className="text-center text-[10px] font-semibold uppercase tracking-[0.28em] text-nautical-blue/50">
-                  Harbor Market
-                </p>
-                <div className="mt-4 grid flex-1 grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
-                  {MARKET_TOKEN_OUTPUTS.map((output, index) => (
-                    <AnimatedReveal
-                      key={output.label}
-                      visible={show}
-                      delayMs={900 + index * 120}
-                      direction="up"
-                    >
-                      <OutputTile
-                        label={output.label}
-                        subtitle={output.subtitle}
-                      />
-                    </AnimatedReveal>
-                  ))}
+                <div className="flex flex-1 flex-col gap-3 sm:gap-4">
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
+                    {MARKET_TOKEN_OUTPUTS.map((output, index) => (
+                      <AnimatedReveal
+                        key={output.name}
+                        visible={show}
+                        delayMs={900 + index * 120}
+                        direction="up"
+                        className="h-full"
+                      >
+                        <OutputTile
+                          category={output.category}
+                          name={output.name}
+                          description={output.description}
+                        />
+                      </AnimatedReveal>
+                    ))}
+                  </div>
                   <AnimatedReveal visible={show} delayMs={1140} direction="up">
-                    <OutputTile
+                    <RevenueTile
                       label={MARKET_REVENUE_OUTPUT.label}
                       subtitle={MARKET_REVENUE_OUTPUT.subtitle}
-                      fullWidth
                     />
                   </AnimatedReveal>
                 </div>

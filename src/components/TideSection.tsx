@@ -52,9 +52,6 @@ const TIDE_STEPS: TideStep[] = [
   },
 ];
 
-const CLOSING_LINE =
-  "Harbor doesn't distribute protocol revenue—it continuously reinvests it to grow both the protocol and TIDE over time.";
-
 function AnimatedReveal({
   visible,
   delayMs,
@@ -161,17 +158,17 @@ function MetricProgressBar({
 
 function EthereumSparkleIcon() {
   return (
-    <div className="relative flex h-11 w-11 shrink-0 items-center justify-center bg-nautical-blue text-white">
+    <div className="relative flex h-9 w-9 shrink-0 items-center justify-center bg-nautical-blue text-white">
       <svg
         viewBox="0 0 24 24"
-        className="h-5 w-5"
+        className="h-4 w-4"
         fill="currentColor"
         aria-hidden="true"
       >
         <path d="M12 2 4.5 12.25 12 16l7.5-3.75L12 2Zm0 14.5-7.5 3.25L12 22l7.5-2.25-7.5-3.25Z" />
       </svg>
       <Sparkles
-        className="absolute -right-1 -top-1 h-3.5 w-3.5 text-sunrise-coral"
+        className="absolute -right-1 -top-1 h-3 w-3 text-sunrise-coral"
         strokeWidth={2.25}
         aria-hidden="true"
       />
@@ -349,13 +346,16 @@ export default function TideSection() {
                 <VerticalConnector visible={show} delayMs={850} />
 
                 <AnimatedReveal visible={show} delayMs={950} className="w-full">
+                  <p className="mb-4 text-center text-[10px] font-semibold uppercase tracking-[0.22em] text-white/50">
+                    Reinvest
+                  </p>
+                </AnimatedReveal>
+
+                <AnimatedReveal visible={show} delayMs={1000} className="w-full">
                   <div className="flex h-full min-h-[18rem] flex-col border border-white/20 bg-nautical-blue-dark p-6 sm:min-h-[20rem] sm:p-8">
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/50">
-                          Reinvest
-                        </p>
-                        <h3 className="mt-1 text-xl font-bold text-white sm:text-2xl">
+                        <h3 className="text-xl font-bold text-white sm:text-2xl">
                           Grow Harbor
                         </h3>
                       </div>
@@ -485,14 +485,14 @@ export default function TideSection() {
           </div>
 
           <AnimatedReveal visible={show} delayMs={2100}>
-            <div className="border border-white/20 bg-white/10 p-6 sm:p-8 md:p-10">
-              <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-6">
+            <div className="mx-auto max-w-3xl border border-white/20 bg-white/10 px-4 py-3 sm:px-5 sm:py-4">
+              <div className="flex items-start gap-3 sm:items-center sm:gap-4">
                 <EthereumSparkleIcon />
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold text-white sm:text-xl">
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-sm font-bold text-white sm:text-base">
                     Productive Reserves
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/75 sm:text-base">
+                  <p className="mt-1 text-xs leading-relaxed text-white/75 sm:text-sm">
                     Harbor&apos;s Protocol-Owned Liquidity is paired with
                     productive Ethereum assets so that even the protocol&apos;s
                     reserves continue compounding over time.
@@ -500,12 +500,6 @@ export default function TideSection() {
                 </div>
               </div>
             </div>
-          </AnimatedReveal>
-
-          <AnimatedReveal visible={show} delayMs={2300}>
-            <p className="mx-auto max-w-2xl text-center text-sm leading-relaxed text-white/75 sm:text-base">
-              {CLOSING_LINE}
-            </p>
           </AnimatedReveal>
         </div>
       </div>
