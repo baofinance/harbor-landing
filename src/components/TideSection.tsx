@@ -91,11 +91,11 @@ function VerticalConnector({
 }) {
   return (
     <div
-      className={`relative w-0.5 overflow-hidden bg-nautical-blue/15 ${className}`}
+      className={`relative w-0.5 overflow-hidden bg-white/15 ${className}`}
       aria-hidden="true"
     >
       <div
-        className={`absolute inset-x-0 top-0 bg-nautical-blue transition-all duration-700 ease-out ${
+        className={`absolute inset-x-0 top-0 bg-white transition-all duration-700 ease-out ${
           visible ? "h-full" : "h-0"
         }`}
         style={{ transitionDelay: visible ? `${delayMs}ms` : "0ms" }}
@@ -272,16 +272,16 @@ export default function TideSection() {
       ref={sectionRef}
       className="relative z-10 bg-nautical-blue-light px-3 sm:px-4 md:px-5 pb-3 sm:pb-4 md:pb-5 pt-0"
     >
-      <div className="bg-white p-6 sm:p-10 md:p-12 lg:p-14">
+      <div className="bg-nautical-blue px-6 py-10 sm:px-10 sm:py-14 md:px-12 md:py-16 lg:px-14 lg:py-20">
         <div className="mx-auto flex max-w-5xl flex-col gap-12 lg:gap-16">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-nautical-blue/50">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/50">
               Ecosystem
             </p>
-            <h2 className="mt-2 text-2xl font-bold tracking-tight text-nautical-blue sm:text-3xl md:text-4xl">
+            <h2 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
               Every Dollar Has A Job.
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-nautical-blue/70 sm:text-base">
+            <p className="mt-4 text-sm leading-relaxed text-white/75 sm:text-base">
               Every Harbor market generates protocol revenue. That revenue is
               permanently reinvested to grow the protocol and strengthen TIDE.
             </p>
@@ -289,11 +289,11 @@ export default function TideSection() {
 
           <div className="flex flex-col items-center">
             <AnimatedReveal visible={show} delayMs={0}>
-              <div className="border border-nautical-blue/20 bg-nautical-blue/5 px-6 py-4 text-center sm:px-8 sm:py-5">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-nautical-blue/50">
+              <div className="border border-white/15 bg-white/10 px-6 py-4 text-center sm:px-8 sm:py-5">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/50">
                   Source
                 </p>
-                <p className="mt-1 text-lg font-bold text-nautical-blue sm:text-xl">
+                <p className="mt-1 text-lg font-bold text-white sm:text-xl">
                   Protocol Revenue
                 </p>
               </div>
@@ -303,33 +303,33 @@ export default function TideSection() {
 
             <AnimatedReveal visible={show} delayMs={450} className="w-full max-w-3xl">
               <div className="relative mx-auto h-6 w-full sm:h-8" aria-hidden="true">
-                <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-nautical-blue/15">
+                <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-white/15">
                   <div
-                    className={`absolute inset-x-0 top-0 bg-nautical-blue transition-all duration-700 ease-out ${
+                    className={`absolute inset-x-0 top-0 bg-white transition-all duration-700 ease-out ${
                       show ? "h-full" : "h-0"
                     }`}
                     style={{ transitionDelay: show ? "450ms" : "0ms" }}
                   />
                 </div>
-                <div className="absolute left-[12.5%] right-[12.5%] top-1/2 h-0.5 -translate-y-1/2 overflow-hidden bg-nautical-blue/15 sm:left-[15%] sm:right-[15%]">
+                <div className="absolute left-[12.5%] right-[12.5%] top-1/2 h-0.5 -translate-y-1/2 overflow-hidden bg-white/15 sm:left-[15%] sm:right-[15%]">
                   <div
-                    className={`h-full bg-nautical-blue transition-all duration-700 ease-out ${
+                    className={`h-full bg-white transition-all duration-700 ease-out ${
                       show ? "w-full" : "w-0"
                     }`}
                     style={{ transitionDelay: show ? "550ms" : "0ms" }}
                   />
                 </div>
-                <div className="absolute left-[12.5%] top-1/2 h-6 w-0.5 -translate-y-0 bg-nautical-blue/15 sm:left-[15%]">
+                <div className="absolute left-[12.5%] top-1/2 h-6 w-0.5 -translate-y-0 bg-white/15 sm:left-[15%]">
                   <div
-                    className={`absolute inset-x-0 top-0 bg-nautical-blue transition-all duration-700 ease-out ${
+                    className={`absolute inset-x-0 top-0 bg-white transition-all duration-700 ease-out ${
                       show ? "h-full" : "h-0"
                     }`}
                     style={{ transitionDelay: show ? "650ms" : "0ms" }}
                   />
                 </div>
-                <div className="absolute right-[12.5%] top-1/2 h-6 w-0.5 -translate-y-0 bg-nautical-blue/15 sm:right-[15%]">
+                <div className="absolute right-[12.5%] top-1/2 h-6 w-0.5 -translate-y-0 bg-white/15 sm:right-[15%]">
                   <div
-                    className={`absolute inset-x-0 top-0 bg-nautical-blue transition-all duration-700 ease-out ${
+                    className={`absolute inset-x-0 top-0 bg-white transition-all duration-700 ease-out ${
                       show ? "h-full" : "h-0"
                     }`}
                     style={{ transitionDelay: show ? "650ms" : "0ms" }}
@@ -341,7 +341,7 @@ export default function TideSection() {
             <div className="grid w-full gap-10 md:grid-cols-2 md:gap-8 lg:gap-12">
               <div className="flex flex-col items-center">
                 <AnimatedReveal visible={show} delayMs={700}>
-                  <p className="text-3xl font-bold tracking-tight text-nautical-blue sm:text-4xl">
+                  <p className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                     75%
                   </p>
                 </AnimatedReveal>
@@ -349,7 +349,7 @@ export default function TideSection() {
                 <VerticalConnector visible={show} delayMs={850} />
 
                 <AnimatedReveal visible={show} delayMs={950} className="w-full">
-                  <div className="flex h-full min-h-[18rem] flex-col border border-nautical-blue/20 bg-nautical-blue p-6 sm:min-h-[20rem] sm:p-8">
+                  <div className="flex h-full min-h-[18rem] flex-col border border-white/20 bg-nautical-blue-dark p-6 sm:min-h-[20rem] sm:p-8">
                     <div className="flex items-start justify-between gap-4">
                       <div>
                         <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/50">
@@ -410,7 +410,7 @@ export default function TideSection() {
 
               <div className="flex flex-col items-center">
                 <AnimatedReveal visible={show} delayMs={700}>
-                  <p className="text-3xl font-bold tracking-tight text-nautical-blue sm:text-4xl">
+                  <p className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                     25%
                   </p>
                 </AnimatedReveal>
@@ -418,7 +418,7 @@ export default function TideSection() {
                 <VerticalConnector visible={show} delayMs={850} />
 
                 <AnimatedReveal visible={show} delayMs={950} className="w-full">
-                  <p className="mb-4 text-center text-[10px] font-semibold uppercase tracking-[0.22em] text-nautical-blue/50">
+                  <p className="mb-4 text-center text-[10px] font-semibold uppercase tracking-[0.22em] text-white/50">
                     Strengthen TIDE
                   </p>
                 </AnimatedReveal>
@@ -434,7 +434,7 @@ export default function TideSection() {
                     return (
                       <div key={step.title} className="flex flex-col items-center">
                         <AnimatedReveal visible={show} delayMs={cardDelay} className="w-full">
-                          <div className="flex flex-col gap-3 border border-nautical-blue/15 bg-nautical-blue/[0.03] p-5 sm:p-6">
+                          <div className="flex flex-col gap-3 border border-nautical-blue/10 bg-white p-5 sm:p-6">
                             <div className="flex items-start gap-3">
                               <div className="flex h-9 w-9 shrink-0 items-center justify-center bg-nautical-blue text-white">
                                 <Icon className="h-4 w-4" strokeWidth={2.25} />
@@ -470,7 +470,7 @@ export default function TideSection() {
                         {index < TIDE_STEPS.length - 1 ? (
                           <AnimatedReveal visible={show} delayMs={cardDelay + 175}>
                             <ArrowDown
-                              className="my-2 h-4 w-4 text-nautical-blue/30"
+                              className="my-2 h-4 w-4 text-white/30"
                               strokeWidth={2.25}
                               aria-hidden="true"
                             />
@@ -485,14 +485,14 @@ export default function TideSection() {
           </div>
 
           <AnimatedReveal visible={show} delayMs={2100}>
-            <div className="border border-seafoam-mint-dark/30 bg-seafoam-mint/20 p-6 sm:p-8 md:p-10">
+            <div className="border border-white/20 bg-white/10 p-6 sm:p-8 md:p-10">
               <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-6">
                 <EthereumSparkleIcon />
                 <div className="flex-1">
-                  <h3 className="text-lg font-bold text-nautical-blue sm:text-xl">
+                  <h3 className="text-lg font-bold text-white sm:text-xl">
                     Productive Reserves
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-nautical-blue/70 sm:text-base">
+                  <p className="mt-2 text-sm leading-relaxed text-white/75 sm:text-base">
                     Harbor&apos;s Protocol-Owned Liquidity is paired with
                     productive Ethereum assets so that even the protocol&apos;s
                     reserves continue compounding over time.
@@ -503,7 +503,7 @@ export default function TideSection() {
           </AnimatedReveal>
 
           <AnimatedReveal visible={show} delayMs={2300}>
-            <p className="mx-auto max-w-2xl text-center text-sm leading-relaxed text-nautical-blue/70 sm:text-base">
+            <p className="mx-auto max-w-2xl text-center text-sm leading-relaxed text-white/75 sm:text-base">
               {CLOSING_LINE}
             </p>
           </AnimatedReveal>
