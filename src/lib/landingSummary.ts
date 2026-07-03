@@ -17,13 +17,14 @@ export const DEFAULT_TIDE_TARGETS = {
   polTargetPercent: 15,
 } as const;
 
+export const DEFAULT_TIDE_FALLBACK = {
+  treasuryOwnershipPercent: DEFAULT_TIDE_TARGETS.treasuryTargetPercent,
+  polOwnershipPercent: 0.5,
+} as const;
+
 function normalizePercent(value: unknown): number | null {
   if (typeof value !== "number" || !Number.isFinite(value)) {
     return null;
-  }
-
-  if (value > 0 && value <= 1) {
-    return value * 100;
   }
 
   return value;
@@ -62,8 +63,10 @@ export function parseTideEconomics(
   };
 }
 
-export function formatPercent(value: number, digits = 1): string {
-  return `${value.toFixed(digits)}%`;
+export function formatPercent(value: number, digits?: number): string {
+  const resolvedDigits =
+    digits ?? (value > 0 && value < 1 ? 2 : 1);
+  return `${value.toFixed(resolvedDigits)}%`;
 }
 
 export function getTideMetricDisplay(
@@ -80,7 +83,7 @@ export function getTideMetricDisplay(
       label: "Treasury ownership",
       currentPercent:
         tideEconomics?.treasuryOwnershipPercent ??
-        DEFAULT_TIDE_TARGETS.treasuryTargetPercent,
+        DEFAULT_TIDE_FALLBACK.treasuryOwnershipPercent,
       targetPercent:
         tideEconomics?.treasuryTargetPercent ??
         DEFAULT_TIDE_TARGETS.treasuryTargetPercent,
@@ -90,7 +93,9 @@ export function getTideMetricDisplay(
 
   return {
     label: "Protocol-owned liquidity",
-    currentPercent: tideEconomics?.polOwnershipPercent ?? 0,
+    currentPercent:
+      tideEconomics?.polOwnershipPercent ??
+      DEFAULT_TIDE_FALLBACK.polOwnershipPercent,
     targetPercent:
       tideEconomics?.polTargetPercent ?? DEFAULT_TIDE_TARGETS.polTargetPercent,
     isLiveData: tideEconomics !== null,
