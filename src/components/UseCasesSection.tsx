@@ -137,8 +137,7 @@ export default function UseCasesSection() {
 
             <div className="flex w-6/12 min-w-0 flex-col justify-center pl-2 text-left sm:pl-3 md:pl-4 lg:pl-5">
               <h2 className="text-3xl font-bold leading-none tracking-tight text-white break-words sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl">
-                <span className="block">Infinite Markets,</span>
-                <span className="block">One Protocol.</span>
+                Infinite Markets from any price feed.
               </h2>
             </div>
           </div>

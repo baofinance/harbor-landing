@@ -137,17 +137,14 @@ export function AllOutYieldSection() {
       className="relative z-10 bg-nautical-blue-light px-3 sm:px-4 md:px-5 pb-3 sm:pb-4 md:pb-5 pt-0"
     >
       <div className="bg-white p-6 sm:p-10 md:p-12 lg:p-14">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10 xl:gap-14">
-          <div className="lg:w-[34%] xl:w-[32%]">
-            <h2 className="leading-none text-3xl font-bold tracking-tight text-nautical-blue sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl">
-              <span className="block whitespace-nowrap">One protocol.</span>
-              <span className="mt-2 block whitespace-nowrap sm:mt-3">
-                Three ways to participate.
-              </span>
+        <div className="flex flex-col gap-8 lg:gap-10">
+          <div className="mx-auto max-w-4xl text-center">
+            <h2 className="text-2xl font-bold tracking-tight text-nautical-blue sm:text-3xl md:text-4xl">
+              One protocol. Three ways to participate.
             </h2>
           </div>
 
-          <div className="grid flex-1 grid-cols-1 gap-3 sm:gap-4 md:grid-cols-3 md:items-stretch">
+          <div className="grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-3 md:items-stretch">
             {PARTICIPATION_CARDS.map((card, index) => (
               <ParticipationCardPanel
                 key={card.title}

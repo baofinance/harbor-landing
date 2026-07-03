@@ -71,20 +71,11 @@ export default function HeroSection() {
                   Deposit Once.
                 </span>
                 <span className="block whitespace-nowrap">
-                  Lifetime Yield.
+                  Earn Forever.
                 </span>
               </h1>
               <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-nautical-blue/30 to-transparent blur-3xl" />
             </div>
-            <p
-              className={`mt-3 max-w-3xl text-center text-sm sm:text-base text-harbor-white/90 transition-all duration-1000 delay-300 ease-out ${
-                isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              }`}
-            >
-              Deposit once during Maiden Voyage to own a share of market revenue
-              for life. 5% of revenue from mint and redeem fees plus collateral
-              yield goes to voyage participants.
-            </p>
 
             <div 
               className={`mt-3 sm:mt-4 md:mt-5 space-y-3 sm:space-y-4 transition-all duration-1000 delay-500 ease-out ${

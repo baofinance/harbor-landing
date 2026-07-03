@@ -166,19 +166,19 @@ function FlowStepCard({
       ref={stepRef}
       className={`flex h-full min-h-[9.5rem] flex-col gap-3 border px-4 py-5 transition-all duration-700 ease-out sm:px-5 sm:py-6 ${visibilityClass} ${litClass} ${
         isLit
-          ? "border-nautical-blue/30 bg-nautical-blue/5"
-          : "border-nautical-blue/10 bg-nautical-blue/5"
+          ? "border-nautical-blue/20 bg-nautical-blue"
+          : "border-nautical-blue/10 bg-nautical-blue/80"
       }`}
       style={{ transitionDelay: isVisible ? `${index * 500}ms` : "0ms" }}
     >
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center bg-[#FF8A7A] text-white">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center bg-white/15 text-white">
         <Icon className="h-4 w-4" strokeWidth={2.25} />
       </div>
       <div className="flex flex-1 flex-col text-left">
-        <p className="text-sm font-semibold leading-snug text-nautical-blue sm:text-base">
+        <p className="text-sm font-semibold leading-snug text-white sm:text-base">
           {step.label}
         </p>
-        <p className="mt-1.5 text-xs leading-relaxed text-nautical-blue/65 sm:text-sm">
+        <p className="mt-1.5 text-xs leading-relaxed text-white/75 sm:text-sm">
           {step.subtitle}
         </p>
       </div>
