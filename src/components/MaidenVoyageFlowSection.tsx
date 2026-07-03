@@ -125,7 +125,7 @@ function FlowStepCard({
   const visibilityClass = isVisible
     ? "translate-y-0 opacity-100"
     : "translate-y-6 opacity-0";
-  const litClass = isLit ? "" : "opacity-50";
+  const litClass = isVisible && !isLit ? "opacity-50" : "";
 
   if (step.isReward) {
     return (
@@ -214,6 +214,9 @@ export default function MaidenVoyageFlowSection() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setSectionVisible(true);
+        } else {
+          setSectionVisible(false);
+          setActiveIndex(0);
         }
       },
       { threshold: 0.2 }

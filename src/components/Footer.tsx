@@ -8,6 +8,10 @@ import { Twitter } from "lucide-react";
 const Footer = () => {
   const protocolLinks = [
     { name: "Docs", url: "https://docs.harborfinance.io/" },
+    {
+      name: "Audit report",
+      url: "/2025_10_21_Final_Harbor_Collaborative_Audit_Report_1761050317.pdf",
+    },
   ];
 
   const communityLinks = [

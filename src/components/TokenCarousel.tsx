@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { Anchor, Coins, Ship } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -39,8 +40,12 @@ const PARTICIPATION_CARDS: ParticipationCard[] = [
 
 function ParticipationCardPanel({
   card,
+  index,
+  isVisible,
 }: {
   card: ParticipationCard;
+  index: number;
+  isVisible: boolean;
 }) {
   const Icon = card.icon;
 
@@ -62,12 +67,17 @@ function ParticipationCardPanel({
     },
   }[card.variant];
 
+  const visibilityClass = isVisible
+    ? "translate-x-0 opacity-100"
+    : "translate-x-10 opacity-0";
+
   return (
     <a
       href={card.href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group flex h-full flex-col gap-4 border p-6 transition-colors sm:p-8 ${styles.card} hover:opacity-95`}
+      className={`group flex h-full flex-col gap-4 border p-6 transition-all duration-700 ease-out sm:p-8 ${visibilityClass} ${styles.card} hover:opacity-95`}
+      style={{ transitionDelay: isVisible ? `${index * 300}ms` : "0ms" }}
     >
       <div
         className={`flex h-10 w-10 items-center justify-center ${styles.icon}`}
@@ -87,27 +97,64 @@ function ParticipationCardPanel({
 }
 
 export function AllOutYieldSection() {
+  const [sectionVisible, setSectionVisible] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updateMotion = () => setReduceMotion(mediaQuery.matches);
+    updateMotion();
+    mediaQuery.addEventListener("change", updateMotion);
+    return () => mediaQuery.removeEventListener("change", updateMotion);
+  }, []);
+
+  useEffect(() => {
+    if (reduceMotion) {
+      setSectionVisible(true);
+      return;
+    }
+
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setSectionVisible(entry.isIntersecting);
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, [reduceMotion]);
+
+  const cardsVisible = reduceMotion || sectionVisible;
+
   return (
-    <section className="relative z-10 bg-nautical-blue-light px-3 sm:px-4 md:px-5 pb-3 sm:pb-4 md:pb-5 pt-0">
+    <section
+      ref={sectionRef}
+      className="relative z-10 bg-nautical-blue-light px-3 sm:px-4 md:px-5 pb-3 sm:pb-4 md:pb-5 pt-0"
+    >
       <div className="bg-white p-6 sm:p-10 md:p-12 lg:p-14">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10 xl:gap-14">
           <div className="lg:w-[34%] xl:w-[32%]">
             <h2 className="leading-none text-3xl font-bold tracking-tight text-nautical-blue sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl">
-              <span className="block whitespace-nowrap">Own.</span>
-              <span className="block whitespace-nowrap">Earn.</span>
-              <span className="block whitespace-nowrap">Leverage.</span>
+              <span className="block whitespace-nowrap">One protocol.</span>
+              <span className="mt-2 block whitespace-nowrap sm:mt-3">
+                Three ways to participate.
+              </span>
             </h2>
-            <p className="mt-4 text-lg font-semibold text-nautical-blue sm:text-xl">
-              One protocol.
-            </p>
-            <p className="mt-1 text-sm text-nautical-blue/70 sm:text-base">
-              Three ways to participate.
-            </p>
           </div>
 
           <div className="grid flex-1 grid-cols-1 gap-3 sm:gap-4 md:grid-cols-3 md:items-stretch">
-            {PARTICIPATION_CARDS.map((card) => (
-              <ParticipationCardPanel key={card.title} card={card} />
+            {PARTICIPATION_CARDS.map((card, index) => (
+              <ParticipationCardPanel
+                key={card.title}
+                card={card}
+                index={index}
+                isVisible={cardsVisible}
+              />
             ))}
           </div>
         </div>
