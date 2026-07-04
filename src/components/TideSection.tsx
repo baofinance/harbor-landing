@@ -282,7 +282,7 @@ export default function TideSection() {
 
           <div className="flex flex-col items-center">
             <AnimatedReveal visible={show} delayMs={0}>
-              <div className="rounded-2xl border border-white/15 bg-white/10 px-6 py-4 text-center sm:px-8 sm:py-5">
+              <div className="rounded-2xl border border-white/15 bg-white/10 px-6 py-4 text-center shadow-[0_4px_18px_rgba(0,0,0,0.14)] sm:px-8 sm:py-5">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/50">
                   Source
                 </p>
@@ -348,7 +348,7 @@ export default function TideSection() {
                 </AnimatedReveal>
 
                 <AnimatedReveal visible={show} delayMs={1000} className="w-full">
-                  <div className="flex h-full min-h-[18rem] flex-col rounded-2xl border border-white/20 bg-nautical-blue-dark p-6 sm:min-h-[20rem] sm:p-8">
+                  <div className="flex h-full min-h-[18rem] flex-col rounded-2xl border border-white/20 bg-nautical-blue-dark p-6 shadow-[0_8px_28px_rgba(0,0,0,0.22)] sm:min-h-[20rem] sm:p-8">
                     <div className="flex items-start justify-between gap-4">
                       <div>
                         <h3 className="text-xl font-bold text-white sm:text-2xl">
@@ -430,7 +430,7 @@ export default function TideSection() {
                     return (
                       <div key={step.title} className="flex flex-col items-center">
                         <AnimatedReveal visible={show} delayMs={cardDelay} className="w-full">
-                          <div className="flex flex-col gap-3 rounded-2xl border border-nautical-blue/10 bg-white p-5 sm:p-6">
+                          <div className="flex flex-col gap-3 rounded-2xl border border-nautical-blue/10 bg-white p-5 shadow-[0_8px_24px_rgba(0,0,0,0.12)] sm:p-6">
                             <div className="flex items-start gap-3">
                               <div className="flex h-9 w-9 shrink-0 items-center justify-center bg-nautical-blue text-white">
                                 <Icon className="h-4 w-4" strokeWidth={2.25} />
@@ -481,7 +481,7 @@ export default function TideSection() {
           </div>
 
           <AnimatedReveal visible={show} delayMs={2100}>
-            <div className="mx-auto max-w-3xl rounded-2xl border border-white/20 bg-white/10 px-4 py-3 sm:px-5 sm:py-4">
+            <div className="mx-auto max-w-3xl rounded-2xl border border-white/20 bg-white/10 px-4 py-3 shadow-[0_4px_18px_rgba(0,0,0,0.14)] sm:px-5 sm:py-4">
               <div className="flex items-start gap-3 sm:items-center sm:gap-4">
                 <EthereumSparkleIcon />
                 <div className="min-w-0 flex-1">

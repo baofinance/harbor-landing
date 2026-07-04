@@ -222,7 +222,7 @@ function ProductCard({
               href={product.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group/btn inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl px-5 text-sm font-semibold transition-all sm:text-base ${
+              className={`group/btn inline-flex h-12 w-full items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold transition-all sm:text-base ${
                 isEarn
                   ? "bg-white text-nautical-blue hover:bg-white/95"
                   : "bg-nautical-blue text-white hover:bg-nautical-blue/90"

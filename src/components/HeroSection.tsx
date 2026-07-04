@@ -55,7 +55,7 @@ export default function HeroSection() {
               <div className="inline-block px-4 sm:px-6 md:px-8 py-1.5 sm:py-2 md:py-2.5 bg-sunrise-coral border-2 border-sunrise-coral rounded-full">
                 <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-white text-center">
                   <span className="font-semibold">
-                    Maiden Voyages are relaunching soon.
+                    $TIDE airdrop live!
                   </span>
                 </p>
               </div>
@@ -109,7 +109,7 @@ export default function HeroSection() {
                   }}
                   className="w-[110px] sm:w-[120px] md:w-[130px] lg:w-[140px] flex-shrink-0 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 text-[10px] sm:text-xs md:text-sm font-semibold border border-white text-white rounded-full hover:bg-white/10 transition-all text-center whitespace-nowrap"
                 >
-                  How it works
+                  $TIDE
                 </button>
                 <a
                   href="https://app.harborfinance.io/genesis"

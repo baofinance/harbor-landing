@@ -131,7 +131,7 @@ function FlowStepCard({
     return (
       <div
         ref={stepRef}
-        className={`flex h-full min-h-[9.5rem] flex-col gap-3 rounded-2xl border px-4 py-5 transition-all duration-700 ease-out sm:px-5 sm:py-6 ${visibilityClass} ${litClass} ${
+        className={`flex h-full min-h-[9.5rem] flex-col gap-3 rounded-2xl border px-4 py-5 shadow-[0_8px_28px_rgba(255,138,122,0.22)] transition-all duration-700 ease-out sm:px-5 sm:py-6 ${visibilityClass} ${litClass} ${
           isLit
             ? "border-sunrise-coral-dark/40 bg-sunrise-coral"
             : "border-sunrise-coral-dark/20 bg-sunrise-coral/80"
@@ -164,7 +164,7 @@ function FlowStepCard({
   return (
     <div
       ref={stepRef}
-      className={`flex h-full min-h-[9.5rem] flex-col gap-3 rounded-2xl border px-4 py-5 transition-all duration-700 ease-out sm:px-5 sm:py-6 ${visibilityClass} ${litClass} ${
+      className={`flex h-full min-h-[9.5rem] flex-col gap-3 rounded-2xl border px-4 py-5 shadow-[0_8px_28px_rgba(30,71,117,0.12)] transition-all duration-700 ease-out sm:px-5 sm:py-6 ${visibilityClass} ${litClass} ${
         isLit
           ? "border-nautical-blue/20 bg-nautical-blue"
           : "border-nautical-blue/10 bg-nautical-blue/80"

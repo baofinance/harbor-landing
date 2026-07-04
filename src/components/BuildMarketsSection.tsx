@@ -72,7 +72,7 @@ function InputCard({
   icon: LucideIcon;
 }) {
   return (
-    <div className="flex min-w-0 gap-3 rounded-2xl border border-white/15 bg-white/10 px-4 py-4 sm:px-5 sm:py-5">
+    <div className="flex min-w-0 gap-3 rounded-2xl border border-white/15 bg-white/10 px-4 py-4 shadow-[0_4px_18px_rgba(0,0,0,0.14)] sm:px-5 sm:py-5">
       <div className="flex h-10 w-10 shrink-0 items-center justify-center bg-[#FF8A7A] text-white">
         <Icon className="h-4 w-4" strokeWidth={2.25} />
       </div>
@@ -101,7 +101,7 @@ function OutputTile({
   description: string;
 }) {
   return (
-    <div className="flex h-full flex-col items-center justify-center rounded-xl border border-nautical-blue/10 bg-nautical-blue/5 px-3 py-3 text-center sm:px-4 sm:py-4">
+    <div className="flex h-full flex-col items-center justify-center rounded-xl border border-nautical-blue/10 bg-nautical-blue/5 px-3 py-3 text-center shadow-[0_2px_12px_rgba(30,71,117,0.06)] sm:px-4 sm:py-4">
       <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-nautical-blue/50">
         {category}
       </p>
@@ -123,7 +123,7 @@ function RevenueTile({
   subtitle: string;
 }) {
   return (
-    <div className="flex w-full flex-col items-center justify-center rounded-xl border border-nautical-blue/10 bg-nautical-blue/5 px-3 py-3 text-center sm:px-4 sm:py-4">
+    <div className="flex w-full flex-col items-center justify-center rounded-xl border border-nautical-blue/10 bg-nautical-blue/5 px-3 py-3 text-center shadow-[0_2px_12px_rgba(30,71,117,0.06)] sm:px-4 sm:py-4">
       <p className="text-lg font-semibold leading-tight text-nautical-blue sm:text-xl">
         {label}
       </p>
@@ -241,7 +241,7 @@ export default function BuildMarketsSection() {
               direction="right"
               className="min-w-0 flex-1"
             >
-              <div className="flex h-full min-w-0 flex-col rounded-2xl border border-nautical-blue/10 bg-white p-5 sm:p-6 md:p-8">
+              <div className="flex h-full min-w-0 flex-col rounded-2xl border border-nautical-blue/10 bg-white p-5 shadow-[0_10px_36px_rgba(0,0,0,0.18)] sm:p-6 md:p-8">
                 <div className="flex flex-1 flex-col gap-3 sm:gap-4">
                   <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
                     {MARKET_TOKEN_OUTPUTS.map((output, index) => (
@@ -280,7 +280,7 @@ export default function BuildMarketsSection() {
                   delayMs={1400 + index * 80}
                   direction="up"
                 >
-                  <div className="rounded-full border border-white/15 bg-white/10 px-3 py-2 text-center text-[11px] font-medium text-white sm:px-4 sm:text-xs">
+                  <div className="rounded-full border border-white/15 bg-white/10 px-3 py-2 text-center text-[11px] font-medium text-white shadow-[0_3px_14px_rgba(0,0,0,0.12)] sm:px-4 sm:text-xs">
                     {example}
                   </div>
                 </AnimatedReveal>
