@@ -91,28 +91,34 @@ function SailBackgroundGraphic() {
   return (
     <svg
       viewBox="0 0 120 120"
-      className="pointer-events-none absolute -right-1 -top-1 h-32 w-32 opacity-[0.07] sm:h-36 sm:w-36"
+      className="pointer-events-none absolute -right-1 -top-1 h-32 w-32 opacity-[0.09] sm:h-36 sm:w-36"
       aria-hidden="true"
     >
       <path
-        d="M18 88 L38 68 L52 74 L72 42 L92 28"
+        d="M60 16 L92 32 V58 C92 76 78 94 60 104 C42 94 28 76 28 58 V32 Z"
+        fill="currentColor"
+        fillOpacity="0.06"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M36 78 H84"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        opacity="0.45"
+      />
+      <path
+        d="M38 70 L50 56 L62 62 L74 40 L86 28"
         fill="none"
         stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path
-        d="M78 18 L92 28 L88 42 L74 38 Z"
-        fill="currentColor"
-        opacity="0.25"
-      />
-      <path
-        d="M74 38 L88 42 L84 56 L70 52 Z"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-      />
+      <circle cx="86" cy="28" r="4" fill="currentColor" opacity="0.35" />
     </svg>
   );
 }
