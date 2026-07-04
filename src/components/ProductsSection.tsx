@@ -137,11 +137,7 @@ function FeatureChips({
       {chips.map((chip) => (
         <span
           key={chip}
-          className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium sm:text-sm ${
-            isEarn
-              ? "border border-white/15 bg-white/10 text-white/90"
-              : "border border-nautical-blue/10 bg-nautical-blue/[0.04] text-nautical-blue/80"
-          }`}
+          className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium sm:text-sm border border-white/15 bg-white/10 text-white/90`}
         >
           <Check
             className={`h-3 w-3 shrink-0 ${isEarn ? "text-sunrise-coral" : "text-nautical-blue"}`}
@@ -176,38 +172,26 @@ function ProductCard({
       className="h-full"
     >
       <div
-        className={`group relative flex h-full min-h-[24rem] flex-col overflow-hidden rounded-2xl border p-8 transition-all duration-300 ease-out motion-reduce:transition-none motion-reduce:hover:translate-y-0 hover:-translate-y-1 sm:min-h-[26rem] sm:p-10 ${
+        className={`group relative flex h-full min-h-[24rem] flex-col overflow-hidden rounded-2xl border p-8 text-white transition-all duration-300 ease-out motion-reduce:transition-none motion-reduce:hover:translate-y-0 hover:-translate-y-1 sm:min-h-[26rem] sm:p-10 ${
           isEarn
-            ? "border-nautical-blue/20 bg-nautical-blue text-white shadow-[0_12px_40px_rgba(30,71,117,0.18)] hover:shadow-[0_20px_50px_rgba(30,71,117,0.28)]"
-            : "border-nautical-blue/10 bg-white text-nautical-blue shadow-[0_12px_40px_rgba(30,71,117,0.06)] hover:shadow-[0_20px_50px_rgba(30,71,117,0.12)]"
+            ? "border-nautical-blue/20 bg-nautical-blue shadow-[0_12px_40px_rgba(30,71,117,0.18)] hover:shadow-[0_20px_50px_rgba(30,71,117,0.28)]"
+            : "border-sunrise-coral-dark/40 bg-sunrise-coral shadow-[0_12px_40px_rgba(255,138,122,0.22)] hover:shadow-[0_20px_50px_rgba(255,138,122,0.32)]"
         }`}
       >
         {isEarn ? <EarnBackgroundGraphic /> : <SailBackgroundGraphic />}
 
         <div className="relative flex flex-1 flex-col gap-6 sm:gap-7">
           <div className="flex flex-col gap-4 sm:gap-5">
-            <p
-              className={`text-[10px] font-semibold uppercase tracking-[0.28em] ${
-                isEarn ? "text-white/50" : "text-nautical-blue/45"
-              }`}
-            >
+            <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-white/50">
               {product.name}
             </p>
 
             <div className="flex flex-col gap-3 sm:gap-4">
-              <h3
-                className={`text-xl font-bold tracking-tight sm:text-2xl md:text-[1.75rem] ${
-                  isEarn ? "text-white" : "text-nautical-blue"
-                }`}
-              >
+              <h3 className="text-xl font-bold tracking-tight text-white sm:text-2xl md:text-[1.75rem]">
                 {product.headline}
               </h3>
 
-              <p
-                className={`max-w-md text-sm leading-relaxed sm:text-base ${
-                  isEarn ? "text-white/75" : "text-nautical-blue/65"
-                }`}
-              >
+              <p className="max-w-md text-sm leading-relaxed text-white/75 sm:text-base">
                 {product.supportingText}
               </p>
             </div>
@@ -216,11 +200,7 @@ function ProductCard({
           </div>
 
           <div className="mt-auto flex flex-col gap-5 pt-2">
-            <p
-              className={`text-xs sm:text-sm ${
-                isEarn ? "text-white/55" : "text-nautical-blue/50"
-              }`}
-            >
+            <p className="text-xs text-white/55 sm:text-sm">
               {product.footnote}
             </p>
 
@@ -228,11 +208,7 @@ function ProductCard({
               href={product.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group/btn inline-flex h-12 w-full items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold transition-all sm:text-base ${
-                isEarn
-                  ? "bg-white text-nautical-blue hover:bg-white/95"
-                  : "bg-nautical-blue text-white hover:bg-nautical-blue/90"
-              }`}
+              className="group/btn inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-white px-5 text-sm font-semibold text-nautical-blue transition-all hover:bg-white/95 sm:text-base"
             >
               {product.cta}
               <ArrowRight

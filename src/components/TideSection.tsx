@@ -348,7 +348,7 @@ export default function TideSection() {
                 </AnimatedReveal>
 
                 <AnimatedReveal visible={show} delayMs={1000} className="w-full">
-                  <div className="flex h-full min-h-[18rem] flex-col rounded-2xl border border-white/20 bg-nautical-blue-dark p-6 shadow-[0_8px_28px_rgba(0,0,0,0.22)] sm:min-h-[20rem] sm:p-8">
+                  <div className="flex h-full min-h-[18rem] flex-col rounded-2xl border border-sunrise-coral-dark/40 bg-sunrise-coral p-6 shadow-[0_8px_28px_rgba(255,138,122,0.22)] sm:min-h-[20rem] sm:p-8">
                     <div className="flex items-start justify-between gap-4">
                       <div>
                         <h3 className="text-xl font-bold text-white sm:text-2xl">
@@ -390,7 +390,7 @@ export default function TideSection() {
                           style={{ transitionDelay: show ? "1300ms" : "0ms" }}
                         />
                         <div
-                          className={`h-[4.5rem] w-3 bg-sunrise-coral/80 transition-all duration-700 ease-out sm:h-20 sm:w-4 ${
+                          className={`h-[4.5rem] w-3 bg-white transition-all duration-700 ease-out sm:h-20 sm:w-4 ${
                             show ? "opacity-100" : "opacity-0"
                           }`}
                           style={{ transitionDelay: show ? "1400ms" : "0ms" }}
