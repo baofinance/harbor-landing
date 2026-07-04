@@ -81,16 +81,6 @@ export default function HeroSection() {
               <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-nautical-blue/30 to-transparent blur-3xl" />
             </div>
 
-            <p
-              className={`mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-white/85 sm:mt-5 sm:text-base md:max-w-3xl md:text-lg transition-all duration-1000 delay-300 ease-out ${
-                isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              }`}
-            >
-              Earn real yield on stable assets or gain leveraged exposure with
-              liquidation protection—all powered by a protocol designed for sustainable long-term
-              growth.
-            </p>
-
             <div 
               className={`mt-3 sm:mt-4 md:mt-5 space-y-3 sm:space-y-4 transition-all duration-1000 delay-500 ease-out ${
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'

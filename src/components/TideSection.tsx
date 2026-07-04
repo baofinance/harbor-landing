@@ -159,12 +159,40 @@ function RotatingEthIcon() {
   return (
     <div className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-white/20 bg-nautical-blue-dark shadow-[0_6px_24px_rgba(0,0,0,0.22)] sm:h-20 sm:w-20">
       <svg
-        viewBox="0 0 24 24"
-        className="h-9 w-9 animate-[spin_24s_linear_infinite] text-white motion-reduce:animate-none sm:h-11 sm:w-11"
-        fill="currentColor"
+        viewBox="0 0 256 417"
+        className="h-9 w-auto animate-[spin_24s_linear_infinite] motion-reduce:animate-none sm:h-11"
         aria-hidden="true"
       >
-        <path d="M12 2 4.5 12.25 12 16l7.5-3.75L12 2Zm0 14.5-7.5 3.25L12 22l7.5-2.25-7.5-3.25Z" />
+        <path
+          fill="white"
+          fillOpacity="0.55"
+          d="M127.961 0l-2.795 9.5v275.668l2.795 2.79 127.962-75.638z"
+        />
+        <path
+          fill="white"
+          fillOpacity="0.9"
+          d="M127.961 0L0 212.32l127.961 75.639V154.158z"
+        />
+        <path
+          fill="white"
+          fillOpacity="0.6"
+          d="M127.961 312.187l-2.795 2.798v97.459l2.795 8.276 127.962-180.315z"
+        />
+        <path
+          fill="white"
+          fillOpacity="0.9"
+          d="M127.961 416.52V312.187L0 236.173z"
+        />
+        <path
+          fill="white"
+          fillOpacity="0.45"
+          d="M127.961 287.958l127.939-75.638L127.961 154.158z"
+        />
+        <path
+          fill="white"
+          fillOpacity="0.7"
+          d="M0 212.32l127.961 75.638V154.158z"
+        />
       </svg>
       <Sparkles
         className="absolute -right-0.5 -top-0.5 h-4 w-4 text-sunrise-coral sm:h-5 sm:w-5"
