@@ -515,7 +515,7 @@ export default function TideSection() {
                   <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-white/50">
                     Uniquely Harbor
                   </p>
-                  <h3 className="mt-1.5 text-xl font-bold text-white sm:text-2xl md:text-3xl">
+                  <h3 className="mt-1.5 text-lg font-bold text-white sm:text-xl md:text-2xl">
                     Productive Reserves
                   </h3>
                   <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-white/80 sm:mx-0 sm:text-base md:text-lg">
