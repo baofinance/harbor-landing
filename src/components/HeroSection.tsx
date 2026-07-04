@@ -52,8 +52,8 @@ export default function HeroSection() {
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
-              <div className="inline-block px-4 sm:px-6 md:px-8 py-1.5 sm:py-2 md:py-2.5 bg-sunrise-coral border-2 border-sunrise-coral rounded-full">
-                <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-white text-center">
+              <div className="inline-block px-4 sm:px-6 md:px-8 py-1 sm:py-1.5 bg-sunrise-coral border border-sunrise-coral rounded-full">
+                <p className="text-[10px] sm:text-xs md:text-sm text-white text-center">
                   <span className="font-semibold">
                     $TIDE airdrop live!
                   </span>
