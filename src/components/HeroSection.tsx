@@ -29,7 +29,7 @@ export default function HeroSection() {
   return (
     <>
       <section 
-        className="hero-section relative h-screen flex items-center justify-center overflow-hidden mb-3 sm:mb-4 md:mb-5"
+        className="hero-section relative h-screen flex items-center justify-center overflow-hidden"
       >
         {/* Animated Wave Background with scroll parallax */}
         <div 
@@ -61,6 +61,15 @@ export default function HeroSection() {
               </div>
             </div>
 
+            <p
+              className={`mx-auto mb-3 max-w-2xl text-xs leading-relaxed text-white/80 transition-all duration-1000 delay-150 ease-out sm:mb-4 sm:text-sm md:max-w-3xl md:text-base ${
+                isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+            >
+              A protocol for yield-bearing stable assets and
+              liquidation-protected leverage.
+            </p>
+
             <div className="relative">
               <h1 
                 className={`whitespace-nowrap text-[1.25rem] font-black tracking-tight text-harbor-white drop-shadow-[0_8px_32px_rgba(30,71,117,0.4)] leading-tight transition-all duration-1000 delay-200 ease-out sm:text-[1.5rem] md:text-[2rem] lg:text-[2.5rem] xl:text-[3rem] ${
@@ -77,8 +86,8 @@ export default function HeroSection() {
                 isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
-              Earn real yield on pegged assets or trade with liquidation-protected
-              leverage—all powered by a protocol designed for sustainable long-term
+              Earn real yield on stable assets or gain leveraged exposure with
+              liquidation protection—all powered by a protocol designed for sustainable long-term
               growth.
             </p>
 
@@ -107,17 +116,17 @@ export default function HeroSection() {
                       });
                     }
                   }}
-                  className="w-[110px] sm:w-[120px] md:w-[130px] lg:w-[140px] flex-shrink-0 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 text-[10px] sm:text-xs md:text-sm font-semibold border border-white text-white rounded-full hover:bg-white/10 transition-all text-center whitespace-nowrap"
+                  className="w-[120px] sm:w-[130px] md:w-[140px] lg:w-[150px] flex-shrink-0 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 text-[10px] sm:text-xs md:text-sm font-semibold border border-white text-white rounded-full hover:bg-white/10 transition-all text-center whitespace-nowrap"
                 >
-                  $TIDE
+                  Claim TIDE
                 </button>
                 <a
                   href="https://app.harborfinance.io/genesis"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-[110px] sm:w-[150px] md:w-[160px] lg:w-[170px] flex-shrink-0 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 text-[10px] sm:text-xs md:text-sm font-semibold bg-white text-nautical-blue border border-white rounded-full hover:bg-white/90 transition-all text-center whitespace-nowrap shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]"
+                  className="w-[120px] sm:w-[130px] md:w-[140px] lg:w-[150px] flex-shrink-0 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 text-[10px] sm:text-xs md:text-sm font-semibold bg-white text-nautical-blue border border-white rounded-full hover:bg-white/90 transition-all text-center whitespace-nowrap shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]"
                 >
-                  Explore App
+                  Launch App
                 </a>
               </div>
             </div>

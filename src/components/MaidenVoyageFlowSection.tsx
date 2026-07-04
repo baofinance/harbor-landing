@@ -277,7 +277,7 @@ export default function MaidenVoyageFlowSection() {
               Maiden Voyages
             </p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight text-nautical-blue sm:text-3xl md:text-4xl">
-              Launch model.
+              Every Market Starts Somewhere.
             </h2>
           </div>
 

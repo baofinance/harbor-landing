@@ -32,22 +32,21 @@ const TIDE_STEPS: TideStep[] = [
   {
     title: "Treasury Warchest",
     description:
-      "The treasury launches with over 30% of TIDE supply. Protocol revenue maintains and strengthens these reserves by purchasing TIDE from the open market.",
+      "Maintains long-term protocol reserves through market buybacks.",
     icon: Vault,
     metric: "treasury",
   },
   {
     title: "Permanent Liquidity",
     description:
-      "Once the treasury target is reached, purchased TIDE is paired with productive Ethereum assets to build Protocol-Owned Liquidity.",
-    supporting: "Liquidity owned forever by the protocol.",
+      "Creates protocol-owned liquidity paired with productive Ethereum assets.",
     icon: Waves,
     metric: "pol",
   },
   {
     title: "Burn Supply",
     description:
-      "After treasury and liquidity targets are achieved, future purchases permanently reduce the circulating supply.",
+      "Permanently reduces circulating supply after treasury goals are met.",
     icon: Flame,
   },
 ];
@@ -156,19 +155,19 @@ function MetricProgressBar({
   );
 }
 
-function EthereumSparkleIcon() {
+function RotatingEthIcon() {
   return (
-    <div className="relative flex h-9 w-9 shrink-0 items-center justify-center bg-nautical-blue text-white">
+    <div className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-white/20 bg-nautical-blue-dark shadow-[0_6px_24px_rgba(0,0,0,0.22)] sm:h-20 sm:w-20">
       <svg
         viewBox="0 0 24 24"
-        className="h-4 w-4"
+        className="h-9 w-9 animate-[spin_24s_linear_infinite] text-white motion-reduce:animate-none sm:h-11 sm:w-11"
         fill="currentColor"
         aria-hidden="true"
       >
         <path d="M12 2 4.5 12.25 12 16l7.5-3.75L12 2Zm0 14.5-7.5 3.25L12 22l7.5-2.25-7.5-3.25Z" />
       </svg>
       <Sparkles
-        className="absolute -right-1 -top-1 h-3 w-3 text-sunrise-coral"
+        className="absolute -right-0.5 -top-0.5 h-4 w-4 text-sunrise-coral sm:h-5 sm:w-5"
         strokeWidth={2.25}
         aria-hidden="true"
       />
@@ -352,7 +351,7 @@ export default function TideSection() {
                     <div className="flex items-start justify-between gap-4">
                       <div>
                         <h3 className="text-xl font-bold text-white sm:text-2xl">
-                          Grow Harbor
+                          Grow Markets
                         </h3>
                       </div>
                       <div className="flex h-11 w-11 shrink-0 items-center justify-center bg-white/15 text-white">
@@ -481,14 +480,17 @@ export default function TideSection() {
           </div>
 
           <AnimatedReveal visible={show} delayMs={2100}>
-            <div className="mx-auto max-w-3xl rounded-2xl border border-white/20 bg-white/10 px-4 py-3 shadow-[0_4px_18px_rgba(0,0,0,0.14)] sm:px-5 sm:py-4">
-              <div className="flex items-start gap-3 sm:items-center sm:gap-4">
-                <EthereumSparkleIcon />
+            <div className="mx-auto max-w-4xl rounded-2xl border border-white/25 bg-gradient-to-br from-white/15 via-white/10 to-white/[0.04] p-6 shadow-[0_10px_40px_rgba(0,0,0,0.2)] sm:p-8 md:p-10">
+              <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:items-center sm:gap-8 sm:text-left">
+                <RotatingEthIcon />
                 <div className="min-w-0 flex-1">
-                  <h3 className="text-sm font-bold text-white sm:text-base">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-white/50">
+                    Uniquely Harbor
+                  </p>
+                  <h3 className="mt-1.5 text-xl font-bold text-white sm:text-2xl md:text-3xl">
                     Productive Reserves
                   </h3>
-                  <p className="mt-1 text-xs leading-relaxed text-white/75 sm:text-sm">
+                  <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-white/80 sm:mx-0 sm:text-base md:text-lg">
                     Harbor&apos;s Protocol-Owned Liquidity is paired with
                     productive Ethereum assets so that even the protocol&apos;s
                     reserves continue compounding over time.

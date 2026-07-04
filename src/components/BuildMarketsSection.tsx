@@ -23,11 +23,63 @@ const MARKET_REVENUE_OUTPUT = {
 };
 
 const MARKET_EXAMPLES = [
-  "wstETH + USD → haUSD + hsETHUSD",
-  "BTC + USD → haUSD + hsBTCUSD",
-  "wstETH + GOLD → haGOLD + hsETHGOLD",
-  "ETH + EUR → haEUR + hsETHEUR",
-];
+  {
+    label: "wstETH + USD → haUSD + hsETHUSD",
+    hover: "Stable USD earning yield · Long ETH without liquidation",
+  },
+  {
+    label: "BTC + USD → haUSD + hsBTCUSD",
+    hover: "Stable USD earning yield · Long BTC without liquidation",
+  },
+  {
+    label: "wstETH + GOLD → haGOLD + hsETHGOLD",
+    hover: "Stable gold earning yield · Long ETH without liquidation",
+  },
+  {
+    label: "ETH + EUR → haEUR + hsETHEUR",
+    hover: "Stable EUR earning yield · Long ETH without liquidation",
+  },
+] as const;
+
+function MarketExamplePill({
+  label,
+  hover,
+}: {
+  label: string;
+  hover: string;
+}) {
+  const [showFriendly, setShowFriendly] = useState(false);
+
+  return (
+    <button
+      type="button"
+      aria-label={`${label}. ${hover}`}
+      onMouseEnter={() => setShowFriendly(true)}
+      onMouseLeave={() => setShowFriendly(false)}
+      onFocus={() => setShowFriendly(true)}
+      onBlur={() => setShowFriendly(false)}
+      onClick={() => setShowFriendly((current) => !current)}
+      className="relative grid cursor-pointer rounded-full border border-white/15 bg-white/10 px-3 py-2 text-center text-[11px] font-medium text-white shadow-[0_3px_14px_rgba(0,0,0,0.12)] transition-all duration-200 hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/15 hover:shadow-[0_6px_20px_rgba(0,0,0,0.18)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60 motion-reduce:transition-none motion-reduce:hover:translate-y-0 sm:px-4 sm:text-xs"
+    >
+      <span
+        className={`col-start-1 row-start-1 whitespace-nowrap transition-opacity duration-200 ${
+          showFriendly ? "invisible opacity-0" : "opacity-100"
+        }`}
+        aria-hidden={showFriendly}
+      >
+        {label}
+      </span>
+      <span
+        className={`col-start-1 row-start-1 whitespace-nowrap transition-opacity duration-200 ${
+          showFriendly ? "opacity-100" : "invisible opacity-0"
+        }`}
+        aria-hidden={!showFriendly}
+      >
+        {hover}
+      </span>
+    </button>
+  );
+}
 
 function AnimatedReveal({
   visible,
@@ -182,8 +234,10 @@ export default function BuildMarketsSection() {
               <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
                 Build Any Financial Market.
               </h2>
-              <p className="mt-3 text-sm text-white/75 sm:text-base">
-                Explain how Harbor works.
+              <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-white/75 sm:text-base">
+                Every Harbor market combines productive collateral with a price
+                feed to create both a yield-bearing stable asset and a
+                liquidation-protected leverage token.
               </p>
             </div>
           </AnimatedReveal>
@@ -275,14 +329,15 @@ export default function BuildMarketsSection() {
             <div className="flex w-full max-w-4xl flex-wrap justify-center gap-2 sm:gap-3">
               {MARKET_EXAMPLES.map((example, index) => (
                 <AnimatedReveal
-                  key={example}
+                  key={example.label}
                   visible={show}
                   delayMs={1400 + index * 80}
                   direction="up"
                 >
-                  <div className="rounded-full border border-white/15 bg-white/10 px-3 py-2 text-center text-[11px] font-medium text-white shadow-[0_3px_14px_rgba(0,0,0,0.12)] sm:px-4 sm:text-xs">
-                    {example}
-                  </div>
+                  <MarketExamplePill
+                    label={example.label}
+                    hover={example.hover}
+                  />
                 </AnimatedReveal>
               ))}
             </div>

@@ -3,9 +3,11 @@
 import DepthEffects from "@/components/DepthEffects";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
+import HeroTrustStrip from "@/components/HeroTrustStrip";
 import ProductsSection from "@/components/ProductsSection";
 import MaidenVoyageFlowSection from "@/components/MaidenVoyageFlowSection";
 import BuildMarketsSection from "@/components/BuildMarketsSection";
+import ProductiveCollateralSection from "@/components/ProductiveCollateralSection";
 import TideSection from "@/components/TideSection";
 import Reveal from "@/components/Reveal";
 
@@ -16,11 +18,15 @@ export default function Home() {
       <main className="relative z-10 bg-nautical-blue-light">
         <div className="bg-nautical-blue-light">
           <HeroSection />
+          <HeroTrustStrip />
           <Reveal delayMs={30}>
             <ProductsSection />
           </Reveal>
           <Reveal delayMs={45}>
             <BuildMarketsSection />
+          </Reveal>
+          <Reveal delayMs={52}>
+            <ProductiveCollateralSection />
           </Reveal>
           <Reveal delayMs={60}>
             <MaidenVoyageFlowSection />
