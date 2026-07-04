@@ -19,7 +19,7 @@ function FlowStrip({
 
   return (
     <div
-      className={`flex flex-wrap items-center justify-center gap-2 rounded-2xl border px-4 py-4 sm:gap-3 sm:px-5 sm:py-5 ${
+      className={`flex flex-wrap items-center justify-center gap-2 border px-4 py-4 sm:gap-3 sm:px-5 sm:py-5 ${
         isProductive
           ? "border-white/25 bg-white/15 shadow-[0_4px_20px_rgba(0,0,0,0.1)]"
           : "border-white/15 bg-white/10"
@@ -59,7 +59,7 @@ export default function ProductiveCollateralSection() {
       id="productive-collateral"
       className="relative z-10 bg-nautical-blue-light px-3 sm:px-4 md:px-5 pb-3 sm:pb-4 md:pb-5 pt-0"
     >
-      <div className="rounded-2xl border border-sunrise-coral-dark/40 bg-sunrise-coral p-6 shadow-[0_12px_40px_rgba(255,138,122,0.22)] sm:p-10 md:p-12 lg:p-14">
+      <div className="border border-sunrise-coral-dark/40 bg-sunrise-coral p-6 shadow-[0_12px_40px_rgba(255,138,122,0.22)] sm:p-10 md:p-12 lg:p-14">
         <div className="mx-auto flex max-w-4xl flex-col gap-6 sm:gap-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-xl font-bold tracking-tight text-white sm:text-2xl md:text-3xl">
