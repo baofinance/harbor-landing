@@ -81,18 +81,18 @@ export default function HeroSection() {
             <div className="relative px-2 sm:px-4">
               <h1 className="relative flex flex-col items-center font-black leading-[1.08] tracking-[-0.02em] [text-shadow:0_1px_4px_rgba(0,0,0,0.18)] sm:leading-[1.05]">
                 <span
-                  className={`text-[1.75rem] transition-all duration-700 ease-out motion-reduce:transition-none sm:text-[2.25rem] md:text-[3rem] lg:text-[3.5rem] xl:text-[4rem] ${lineVisible()}`}
+                  className={`text-[2.25rem] transition-all duration-700 ease-out motion-reduce:transition-none sm:text-[2.75rem] md:text-[3.5rem] lg:text-[4.25rem] xl:text-[5rem] ${lineVisible()}`}
                   style={{ transitionDelay: `${lineDelay(200)}ms` }}
                 >
                   <span className="text-white">Earn</span>
-                  <span className="font-bold text-white/90"> More.</span>
+                  <span className="font-semibold text-white/70"> More.</span>
                 </span>
                 <span
-                  className={`text-[1.75rem] transition-all duration-700 ease-out motion-reduce:transition-none sm:text-[2.25rem] md:text-[3rem] lg:text-[3.5rem] xl:text-[4rem] ${lineVisible()}`}
+                  className={`text-[2.25rem] transition-all duration-700 ease-out motion-reduce:transition-none sm:text-[2.75rem] md:text-[3.5rem] lg:text-[4.25rem] xl:text-[5rem] ${lineVisible()}`}
                   style={{ transitionDelay: `${lineDelay(450)}ms` }}
                 >
                   <span className="text-white">Risk</span>
-                  <span className="font-bold text-white/90"> Less.</span>
+                  <span className="font-semibold text-white/70"> Less.</span>
                 </span>
               </h1>
             </div>
