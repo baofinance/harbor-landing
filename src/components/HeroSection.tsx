@@ -79,7 +79,7 @@ export default function HeroSection() {
             </div>
 
             <div className="relative px-2 sm:px-4">
-              <h1 className="relative flex flex-col items-center font-black leading-[1.08] tracking-[-0.02em] [text-shadow:0_2px_12px_rgba(0,0,0,0.45)] sm:leading-[1.05]">
+              <h1 className="relative flex flex-col items-center font-black leading-[1.08] tracking-[-0.02em] [text-shadow:0_1px_4px_rgba(0,0,0,0.18)] sm:leading-[1.05]">
                 <span
                   className={`text-[1.75rem] transition-all duration-700 ease-out motion-reduce:transition-none sm:text-[2.25rem] md:text-[3rem] lg:text-[3.5rem] xl:text-[4rem] ${lineVisible()}`}
                   style={{ transitionDelay: `${lineDelay(200)}ms` }}
