@@ -61,8 +61,24 @@ export default function HeroSection() {
               </div>
             </div>
 
+            <div className="relative">
+              <h1
+                className={`flex flex-col items-center font-black leading-[1.05] tracking-[-0.02em] transition-all duration-1000 delay-200 ease-out sm:leading-[1.02] ${
+                  isLoaded ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+                }`}
+              >
+                <span className="text-[1.75rem] text-white drop-shadow-[0_2px_24px_rgba(255,255,255,0.2)] sm:text-[2.25rem] md:text-[3rem] lg:text-[3.75rem] xl:text-[4.5rem]">
+                  Earn More.
+                </span>
+                <span className="text-[1.75rem] text-sunrise-coral drop-shadow-[0_4px_32px_rgba(255,138,122,0.35)] sm:text-[2.25rem] md:text-[3rem] lg:text-[3.75rem] xl:text-[4.5rem]">
+                  Risk Less.
+                </span>
+              </h1>
+              <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-nautical-blue/30 to-transparent blur-3xl" />
+            </div>
+
             <p
-              className={`mx-auto mb-3 max-w-2xl text-xs leading-relaxed text-white/80 transition-all duration-1000 delay-150 ease-out sm:mb-4 sm:text-sm md:max-w-3xl md:text-base ${
+              className={`mx-auto mt-4 max-w-2xl text-xs leading-relaxed text-white/70 transition-all duration-1000 delay-350 ease-out sm:mt-5 sm:text-sm md:max-w-3xl ${
                 isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
@@ -70,18 +86,7 @@ export default function HeroSection() {
               liquidation-protected leverage.
             </p>
 
-            <div className="relative">
-              <h1 
-                className={`whitespace-nowrap text-[1.25rem] font-black tracking-tight text-harbor-white drop-shadow-[0_8px_32px_rgba(30,71,117,0.4)] leading-tight transition-all duration-1000 delay-200 ease-out sm:text-[1.5rem] md:text-[2rem] lg:text-[2.5rem] xl:text-[3rem] ${
-                  isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                }`}
-              >
-                Earn More. Risk Less.
-              </h1>
-              <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-nautical-blue/30 to-transparent blur-3xl" />
-            </div>
-
-            <div 
+            <div
               className={`mt-3 sm:mt-4 md:mt-5 space-y-3 sm:space-y-4 transition-all duration-1000 delay-500 ease-out ${
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
