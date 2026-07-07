@@ -7,8 +7,8 @@ const IDLE_FLOW = ["Idle ETH", "Nothing"] as const;
 
 const PRODUCTIVE_FLOW = [
   "Productive ETH",
-  "Yield",
-  "Users + Markets + TIDE",
+  "Protocol Revenue",
+  "Grow Markets + TIDE Buybacks",
 ] as const;
 
 function AnimatedReveal({

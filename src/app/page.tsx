@@ -9,6 +9,7 @@ import MaidenVoyageFlowSection from "@/components/MaidenVoyageFlowSection";
 import BuildMarketsSection from "@/components/BuildMarketsSection";
 import ProductiveCollateralSection from "@/components/ProductiveCollateralSection";
 import TideSection from "@/components/TideSection";
+import FooterCTASection from "@/components/FooterCTASection";
 import Reveal from "@/components/Reveal";
 
 export default function Home() {
@@ -33,6 +34,9 @@ export default function Home() {
           </Reveal>
           <Reveal delayMs={90}>
             <TideSection />
+          </Reveal>
+          <Reveal delayMs={105}>
+            <FooterCTASection />
           </Reveal>
         </div>
       </main>
