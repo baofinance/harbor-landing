@@ -85,14 +85,14 @@ export default function HeroSection() {
                   style={{ transitionDelay: `${lineDelay(200)}ms` }}
                 >
                   <span className="text-white">Earn</span>
-                  <span className="font-semibold text-white/70"> More.</span>
+                  <span className="text-white"> More.</span>
                 </span>
                 <span
                   className={`text-[2.25rem] transition-all duration-700 ease-out motion-reduce:transition-none sm:text-[2.75rem] md:text-[3.5rem] lg:text-[4.25rem] xl:text-[5rem] ${lineVisible()}`}
                   style={{ transitionDelay: `${lineDelay(450)}ms` }}
                 >
                   <span className="text-white">Risk</span>
-                  <span className="font-semibold text-white/70"> Less.</span>
+                  <span className="text-white"> Less.</span>
                 </span>
               </h1>
             </div>
