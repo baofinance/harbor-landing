@@ -1,14 +1,15 @@
 "use client";
 
-import BoosterProgramSection from "@/components/BoosterProgramSection";
 import DepthEffects from "@/components/DepthEffects";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
-import MaidenVoyageSection from "@/components/MaidenVoyageSection";
-import SecuritySection from "@/components/SecuritySection";
+import HeroTrustStrip from "@/components/HeroTrustStrip";
+import ProductsSection from "@/components/ProductsSection";
+import MaidenVoyageFlowSection from "@/components/MaidenVoyageFlowSection";
+import BuildMarketsSection from "@/components/BuildMarketsSection";
+import ProductiveCollateralSection from "@/components/ProductiveCollateralSection";
 import TideSection from "@/components/TideSection";
-import { AllOutYieldSection } from "@/components/TokenCarousel";
-import UseCasesSection from "@/components/UseCasesSection";
+import FooterCTASection from "@/components/FooterCTASection";
 import Reveal from "@/components/Reveal";
 
 export default function Home() {
@@ -18,23 +19,24 @@ export default function Home() {
       <main className="relative z-10 bg-nautical-blue-light">
         <div className="bg-nautical-blue-light">
           <HeroSection />
+          <HeroTrustStrip />
+          <Reveal delayMs={30}>
+            <ProductsSection />
+          </Reveal>
+          <Reveal delayMs={45}>
+            <BuildMarketsSection />
+          </Reveal>
+          <Reveal delayMs={52}>
+            <ProductiveCollateralSection />
+          </Reveal>
           <Reveal delayMs={60}>
-            <AllOutYieldSection />
+            <MaidenVoyageFlowSection />
           </Reveal>
-          <Reveal delayMs={120}>
-            <MaidenVoyageSection />
-          </Reveal>
-          <Reveal delayMs={180}>
-            <UseCasesSection />
-          </Reveal>
-          <Reveal delayMs={240}>
+          <Reveal delayMs={90}>
             <TideSection />
           </Reveal>
-          <Reveal delayMs={300}>
-            <BoosterProgramSection />
-          </Reveal>
-          <Reveal delayMs={360}>
-            <SecuritySection />
+          <Reveal delayMs={105}>
+            <FooterCTASection />
           </Reveal>
         </div>
       </main>
