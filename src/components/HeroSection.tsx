@@ -79,39 +79,31 @@ export default function HeroSection() {
             </div>
 
             <div className="relative px-2 sm:px-4">
-              <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
-                <div className="absolute left-1/2 top-[28%] h-20 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/25 blur-3xl sm:h-28 sm:w-72" />
-                <div className="absolute left-1/2 top-[72%] h-20 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-sunrise-coral/30 blur-3xl sm:h-28 sm:w-72" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-nautical-blue/25 to-transparent blur-3xl" />
-              </div>
+              <div
+                className="pointer-events-none absolute -inset-x-4 -inset-y-3 rounded-2xl bg-nautical-blue/35 backdrop-blur-[2px] sm:-inset-x-8 sm:-inset-y-4"
+                aria-hidden="true"
+              />
 
-              <h1 className="flex flex-col items-center font-black leading-[1.05] tracking-[-0.02em] sm:leading-[1.02]">
+              <h1 className="relative flex flex-col items-center font-black leading-[1.08] tracking-[-0.02em] [text-shadow:0_2px_12px_rgba(0,0,0,0.45)] sm:leading-[1.05]">
                 <span
-                  className={`text-[1.75rem] transition-all duration-700 ease-out motion-reduce:transition-none sm:text-[2.25rem] md:text-[3rem] lg:text-[3.75rem] xl:text-[4.5rem] ${lineVisible()}`}
+                  className={`text-[1.75rem] transition-all duration-700 ease-out motion-reduce:transition-none sm:text-[2.25rem] md:text-[3rem] lg:text-[3.5rem] xl:text-[4rem] ${lineVisible()}`}
                   style={{ transitionDelay: `${lineDelay(200)}ms` }}
                 >
-                  <span className="text-white drop-shadow-[0_0_32px_rgba(255,255,255,0.4)]">
-                    Earn
-                  </span>
-                  <span className="font-bold text-white/70"> More.</span>
+                  <span className="text-white">Earn</span>
+                  <span className="font-bold text-white/90"> More.</span>
                 </span>
                 <span
-                  className={`text-[1.75rem] transition-all duration-700 ease-out motion-reduce:transition-none sm:text-[2.25rem] md:text-[3rem] lg:text-[3.75rem] xl:text-[4.5rem] ${lineVisible()}`}
+                  className={`text-[1.75rem] transition-all duration-700 ease-out motion-reduce:transition-none sm:text-[2.25rem] md:text-[3rem] lg:text-[3.5rem] xl:text-[4rem] ${lineVisible()}`}
                   style={{ transitionDelay: `${lineDelay(450)}ms` }}
                 >
-                  <span className="text-white drop-shadow-[0_0_28px_rgba(255,255,255,0.3)]">
-                    Risk
-                  </span>
-                  <span className="font-bold text-sunrise-coral drop-shadow-[0_0_40px_rgba(255,138,122,0.5)]">
-                    {" "}
-                    Less.
-                  </span>
+                  <span className="text-white">Risk</span>
+                  <span className="font-bold text-white/90"> Less.</span>
                 </span>
               </h1>
             </div>
 
             <p
-              className={`mx-auto mt-4 max-w-2xl text-xs leading-relaxed text-white/70 transition-all duration-700 ease-out motion-reduce:transition-none sm:mt-5 sm:text-sm md:max-w-3xl ${
+              className={`mx-auto mt-4 max-w-2xl text-xs leading-relaxed text-white/90 transition-all duration-700 ease-out motion-reduce:transition-none sm:mt-5 sm:text-sm md:max-w-3xl md:text-base ${
                 lineVisible()
               }`}
               style={{ transitionDelay: `${lineDelay(650)}ms` }}
