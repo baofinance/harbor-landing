@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import {
   ArrowDown,
   Flame,
-  Sparkles,
   TrendingUp,
   Vault,
   Waves,
@@ -151,54 +150,6 @@ function MetricProgressBar({
           style={{ width: animate && !isLoading ? `${fillPercent}%` : "0%" }}
         />
       </div>
-    </div>
-  );
-}
-
-function RotatingEthIcon() {
-  return (
-    <div className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-white/20 bg-nautical-blue-dark shadow-[0_6px_24px_rgba(0,0,0,0.22)] sm:h-20 sm:w-20">
-      <svg
-        viewBox="0 0 256 417"
-        className="h-9 w-auto animate-[spin_24s_linear_infinite] motion-reduce:animate-none sm:h-11"
-        aria-hidden="true"
-      >
-        <path
-          fill="white"
-          fillOpacity="0.55"
-          d="M127.961 0l-2.795 9.5v275.668l2.795 2.79 127.962-75.638z"
-        />
-        <path
-          fill="white"
-          fillOpacity="0.9"
-          d="M127.961 0L0 212.32l127.961 75.639V154.158z"
-        />
-        <path
-          fill="white"
-          fillOpacity="0.6"
-          d="M127.961 312.187l-2.795 2.798v97.459l2.795 8.276 127.962-180.315z"
-        />
-        <path
-          fill="white"
-          fillOpacity="0.9"
-          d="M127.961 416.52V312.187L0 236.173z"
-        />
-        <path
-          fill="white"
-          fillOpacity="0.45"
-          d="M127.961 287.958l127.939-75.638L127.961 154.158z"
-        />
-        <path
-          fill="white"
-          fillOpacity="0.7"
-          d="M0 212.32l127.961 75.638V154.158z"
-        />
-      </svg>
-      <Sparkles
-        className="absolute -right-0.5 -top-0.5 h-4 w-4 text-sunrise-coral sm:h-5 sm:w-5"
-        strokeWidth={2.25}
-        aria-hidden="true"
-      />
     </div>
   );
 }
@@ -467,7 +418,18 @@ export default function TideSection() {
                                   {step.title}
                                 </h3>
                                 <p className="mt-2 text-xs leading-relaxed text-nautical-blue/70 sm:text-sm">
-                                  {step.description}
+                                  {step.title === "Permanent Liquidity" ? (
+                                    <>
+                                      Creates protocol-owned liquidity paired with
+                                      productive Ethereum assets, so that{" "}
+                                      <span className="font-bold text-nautical-blue">
+                                        even the protocol&apos;s reserves continue
+                                        compounding over time.
+                                      </span>
+                                    </>
+                                  ) : (
+                                    step.description
+                                  )}
                                 </p>
                                 {step.supporting ? (
                                   <p className="mt-2 text-[11px] font-medium text-nautical-blue/55 sm:text-xs">
@@ -506,27 +468,6 @@ export default function TideSection() {
               </div>
             </div>
           </div>
-
-          <AnimatedReveal visible={show} delayMs={2100}>
-            <div className="mx-auto max-w-4xl rounded-2xl border border-white/25 bg-gradient-to-br from-white/15 via-white/10 to-white/[0.04] p-6 shadow-[0_10px_40px_rgba(0,0,0,0.2)] sm:p-8 md:p-10">
-              <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:items-center sm:gap-8 sm:text-left">
-                <RotatingEthIcon />
-                <div className="min-w-0 flex-1">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-white/50">
-                    Uniquely Harbor
-                  </p>
-                  <h3 className="mt-1.5 text-lg font-bold text-white sm:text-xl md:text-2xl">
-                    Productive Reserves
-                  </h3>
-                  <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-white/80 sm:mx-0 sm:text-base md:text-lg">
-                    Harbor&apos;s Protocol-Owned Liquidity is paired with
-                    productive Ethereum assets so that even the protocol&apos;s
-                    reserves continue compounding over time.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </AnimatedReveal>
         </div>
       </div>
     </section>
