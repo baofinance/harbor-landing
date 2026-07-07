@@ -8,6 +8,15 @@ import AnimatedWaveBackground from "./AnimatedWaveBackground";
 export default function HeroSection() {
   const [scrollY, setScrollY] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updateMotion = () => setReduceMotion(mediaQuery.matches);
+    updateMotion();
+    mediaQuery.addEventListener("change", updateMotion);
+    return () => mediaQuery.removeEventListener("change", updateMotion);
+  }, []);
 
   useEffect(() => {
     // Trigger fade-in animation after mount
@@ -25,6 +34,14 @@ export default function HeroSection() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const show = isLoaded;
+  const lineDelay = (ms: number) =>
+    reduceMotion || show ? (reduceMotion ? 0 : ms) : 0;
+  const lineVisible = () =>
+    reduceMotion || show
+      ? "translate-y-0 opacity-100"
+      : "translate-y-5 opacity-0";
 
   return (
     <>
@@ -61,40 +78,55 @@ export default function HeroSection() {
               </div>
             </div>
 
-            <div className="relative">
-              <h1
-                className={`flex flex-col items-center font-black leading-[1.05] tracking-[-0.02em] transition-all duration-1000 delay-200 ease-out sm:leading-[1.02] ${
-                  isLoaded ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-                }`}
-              >
-                <span className="text-[1.75rem] text-white drop-shadow-[0_2px_24px_rgba(255,255,255,0.2)] sm:text-[2.25rem] md:text-[3rem] lg:text-[3.75rem] xl:text-[4.5rem]">
-                  Earn More.
+            <div className="relative px-2 sm:px-4">
+              <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+                <div className="absolute left-1/2 top-[28%] h-20 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/25 blur-3xl sm:h-28 sm:w-72" />
+                <div className="absolute left-1/2 top-[72%] h-20 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-sunrise-coral/30 blur-3xl sm:h-28 sm:w-72" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-nautical-blue/25 to-transparent blur-3xl" />
+              </div>
+
+              <h1 className="flex flex-col items-center font-black leading-[1.05] tracking-[-0.02em] sm:leading-[1.02]">
+                <span
+                  className={`text-[1.75rem] transition-all duration-700 ease-out motion-reduce:transition-none sm:text-[2.25rem] md:text-[3rem] lg:text-[3.75rem] xl:text-[4.5rem] ${lineVisible()}`}
+                  style={{ transitionDelay: `${lineDelay(200)}ms` }}
+                >
+                  <span className="text-white drop-shadow-[0_0_32px_rgba(255,255,255,0.4)]">
+                    Earn
+                  </span>
+                  <span className="font-bold text-white/70"> More.</span>
                 </span>
-                <span className="text-[1.75rem] text-sunrise-coral drop-shadow-[0_4px_32px_rgba(255,138,122,0.35)] sm:text-[2.25rem] md:text-[3rem] lg:text-[3.75rem] xl:text-[4.5rem]">
-                  Risk Less.
+                <span
+                  className={`text-[1.75rem] transition-all duration-700 ease-out motion-reduce:transition-none sm:text-[2.25rem] md:text-[3rem] lg:text-[3.75rem] xl:text-[4.5rem] ${lineVisible()}`}
+                  style={{ transitionDelay: `${lineDelay(450)}ms` }}
+                >
+                  <span className="text-white drop-shadow-[0_0_28px_rgba(255,255,255,0.3)]">
+                    Risk
+                  </span>
+                  <span className="font-bold text-sunrise-coral drop-shadow-[0_0_40px_rgba(255,138,122,0.5)]">
+                    {" "}
+                    Less.
+                  </span>
                 </span>
               </h1>
-              <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-nautical-blue/30 to-transparent blur-3xl" />
             </div>
 
             <p
-              className={`mx-auto mt-4 max-w-2xl text-xs leading-relaxed text-white/70 transition-all duration-1000 delay-350 ease-out sm:mt-5 sm:text-sm md:max-w-3xl ${
-                isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              className={`mx-auto mt-4 max-w-2xl text-xs leading-relaxed text-white/70 transition-all duration-700 ease-out motion-reduce:transition-none sm:mt-5 sm:text-sm md:max-w-3xl ${
+                lineVisible()
               }`}
+              style={{ transitionDelay: `${lineDelay(650)}ms` }}
             >
               A protocol for yield-bearing stable assets and
               liquidation-protected leverage.
             </p>
 
             <div
-              className={`mt-3 sm:mt-4 md:mt-5 space-y-3 sm:space-y-4 transition-all duration-1000 delay-500 ease-out ${
-                isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
+              className={`mt-3 space-y-3 transition-all duration-700 ease-out motion-reduce:transition-none sm:mt-4 md:mt-5 sm:space-y-4 ${lineVisible()}`}
+              style={{ transitionDelay: `${lineDelay(800)}ms` }}
             >
-              <div 
-                className={`pt-2 flex flex-col sm:flex-row gap-2 sm:gap-2 md:gap-3 lg:gap-4 justify-center items-center min-w-0 transition-all duration-1000 delay-700 ease-out ${
-                  isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                }`}
+              <div
+                className={`flex flex-col items-center justify-center gap-2 pt-2 min-w-0 transition-all duration-700 ease-out motion-reduce:transition-none sm:flex-row sm:gap-2 md:gap-3 lg:gap-4 ${lineVisible()}`}
+                style={{ transitionDelay: `${lineDelay(950)}ms` }}
               >
                 <button
                   onClick={() => {
