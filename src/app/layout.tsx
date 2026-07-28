@@ -51,8 +51,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    creator: "@HarborFi",
-    site: "@HarborFi",
+    creator: "@0xHarborFi",
+    site: "@0xHarborFi",
     images: [`${siteUrl}/demo.png`],
   },
   alternates: {

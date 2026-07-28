@@ -89,7 +89,7 @@ const Footer = () => {
   const socialLinks = [
     {
       name: "X",
-      url: "https://x.com/HarborFi",
+      url: "https://x.com/0xHarborFi",
       icon: <Twitter className="w-5 h-5" />,
     },
     {
