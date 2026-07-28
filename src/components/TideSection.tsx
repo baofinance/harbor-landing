@@ -273,8 +273,8 @@ export default function TideSection() {
             <VerticalConnector visible={show} delayMs={300} className="h-8 sm:h-10" />
 
             <AnimatedReveal visible={show} delayMs={450} className="w-full max-w-3xl">
-              <div className="relative mx-auto h-6 w-full sm:h-8" aria-hidden="true">
-                <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-white/15">
+              <div className="relative mx-auto h-14 w-full sm:h-16" aria-hidden="true">
+                <div className="absolute left-1/2 top-0 h-1/2 w-0.5 -translate-x-1/2 bg-white/15">
                   <div
                     className={`absolute inset-x-0 top-0 bg-white transition-all duration-700 ease-out ${
                       show ? "h-full" : "h-0"
@@ -290,7 +290,7 @@ export default function TideSection() {
                     style={{ transitionDelay: show ? "550ms" : "0ms" }}
                   />
                 </div>
-                <div className="absolute left-[12.5%] top-1/2 h-6 w-0.5 -translate-y-0 bg-white/15 sm:left-[15%]">
+                <div className="absolute left-[12.5%] top-1/2 h-8 w-0.5 -translate-y-0 bg-white/15 sm:left-[15%] sm:h-10">
                   <div
                     className={`absolute inset-x-0 top-0 bg-white transition-all duration-700 ease-out ${
                       show ? "h-full" : "h-0"
@@ -298,7 +298,7 @@ export default function TideSection() {
                     style={{ transitionDelay: show ? "650ms" : "0ms" }}
                   />
                 </div>
-                <div className="absolute right-[12.5%] top-1/2 h-6 w-0.5 -translate-y-0 bg-white/15 sm:right-[15%]">
+                <div className="absolute right-[12.5%] top-1/2 h-8 w-0.5 -translate-y-0 bg-white/15 sm:right-[15%] sm:h-10">
                   <div
                     className={`absolute inset-x-0 top-0 bg-white transition-all duration-700 ease-out ${
                       show ? "h-full" : "h-0"
@@ -312,7 +312,7 @@ export default function TideSection() {
             <div className="grid w-full gap-10 md:grid-cols-2 md:gap-8 lg:gap-12">
               <div className="flex flex-col items-center">
                 <AnimatedReveal visible={show} delayMs={700}>
-                  <p className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                  <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
                     75%
                   </p>
                 </AnimatedReveal>
@@ -320,7 +320,7 @@ export default function TideSection() {
                 <VerticalConnector visible={show} delayMs={850} />
 
                 <AnimatedReveal visible={show} delayMs={950} className="w-full">
-                  <p className="mb-4 text-center text-[10px] font-semibold uppercase tracking-[0.22em] text-white/50">
+                  <p className="mt-2 mb-4 text-center text-[10px] font-semibold uppercase tracking-[0.22em] text-white/50">
                     Reinvest
                   </p>
                 </AnimatedReveal>
@@ -384,7 +384,7 @@ export default function TideSection() {
 
               <div className="flex flex-col items-center">
                 <AnimatedReveal visible={show} delayMs={700}>
-                  <p className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                  <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
                     25%
                   </p>
                 </AnimatedReveal>
@@ -392,7 +392,7 @@ export default function TideSection() {
                 <VerticalConnector visible={show} delayMs={850} />
 
                 <AnimatedReveal visible={show} delayMs={950} className="w-full">
-                  <p className="mb-4 text-center text-[10px] font-semibold uppercase tracking-[0.22em] text-white/50">
+                  <p className="mt-2 mb-4 text-center text-[10px] font-semibold uppercase tracking-[0.22em] text-white/50">
                     Strengthen TIDE
                   </p>
                 </AnimatedReveal>
